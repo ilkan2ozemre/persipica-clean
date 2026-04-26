@@ -9,7 +9,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Archivo", sans-serif;
+  font-family: "Archivo";
   color: #173040;
   background:
     radial-gradient(circle at top left, rgba(100, 177, 194, 0.22), transparent 36%),
@@ -82,7 +82,7 @@ textarea {
 .card-title,
 .quote-text,
 .metric-value {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Cormorant Garamond";
 }
 
 .hero-title,
@@ -95,7 +95,7 @@ textarea {
 }
 
 .page-title {
-  max-width: 10ch;
+  max-width: 15ch;
 }
 
 .hero-copy,
@@ -538,7 +538,7 @@ textarea {
 .stat-value {
   margin: 0 0 0.55rem;
   font-size: clamp(2.4rem, 4.5vw, 3.6rem);
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Cormorant Garamond";
   line-height: 0.95;
   color: var(--teal);
 }
@@ -702,9 +702,9 @@ textarea {
 
 .page-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.8fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(220px, 0.55fr);
   gap: 1.25rem;
-  align-items: stretch;
+  align-items: start;
 }
 
 .page-hero-copy {
@@ -810,7 +810,7 @@ textarea {
 
 .price {
   margin: 0 0 0.6rem;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Cormorant Garamond";
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 0.95;
   color: var(--teal);
@@ -1068,13 +1068,23 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  /* Two-column grids at tablet — fills space without crushing cards */
   .cards-grid,
   .workflow-grid,
   .pricing-grid,
-  .resource-grid,
+  .resource-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .stats-grid,
   .details-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Remove fixed min-heights on stacked feature cards — they waste vertical space */
+  .feature-card .card-title,
+  .feature-card .card-copy {
+    min-height: unset;
   }
 
   .site-nav-inner {
@@ -1129,6 +1139,20 @@ textarea {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  /* Quote card on page heroes gets top margin when stacked */
+  .page-hero-side {
+    margin-top: 0.5rem;
+  }
+
+  /* Metrics 3-col → 1+2 split at tablet */
+  .dashboard-metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dashboard-metrics .metric-primary {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 680px) {
@@ -1137,11 +1161,15 @@ textarea {
   }
 
   .section {
-    padding: 3rem 0;
+    padding: 2.8rem 0;
   }
 
   .section-tight {
-    padding: 2.2rem 0;
+    padding: 2rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 1.4rem;
   }
 
   .hero {
@@ -1162,13 +1190,50 @@ textarea {
     font-size: clamp(2rem, 10vw, 3rem);
   }
 
+  /* Single column on small phones */
+  .cards-grid,
+  .workflow-grid,
+  .pricing-grid,
+  .resource-grid,
+  .stats-grid,
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Metrics back to full single column */
   .dashboard-metrics {
     grid-template-columns: 1fr;
   }
 
+  .dashboard-metrics .metric-primary {
+    grid-column: unset;
+  }
+
   .workspace-row {
-    grid-template-columns: 1fr;
-    justify-items: start;
+    grid-template-columns: 1fr auto auto;
+  }
+
+  /* Pills full-width on very small screens */
+  .hero-proof {
+    gap: 0.5rem;
+  }
+
+  .hero-proof li,
+  .mini-proof li {
+    font-size: 0.76rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  /* Buttons stack full-width on mobile */
+  .actions,
+  .button-row {
+    flex-direction: column;
+  }
+
+  .actions .btn,
+  .button-row .btn {
+    width: 100%;
+    text-align: center;
   }
 
   .cta-band,
@@ -1176,6 +1241,107 @@ textarea {
   .pricing-card,
   .contact-card,
   .quote-card {
+    padding: 1.3rem;
+  }
+
+  .contact-card {
+    padding: 1.3rem;
+  }
+
+  /* Keep bullet point dots aligned on all card types */
+  .card-list li,
+  .pricing-list li,
+  .detail-list li {
+    padding-left: 1rem;
+  }
+
+  .card-list li::before,
+  .pricing-list li::before,
+  .detail-list li::before {
+    top: 0.65rem;
+  }
+
+  /* Stat cards: value + label side by side on mobile */
+  .stat-card {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    padding: 1rem 1.1rem;
+  }
+
+  .stat-card::after {
+    display: none;
+  }
+
+  .stat-value {
+    margin: 0;
+    font-size: clamp(2rem, 8vw, 2.8rem);
+    flex-shrink: 0;
+  }
+
+  .stat-label {
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  /* Workflow cards: step number inline with title */
+  .workflow-card {
     padding: 1.2rem;
+  }
+
+  .step-number {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  .workflow-title {
+    display: inline;
+  }
+
+  /* Resource cards compact */
+  .resource-card {
+    padding: 1.1rem;
+    gap: 0.5rem;
+  }
+
+  /* Pricing card top section tighter */
+  .pricing-card-top {
+    min-height: unset;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Dashboard: keep workspace rows tight and scannable */
+  .workspace-row {
+    padding: 0.85rem 1rem;
+    gap: 0.6rem;
+  }
+
+  .dashboard-top,
+  .dashboard-ledger,
+  .dashboard-alert {
+    padding: 1rem;
+  }
+
+  .metric {
+    padding: 1rem;
+  }
+
+  /* Footer links wrap neatly */
+  .footer-links {
+    gap: 0.75rem;
+  }
+
+  /* Contact stack boxes */
+  .contact-box {
+    padding: 1rem;
+  }
+
+  /* Quote card on page hero */
+  .quote-card {
+    padding: 1.3rem;
+  }
+
+  .quote-text {
+    font-size: clamp(1.3rem, 5.5vw, 1.8rem);
   }
 }
