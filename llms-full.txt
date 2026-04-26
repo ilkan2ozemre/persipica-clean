@@ -1,0 +1,76 @@
+# Persipica: Full Site Summary for LLM Consumption
+
+Persipica helps enterprise and agency teams understand and improve AI visibility.
+
+## Core Site Structure
+The core site has been reduced to five pages:
+1. Home: https://persipica.com/
+2. Pulse: https://persipica.com/pulse.html
+3. Resources: https://persipica.com/resources.html
+4. Pricing: https://persipica.com/pricing.html
+5. Contact: https://persipica.com/contact.html
+
+## Primary Product
+Persipica Pulse is the main product and the front-and-center offer on the site.
+
+Pulse is an AI visibility monitoring product for enterprise and agency teams. It is built to answer three questions clearly:
+1. Where did visibility move?
+2. Why did it move?
+3. What evidence supports that answer?
+
+Pulse includes:
+- monitoring across major models
+- prompt-group tracking across discovery, comparison, buying-intent, and brand queries
+- competitor displacement visibility
+- verified citations before reporting
+- prompt and response evidence history
+- workspace-based reporting for one brand or multiple clients
+- Slack and email alerts when thresholds are crossed
+
+## Supporting Offers
+
+### AI Presence Audit
+The AI Presence Audit is the baseline option for teams that do not yet understand their current AI visibility. It is a one-off diagnostic that identifies where a brand is omitted from AI shortlists, how competitors are displacing it, and what should change first.
+
+Typical use:
+- establish a first benchmark
+- understand stage-level gaps
+- decide whether ongoing monitoring in Pulse is the next step
+
+### Implementation Support
+Implementation support exists for teams that want help acting on the audit. This can include content restructuring, entity clarity improvements, and authority-signal work after the baseline is known.
+
+## Positioning
+Persipica is deliberately positioned away from generic AI mention monitoring.
+
+The core distinction is:
+- mention monitoring tells you that the brand appeared
+- Persipica focuses on whether the brand is present in the prompts that shape shortlists, how strong that presence is, and which evidence supports the reading
+
+## Resource Strategy
+The main site is intentionally lean. Long-form educational material is referenced from the Resources page rather than spread across the main navigation.
+
+Resources currently point to:
+- GEO guide: https://learn.persipica.com/geo-guide.html
+- Audit scope: https://learn.persipica.com/what-an-audit-includes.html
+- AI mention tracking guide: https://learn.persipica.com/track-ai-brand-mentions.html
+- ROI calculator: https://learn.persipica.com/ai-visibility-roi-calculator.html
+
+## Pricing Summary
+The pricing page is structured around a simple stack:
+1. Persipica Pulse as the default route for ongoing monitoring
+2. AI Presence Audit as the baseline diagnostic
+3. Implementation support as scoped follow-on help
+
+The page is designed to make the buying path clearer by centering the product first and keeping supporting options brief.
+
+## Contact Summary
+The contact page is optimized for three actions:
+1. book a Pulse walkthrough
+2. ask for the AI Presence Audit
+3. send enough brand context for an initial read
+
+Contact channels:
+- Contact page: https://persipica.com/contact.html
+- Calendly: https://calendly.com/persipica
+- Email: ilkan@persipica.com

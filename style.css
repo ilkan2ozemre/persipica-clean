@@ -60,11 +60,11 @@ textarea {
 }
 
 .section {
-  padding: 5.5rem 0;
+  padding: 4rem 0;
 }
 
 .section-tight {
-  padding: 4rem 0;
+  padding: 2.8rem 0;
 }
 
 .eyebrow {
@@ -118,8 +118,8 @@ textarea {
 
 .section-header {
   display: grid;
-  gap: 1.2rem;
-  margin-bottom: 2.5rem;
+  gap: 0.9rem;
+  margin-bottom: 1.8rem;
 }
 
 .actions,
@@ -153,15 +153,15 @@ textarea {
 }
 
 .btn-secondary {
-  background: transparent;
-  border-color: var(--line-strong);
+  background: rgba(255, 253, 250, 0.96);
+  border-color: rgba(23, 48, 64, 0.26);
   color: var(--navy);
 }
 
 .btn-secondary:hover {
-  background: rgba(43, 108, 120, 0.06);
-  border-color: rgba(43, 108, 120, 0.35);
-  box-shadow: 0 4px 14px rgba(43, 108, 120, 0.1);
+  background: #ffffff;
+  border-color: rgba(23, 48, 64, 0.4);
+  box-shadow: 0 6px 18px rgba(16, 36, 48, 0.14);
   transform: translateY(-2px);
 }
 
@@ -211,7 +211,8 @@ textarea {
   font-weight: 600;
 }
 
-.nav-links .nav-cta {
+.nav-links .nav-cta,
+.nav-links .nav-cta.active {
   padding: 0.78rem 1rem;
   border-radius: 999px;
   background: var(--teal);
@@ -250,7 +251,7 @@ textarea {
 }
 
 .hero {
-  padding: 5rem 0 3rem;
+  padding: 3.5rem 0 2rem;
 }
 
 .hero-grid {
@@ -262,30 +263,7 @@ textarea {
 
 .hero-copy-wrap,
 .page-hero-copy {
-  padding: 3rem 0;
-}
-
-.hero-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  margin-bottom: 1.4rem;
-  padding: 0.45rem 0.75rem;
-  border: 1px solid rgba(43, 108, 120, 0.18);
-  border-radius: 999px;
-  background: rgba(215, 236, 240, 0.55);
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--navy);
-}
-
-.hero-kicker::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--teal);
+  padding: 1.8rem 0;
 }
 
 .hero-title span,
@@ -298,7 +276,7 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin: 1.4rem 0 2rem;
+  margin: 1rem 0 1.4rem;
   padding: 0;
   list-style: none;
 }
@@ -505,7 +483,7 @@ textarea {
 .workflow-grid,
 .contact-grid {
   display: grid;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .stats-grid {
@@ -517,7 +495,7 @@ textarea {
 .resource-card,
 .workflow-card,
 .detail-card {
-  padding: 1.5rem;
+  padding: 1.2rem;
   border: 1px solid var(--line);
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.74);
@@ -596,6 +574,23 @@ textarea {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.feature-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-card .card-title {
+  min-height: 4.5rem;
+}
+
+.feature-card .card-copy {
+  min-height: 3.5rem;
+}
+
+.feature-card .card-list {
+  margin-top: auto;
+}
+
 .card-title {
   margin: 0 0 0.65rem;
   font-size: 1.7rem;
@@ -618,11 +613,11 @@ textarea {
 .pricing-list,
 .detail-list,
 .mini-proof {
-  margin: 1rem 0 0;
-  padding: 0;
+  margin: 0;
+  padding: 1.1rem 0 0;
   list-style: none;
   display: grid;
-  gap: 0.65rem;
+  gap: 0.35rem;
 }
 
 .card-list li,
@@ -664,6 +659,7 @@ textarea {
 }
 
 .panel-dark .card-copy,
+.panel-dark .section-copy,
 .panel-dark .detail-copy,
 .panel-dark .detail-list li {
   color: rgba(255, 255, 255, 0.82);
@@ -701,7 +697,7 @@ textarea {
 }
 
 .page-hero {
-  padding: 4rem 0 2rem;
+  padding: 2.8rem 0 1.2rem;
 }
 
 .page-hero-grid {
@@ -738,7 +734,7 @@ textarea {
 }
 
 .workflow-card {
-  padding: 2rem;
+  padding: 1.45rem;
 }
 
 .workflow-title,
@@ -758,7 +754,13 @@ textarea {
 }
 
 .detail-card {
-  padding: 2rem;
+  padding: 1.45rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-card .detail-list {
+  margin-top: auto;
 }
 
 .pricing-grid {
@@ -767,9 +769,22 @@ textarea {
 }
 
 .pricing-card {
-  display: grid;
-  grid-template-rows: auto auto 1fr auto;
-  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1.45rem;
+}
+
+.pricing-card-top {
+  min-height: 9.5rem;
+}
+
+.pricing-copy {
+  margin-bottom: 0.8rem;
+}
+
+.pricing-list {
+  margin-top: auto;
+  gap: 0.65rem;
 }
 
 .pricing-card.featured {
@@ -816,12 +831,14 @@ textarea {
 }
 
 .resource-card {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 0.7rem;
-  padding: 1.6rem;
+  padding: 1.3rem;
 }
 
 .resource-link {
+  margin-top: auto;
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -835,7 +852,7 @@ textarea {
 }
 
 .cta-band {
-  padding: 3rem;
+  padding: 2rem;
   background:
     linear-gradient(135deg, rgba(16, 36, 48, 0.98), rgba(33, 67, 85, 0.96));
   color: #ffffff;
@@ -851,18 +868,55 @@ textarea {
   color: rgba(255, 255, 255, 0.78);
 }
 
+.cta-band .btn {
+  background: #ffffff;
+  color: var(--navy);
+}
+
+.cta-band .btn:hover {
+  background: #f3fbfd;
+}
+
+.cta-band .btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #ffffff;
+}
+
+.cta-band .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.contact-hero {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-hero .page-title {
+  max-width: none;
+}
+
+.contact-hero .page-copy {
+  max-width: none;
+  margin: 0 auto;
+}
+
 .contact-grid {
   grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
-  align-items: start;
+  align-items: stretch;
 }
 
 .contact-card {
-  padding: 2.4rem;
+  padding: 1.7rem;
 }
 
 .contact-stack {
   display: grid;
   gap: 1rem;
+  align-content: start;
 }
 
 .contact-box {
@@ -944,7 +998,7 @@ textarea {
 }
 
 .site-footer {
-  padding: 1.8rem 0 2.4rem;
+  padding: 1.3rem 0 1.8rem;
   border-top: 1px solid var(--line);
   background: linear-gradient(180deg, rgba(246, 242, 232, 0.6) 0%, #f6f2e8 100%);
   position: relative;
@@ -1083,20 +1137,20 @@ textarea {
   }
 
   .section {
-    padding: 4.25rem 0;
+    padding: 3rem 0;
   }
 
   .section-tight {
-    padding: 3.2rem 0;
+    padding: 2.2rem 0;
   }
 
   .hero {
-    padding-top: 2.6rem;
+    padding-top: 2rem;
   }
 
   .hero-copy-wrap,
   .page-hero-copy {
-    padding: 1.2rem 0 0;
+    padding: 0.8rem 0 0;
   }
 
   .hero-title,
@@ -1122,6 +1176,6 @@ textarea {
   .pricing-card,
   .contact-card,
   .quote-card {
-    padding: 1.5rem;
+    padding: 1.2rem;
   }
 }

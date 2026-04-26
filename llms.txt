@@ -1,0 +1,36 @@
+# Persipica
+
+Persipica is focused on AI visibility for enterprise and agency teams.
+
+The core site now centers on five pages:
+- Home: https://persipica.com/
+- Pulse: https://persipica.com/pulse.html
+- Resources: https://persipica.com/resources.html
+- Pricing: https://persipica.com/pricing.html
+- Contact: https://persipica.com/contact.html
+
+## Main Offer
+Persipica Pulse is the flagship product. It monitors AI visibility across key prompt groups and major models, verifies citations before they affect reporting, stores prompt and response evidence, and alerts teams when visibility shifts.
+
+## Supporting Offers
+- AI Presence Audit: a one-off baseline diagnostic for teams that need the first clear read on where AI is omitting their brand
+- Implementation support: follow-on help for content, entity clarity, and authority signal changes after the baseline is established
+
+## Positioning
+Persipica is not positioned as a generic mention monitor. The focus is operational AI visibility:
+- prompt-level monitoring
+- competitor displacement
+- verified citations
+- evidence-backed reporting
+
+## Resources
+The trimmed resources hub points to:
+- GEO guide on Learn: https://learn.persipica.com/geo-guide.html
+- Audit scope on Learn: https://learn.persipica.com/what-an-audit-includes.html
+- AI mention tracking guide on Learn: https://learn.persipica.com/track-ai-brand-mentions.html
+- ROI calculator on Learn: https://learn.persipica.com/ai-visibility-roi-calculator.html
+
+## Contact
+- Website: https://persipica.com
+- Contact page: https://persipica.com/contact.html
+- Email: ilkan@persipica.com
