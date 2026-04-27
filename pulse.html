@@ -50,6 +50,7 @@
         <ul class="nav-links" id="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="pulse.html" class="active">Pulse</a></li>
+          <li><a href="services.html">Services</a></li>
           <li><a href="resources.html">Resources</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="contact.html" class="nav-cta">Contact</a></li>
@@ -67,50 +68,110 @@
               <a class="btn" href="contact.html">Book a walkthrough</a>
               <a class="btn btn-secondary" href="pricing.html">See plans and pricing</a>
             </div>
+            <div class="hero-feature-list reveal">
+              <div class="hero-feature">
+                <div class="feature-icon bg-teal">
+                  <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div class="feature-text">
+                  <span class="feature-title">Always-On Verification</span>
+                  <span class="feature-desc">100% of citation sources are checked before scores update.</span>
+                </div>
+              </div>
+              <div class="hero-feature">
+                <div class="feature-icon bg-amber">
+                  <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01"></path></svg>
+                </div>
+                <div class="feature-text">
+                  <span class="feature-title">Displacement Alerts</span>
+                  <span class="feature-desc">Immediate Slack and email pings when competitors take ground.</span>
+                </div>
+              </div>
+              <div class="hero-feature">
+                <div class="feature-icon bg-blue">
+                  <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                </div>
+                <div class="feature-text">
+                  <span class="feature-title">Multi-Model Parity</span>
+                  <span class="feature-desc">Track visibility consistently across GPT, Claude, and Gemini.</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="page-hero-side">
             <div class="dashboard-card reveal">
               <div class="dashboard-top">
                 <div class="dashboard-label">Pulse workspace</div>
-                <div class="dashboard-badge" title="Scores update after each scheduled run, not sampled or estimated">Monitoring live</div>
+                <div class="dashboard-badge" title="Scores update after each scheduled run, not sampled or estimated">Live Monitoring Active</div>
               </div>
               <div class="dashboard-metrics">
                 <div class="metric metric-primary">
                   <span class="metric-label">AI recommendation score</span>
-                  <span class="metric-value">61 / 100</span>
-                  <span class="metric-note">Weighted across tracked stages</span>
+                  <span class="metric-value">42 / 100</span>
+                  <span class="metric-note">Weighted flux across 148 prompts</span>
                 </div>
                 <div class="metric">
-                  <span class="metric-label">Prompt groups</span>
-                  <span class="metric-value">4</span>
-                  <span class="metric-note">Discovery, compare, buy, brand</span>
+                  <span class="metric-label">Model status</span>
+                  <span class="metric-value">3 / 3</span>
+                  <span class="metric-note">GPT, Claude, Gemini tracking</span>
                 </div>
                 <div class="metric">
-                  <span class="metric-label">Alerts</span>
-                  <span class="metric-value">3</span>
-                  <span class="metric-note">Thresholds crossed this week</span>
+                  <span class="metric-label">Detections</span>
+                  <span class="metric-value">12</span>
+                  <span class="metric-note">Significant shifts this week</span>
                 </div>
               </div>
-              <div class="workspace-list">
-                <div class="workspace-row">
-                  <span class="workspace-name">Buying-intent shortlist prompts</span>
-                  <span class="workspace-score">34%</span>
-                  <span class="workspace-delta up">+6</span>
+              <div class="unified-chart-panel">
+                <div class="chart-legend">
+                  <div class="legend-item"><span class="legend-dot" style="--c: #8de3b7; background: #8de3b7; width: 6px; height: 6px; border-radius: 50%;"></span> Buying-intent (34%)</div>
+                  <div class="legend-item"><span class="legend-dot" style="--c: #7dc5d6; background: #7dc5d6; width: 6px; height: 6px; border-radius: 50%;"></span> Comparison (27%)</div>
+                  <div class="legend-item"><span class="legend-dot" style="--c: #ffb7b7; background: #ffb7b7; width: 6px; height: 6px; border-radius: 50%;"></span> Discovery (12%)</div>
+                  <div class="legend-item category-avg" style="margin-left: auto;">Category Avg: 55%</div>
                 </div>
-                <div class="workspace-row">
-                  <span class="workspace-name">Comparison prompts</span>
-                  <span class="workspace-score">27%</span>
-                  <span class="workspace-delta up">+4</span>
+                <div class="chart-svg-wrap">
+                  <svg viewBox="0 0 400 100" preserveAspectRatio="none" style="width: 100%; height: 100px; display: block;">
+                    <!-- Scan Grid Lines -->
+                    <line x1="40" y1="0" x2="40" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                    <line x1="80" y1="0" x2="80" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                    <line x1="120" y1="0" x2="120" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                    <line x1="160" y1="0" x2="160" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                    <line x1="200" y1="0" x2="200" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                    <line x1="240" y1="0" x2="240" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                    <line x1="280" y1="0" x2="280" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                    <line x1="320" y1="0" x2="320" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                    <line x1="360" y1="0" x2="360" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+
+                    <!-- Category Average Benchmark -->
+                    <line x1="0" y1="45" x2="400" y2="45" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-dasharray="8 4" />
+
+                    <!-- Buying-intent (More zig-zaggy) -->
+                    <path d="M0 70 L20 75 L40 68 L60 80 L80 65 L100 72 L120 85 L140 70 L160 82 L180 60 L200 65 L220 50 L240 55 L260 40 L280 45 L300 35 L320 40 L340 25 L360 30 L380 15 L400 10" fill="none" stroke="#8de3b7" stroke-width="2.5" />
+                    <!-- Comparison -->
+                    <path d="M0 50 L20 45 L40 55 L60 48 L80 65 L100 58 L120 70 L140 62 L160 75 L180 68 L200 80 L220 72 L240 85 L260 78 L280 90 L300 82 L320 95 L340 88 L360 100 L380 92 L400 105" fill="none" stroke="#7dc5d6" stroke-width="2.5" />
+                    <!-- Discovery (dashed) -->
+                    <path d="M0 30 L40 40 L80 35 L120 50 L160 45 L200 60 L240 55 L280 70 L320 65 L360 80 L400 75" fill="none" stroke="#ffb7b7" stroke-width="2" stroke-dasharray="4 4" />
+                  </svg>
                 </div>
-                <div class="workspace-row">
-                  <span class="workspace-name">Discovery prompts</span>
-                  <span class="workspace-score">12%</span>
-                  <span class="workspace-delta down">-2</span>
+              </div>
+              <div class="trust-matrix">
+                <div class="trust-item">
+                  <span class="trust-label">Positive Sentiment</span>
+                  <span class="trust-value">45%</span>
+                  <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 45%; background: #e8d09a;"></div></div>
                 </div>
+                <div class="trust-item">
+                  <span class="trust-label">Top Recommendation</span>
+                  <span class="trust-value">18%</span>
+                  <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 18%; background: #7dc5d6;"></div></div>
+                </div>
+              </div>
+              <div class="algorithmic-drift">
+                <span class="drift-label">Algorithmic Drift</span>
+                <p class="drift-copy">Competitor X displaced your brand in the Comparison cluster on GPT-4o. Source analysis points to a new G2 review source.</p>
               </div>
               <div class="dashboard-alert">
                 <span class="alert-dot"></span>
-                Comparison cluster shifted after a competitor gained a new citation source.
+                Competitor displacement detection. Slack alert dispatched.
               </div>
             </div>
             <ul class="mini-proof">
@@ -229,6 +290,7 @@
         <div class="footer-links">
           <a href="index.html">Home</a>
           <a href="pulse.html">Pulse</a>
+          <a href="services.html">Services</a>
           <a href="resources.html">Resources</a>
           <a href="pricing.html">Pricing</a>
           <a href="contact.html">Contact</a>

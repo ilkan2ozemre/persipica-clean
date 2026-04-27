@@ -1,12 +1,30 @@
 const reveals = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window && reveals.length) {
+  let delayStack = [];
+  let delayTimer = null;
+
+  const processStack = () => {
+    delayStack.forEach((el, index) => {
+      el.style.transitionDelay = `${index * 100}ms`;
+      el.classList.add("on");
+      // Reset delay after animation finishes so it doesn't affect subsequent interactions
+      setTimeout(() => {
+        el.style.transitionDelay = "";
+      }, 1000);
+    });
+    delayStack = [];
+  };
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("on");
+          delayStack.push(entry.target);
           observer.unobserve(entry.target);
+          
+          clearTimeout(delayTimer);
+          delayTimer = setTimeout(processStack, 50);
         }
       });
     },

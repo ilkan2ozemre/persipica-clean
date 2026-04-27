@@ -59,6 +59,7 @@
         <ul class="nav-links" id="nav-links">
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="pulse.html">Pulse</a></li>
+          <li><a href="services.html">Services</a></li>
           <li><a href="resources.html">Resources</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="contact.html" class="nav-cta">Contact</a></li>
@@ -87,55 +88,99 @@
               <div>
                 <div class="dashboard-label">Pulse workspace overview</div>
               </div>
-              <div class="dashboard-badge" title="Scores update each time Pulse runs, not cached or estimated">Live</div>
+              <div class="dashboard-badge" title="Scores update each time Pulse runs, not cached or estimated">Live Monitoring</div>
             </div>
             <div class="dashboard-metrics">
               <div class="metric metric-primary">
                 <span class="metric-label">AI recommendation score</span>
-                <span class="metric-value">61 / 100</span>
-                <span class="metric-note">Up 11 points in 30 days</span>
+                <span class="metric-value">72 / 100</span>
+                <span class="metric-note">Up 14 points in 30 days</span>
               </div>
               <div class="metric">
                 <span class="metric-label">Tracked prompts</span>
                 <span class="metric-value">148</span>
-                <span class="metric-note">Discovery, compare, buy, brand</span>
+                <span class="metric-note">Full category cluster</span>
               </div>
               <div class="metric">
                 <span class="metric-label">Active alerts</span>
                 <span class="metric-value">6</span>
-                <span class="metric-note">Competitor displacement this week</span>
+                <span class="metric-note">Flux detections</span>
               </div>
             </div>
-            <div class="workspace-list">
-              <div class="workspace-row">
-                <span class="workspace-name">Acme SaaS</span>
-                <span class="workspace-score">62 / 100</span>
-                <span class="workspace-delta up">+8</span>
+            <div class="model-list">
+              <div class="model-row">
+                <span class="model-name">GPT-4o</span>
+                <div class="model-bar-bg"><div class="model-bar-fill" style="width: 78%;"></div></div>
+                <span class="model-score">78%</span>
               </div>
-              <div class="workspace-row">
-                <span class="workspace-name">Meridian Legal</span>
-                <span class="workspace-score">41 / 100</span>
-                <span class="workspace-delta down">-5</span>
+              <div class="model-row">
+                <span class="model-name">Claude 3.5</span>
+                <div class="model-bar-bg"><div class="model-bar-fill" style="width: 71%;"></div></div>
+                <span class="model-score">71%</span>
               </div>
-              <div class="workspace-row">
-                <span class="workspace-name">Brightpath Agency</span>
-                <span class="workspace-score">18 / 100</span>
-                <span class="workspace-delta up">New</span>
+              <div class="model-row">
+                <span class="model-name">Gemini 1.5</span>
+                <div class="model-bar-bg"><div class="model-bar-fill" style="width: 65%;"></div></div>
+                <span class="model-score">65%</span>
               </div>
             </div>
-            <div class="dashboard-ledger">
-              <div class="ledger-row">
-                <span class="ledger-label">Evidence ledger</span>
-                <p class="ledger-copy">Every score shift stores the exact prompt and full model output.</p>
+            <div class="competitor-list">
+              <span class="competitor-label">Top Competitor Threats</span>
+              <div class="competitor-row">
+                <span class="competitor-name">Acme Corp</span>
+                <span class="competitor-delta">+4.2% ↑</span>
               </div>
-              <div class="ledger-row">
-                <span class="ledger-label">Citation check</span>
-                <p class="ledger-copy">Five live sources verified before this update was logged.</p>
+              <div class="competitor-row">
+                <span class="competitor-name">Global SaaS</span>
+                <span class="competitor-delta">+1.8% ↑</span>
               </div>
+            </div>
+            <div class="chart-header">
+              <span class="chart-label">Recommendation Score Flux</span>
+              <div class="chart-toggles">
+                <span class="chart-toggle">7D</span>
+                <span class="chart-toggle active">30D</span>
+                <span class="chart-toggle">90D</span>
+              </div>
+            </div>
+            <div class="svg-chart">
+              <svg viewBox="0 0 400 100" preserveAspectRatio="none" style="width: 100%; height: 90px; display: block;">
+                <path d="M0 80 Q 50 60, 100 70 T 200 40 T 300 20 T 400 15 V 100 H 0 Z" fill="rgba(99, 174, 191, 0.2)" />
+                <path d="M0 80 Q 50 60, 100 70 T 200 40 T 300 20 T 400 15" fill="none" stroke="var(--teal-bright)" stroke-width="2.5" />
+              </svg>
+            </div>
+            <div class="trust-matrix">
+              <div class="trust-item">
+                <span class="trust-label">Positive Sentiment</span>
+                <span class="trust-value">82%</span>
+                <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 82%; background: #e8d09a;"></div></div>
+              </div>
+              <div class="trust-item">
+                <span class="trust-label">Top Recommendation</span>
+                <span class="trust-value">64%</span>
+                <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 64%; background: #7dc5d6;"></div></div>
+              </div>
+            </div>
+            <div class="source-matrix">
+              <span class="source-label">Verified Citation Sources</span>
+              <div class="source-tags">
+                <span class="source-tag"><span class="verified-dot"></span>g2.com</span>
+                <span class="source-tag"><span class="verified-dot"></span>reddit.com/r/SaaS</span>
+                <span class="source-tag"><span class="verified-dot"></span>capterra.com</span>
+                <span class="source-tag"><span class="verified-dot"></span>trustradius.com</span>
+              </div>
+            </div>
+            <div class="algorithmic-drift">
+              <span class="drift-label">Algorithmic Drift Insight</span>
+              <p class="drift-copy">Claude score increased by 14% after recent documentation updates were indexed, while Gemini remains flat despite competitor citation gains.</p>
+            </div>
+            <div class="live-scan-feed">
+              <span>&gt; SCANNING: "Top enterprise alternatives to [Brand]..."</span>
+              <span class="cursor"></span>
             </div>
             <div class="dashboard-alert">
               <span class="alert-dot"></span>
-              Meridian Legal dropped below threshold. Slack alert sent.
+              Acme SaaS reached target threshold. Alert sent.
             </div>
           </div>
         </div>
@@ -158,7 +203,7 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section-tight-top">
         <div class="container">
           <div class="section-header reveal">
             <h2 class="section-title">Know if AI recommends your brand, <span>when that changes</span>, and why.</h2>
@@ -264,6 +309,7 @@
         <div class="footer-links">
           <a href="index.html">Home</a>
           <a href="pulse.html">Pulse</a>
+          <a href="services.html">Services</a>
           <a href="resources.html">Resources</a>
           <a href="pricing.html">Pricing</a>
           <a href="contact.html">Contact</a>

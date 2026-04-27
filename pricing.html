@@ -57,6 +57,7 @@
         <ul class="nav-links" id="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="pulse.html">Pulse</a></li>
+          <li><a href="services.html">Services</a></li>
           <li><a href="resources.html">Resources</a></li>
           <li><a href="pricing.html" class="active">Pricing</a></li>
           <li><a href="contact.html" class="nav-cta">Contact</a></li>
@@ -70,9 +71,94 @@
           <div class="page-hero-copy">
             <h1 class="page-title">Pulse is the <span>default route</span>. The audit supports it.</h1>
             <p class="page-copy">Pulse is the software product for ongoing tracking. The AI Presence Audit is the one-off service for a first benchmark. Implementation support is the scoped follow-on option when the team wants help improving the signal.</p>
+            <ul class="hero-proof">
+              <li>No baseline yet — start with the audit</li>
+              <li>Need ongoing reporting — start with Pulse</li>
+              <li>Need help fixing findings — add implementation support</li>
+            </ul>
           </div>
-          <div class="quote-card reveal">
-            <p class="quote-text">Choose software when you need ongoing monitoring. Choose the audit when you need the first diagnosis.</p>
+          <div class="page-hero-side">
+            <div class="dashboard-card reveal">
+              <div class="dashboard-top">
+                <div class="dashboard-label">Pulse — AI recommendation score</div>
+                <div class="dashboard-badge">8-week trend</div>
+              </div>
+              <div class="pulse-chart-wrap">
+                <svg class="pulse-chart" viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="rgba(99,174,191,0.32)"/>
+                      <stop offset="100%" stop-color="rgba(99,174,191,0)"/>
+                    </linearGradient>
+                  </defs>
+                  <!-- grid lines -->
+                  <line x1="40" y1="20"  x2="40"  y2="150" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                  <line x1="40" y1="150" x2="350" y2="150" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                  <line x1="40" y1="20"  x2="350" y2="20"  stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="4 4"/>
+                  <line x1="40" y1="57"  x2="350" y2="57"  stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="4 4"/>
+                  <line x1="40" y1="94"  x2="350" y2="94"  stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="4 4"/>
+                  <line x1="40" y1="131" x2="350" y2="131" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="4 4"/>
+                  <!-- y-axis labels: 100, 75, 50, 25, 0 -->
+                  <text x="34" y="23"  text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="9" font-family="Archivo,sans-serif">100</text>
+                  <text x="34" y="60"  text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="9" font-family="Archivo,sans-serif">75</text>
+                  <text x="34" y="97"  text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="9" font-family="Archivo,sans-serif">50</text>
+                  <text x="34" y="134" text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="9" font-family="Archivo,sans-serif">25</text>
+                  <!-- x-axis week labels -->
+                  <text x="55"  y="165" text-anchor="middle" fill="rgba(255,255,255,0.28)" font-size="8.5" font-family="Archivo,sans-serif">W1</text>
+                  <text x="97"  y="165" text-anchor="middle" fill="rgba(255,255,255,0.28)" font-size="8.5" font-family="Archivo,sans-serif">W2</text>
+                  <text x="139" y="165" text-anchor="middle" fill="rgba(255,255,255,0.28)" font-size="8.5" font-family="Archivo,sans-serif">W3</text>
+                  <text x="181" y="165" text-anchor="middle" fill="rgba(255,255,255,0.28)" font-size="8.5" font-family="Archivo,sans-serif">W4</text>
+                  <text x="223" y="165" text-anchor="middle" fill="rgba(255,255,255,0.28)" font-size="8.5" font-family="Archivo,sans-serif">W5</text>
+                  <text x="265" y="165" text-anchor="middle" fill="rgba(255,255,255,0.28)" font-size="8.5" font-family="Archivo,sans-serif">W6</text>
+                  <text x="307" y="165" text-anchor="middle" fill="rgba(255,255,255,0.28)" font-size="8.5" font-family="Archivo,sans-serif">W7</text>
+                  <text x="349" y="165" text-anchor="middle" fill="rgba(255,255,255,0.28)" font-size="8.5" font-family="Archivo,sans-serif">W8</text>
+                  <!--
+                    Scores: 29, 27, 34, 42, 49, 55, 63, 74
+                    y = 150 - (score / 100) * 130
+                    29 → 112.3   27 → 114.9   34 → 105.8   42 → 95.4
+                    49 → 86.3    55 → 78.5    63 → 68.1    74 → 53.8
+                  -->
+                  <polygon
+                    points="55,112 97,115 139,106 181,95 223,86 265,79 307,68 349,54 349,150 55,150"
+                    fill="url(#lineGrad)"/>
+                  <polyline
+                    points="55,112 97,115 139,106 181,95 223,86 265,79 307,68 349,54"
+                    fill="none" stroke="#63aebf" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+                  <circle cx="55"  cy="112" r="3" fill="#63aebf"/>
+                  <circle cx="97"  cy="115" r="3" fill="#63aebf"/>
+                  <circle cx="139" cy="106" r="3" fill="#63aebf"/>
+                  <circle cx="181" cy="95"  r="3" fill="#63aebf"/>
+                  <circle cx="223" cy="86"  r="3" fill="#63aebf"/>
+                  <circle cx="265" cy="79"  r="3" fill="#63aebf"/>
+                  <circle cx="307" cy="68"  r="3" fill="#63aebf"/>
+                  <!-- current value dot with glow -->
+                  <circle cx="349" cy="54" r="7" fill="rgba(141,227,183,0.2)"/>
+                  <circle cx="349" cy="54" r="3.5" fill="#8de3b7"/>
+                  <text x="349" y="44" text-anchor="middle" fill="#8de3b7" font-size="11" font-weight="600" font-family="Archivo,sans-serif">74</text>
+                </svg>
+              </div>
+              <div class="dashboard-metrics">
+                <div class="metric metric-primary">
+                  <span class="metric-label">Score now</span>
+                  <span class="metric-value">74</span>
+                  <span class="metric-note">Up 45 points over 8 weeks</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-label">Tracked prompts</span>
+                  <span class="metric-value">94</span>
+                  <span class="metric-note">Across 4 buyer stages</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-label">Active alerts</span>
+                  <span class="metric-value">2</span>
+                  <span class="metric-note">Score thresholds crossed</span>
+                </div>
+              </div>
+              <div class="dashboard-alert">
+                <span class="alert-dot"></span>
+                Discovery stage crossed 40% for the first time this run.
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -159,6 +245,7 @@
         <div class="footer-links">
           <a href="index.html">Home</a>
           <a href="pulse.html">Pulse</a>
+          <a href="services.html">Services</a>
           <a href="resources.html">Resources</a>
           <a href="pricing.html">Pricing</a>
           <a href="contact.html">Contact</a>
