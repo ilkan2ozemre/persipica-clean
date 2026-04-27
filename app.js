@@ -40,16 +40,32 @@ const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("nav-links");
 
 if (hamburger && navLinks) {
+  const header = document.querySelector(".site-nav");
+
+  const updateHeaderHeight = () => {
+    if (header) {
+      document.documentElement.style.setProperty(
+        "--header-height",
+        `${header.offsetHeight}px`
+      );
+    }
+  };
+
+  window.addEventListener("resize", updateHeaderHeight);
+  updateHeaderHeight();
+
   const closeMenu = () => {
     hamburger.classList.remove("open");
     hamburger.setAttribute("aria-expanded", "false");
     navLinks.classList.remove("open");
+    document.body.style.overflow = "";
   };
 
   hamburger.addEventListener("click", () => {
     const isOpen = navLinks.classList.toggle("open");
     hamburger.classList.toggle("open", isOpen);
     hamburger.setAttribute("aria-expanded", String(isOpen));
+    document.body.style.overflow = isOpen ? "hidden" : "";
   });
 
   navLinks.querySelectorAll("a").forEach((link) => {
