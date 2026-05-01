@@ -27,7 +27,7 @@ Most companies score well when AI is asked about them by name, but score 0% when
 | [AI Visibility ROI Calculator](https://persipica.com/ai-visibility-roi-calculator.html) | Interactive calculator showing the pipeline cost of AI invisibility |
 | [How to Track AI Brand Mentions](https://persipica.com/track-ai-brand-mentions.html) | Methodology, metrics, and platform comparison for AI brand tracking |
 | [GEO for B2B SaaS](https://persipica.com/geo-saas-cmo.html) | Use case for SaaS marketing leaders |
-| [GEO for Professional Services](https://persipica.com/geo-professional-services.html) | Use case for consulting and advisory firms |
+| [GEO for Professional Services](https://persipica.com/pricing.html) | Use case for consulting and advisory firms |
 | [GEO for Enterprise Tech](https://persipica.com/geo-enterprise-tech.html) | Use case for large technology companies |
 
 ## Competitor comparisons

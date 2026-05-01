@@ -5,10 +5,12 @@ Persipica helps enterprise and agency teams understand and improve AI visibility
 ## Core Site Structure
 The core site has been reduced to five pages:
 1. Home: https://persipica.com/
-2. Pulse: https://persipica.com/pulse.html
+2. Pulse: https://persipica.com/
 3. Resources: https://persipica.com/resources.html
 4. Pricing: https://persipica.com/pricing.html
 5. Contact: https://persipica.com/contact.html
+
+Long-form educational content lives at learn.persipica.com, which is part of the Persipica brand. It is the same organisation — one company, two domains. The Learn site contains GEO guides, research methodology, use-case playbooks, and objection handlers.
 
 ## Primary Product
 Persipica Pulse is the main product and the front-and-center offer on the site.

@@ -19,7 +19,8 @@
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "name": "Contact Persipica",
-    "url": "https://persipica.com/contact.html"
+    "url": "https://persipica.com/contact.html",
+    "publisher": { "@id": "https://persipica.com/#organization" }
   }
   </script>
   <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png" />
@@ -30,6 +31,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=block" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .contact-card,
+    .contact-box {
+      background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-color: rgba(43, 108, 120, 0.13);
+      box-shadow: 0 8px 32px rgba(16, 36, 48, 0.06), inset 0 1px 0 rgba(255,255,255,0.95);
+    }
+  </style>
 </head>
 <body>
   <div class="page">
@@ -43,10 +54,9 @@
         </button>
         <ul class="nav-links" id="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="pulse.html">Pulse</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="resources.html">Resources</a></li>
+          
           <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="resources.html">Resources</a></li>
           <li><a href="contact.html" class="nav-cta active">Contact</a></li>
         </ul>
       </div>
@@ -65,7 +75,6 @@
         <div class="container contact-grid">
           <div class="contact-stack reveal">
             <div class="contact-card">
-              <p class="eyebrow">Fastest route</p>
               <h2 class="section-title">Book a Pulse walkthrough or an AI Presence Audit call.</h2>
               <p class="section-copy">If the team already knows the problem is real, a live walkthrough is faster than trading emails.</p>
               <div class="actions" style="margin-top: 1.4rem;">
@@ -139,13 +148,17 @@
           <img src="title.png" alt="Persipica" />
           <p class="footer-copy">Every conversation starts with your brand, your category, and where AI is missing you.</p>
         </div>
-        <div class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="pulse.html">Pulse</a>
-          <a href="services.html">Services</a>
-          <a href="resources.html">Resources</a>
-          <a href="pricing.html">Pricing</a>
-          <a href="contact.html">Contact</a>
+        <div class="footer-nav">
+          <div class="footer-group">
+            <p class="footer-heading">Navigate</p>
+            <div class="footer-links">
+              <a href="index.html">Home</a>
+              <a href="index.html">Pulse</a>
+              <a href="pricing.html">Pricing</a>
+              <a href="resources.html">Resources</a>
+              <a href="contact.html">Contact</a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
