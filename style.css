@@ -2885,6 +2885,10 @@ textarea {
     margin-bottom: var(--space-sm);
   }
 
+  .hero {
+    padding: 1.5rem 0 1rem;
+  }
+
   .hero-copy-wrap,
   .page-hero-copy {
     padding: 0.5rem 0 0;
