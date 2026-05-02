@@ -412,8 +412,8 @@ textarea {
   padding: 5rem 0 3rem;
 }
 
-.hero::before,
-.hero::after {
+.hero-grid::before,
+.hero-grid::after {
   content: "";
   position: absolute;
   width: 600px;
@@ -425,13 +425,13 @@ textarea {
   pointer-events: none;
 }
 
-.hero::before {
+.hero-grid::before {
   background: radial-gradient(circle, var(--teal-bright), transparent);
   top: -200px;
   left: -150px;
 }
 
-.hero::after {
+.hero-grid::after {
   background: radial-gradient(circle, var(--teal), transparent);
   bottom: -150px;
   right: -100px;
@@ -446,6 +446,7 @@ textarea {
 .hero-grid {
   display: grid;
   gap: 1.5rem;
+  position: relative;
 }
 
 .hero-grid-centered {
