@@ -87,7 +87,6 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
 }
 
 img {
@@ -109,6 +108,7 @@ textarea {
 
 .page {
   min-height: 100vh;
+  overflow-x: clip;
 }
 
 .container {
