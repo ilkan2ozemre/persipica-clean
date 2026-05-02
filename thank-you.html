@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Message Received | Persipica</title>
+  <meta name="description" content="Thanks for reaching out to Persipica. We read every message personally and aim to reply within one business day." />
+  <link rel="canonical" href="https://persipica.com/thank-you.html" />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512-v2.png" />
+  <link rel="apple-touch-icon" href="favicon-180-v2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=block" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .thank-you-section {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+    }
+    .thank-you-card {
+      background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(43, 108, 120, 0.13);
+      box-shadow: 0 8px 32px rgba(16, 36, 48, 0.06), inset 0 1px 0 rgba(255,255,255,0.95);
+      border-radius: 12px;
+      padding: 3rem 2.5rem;
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .thank-you-card .checkmark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(43, 108, 120, 0.10);
+      margin-bottom: 1.5rem;
+    }
+    .thank-you-card .checkmark svg {
+      width: 26px;
+      height: 26px;
+      stroke: #2b6c78;
+      stroke-width: 2.5;
+      fill: none;
+    }
+    .thank-you-card h1 {
+      margin-bottom: 0.75rem;
+    }
+    .thank-you-card p {
+      color: var(--text-muted, #5a7080);
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+    .thank-you-card .actions {
+      margin-top: 2rem;
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="site-nav">
+      <div class="container site-nav-inner">
+        <a class="brand" href="index.html" aria-label="Persipica home">
+          <img src="title.png" alt="Persipica" />
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <section class="thank-you-section">
+        <div class="container">
+          <div class="thank-you-card reveal">
+            <div class="checkmark">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <h1 class="page-title">Message received.</h1>
+            <p>We read every request personally and aim to reply within one business day. If you included your brand and competitors, we may already have a read for you when we write back.</p>
+            <p>In the meantime, explore how Persipica works.</p>
+            <div class="actions">
+              <a class="btn" href="index.html">See how Pulse works</a>
+              <a class="btn btn-secondary" href="pricing.html">View pricing</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer-inner">
+        <div class="footer-meta">
+          <img src="title.png" alt="Persipica" />
+          <p class="footer-copy">Every conversation starts with your brand, your category, and where AI is missing you.</p>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-group">
+            <p class="footer-heading">Navigate</p>
+            <div class="footer-links">
+              <a href="index.html">Home</a>
+              <a href="index.html">Pulse</a>
+              <a href="pricing.html">Pricing</a>
+              <a href="resources.html">Resources</a>
+              <a href="contact.html">Contact</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
