@@ -3178,6 +3178,51 @@ textarea {
   .pricing-grid {
     gap: 0.5rem;
   }
+
+  /* Dashboard card mobile fixes */
+  .dashboard-card {
+    overflow: hidden;
+  }
+
+  /* Brand identity + pie chart row: stack vertically */
+  .dashboard-metrics > div[style] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+  }
+
+  /* Pie chart legend block: remove left border, reset padding */
+  .dashboard-metrics .pie-chart,
+  .dashboard-metrics > div > div:last-child {
+    border-left: none !important;
+    padding-left: 0 !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 0.75rem !important;
+  }
+
+  /* Source matrix: stack label + slack alert vertically */
+  .source-matrix > div[style] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+  }
+
+  /* Source tags wrap on small screens */
+  .source-tags {
+    flex-wrap: wrap;
+  }
+
+  /* Dashboard top: wrap badges on narrow screens */
+  .dashboard-top {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .dashboard-top > div[style] {
+    flex-wrap: wrap !important;
+  }
 }
 
 /* Unified Card Animations - Handles hover states specifically */
