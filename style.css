@@ -267,10 +267,12 @@ textarea {
 .site-nav {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 200;
+  isolation: isolate;
   background: var(--surface-nav);
   border-bottom: 1px solid var(--line);
   box-shadow: 0 1px 0 rgba(43, 108, 120, 0.08);
+  overflow: visible;
 }
 
 .site-nav::before {
@@ -407,7 +409,7 @@ textarea {
 
 .hero {
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   padding: 5rem 0 3rem;
 }
 
@@ -3191,7 +3193,10 @@ textarea {
   }
 
   .hero,
-  .page-hero {
+  .page-hero,
+  .pricing-hero,
+  .resources-hero,
+  .contact-hero {
     padding: 1.5rem 0 1rem;
   }
 
