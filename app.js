@@ -66,10 +66,6 @@ if (hamburger && navLinks) {
     hamburger.setAttribute("aria-expanded", String(isOpen));
   });
 
-  navLinks.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", closeMenu);
-  });
-
   document.addEventListener("click", (event) => {
     if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
       closeMenu();
