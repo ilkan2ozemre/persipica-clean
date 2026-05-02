@@ -409,7 +409,6 @@ textarea {
 
 .hero {
   position: relative;
-  overflow: clip;
   padding: 5rem 0 3rem;
 }
 
