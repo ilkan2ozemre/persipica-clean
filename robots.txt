@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://persipica.com/sitemap.xml
+
+# AI crawlers welcome
 User-agent: GPTBot
 Allow: /
 
@@ -15,5 +18,3 @@ Allow: /
 
 User-agent: Google-Extended
 Allow: /
-
-Sitemap: https://learn.persipica.com/sitemap.xml

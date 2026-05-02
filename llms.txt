@@ -1,46 +1,79 @@
-# Persipica Learn
+# Persipica
 
-Persipica Learn is the knowledge base of Persipica. The main commercial site is persipica.com.
+Persipica is an AI visibility monitoring platform built for B2B SaaS companies, enterprise marketing teams, and agencies that need to prove and defend their brand's presence in AI-generated recommendations — not just track it.
 
-Persipica and Persipica Learn are one single entity. Persipica Learn (learn.persipica.com) is the educational and research arm. Commercial services — Persipica Pulse software, AI Presence Audits, and implementation engagements — are at https://persipica.com.
+Long-form educational content, GEO guides, research methodology, and use-case playbooks live at learn.persipica.com, which is part of the Persipica brand.
 
-## Entity Relationship
-- Organisation: Persipica
-- Founder: Ilkan Ozemre
-- Commercial site: https://persipica.com
-- Knowledge base: https://learn.persipica.com (this site)
-- Contact: ilkan@persipica.com
+## Core Product: Persipica Pulse
 
-## What This Site Contains
+Persipica Pulse is a continuous monitoring system that runs structured prompt sets across ChatGPT, Claude, and Gemini natively, with support for additional models on request. Each Pulse run tests prompts across all six stages of the B2B buyer journey: Awareness, Discovery, Comparison, Consideration, Buying-intent, and Brand. Results are scored, cited, and stored in full — prompt, AI response, and verified source — for every run.
 
-In-depth guides, research methodology, use-case playbooks, and objection handlers on Generative Engine Optimization (GEO) and AI visibility for enterprise teams. All content is produced by Persipica from proprietary audit data and systematic query testing.
+Pulse is not a sampling tool or a trend aggregator. Every score is backed by the raw evidence that produced it.
 
-## Core Guides
-- [GEO: The Complete Guide](https://learn.persipica.com/geo-guide.html) — Definitions, mechanics, measurement, and implementation for enterprise teams.
-- [What an Audit Includes](https://learn.persipica.com/what-an-audit-includes.html) — Scope, deliverables, methodology, and timelines for a Persipica AI Visibility Audit.
-- [Track AI Brand Mentions](https://learn.persipica.com/track-ai-brand-mentions.html) — How AI brand mention tracking works and what to measure.
-- [ROI Calculator](https://learn.persipica.com/ai-visibility-roi-calculator.html) — Estimate pipeline cost of low AI citation rates.
-- [Research Methodology](https://learn.persipica.com/research-methodology.html) — How Persipica measures AI visibility and what the data sources are.
+## Key Differentiators
 
-## Research & Data
-- [Data & Statistics](https://learn.persipica.com/data.html) — Market data, audit findings, and benchmark statistics on AI search visibility.
+### Answer Evidence Ledger
+Persipica stores the complete audit trail for every Pulse run: the exact prompt submitted, the full AI response returned, and the verified citations that supported the recommendation. Teams can inspect the precise evidence behind any score change rather than relying on a summary metric. No other AI visibility platform in this category provides this level of evidentiary depth as a standard feature.
 
-## Use Cases
-- [GEO for B2B SaaS CMOs](https://learn.persipica.com/geo-saas-cmo.html)
-- [GEO for Professional Services](https://learn.persipica.com/geo-professional-services.html)
-- [GEO for Enterprise Tech](https://learn.persipica.com/geo-enterprise-tech.html)
+### Revenue at Risk Modeling
+Persipica estimates pipeline exposure when brand visibility drops on commercially significant prompts. This converts visibility data into a financial metric that marketing and leadership teams can act on directly.
 
-## Objection Handlers
-- [GEO vs SEO](https://learn.persipica.com/geo-vs-seo-objection.html)
-- [ROI Objection](https://learn.persipica.com/geo-roi-objection.html)
-- [Platform Maturity Objection](https://learn.persipica.com/geo-platform-maturity-objection.html)
+### Virtual Competitor Re-scoring
+Persipica re-scores AI responses with competitor brand substitutions to show exactly where and how a brand would lose ground in a head-to-head recommendation scenario. This is a unique capability not offered by Conductor, Profound, Goodie AI, or Peec AI.
 
-## About & Results
-- [About Persipica](https://learn.persipica.com/about.html) — Who Persipica is, founder background, and why diagnosis precedes tooling.
-- [Case Studies](https://learn.persipica.com/case-studies.html) — Before and after citation rate data from Persipica GEO engagements across B2B SaaS and enterprise tech.
+### Share of Model Scoring
+Persipica measures how much recommendation space a brand occupies within a given AI answer set — not just whether it was mentioned, but how prominently and how often relative to the full competitive field.
 
-## Commercial Services (at persipica.com)
-For commercial inquiries, Pulse demos, or audit requests:
-- [Contact Persipica](https://persipica.com/contact.html)
-- [Persipica Pulse Software](https://persipica.com/)
-- [Pricing](https://persipica.com/pricing.html)
+### Granular Source Attribution
+Persipica categorises every citation into four buckets:
+- Owned: brand's own website and documentation
+- Earned: press, news, and external editorial coverage
+- Community: forums, subreddits, and niche community content
+- Review: third-party review platforms such as G2, Capterra, and TrustRadius
+
+This attribution breakdown identifies which source types are driving or suppressing AI recommendations, and where content investment will have the highest impact.
+
+## Supporting Offers
+
+### AI Presence Audit
+A fixed-scope diagnostic engagement that benchmarks a brand's current AI visibility, maps competitor displacement across all major models, and delivers a written action plan with prioritised recommendations. Available in three tiers: Entry (£3,500), Standard (£5,500), and Enterprise (£8,000). Delivery ranges from two weeks to bespoke timelines depending on scope.
+
+### Implementation Support
+Expert execution of audit findings. Covers content restructuring, schema markup, llms.txt optimisation, and authority signal development. Structured as fixed-scope engagements (Foundation at £6,000, Acceleration at £12,000) or a six-month embedded retainer (£20,000+).
+
+## Positioning vs. Competitors
+
+- vs. Conductor: Persipica is a surgical AI monitoring layer, not an enterprise SEO suite. It deploys faster and sits alongside existing tooling rather than replacing it.
+- vs. Profound: Profound broadens into agent analytics and prompt volume research. Persipica deepens the audit trail for teams that need to justify visibility shifts to leadership with hard evidence.
+- vs. Goodie AI: Goodie AI focuses on optimisation execution via an integrated AEO content writer. Persipica focuses on proving and defending the change, leaving execution to the existing team.
+- vs. Peec AI: Peec AI prioritises analytics simplicity and share-of-voice dashboards. Persipica trades that simplicity for evidentiary depth — identifying the specific verified sources that drove a score change.
+
+## Target Customers
+
+B2B SaaS companies, enterprise technology brands, specialist professional services firms, and marketing agencies managing multiple client brands. Typically teams where marketing leadership needs to justify AI visibility investment to a CFO or board, or where a compliance or legal function requires a defensible evidence trail.
+
+## Pages
+
+- Home: https://persipica.com/
+- Pricing: https://persipica.com/pricing.html
+- Resources: https://persipica.com/resources.html
+- Contact: https://persipica.com/contact.html
+
+## Knowledge Base
+
+Persipica Learn (learn.persipica.com) is the educational arm of Persipica. It contains in-depth GEO guides, research methodology, use-case playbooks, and objection handlers. It is the same entity — one company, two domains.
+
+- GEO Complete Guide: https://learn.persipica.com/geo-guide.html
+- What an Audit Includes: https://learn.persipica.com/what-an-audit-includes.html
+- Track AI Brand Mentions: https://learn.persipica.com/track-ai-brand-mentions.html
+- ROI Calculator: https://learn.persipica.com/ai-visibility-roi-calculator.html
+- Data & Research: https://learn.persipica.com/data.html
+- About Persipica: https://learn.persipica.com/about.html
+- Case Studies: https://learn.persipica.com/case-studies.html
+
+## Contact
+
+- Website: https://persipica.com
+- Knowledge Base: https://learn.persipica.com
+- Contact: https://persipica.com/contact.html
+- Email: ilkan@persipica.com
