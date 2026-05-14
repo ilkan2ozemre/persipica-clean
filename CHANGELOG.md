@@ -2,6 +2,19 @@
 
 All notable updates to Persipica's website and research are documented here.
 
+## May 2026
+
+### Week of May 14
+- Updated Pulse page to reflect SaaS-only positioning (removed local/desktop workspace references)
+- Aligned website with Persipica Pulse v1 capability set: Shopping Intelligence, Demand Explorer, Crawler Analytics, Prompt Research Lab, Action Center, ROI Attribution, Competitive Alerts, and Portfolio
+- Updated all four competitor comparison pages (vs Profound, Goodie AI, Peec AI, Conductor) with expanded capability matrices
+- Updated all last-modified and dateModified metadata to May 14, 2026
+- Updated sitemap lastmod dates across all pages
+- Revised Pulse pricing tiers to be competitive: Starter at 99/mo, Professional at 299/mo, Business at 599/mo, Enterprise custom
+- Updated pricing comparison table to four columns (Starter, Professional, Business, Enterprise) with new feature rows
+- Removed all remaining local workspace references from pricing page
+- Updated app billing plans and entitlements with new business tier
+
 ## April 2026
 
 ### Week of April 19

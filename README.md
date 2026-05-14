@@ -44,9 +44,9 @@ Persipica offers four core services:
 1. **AI Presence Audit**, How AI platforms perceive, describe, and recommend your company across the full buyer journey
 2. **Content Restructuring**, Rebuilding content to be modular and optimised for LLM extraction and citation
 3. **Authority Building**, Earned mentions from reviews, press, and community discussions that AI uses to judge credibility
-4. **Ongoing Tracking**, Continuous monitoring of AI visibility with monthly reporting and strategy adaptation
+4. **Ongoing Tracking**, Continuous AI visibility monitoring with monthly reporting and strategy adaptation
 
-Typical engagement timeline: **8–14 weeks** from initial audit to measurable citation rate improvement.
+Typical engagement timeline: **8-14 weeks** from initial audit to measurable citation rate improvement.
 
 ## LLM access
 

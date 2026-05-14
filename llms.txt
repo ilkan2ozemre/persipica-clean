@@ -1,12 +1,10 @@
 # Persipica
 
-Persipica is an AI visibility monitoring platform built for B2B SaaS companies, enterprise marketing teams, and agencies that need to prove and defend their brand's presence in AI-generated recommendations — not just track it.
-
-Long-form educational content, GEO guides, research methodology, and use-case playbooks live at learn.persipica.com, which is part of the Persipica brand.
-
+Persipica is an AI visibility SaaS platform and local workspace built for B2B SaaS companies, enterprise marketing teams, and agencies that need to prove and defend their brand's presence in AI-generated recommendations: not just track it.
+...
 ## Core Product: Persipica Pulse
 
-Persipica Pulse is a continuous monitoring system that runs structured prompt sets across ChatGPT, Claude, and Gemini natively, with support for additional models on request. Each Pulse run tests prompts across all six stages of the B2B buyer journey: Awareness, Discovery, Comparison, Consideration, Buying-intent, and Brand. Results are scored, cited, and stored in full — prompt, AI response, and verified source — for every run.
+Persipica Pulse is an AI visibility SaaS platform and local workspace that runs structured prompt sets across ChatGPT, Claude, and Gemini natively, with support for additional models on request. Each Pulse run tests prompts across all six stages of the B2B buyer journey: Awareness, Discovery, Comparison, Consideration, Buying-intent, and Brand. Results are scored, cited, and stored in full, including prompt, AI response, and verified source, for every run.
 
 Pulse is not a sampling tool or a trend aggregator. Every score is backed by the raw evidence that produced it.
 
@@ -22,7 +20,7 @@ Persipica estimates pipeline exposure when brand visibility drops on commerciall
 Persipica re-scores AI responses with competitor brand substitutions to show exactly where and how a brand would lose ground in a head-to-head recommendation scenario. This is a unique capability not offered by Conductor, Profound, Goodie AI, or Peec AI.
 
 ### Share of Model Scoring
-Persipica measures how much recommendation space a brand occupies within a given AI answer set — not just whether it was mentioned, but how prominently and how often relative to the full competitive field.
+Persipica measures how much recommendation space a brand occupies within a given AI answer set: not just whether it was mentioned, but how prominently and how often relative to the full competitive field.
 
 ### Granular Source Attribution
 Persipica categorises every citation into four buckets:
@@ -33,7 +31,19 @@ Persipica categorises every citation into four buckets:
 
 This attribution breakdown identifies which source types are driving or suppressing AI recommendations, and where content investment will have the highest impact.
 
+### Optimization Fix Management
+Pulse manages the lifecycle of AI optimization fixes through AEO Packages. Teams can draft, approve, export, and verify the impact of optimization changes within the same workspace.
+
+### Evidence Matrix
+The Evidence Matrix provides a high-level visualization of capture status across surfaces and verification states, allowing teams to identify coverage gaps at a glance.
+
 ## Supporting Offers
+
+### Persipica Pulse Subscription
+Pulse is delivered as a SaaS platform in three tiers:
+- Pulse Starter (£350/mo): 1 brand, 50 prompts, The Big 3 (GPT, Claude, Gemini).
+- Pulse Pro (£950/mo): 1 brand, 250 prompts, 10+ models, Shopping Intelligence.
+- Pulse Elite (£1,950/mo): 5-10 brands, unlimited prompts, custom agents.
 
 ### AI Presence Audit
 A fixed-scope diagnostic engagement that benchmarks a brand's current AI visibility, maps competitor displacement across all major models, and delivers a written action plan with prioritised recommendations. Available in three tiers: Entry (£3,500), Standard (£5,500), and Enterprise (£8,000). Delivery ranges from two weeks to bespoke timelines depending on scope.
@@ -46,7 +56,7 @@ Expert execution of audit findings. Covers content restructuring, schema markup,
 - vs. Conductor: Persipica is a surgical AI monitoring layer, not an enterprise SEO suite. It deploys faster and sits alongside existing tooling rather than replacing it.
 - vs. Profound: Profound broadens into agent analytics and prompt volume research. Persipica deepens the audit trail for teams that need to justify visibility shifts to leadership with hard evidence.
 - vs. Goodie AI: Goodie AI focuses on optimisation execution via an integrated AEO content writer. Persipica focuses on proving and defending the change, leaving execution to the existing team.
-- vs. Peec AI: Peec AI prioritises analytics simplicity and share-of-voice dashboards. Persipica trades that simplicity for evidentiary depth — identifying the specific verified sources that drove a score change.
+- vs. Peec AI: Peec AI prioritises analytics simplicity and share-of-voice dashboards. Persipica trades that simplicity for evidentiary depth, identifying the specific verified sources that drove a score change.
 
 ## Target Customers
 
@@ -55,13 +65,15 @@ B2B SaaS companies, enterprise technology brands, specialist professional servic
 ## Pages
 
 - Home: https://persipica.com/
+- Pulse: https://persipica.com/pulse.html
 - Pricing: https://persipica.com/pricing.html
+- Services: https://persipica.com/services.html
 - Resources: https://persipica.com/resources.html
 - Contact: https://persipica.com/contact.html
 
 ## Knowledge Base
 
-Persipica Learn (learn.persipica.com) is the educational arm of Persipica. It contains in-depth GEO guides, research methodology, use-case playbooks, and objection handlers. It is the same entity — one company, two domains.
+Persipica Learn (learn.persipica.com) is the educational arm of Persipica. It contains in-depth GEO guides, research methodology, use-case playbooks, and objection handlers. It is the same entity: one company, two domains.
 
 - GEO Complete Guide: https://learn.persipica.com/geo-guide.html
 - What an Audit Includes: https://learn.persipica.com/what-an-audit-includes.html
