@@ -1904,7 +1904,6 @@ textarea {
 }
 
 .service-card-content {
-  flex: 1;
   margin-bottom: var(--space-md);
 }
 

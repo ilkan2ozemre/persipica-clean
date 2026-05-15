@@ -4,7 +4,7 @@ Persipica is an AI visibility SaaS platform and local workspace built for B2B Sa
 ...
 ## Core Product: Persipica Pulse
 
-Persipica Pulse is an AI visibility SaaS platform and local workspace that runs structured prompt sets across ChatGPT, Claude, and Gemini natively, with support for additional models on request. Each Pulse run tests prompts across all six stages of the B2B buyer journey: Awareness, Discovery, Comparison, Consideration, Buying-intent, and Brand. Results are scored, cited, and stored in full, including prompt, AI response, and verified source, for every run.
+Persipica Pulse is an AI visibility platform (cloud SaaS or local desktop workspace) that runs structured prompt sets across ChatGPT, Claude, Gemini, Perplexity, DeepSeek, Grok, Mistral, Google AI Mode, Microsoft Copilot, and Meta AI. It also tracks visibility on AI shopping agents including Amazon Rufus, GPT Search, and Perplexity Shop. Each Pulse run tests prompts across all six stages of the B2B buyer journey: Awareness, Discovery, Comparison, Consideration, Buying-intent, and Brand. Results are scored, cited, and stored in full, including prompt, AI response, and verified source, for every run.
 
 Pulse is not a sampling tool or a trend aggregator. Every score is backed by the raw evidence that produced it.
 
@@ -31,19 +31,44 @@ Persipica categorises every citation into four buckets:
 
 This attribution breakdown identifies which source types are driving or suppressing AI recommendations, and where content investment will have the highest impact.
 
-### Optimization Fix Management
-Pulse manages the lifecycle of AI optimization fixes through AEO Packages. Teams can draft, approve, export, and verify the impact of optimization changes within the same workspace.
+### Action Center
+Pulse turns recommendations into tracked work items with before-and-after snapshots. Each action links to the prompt evidence that triggered it, so teams can verify impact after deployment.
+
+### ROI Attribution
+Pulse connects AI visibility to real business outcomes. Import traffic and conversion data from GA4 or Google Search Console, then map AI-driven sessions back to specific platforms, prompts, and landing pages.
+
+### Crawler Analytics
+Pulse parses server logs to track AI crawler activity: GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, Google-Extended, Applebot-Extended, CCBot, and Bingbot. It reconstructs crawler journeys across the site to show which pages bots visit, how deep they go, and how often they return.
+
+### Demand Explorer
+Pulse discovers what buyers are asking AI models in a given category. It supports importing measured volume data from GSC or SEMRush, or inferring demand through autocomplete-style expansion. Each query is tagged with its provenance class: measured, imported, inferred, or modeled.
+
+### Shopping Intelligence
+Pulse tracks product visibility across AI shopping agents: Amazon Rufus, GPT Search, and Perplexity Shop. Teams can ingest their product catalog and monitor which items surface when buyers ask shopping agents for recommendations.
+
+### Entity Graph Audit
+Pulse detects schema markup on a brand's website and grades entity clarity. It checks whether AI models can consistently identify the brand without confusing it with similarly named entities.
+
+### Content Gap Audit
+Pulse maps failed prompts to the content backlog, identifying the pages, case studies, and comparisons a brand needs to create so AI models have source material to cite.
+
+### AEO Writer
+Pulse generates optimized copy and JSON-LD schema from gap recommendations. Each output is structured for answer engines: question-first copy, page briefs, and ready-to-deploy markup.
 
 ### Evidence Matrix
 The Evidence Matrix provides a high-level visualization of capture status across surfaces and verification states, allowing teams to identify coverage gaps at a glance.
 
+### Desktop Deployment
+Pulse can be deployed as a local desktop workspace (Windows installer via Electron) for teams that need full control and want to use their own API keys. The desktop version runs the same Express server locally.
+
 ## Supporting Offers
 
 ### Persipica Pulse Subscription
-Pulse is delivered as a SaaS platform in three tiers:
-- Pulse Starter (£350/mo): 1 brand, 50 prompts, The Big 3 (GPT, Claude, Gemini).
-- Pulse Pro (£950/mo): 1 brand, 250 prompts, 10+ models, Shopping Intelligence.
-- Pulse Elite (£1,950/mo): 5-10 brands, unlimited prompts, custom agents.
+Pulse is delivered as a cloud SaaS platform or local desktop workspace in four tiers:
+- Pulse Starter (£99/mo): 1 brand, 50 prompts, GPT + Claude + Gemini + additional models, weekly runs, email alerting.
+- Pulse Professional (£299/mo): 3 brands, 250 prompts, all models, daily runs, Slack + email, Evidence Ledger, Shopping Intelligence, Demand Explorer.
+- Pulse Business (£599/mo): 10 brands, 1,000 prompts, full platform, Action Center, ROI Attribution, Crawler Analytics, up to 10 client workspaces.
+- Pulse Enterprise (custom): Unlimited brands and prompts, SSO/SCIM, white-label reporting, dedicated support, SLA, custom agent surfaces.
 
 ### AI Presence Audit
 A fixed-scope diagnostic engagement that benchmarks a brand's current AI visibility, maps competitor displacement across all major models, and delivers a written action plan with prioritised recommendations. Available in three tiers: Entry (£3,500), Standard (£5,500), and Enterprise (£8,000). Delivery ranges from two weeks to bespoke timelines depending on scope.

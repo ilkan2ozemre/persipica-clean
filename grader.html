@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free AI Visibility Grader | Check Your Brand in ChatGPT, Claude, Gemini | Persipica</title>
+  <meta name="description" content="Run a free AI visibility check. Test a single buyer prompt across ChatGPT, Claude, Gemini, and more to see whether your brand is mentioned, missed, or displaced by competitors." />
+  <meta name="keywords" content="AI visibility grader, free AI SEO check, ChatGPT brand check, Claude brand visibility, Gemini brand monitoring, AI search grader, GEO grader" />
+  <link rel="canonical" href="https://persipica.com/grader.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Free AI Visibility Grader | Persipica" />
+  <meta property="og:description" content="Test a single buyer prompt across AI models and see whether your brand is mentioned, missed, or displaced by competitors." />
+  <meta property="og:url" content="https://persipica.com/grader.html" />
+  <meta property="og:image" content="https://persipica.com/favicon-512-v2.png" />
+  <meta property="og:site_name" content="Persipica" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free AI Visibility Grader | Persipica" />
+  <meta name="twitter:description" content="Test a single buyer prompt across AI models and see whether your brand is mentioned, missed, or displaced." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "Free AI Visibility Grader",
+        "url": "https://persipica.com/grader.html",
+        "description": "Run a free AI visibility check across ChatGPT, Claude, and Gemini to see if your brand is recommended.",
+        "publisher": { "@id": "https://persipica.com/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://persipica.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Free Grader", "item": "https://persipica.com/grader.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512-v2.png" />
+  <link rel="apple-touch-icon" href="favicon-180-v2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=block" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .grader-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 3vw, 4rem);
+      align-items: start;
+      padding: var(--space-xl) 0;
+    }
+
+    @media (max-width: 860px) {
+      .grader-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .grader-copy .page-title {
+      font-size: var(--text-step-3);
+    }
+
+    .grader-copy .section-copy {
+      margin-top: 1rem;
+      max-width: 42ch;
+    }
+
+    .grader-proof {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .grader-proof li {
+      font-size: var(--text-step-0);
+      color: var(--text-muted);
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .grader-proof li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .grader-card {
+      background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(43, 108, 120, 0.13);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: 0 8px 32px rgba(16, 36, 48, 0.06), inset 0 1px 0 rgba(255,255,255,0.95);
+    }
+
+    .grader-card-head {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .grader-card-head .icon-wrap {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-bright));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .grader-card-head h2 {
+      font-family: "Cormorant Garamond";
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin: 0;
+      color: var(--navy);
+    }
+
+    .grader-card-head p {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin: 0;
+    }
+
+    .grader-field {
+      margin-bottom: 1rem;
+    }
+
+    .grader-field label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+
+    .grader-field input,
+    .grader-field textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 0.75rem;
+      font-size: 0.88rem;
+      color: var(--navy);
+      background: #fff;
+      transition: border-color 0.2s;
+    }
+
+    .grader-field input:focus,
+    .grader-field textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+    }
+
+    .grader-field textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .grader-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 0.85rem 1.5rem;
+      border: none;
+      border-radius: 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, var(--teal), var(--teal-bright));
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .grader-submit:hover {
+      opacity: 0.9;
+    }
+
+    .grader-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .grader-error {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      background: rgba(220, 38, 38, 0.06);
+      border: 1px solid rgba(220, 38, 38, 0.15);
+      color: #b91c1c;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .grader-results {
+      padding: var(--space-xl) 0 var(--space-2xl);
+    }
+
+    .grader-results-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .grader-results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .result-card {
+      background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(43, 108, 120, 0.13);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(16, 36, 48, 0.05);
+    }
+
+    .result-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .result-card-head span {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+    }
+
+    .result-card-head .status {
+      font-size: 0.72rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .result-card-head .status.positive {
+      color: #16a34a;
+    }
+
+    .result-card-head .status.negative {
+      color: var(--text-muted);
+    }
+
+    .result-card-head .status.error {
+      color: #b91c1c;
+    }
+
+    .result-card blockquote {
+      margin: 0;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      border-left: 3px solid var(--teal-wash);
+      padding-left: 1rem;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .result-card .sources {
+      margin-top: 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .result-card .sources span {
+      font-size: 0.68rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: var(--teal-wash);
+      color: var(--teal);
+      font-weight: 500;
+    }
+
+    .grader-cta-band {
+      margin-top: 2.5rem;
+      padding: 2.5rem;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(150deg, rgba(23,48,64,0.96), rgba(12,31,44,1));
+      text-align: center;
+      color: #fff;
+    }
+
+    .grader-cta-band h2 {
+      font-family: "Cormorant Garamond";
+      font-size: clamp(1.3rem, 2vw, 1.8rem);
+      font-weight: 500;
+      margin: 0 0 0.75rem;
+    }
+
+    .grader-cta-band p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 52ch;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+
+    .grader-cta-band .btn {
+      background: var(--teal-bright);
+      color: #fff;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="site-nav">
+      <div class="container site-nav-inner">
+        <a class="brand" href="index.html" aria-label="Persipica home">
+          <img src="title.png" alt="Persipica" />
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="grader.html" class="active">Free Grader</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <div class="grader-grid">
+            <div class="grader-copy reveal">
+              <p class="eyebrow">Free Pulse Grader</p>
+              <h1 class="page-title">Run one AI visibility check.</h1>
+              <p class="section-copy">
+                Test a single buyer prompt across the available model set and see whether your brand is mentioned, missed, or displaced by competitors.
+              </p>
+              <ul class="grader-proof">
+                <li>No account required</li>
+                <li>Raw answer excerpts from live AI models</li>
+                <li>See which sources AI cites</li>
+                <li>Upgrade to track history over time</li>
+              </ul>
+            </div>
+
+            <div class="grader-card reveal">
+              <div class="grader-card-head">
+                <div class="icon-wrap">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                  <p>Single prompt audit</p>
+                  <h2>Visibility snapshot</h2>
+                </div>
+              </div>
+
+              <div class="grader-field">
+                <label for="brand-input">Target brand / company</label>
+                <input type="text" id="brand-input" placeholder="e.g. Persipica" />
+              </div>
+
+              <div class="grader-field">
+                <label for="prompt-input">AI prompt / query</label>
+                <textarea id="prompt-input" placeholder="e.g. Which software is best for monitoring AI search visibility?"></textarea>
+              </div>
+
+              <button type="button" class="grader-submit" id="grader-submit">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.912 5.813a2 2 0 001.272 1.272L21 12l-5.813 1.912a2 2 0 00-1.272 1.272L12 21l-1.912-5.813a2 2 0 00-1.272-1.272L3 12l5.813-1.912a2 2 0 001.272-1.272L12 3z"/></svg>
+                Run visibility audit
+              </button>
+
+              <div class="grader-error" id="grader-error" style="display:none;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grader-results" id="results-section" style="display:none;">
+        <div class="container">
+          <div class="grader-results-header reveal">
+            <p class="eyebrow">Analysis results</p>
+            <h2 class="section-title">Raw model evidence.</h2>
+            <p class="section-copy" style="max-width:52ch; margin: 0.75rem auto 0;">
+              The free grader is a surface snapshot. A Pulse workspace stores prompt clusters, evidence ledgers, citations, actions, and trend history.
+            </p>
+          </div>
+
+          <div class="grader-results-grid" id="results-grid"></div>
+
+          <div class="grader-cta-band reveal">
+            <h2>Need more than a single prompt?</h2>
+            <p>Create a free workspace to track prompt clusters, model movement, citations, and remediation work over time.</p>
+            <a class="btn" href="https://pulse.persipica.com/login?mode=register">Start free workspace &rarr;</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer-inner">
+        <div class="footer-meta">
+          <img src="title.png" alt="Persipica" />
+          <p class="footer-copy">Run a free AI visibility check and see exactly where models mention or miss your brand.</p>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-group">
+            <p class="footer-heading">Navigate</p>
+            <div class="footer-links">
+              <a href="index.html">Home</a>
+              <a href="grader.html">Free Grader</a>
+              <a href="pricing.html">Pricing</a>
+              <a href="resources.html">Resources</a>
+              <a href="contact.html">Contact</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    (function() {
+      var API_BASE = 'https://pulse.persipica.com';
+      var brandInput = document.getElementById('brand-input');
+      var promptInput = document.getElementById('prompt-input');
+      var submitBtn = document.getElementById('grader-submit');
+      var errorEl = document.getElementById('grader-error');
+      var resultsSection = document.getElementById('results-section');
+      var resultsGrid = document.getElementById('results-grid');
+
+      function showError(msg) {
+        errorEl.textContent = msg;
+        errorEl.style.display = 'flex';
+      }
+
+      function hideError() {
+        errorEl.style.display = 'none';
+      }
+
+      function setLoading(loading) {
+        submitBtn.disabled = loading;
+        submitBtn.innerHTML = loading
+          ? '<span class="spinner"></span> Analyzing responses'
+          : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.912 5.813a2 2 0 001.272 1.272L21 12l-5.813 1.912a2 2 0 00-1.272 1.272L12 21l-1.912-5.813a2 2 0 00-1.272-1.272L3 12l5.813-1.912a2 2 0 001.272-1.272L12 3z"/></svg> Run visibility audit';
+      }
+
+      function renderResults(results) {
+        resultsGrid.innerHTML = '';
+        results.forEach(function(res) {
+          var card = document.createElement('article');
+          card.className = 'result-card reveal';
+
+          var statusClass = res.error ? 'error' : (res.mentioned ? 'positive' : 'negative');
+          var statusText = res.error ? 'Failed' : (res.mentioned ? 'Brand mentioned' : 'Not mentioned');
+          var statusIcon = res.error
+            ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>'
+            : (res.mentioned
+              ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>'
+              : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>');
+
+          var body = '';
+          if (res.error) {
+            body = '<p style="font-size:0.82rem; color:#b91c1c;">Error: ' + escapeHtml(res.error) + '</p>';
+          } else {
+            body = '<blockquote>' + escapeHtml(res.answer) + '</blockquote>';
+            if (res.citations && res.citations.length > 0) {
+              body += '<div class="sources">';
+              res.citations.forEach(function(c) {
+                body += '<span title="' + escapeHtml(c.url || '') + '">' + escapeHtml(c.domain) + '</span>';
+              });
+              body += '</div>';
+            }
+          }
+
+          card.innerHTML =
+            '<div class="result-card-head">' +
+              '<span>' + escapeHtml(res.provider) + '</span>' +
+              '<span class="status ' + statusClass + '">' + statusIcon + ' ' + statusText + '</span>' +
+            '</div>' +
+            body;
+
+          resultsGrid.appendChild(card);
+        });
+
+        resultsSection.style.display = 'block';
+        resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+      }
+
+      submitBtn.addEventListener('click', function() {
+        var brand = brandInput.value.trim();
+        var prompt = promptInput.value.trim();
+
+        hideError();
+
+        if (!brand || !prompt) {
+          showError('Please provide both a brand name and a prompt.');
+          return;
+        }
+
+        setLoading(true);
+
+        fetch(API_BASE + '/api/grader/single', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt: prompt, brand: brand })
+        })
+        .then(function(res) {
+          return res.json().then(function(data) { return { ok: res.ok, data: data }; });
+        })
+        .then(function(result) {
+          setLoading(false);
+          if (!result.ok) {
+            showError(result.data.error || 'Failed to run check');
+            return;
+          }
+          renderResults(result.data.results);
+        })
+        .catch(function(err) {
+          setLoading(false);
+          showError(err.message || 'Network error. Please try again.');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
