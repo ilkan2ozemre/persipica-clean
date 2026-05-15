@@ -3399,7 +3399,6 @@ textarea {
 
   .hero {
     padding: 1.5rem 0 1rem;
-    min-height: 100svh;
   }
 
   .hero-copy-wrap,
@@ -3719,6 +3718,10 @@ textarea {
 
   .section-header {
     gap: 0.6rem;
+  }
+
+  .report-showcase {
+    margin: 1.5rem 0;
   }
 
   .cards-grid,

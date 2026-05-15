@@ -63,7 +63,8 @@
     }
 
     .grader-copy .page-title {
-      font-size: var(--text-step-3);
+      font-size: var(--text-step-4);
+      max-width: none;
     }
 
     .grader-copy .section-copy {
@@ -568,7 +569,7 @@
         })
         .catch(function(err) {
           setLoading(false);
-          showError(err.message || 'Network error. Please try again.');
+          showError('Unable to reach the grading service. Please try again in a moment.');
         });
       });
     })();
