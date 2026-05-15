@@ -53,12 +53,27 @@
       grid-template-columns: 1fr 1fr;
       gap: clamp(2rem, 3vw, 4rem);
       align-items: start;
-      padding: var(--space-xl) 0;
     }
 
     @media (max-width: 860px) {
       .grader-grid {
         grid-template-columns: 1fr;
+      }
+
+      .grader-copy {
+        text-align: center;
+      }
+
+      .grader-copy .page-title {
+        margin-inline: auto;
+      }
+
+      .grader-copy .section-copy {
+        margin-inline: auto;
+      }
+
+      .grader-proof {
+        align-items: center;
       }
     }
 
