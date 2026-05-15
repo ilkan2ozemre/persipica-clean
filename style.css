@@ -272,7 +272,7 @@ textarea {
 }
 
 .btn-secondary {
-  background: rgba(255, 253, 250, 0.96);
+  background: #ffffff;
   border-color: rgba(23, 48, 64, 0.26);
   color: var(--navy);
 }
@@ -1798,7 +1798,6 @@ textarea {
 .detail-card:hover,
 .pricing-card:hover,
 .audit-card:hover,
-.contact-card:hover,
 .advisory-card:hover,
 .audit-feature-item:hover {
   transform: translateY(-8px);
@@ -3800,7 +3799,6 @@ textarea {
 .detail-card,
 .pricing-card,
 .audit-card,
-.contact-card,
 .advisory-card,
 .audit-feature-item {
   transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1),
