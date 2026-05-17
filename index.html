@@ -12,10 +12,13 @@
   <meta property="og:description" content="Persipica Pulse monitors AI visibility across ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and more. Track recommendations, verify citations, manage optimization actions, and attribute revenue. Cloud SaaS or local desktop." />
   <meta property="og:url" content="https://persipica.com/" />
   <meta property="og:image" content="https://persipica.com/favicon-512-v2.png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
   <meta property="og:site_name" content="Persipica" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Persipica Pulse: Find, Fix, and Rank Higher in AI Search" />
   <meta name="twitter:description" content="Persipica Pulse monitors AI visibility across ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and more. Track recommendations, verify citations, manage optimization actions, and attribute revenue." />
+  <meta name="twitter:image" content="https://persipica.com/favicon-512-v2.png" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <script type="application/ld+json">
   {
@@ -70,9 +73,15 @@
         "@id": "https://persipica.com/#website",
         "url": "https://persipica.com/",
         "name": "Persipica",
+        "alternateName": "Persipica Pulse",
         "description": "AI SEO and brand visibility tracking across ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and more.",
         "publisher": { "@id": "https://persipica.com/#organization" },
-        "inLanguage": "en"
+        "inLanguage": "en",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://persipica.com/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
       },
       {
         "@type": "WebPage",
@@ -135,14 +144,14 @@
         }
       },
       {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://persipica.com/"
-          }
+        "@type": "SiteNavigationElement",
+        "name": "Main navigation",
+        "url": "https://persipica.com/",
+        "hasPart": [
+          { "@type": "WebPage", "name": "Free AI Visibility Grader", "url": "https://persipica.com/grader.html" },
+          { "@type": "WebPage", "name": "Pricing", "url": "https://persipica.com/pricing.html" },
+          { "@type": "WebPage", "name": "Resources", "url": "https://persipica.com/resources.html" },
+          { "@type": "WebPage", "name": "Contact", "url": "https://persipica.com/contact.html" }
         ]
       }
     ]
@@ -152,6 +161,7 @@
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "name": "Frequently asked questions about AI SEO and GEO",
     "mainEntity": [
       {
         "@type": "Question",
@@ -824,7 +834,7 @@
       </section>
 
       <!-- 9b. FAQ -->
-      <section class="section" id="faq" itemscope itemtype="https://schema.org/FAQPage">
+      <section class="section" id="faq">
         <div class="container">
           <div class="section-header reveal" style="text-align: center; justify-items: center;">
             <h2 class="section-title">Frequently asked questions about AI SEO and GEO.</h2>
@@ -833,85 +843,85 @@
 
           <div class="faq-list reveal" style="max-width: 760px; margin: 2rem auto 0; display: flex; flex-direction: column; gap: 0.75rem;">
 
-            <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="padding: 1.25rem 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);">
-              <summary itemprop="name" style="cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--navy); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+            <details class="faq-item" style="padding: 1.25rem 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);">
+              <summary style="cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--navy); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
                 What is GEO, AEO, and AI SEO, and are they the same thing?
                 <span aria-hidden="true" style="font-size: 1.5rem; color: var(--teal); font-weight: 300;">+</span>
               </summary>
-              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" style="margin-top: 0.75rem;">
-                <div itemprop="text" style="color: var(--text-muted); line-height: 1.7;">
+              <div style="margin-top: 0.75rem;">
+                <div style="color: var(--text-muted); line-height: 1.7;">
                   <p>GEO (generative engine optimization), AEO (answer engine optimization), and AI SEO are overlapping names for the same emerging discipline: making sure your brand is recommended when buyers ask AI assistants like ChatGPT, Claude, or Gemini for the best tool, vendor, or product in your category. The mechanics differ from traditional SEO. AI systems weigh citations, third-party reviews, structured data, and authoritative content sources rather than just backlinks and on-page keywords.</p>
                 </div>
               </div>
             </details>
 
-            <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="padding: 1.25rem 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);">
-              <summary itemprop="name" style="cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--navy); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+            <details class="faq-item" style="padding: 1.25rem 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);">
+              <summary style="cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--navy); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
                 How does Persipica Pulse track AI brand visibility?
                 <span aria-hidden="true" style="font-size: 1.5rem; color: var(--teal); font-weight: 300;">+</span>
               </summary>
-              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" style="margin-top: 0.75rem;">
-                <div itemprop="text" style="color: var(--text-muted); line-height: 1.7;">
+              <div style="margin-top: 0.75rem;">
+                <div style="color: var(--text-muted); line-height: 1.7;">
                   <p>Persipica Pulse runs structured prompt sets across ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and other supported models on a scheduled cadence. Each run records the exact prompt, the AI response, and the verified citation sources behind every recommendation. Pulse then scores your brand across six buyer-journey stages (Awareness, Discovery, Comparison, Consideration, Buying-intent, and Brand), tracks competitor share of voice, estimates revenue at risk when visibility drops, and alerts your team when scores move. The platform also includes an Action Center for turning recommendations into tracked work items, ROI Attribution for connecting visibility to real traffic and conversions, and Crawler Analytics for monitoring how AI bots interact with your site. No sampling, no estimates: every score links back to the raw evidence.</p>
                 </div>
               </div>
             </details>
 
-            <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="padding: 1.25rem 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);">
-              <summary itemprop="name" style="cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--navy); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+            <details class="faq-item" style="padding: 1.25rem 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);">
+              <summary style="cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--navy); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
                 How is GEO different from traditional SEO?
                 <span aria-hidden="true" style="font-size: 1.5rem; color: var(--teal); font-weight: 300;">+</span>
               </summary>
-              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" style="margin-top: 0.75rem;">
-                <div itemprop="text" style="color: var(--text-muted); line-height: 1.7;">
+              <div style="margin-top: 0.75rem;">
+                <div style="color: var(--text-muted); line-height: 1.7;">
                   <p>Traditional SEO optimises for ranked links on Google's search results page. GEO optimises for being cited inside an AI-generated answer, where there is no list of ten blue links, only a recommendation. The signals that matter shift accordingly: third-party review presence (G2, Capterra, TrustRadius), community mentions (Reddit, Hacker News), structured data and llms.txt files, and authoritative editorial coverage tend to weigh more heavily than backlinks alone. Buyer journeys also collapse: a user can go from question to a single recommended vendor in one prompt, with no comparison click-through.</p>
                 </div>
               </div>
             </details>
 
-            <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="padding: 1.25rem 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);">
-              <summary itemprop="name" style="cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--navy); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+            <details class="faq-item" style="padding: 1.25rem 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);">
+              <summary style="cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--navy); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
                 Which AI models does Persipica monitor?
                 <span aria-hidden="true" style="font-size: 1.5rem; color: var(--teal); font-weight: 300;">+</span>
               </summary>
-              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" style="margin-top: 0.75rem;">
-                <div itemprop="text" style="color: var(--text-muted); line-height: 1.7;">
+              <div style="margin-top: 0.75rem;">
+                <div style="color: var(--text-muted); line-height: 1.7;">
                   <p>Persipica Pulse natively supports ChatGPT (OpenAI), Claude (Anthropic), Gemini (Google), Perplexity, DeepSeek, Grok (xAI), Mistral, Google AI Mode, Microsoft Copilot, and Meta AI. It also includes specialized shopping intelligence for Amazon Rufus, GPT Search, and Perplexity Shop. Pulse can be deployed as a cloud SaaS platform or as a local desktop workspace for teams that need full control and want to use their own API keys. Each Pulse run can target one model or run the same prompt set across the fleet to compare how recommendations differ. Because models are versioned, every run records the model identifier so you can attribute score changes to specific model updates rather than your own content changes.</p>
                 </div>
               </div>
             </details>
 
-            <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="padding: 1.25rem 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);">
-              <summary itemprop="name" style="cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--navy); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+            <details class="faq-item" style="padding: 1.25rem 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);">
+              <summary style="cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--navy); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
                 What does an AI Presence Audit include?
                 <span aria-hidden="true" style="font-size: 1.5rem; color: var(--teal); font-weight: 300;">+</span>
               </summary>
-              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" style="margin-top: 0.75rem;">
-                <div itemprop="text" style="color: var(--text-muted); line-height: 1.7;">
+              <div style="margin-top: 0.75rem;">
+                <div style="color: var(--text-muted); line-height: 1.7;">
                   <p>An AI Presence Audit is a fixed-scope diagnostic engagement that runs hundreds of real buyer prompts across ChatGPT, Claude, and Gemini to map where your brand currently appears, identify which competitors are taking your slot, analyse the citation sources AI is using to justify its recommendations, and deliver a written action plan with prioritised next steps. Available in Entry (&pound;3,500), Standard (&pound;5,500), and Enterprise (&pound;8,000) tiers. <a href="https://learn.persipica.com/what-an-audit-includes.html" target="_blank" rel="noopener">Read the full audit scope breakdown</a>.</p>
                 </div>
               </div>
             </details>
 
-            <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="padding: 1.25rem 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);">
-              <summary itemprop="name" style="cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--navy); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+            <details class="faq-item" style="padding: 1.25rem 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);">
+              <summary style="cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--navy); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
                 How do I know if my brand has an AI visibility problem?
                 <span aria-hidden="true" style="font-size: 1.5rem; color: var(--teal); font-weight: 300;">+</span>
               </summary>
-              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" style="margin-top: 0.75rem;">
-                <div itemprop="text" style="color: var(--text-muted); line-height: 1.7;">
+              <div style="margin-top: 0.75rem;">
+                <div style="color: var(--text-muted); line-height: 1.7;">
                   <p>The fastest signal is to ask ChatGPT, Claude, and Gemini the buyer prompts your prospects would use, like "best [category] tool for [use case]," "top [category] vendors in [region]," or "alternatives to [competitor]," and see if your brand is mentioned. If competitors appear and you do not, or you appear inconsistently across models, you have a quantifiable AI SEO gap. Persipica's <a href="https://learn.persipica.com/ai-visibility-roi-calculator.html" target="_blank" rel="noopener">AI visibility ROI calculator</a> models the pipeline cost of that gap.</p>
                 </div>
               </div>
             </details>
 
-            <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="padding: 1.25rem 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);">
-              <summary itemprop="name" style="cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--navy); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+            <details class="faq-item" style="padding: 1.25rem 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);">
+              <summary style="cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--navy); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
                 How is Persipica different from Profound, Peec AI, Goodie AI, or Conductor?
                 <span aria-hidden="true" style="font-size: 1.5rem; color: var(--teal); font-weight: 300;">+</span>
               </summary>
-              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" style="margin-top: 0.75rem;">
-                <div itemprop="text" style="color: var(--text-muted); line-height: 1.7;">
+              <div style="margin-top: 0.75rem;">
+                <div style="color: var(--text-muted); line-height: 1.7;">
                   <p>Persipica focuses on evidentiary depth: every score is backed by the exact prompt, full AI response, and verified citation sources. Profound broadens into agent analytics; Peec AI prioritises analytics simplicity; Goodie AI bundles content execution via an AEO writer; Conductor is an enterprise SEO suite extending into AI search. Persipica trades breadth for the audit trail teams need to justify visibility shifts to leadership. See the full breakdown on the <a href="persipica-vs-profound.html">Profound</a>, <a href="persipica-vs-peec-ai.html">Peec AI</a>, <a href="persipica-vs-goodie-ai.html">Goodie AI</a>, and <a href="persipica-vs-conductor.html">Conductor</a> comparison pages.</p>
                 </div>
               </div>
