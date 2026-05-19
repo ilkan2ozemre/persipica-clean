@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Message Received | Persipica</title>
-  <meta name="description" content="Thanks for reaching out to Persipica. We read every message personally and aim to reply within one business day." />
-  <link rel="canonical" href="https://persipica.com/thank-you.html" />
+  <title>Page Not Found | Persipica</title>
+  <meta name="description" content="The page you are looking for does not exist or has moved." />
   <meta name="robots" content="noindex, follow" />
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FRQ1EZ52E"></script>
@@ -24,12 +23,12 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=block" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    .thank-you-section {
+    .not-found-section {
       min-height: 60vh;
       display: flex;
       align-items: center;
     }
-    .thank-you-card {
+    .not-found-card {
       background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
@@ -41,32 +40,23 @@
       margin: 0 auto;
       text-align: center;
     }
-    .thank-you-card .checkmark {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: rgba(43, 108, 120, 0.10);
-      margin-bottom: 1.5rem;
+    .not-found-code {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 600;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 1rem;
     }
-    .thank-you-card .checkmark svg {
-      width: 26px;
-      height: 26px;
-      stroke: #2b6c78;
-      stroke-width: 2.5;
-      fill: none;
-    }
-    .thank-you-card h1 {
-      margin-bottom: 0.75rem;
-    }
-    .thank-you-card p {
+    .not-found-card p {
       color: var(--text-muted, #5a7080);
       margin-bottom: 1rem;
       line-height: 1.7;
     }
-</style>
+    .not-found-card .actions {
+      margin-top: 1.5rem;
+    }
+  </style>
 </head>
 <body>
   <div class="page">
@@ -89,17 +79,16 @@
     </header>
 
     <main>
-      <section class="thank-you-section">
+      <section class="not-found-section">
         <div class="container">
-          <div class="thank-you-card reveal">
-            <div class="checkmark">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
+          <div class="not-found-card reveal">
+            <div class="not-found-code">404</div>
+            <h1 class="page-title">Page not found.</h1>
+            <p>The page you are looking for does not exist or has been moved. Try one of these instead.</p>
+            <div class="actions">
+              <a class="btn" href="index.html">Back to home</a>
+              <a class="btn btn-secondary" href="contact.html">Contact us</a>
             </div>
-            <h1 class="page-title">Message received.</h1>
-            <p>We read every request personally and aim to reply within one business day. If you included your brand and competitors, we may already have a read for you when we write back.</p>
-            <p>In the meantime, explore how Persipica works.</p>
           </div>
         </div>
       </section>
@@ -109,7 +98,7 @@
       <div class="container site-footer-inner">
         <div class="footer-meta">
           <img src="title.png" alt="Persipica" />
-          <p class="footer-copy">Every conversation starts with your brand, your category, and where AI is missing you.</p>
+          <p class="footer-copy">Know whether AI recommends your brand before your competitors take the spot.</p>
         </div>
         <div class="footer-nav">
           <div class="footer-group">
