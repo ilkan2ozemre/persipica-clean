@@ -60,7 +60,7 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     .features-hero {
-      padding: 5rem 0 2rem;
+      padding: 5rem 0 3rem;
       text-align: center;
     }
 
@@ -80,37 +80,54 @@
       max-width: 52ch;
     }
 
-    .feature-list {
-      max-width: 760px;
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      max-width: var(--content);
       margin: 0 auto;
+    }
+    .feature-card {
       display: flex;
       flex-direction: column;
       gap: 2.5rem;
+      background: var(--surface-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: none;
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.19, 1, 0.22, 1), border-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
-
-    .feature-entry {
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 2.5rem;
+    .feature-card:hover {
+      border-color: var(--teal-bright);
     }
-
-    .feature-entry:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
+    .feature-graphic-wrapper {
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(135deg, var(--sand) 0%, rgba(215, 236, 240, 0.3) 100%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
     }
-
-    .feature-entry h3 {
+    .feature-card h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.3rem, 2vw, 1.6rem);
+      font-size: clamp(1.4rem, 2vw, 1.8rem);
       font-weight: 500;
       color: var(--navy);
-      margin: 0 0 0.5rem;
-      line-height: 1.3;
+      margin: 0 0 0.75rem;
+      line-height: 1.2;
     }
-
-    .feature-entry p {
+    .feature-card p {
       font-size: var(--text-step-0);
       color: var(--text-muted);
-      line-height: 1.7;
+      line-height: 1.6;
       margin: 0;
     }
   </style>
@@ -188,77 +205,455 @@
         </div>
       </section>
 
-      <!-- Feature list -->
+      <!-- Feature grid -->
       <section class="section">
         <div class="container">
-          <div class="feature-list">
+          <div class="feature-grid">
 
-            <div class="feature-entry reveal">
+            <div class="feature-card reveal">
+              <div class="feature-graphic-wrapper">
+                <svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                  <defs>
+                    <pattern id="grid-evidence" width="20" height="20" patternUnits="userSpaceOnUse">
+                      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(23, 48, 64, 0.04)" stroke-width="1"/>
+                    </pattern>
+                    <linearGradient id="grad-blue" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#3b82f6"/>
+                      <stop offset="100%" stop-color="#1d4ed8"/>
+                    </linearGradient>
+                    <linearGradient id="grad-navy" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#173040"/>
+                      <stop offset="100%" stop-color="#0a151c"/>
+                    </linearGradient>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#grid-evidence)"/>
+                  <rect x="15" y="20" width="130" height="36" rx="8" fill="url(#grad-blue)" filter="drop-shadow(0 4px 6px rgba(59, 130, 246, 0.15))"/>
+                  <text x="25" y="36" fill="#ffffff" font-family="Archivo" font-size="9" font-weight="500">Q: Best CRM for tech scaleup?</text>
+                  <text x="25" y="48" fill="rgba(255, 255, 255, 0.7)" font-family="Archivo" font-size="8">ChatGPT • 0.2s ago</text>
+                  <path d="M 80 56 C 80 90, 160 90, 160 56" fill="none" stroke="rgba(43, 108, 120, 0.2)" stroke-width="2" stroke-dasharray="4 4"/>
+                  <rect x="160" y="35" width="145" height="42" rx="8" fill="url(#grad-navy)" filter="drop-shadow(0 4px 10px rgba(16, 36, 48, 0.15))"/>
+                  <text x="170" y="50" fill="#ffffff" font-family="Archivo" font-size="9" font-weight="500">"We recommend Acme CRM..."</text>
+                  <rect x="170" y="58" width="55" height="12" rx="3" fill="#e8d09a" opacity="0.9"/>
+                  <text x="174" y="67" fill="#173040" font-family="Archivo" font-size="7" font-weight="600">Source: [1]</text>
+                  <circle cx="238" cy="95" r="16" fill="#8de3b7" fill-opacity="0.2" stroke="#8de3b7" stroke-width="2"/>
+                  <path d="M 233 95 L 236 98 L 243 91" stroke="#10a37f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <text x="180" y="125" fill="#3d535e" font-family="Archivo" font-size="9" font-weight="600">Citations Verified</text>
+                  <text x="180" y="135" fill="#10a37f" font-family="Archivo" font-size="8" font-weight="500">100% Truth Score</text>
+                </svg>
+              </div>
               <h3>Evidence record</h3>
               <p>Every time Pulse asks an AI assistant about your category, it saves the exact question, the full answer, and any sources the AI cited. When a score changes, you can see exactly what the AI said and why. No summaries, no estimates.</p>
             </div>
 
-            <div class="feature-entry reveal">
+            <div class="feature-card reveal">
+              <div class="feature-graphic-wrapper">
+                <svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                  <defs>
+                    <pattern id="grid-score" width="20" height="20" patternUnits="userSpaceOnUse">
+                      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(23, 48, 64, 0.04)" stroke-width="1"/>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#grid-score)"/>
+                  <text x="15" y="22" fill="#3d535e" font-family="Archivo" font-size="8" font-weight="600">MENTIONED</text>
+                  <rect x="80" y="15" width="100" height="8" rx="4" fill="rgba(23, 48, 64, 0.08)"/>
+                  <rect x="80" y="15" width="85" height="8" rx="4" fill="#8de3b7"/>
+                  <text x="15" y="42" fill="#3d535e" font-family="Archivo" font-size="8" font-weight="600">RANK POSITION</text>
+                  <rect x="80" y="35" width="100" height="8" rx="4" fill="rgba(23, 48, 64, 0.08)"/>
+                  <rect x="80" y="35" width="55" height="8" rx="4" fill="#ff7f7f"/>
+                  <text x="15" y="62" fill="#3d535e" font-family="Archivo" font-size="8" font-weight="600">SENTIMENT</text>
+                  <rect x="80" y="55" width="100" height="8" rx="4" fill="rgba(23, 48, 64, 0.08)"/>
+                  <rect x="80" y="55" width="90" height="8" rx="4" fill="#3b82f6"/>
+                  <text x="15" y="82" fill="#3d535e" font-family="Archivo" font-size="8" font-weight="600">CONSISTENCY</text>
+                  <rect x="80" y="75" width="100" height="8" rx="4" fill="rgba(23, 48, 64, 0.08)"/>
+                  <rect x="80" y="75" width="70" height="8" rx="4" fill="#f59e0b"/>
+                  <text x="15" y="102" fill="#3d535e" font-family="Archivo" font-size="8" font-weight="600">SOURCE QUALITY</text>
+                  <rect x="80" y="95" width="100" height="8" rx="4" fill="rgba(23, 48, 64, 0.08)"/>
+                  <rect x="80" y="95" width="80" height="8" rx="4" fill="#2b6c78"/>
+                  <circle cx="245" cy="60" r="32" stroke="rgba(43, 108, 120, 0.1)" stroke-width="6"/>
+                  <path d="M 245 28 A 32 32 0 1 1 216 75" fill="none" stroke="#2b6c78" stroke-width="6" stroke-linecap="round"/>
+                  <text x="245" y="64" text-anchor="middle" fill="#173040" font-family="Archivo" font-size="14" font-weight="700">82</text>
+                  <text x="245" y="74" text-anchor="middle" fill="#3d535e" font-family="Archivo" font-size="7" font-weight="500">SCORE</text>
+                  <rect x="215" y="105" width="60" height="15" rx="4" fill="#8de3b7" fill-opacity="0.2" stroke="#8de3b7"/>
+                  <text x="245" y="115" text-anchor="middle" fill="#10a37f" font-family="Archivo" font-size="8" font-weight="600">High Trust</text>
+                </svg>
+              </div>
               <h3>Visibility scoring</h3>
               <p>Pulse scores your brand across six dimensions: whether you were mentioned, your rank in the answer, how strongly you were recommended, the sentiment of the mention, the quality of sources cited, and how consistent your visibility is across different AI models. Each dimension is weighted so the final score reflects what matters most to buyers.</p>
             </div>
 
-            <div class="feature-entry reveal">
+            <div class="feature-card reveal">
+              <div class="feature-graphic-wrapper">
+                <svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                  <defs>
+                    <linearGradient id="grad-editor" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#1e293b"/>
+                      <stop offset="100%" stop-color="#0f172a"/>
+                    </linearGradient>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#grad-editor)" rx="4"/>
+                  <rect width="100%" height="18" fill="#111827" rx="4"/>
+                  <circle cx="12" cy="9" r="3" fill="#ff5f56"/>
+                  <circle cx="20" cy="9" r="3" fill="#ffbd2e"/>
+                  <circle cx="28" cy="9" r="3" fill="#27c93f"/>
+                  <text x="160" y="12" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="7">schema-org-output.json</text>
+                  <text x="15" y="38" fill="#f87171" font-family="monospace" font-size="8">"@context": <tspan fill="#38bdf8">"https://schema.org"</tspan>,</text>
+                  <text x="15" y="50" fill="#f87171" font-family="monospace" font-size="8">"@type": <tspan fill="#38bdf8">"Organization"</tspan>,</text>
+                  <text x="15" y="62" fill="#f87171" font-family="monospace" font-size="8">"name": <tspan fill="#38bdf8">"Acme Cloud"</tspan>,</text>
+                  <text x="15" y="74" fill="#f87171" font-family="monospace" font-size="8">"knowsAbout": <tspan fill="#facc15">[</tspan></text>
+                  <text x="30" y="86" fill="#38bdf8" font-family="monospace" font-size="8">"AI Visibility", "GEO"</text>
+                  <text x="15" y="98" fill="#facc15" font-family="monospace" font-size="8">]</text>
+                  <rect x="180" y="32" width="125" height="100" rx="8" fill="#ffffff" filter="drop-shadow(0 8px 16px rgba(0,0,0,0.3))"/>
+                  <rect x="180" y="32" width="125" height="24" rx="8" fill="#f1f5f9"/>
+                  <text x="190" y="47" fill="#0f172a" font-family="Archivo" font-size="9" font-weight="600">AI Writer Engine</text>
+                  <text x="190" y="72" fill="#64748b" font-family="Archivo" font-size="8">Generated 3 target briefs</text>
+                  <text x="190" y="84" fill="#64748b" font-family="Archivo" font-size="8">Ready for WordPress</text>
+                  <rect x="190" y="98" width="105" height="22" rx="4" fill="#def7ec" stroke="#8de3b7" stroke-width="1"/>
+                  <text x="242" y="112" text-anchor="middle" fill="#03543f" font-family="Archivo" font-size="8" font-weight="700">✓ OPTIMISED (+45%)</text>
+                </svg>
+              </div>
               <h3>Content writer</h3>
               <p>When Pulse finds a gap in your visibility, the content writer generates pages, briefs, and structured data designed to help AI assistants cite you. The output is built from the specific gaps Pulse found for your brand, not from generic templates.</p>
             </div>
 
-            <div class="feature-entry reveal">
+            <div class="feature-card reveal">
+              <div class="feature-graphic-wrapper">
+                <svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                  <defs>
+                    <pattern id="grid-shop" width="20" height="20" patternUnits="userSpaceOnUse">
+                      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(23, 48, 64, 0.04)" stroke-width="1"/>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#grid-shop)"/>
+                  <rect x="12" y="20" width="90" height="110" rx="8" fill="#ffffff" stroke="rgba(23, 48, 64, 0.1)" filter="drop-shadow(0 4px 8px rgba(16, 36, 48, 0.04))"/>
+                  <rect x="22" y="30" width="70" height="35" rx="4" fill="#f0f7f9"/>
+                  <path d="M 57 42 C 60 42, 62 45, 60 48 L 54 48 C 52 45, 54 42, 57 42 Z" fill="none" stroke="#2b6c78" stroke-width="1.5"/>
+                  <rect x="50" y="47" width="14" height="12" rx="2" fill="#2b6c78"/>
+                  <text x="22" y="80" fill="#173040" font-family="Archivo" font-size="8" font-weight="600">Amazon Rufus</text>
+                  <text x="22" y="92" fill="#ff9900" font-family="Archivo" font-size="9" font-weight="700">Rank #1</text>
+                  <path d="M 22 102 L 24 106 L 28 106 L 25 109 L 26 113 L 22 111 L 18 113 L 19 109 L 16 106 L 20 106 Z" fill="#ffb400"/>
+                  <text x="32" y="110" fill="#3d535e" font-family="Archivo" font-size="7" font-weight="500">4.8 (120)</text>
+                  <rect x="115" y="20" width="90" height="110" rx="8" fill="#ffffff" stroke="rgba(23, 48, 64, 0.1)" filter="drop-shadow(0 4px 8px rgba(16, 36, 48, 0.04))"/>
+                  <rect x="125" y="30" width="70" height="35" rx="4" fill="#f0f7f9"/>
+                  <circle cx="160" cy="47" r="10" fill="#10a37f" fill-opacity="0.1"/>
+                  <path d="M 160 41 L 163 46 L 168 46 L 164 49 L 166 54 L 160 51 L 154 54 L 156 49 L 152 46 L 157 46 Z" fill="#10a37f"/>
+                  <text x="125" y="80" fill="#173040" font-family="Archivo" font-size="8" font-weight="600">GPT Search</text>
+                  <text x="125" y="92" fill="#10a37f" font-family="Archivo" font-size="9" font-weight="700">Rank #2</text>
+                  <path d="M 125 102 L 127 106 L 131 106 L 128 109 L 129 113 L 125 111 L 121 113 L 122 109 L 119 106 L 123 106 Z" fill="#ffb400"/>
+                  <text x="135" y="110" fill="#3d535e" font-family="Archivo" font-size="7" font-weight="500">4.5 (82)</text>
+                  <rect x="218" y="20" width="90" height="110" rx="8" fill="#ffffff" stroke="rgba(43, 108, 120, 0.2)" stroke-width="1.5" filter="drop-shadow(0 6px 12px rgba(43, 108, 120, 0.1))"/>
+                  <rect x="228" y="30" width="70" height="35" rx="4" fill="#e2f1f3"/>
+                  <circle cx="263" cy="47" r="8" fill="#2b6c78"/>
+                  <path d="M 261 45 L 265 49 M 265 45 L 261 49" stroke="#ffffff" stroke-width="1.5"/>
+                  <text x="228" y="80" fill="#173040" font-family="Archivo" font-size="8" font-weight="600">Perplexity Shop</text>
+                  <text x="228" y="92" fill="#2b6c78" font-family="Archivo" font-size="9" font-weight="700">Rank #1</text>
+                  <path d="M 228 102 L 230 106 L 234 106 L 231 109 L 232 113 L 228 111 L 224 113 L 225 109 L 222 106 L 226 106 Z" fill="#ffb400"/>
+                  <text x="238" y="110" fill="#3d535e" font-family="Archivo" font-size="7" font-weight="500">4.9 (240)</text>
+                </svg>
+              </div>
               <h3>Shopping visibility</h3>
               <p>When buyers ask Amazon Rufus, ChatGPT, or Perplexity "what's the best [product] for [use case]?", does your product show up? This feature tracks whether your products appear in AI shopping recommendations and how that changes over time.</p>
             </div>
 
-            <div class="feature-entry reveal">
+            <div class="feature-card reveal">
+              <div class="feature-graphic-wrapper">
+                <svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                  <defs>
+                    <linearGradient id="grad-crawler" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#102430"/>
+                      <stop offset="100%" stop-color="#173040"/>
+                    </linearGradient>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#grad-crawler)" rx="4"/>
+                  <line x1="30" y1="120" x2="290" y2="120" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                  <line x1="30" y1="30" x2="30" y2="120" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                  <line x1="30" y1="90" x2="290" y2="90" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                  <line x1="30" y1="60" x2="290" y2="60" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                  <path d="M 30 110 Q 70 80, 110 50 T 190 90 T 270 40 T 290 35" fill="none" stroke="#8de3b7" stroke-width="2.5"/>
+                  <path d="M 30 95 Q 80 115, 130 65 T 230 45 T 290 85" fill="none" stroke="#f59e0b" stroke-width="2"/>
+                  <path d="M 30 75 Q 90 40, 150 100 T 270 60 T 290 105" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
+                  <circle cx="190" cy="90" r="5" fill="#ff7f7f"/>
+                  <circle cx="190" cy="90" r="10" stroke="#ff7f7f" stroke-width="1" stroke-dasharray="2 2"/>
+                  <text x="200" y="93" fill="#ff7f7f" font-family="Archivo" font-size="7" font-weight="600">GPTBot Spike</text>
+                  <rect x="230" y="10" width="80" height="24" rx="4" fill="rgba(255, 255, 255, 0.08)"/>
+                  <circle cx="240" cy="22" r="3" fill="#8de3b7"/>
+                  <text x="248" y="25" fill="#ffffff" font-family="Archivo" font-size="7">GPTBot: Active</text>
+                </svg>
+              </div>
               <h3>AI crawler tracking</h3>
               <p>AI companies send bots to crawl websites and use that content to inform their models. Pulse parses your server logs and shows you which AI bots visit your site, which pages they read, how deep they go, and how often they return.</p>
             </div>
 
-            <div class="feature-entry reveal">
+            <div class="feature-card reveal">
+              <div class="feature-graphic-wrapper">
+                <svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                  <defs>
+                    <pattern id="grid-task" width="20" height="20" patternUnits="userSpaceOnUse">
+                      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(23, 48, 64, 0.04)" stroke-width="1"/>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#grid-task)"/>
+                  <rect x="15" y="15" width="85" height="120" rx="6" fill="#ffffff" stroke="rgba(23,48,64,0.08)"/>
+                  <rect x="15" y="15" width="85" height="24" rx="6" fill="#fef2f2"/>
+                  <circle cx="28" cy="27" r="4" fill="#ff7f7f"/>
+                  <text x="38" y="30" fill="#991b1b" font-family="Archivo" font-size="8" font-weight="700">BACKLOG</text>
+                  <rect x="20" y="45" width="75" height="36" rx="4" fill="#ffffff" stroke="#ff7f7f" stroke-width="1.5" filter="drop-shadow(0 2px 4px rgba(255,127,127,0.08))"/>
+                  <text x="25" y="57" fill="#173040" font-family="Archivo" font-size="7" font-weight="600">Fix Citation Gap</text>
+                  <text x="25" y="67" fill="#ff7f7f" font-family="Archivo" font-size="6" font-weight="700">HIGH PRIORITY</text>
+                  <rect x="117" y="15" width="85" height="120" rx="6" fill="#ffffff" stroke="rgba(23,48,64,0.08)"/>
+                  <rect x="117" y="15" width="85" height="24" rx="6" fill="#fffbeb"/>
+                  <circle cx="130" cy="27" r="4" fill="#f59e0b"/>
+                  <text x="140" y="30" fill="#92400e" font-family="Archivo" font-size="8" font-weight="700">DOING</text>
+                  <rect x="122" y="45" width="75" height="36" rx="4" fill="#ffffff" stroke="#f59e0b" stroke-width="1"/>
+                  <text x="127" y="57" fill="#173040" font-family="Archivo" font-size="7" font-weight="600">Write schema.org</text>
+                  <text x="127" y="67" fill="#f59e0b" font-family="Archivo" font-size="6" font-weight="700">IN PROGRESS</text>
+                  <rect x="220" y="15" width="85" height="120" rx="6" fill="#ffffff" stroke="rgba(23,48,64,0.08)"/>
+                  <rect x="220" y="15" width="85" height="24" rx="6" fill="#f0fdf4"/>
+                  <circle cx="233" cy="27" r="4" fill="#8de3b7"/>
+                  <text x="243" y="30" fill="#166534" font-family="Archivo" font-size="8" font-weight="700">VERIFIED</text>
+                  <rect x="225" y="45" width="75" height="36" rx="4" fill="#ffffff" stroke="#8de3b7" stroke-width="1"/>
+                  <text x="230" y="57" fill="#a1a1aa" font-family="Archivo" font-size="7" font-weight="600" text-decoration="line-through">Submit GSC URL</text>
+                  <text x="230" y="67" fill="#10a37f" font-family="Archivo" font-size="6" font-weight="700">✓ COMPLETED</text>
+                </svg>
+              </div>
               <h3>Task management</h3>
               <p>When Pulse finds a visibility gap, you can turn it into an assigned task for your team. Each task links back to the evidence that flagged it, and Pulse captures a before/after snapshot so you can prove the fix actually worked.</p>
             </div>
 
-            <div class="feature-entry reveal">
+            <div class="feature-card reveal">
+              <div class="feature-graphic-wrapper">
+                <svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                  <defs>
+                    <pattern id="grid-roi" width="20" height="20" patternUnits="userSpaceOnUse">
+                      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(23, 48, 64, 0.04)" stroke-width="1"/>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#grid-roi)"/>
+                  <path d="M 20 20 L 130 20 L 110 50 L 40 50 Z" fill="#3b82f6" opacity="0.8"/>
+                  <text x="75" y="35" text-anchor="middle" fill="#ffffff" font-family="Archivo" font-size="8" font-weight="700">AI MENTIONS</text>
+                  <path d="M 40 52 L 110 52 L 95 82 L 55 82 Z" fill="#f59e0b" opacity="0.8"/>
+                  <text x="75" y="68" text-anchor="middle" fill="#ffffff" font-family="Archivo" font-size="8" font-weight="700">VISITS</text>
+                  <path d="M 55 84 L 95 84 L 85 114 L 65 114 Z" fill="#10a37f" opacity="0.8"/>
+                  <text x="75" y="100" text-anchor="middle" fill="#ffffff" font-family="Archivo" font-size="7" font-weight="700">LEADS</text>
+                  <rect x="160" y="20" width="145" height="110" rx="8" fill="#ffffff" stroke="rgba(23,48,64,0.08)" filter="drop-shadow(0 4px 10px rgba(16, 36, 48, 0.05))"/>
+                  <text x="175" y="40" fill="#3d535e" font-family="Archivo" font-size="8" font-weight="600">ATTRIBUTED PIPELINE</text>
+                  <text x="175" y="65" fill="#173040" font-family="Archivo" font-size="20" font-weight="700">$24,650</text>
+                  <text x="175" y="80" fill="#10a37f" font-family="Archivo" font-size="9" font-weight="600">↑ 18.5% Growth</text>
+                  <path d="M 175 115 Q 200 100, 225 110 T 275 95" fill="none" stroke="#10a37f" stroke-width="2"/>
+                  <circle cx="275" cy="95" r="3" fill="#10a37f"/>
+                </svg>
+              </div>
               <h3>ROI reporting</h3>
               <p>Connect Google Analytics or Search Console and Pulse maps AI-driven traffic back to specific platforms and landing pages. See which visibility improvements actually brought visitors and conversions, so you can report real results to leadership.</p>
             </div>
 
-            <div class="feature-entry reveal">
+            <div class="feature-card reveal">
+              <div class="feature-graphic-wrapper">
+                <svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                  <defs>
+                    <pattern id="grid-discover" width="20" height="20" patternUnits="userSpaceOnUse">
+                      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(23, 48, 64, 0.04)" stroke-width="1"/>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#grid-discover)"/>
+                  <line x1="160" y1="75" x2="60" y2="40" stroke="#2b6c78" stroke-width="1.5"/>
+                  <line x1="160" y1="75" x2="260" y2="40" stroke="#2b6c78" stroke-width="1.5"/>
+                  <line x1="160" y1="75" x2="60" y2="110" stroke="#2b6c78" stroke-width="1.5"/>
+                  <line x1="160" y1="75" x2="260" y2="110" stroke="#2b6c78" stroke-width="1.5"/>
+                  <circle cx="160" cy="75" r="28" fill="#173040" filter="drop-shadow(0 4px 8px rgba(16, 36, 48, 0.2))"/>
+                  <text x="160" y="73" text-anchor="middle" fill="#ffffff" font-family="Archivo" font-size="9" font-weight="700">TOPIC</text>
+                  <text x="160" y="83" text-anchor="middle" fill="#8de3b7" font-family="Archivo" font-size="8" font-weight="600">"CRM"</text>
+                  <rect x="10" y="25" width="90" height="24" rx="12" fill="#3b82f6" filter="drop-shadow(0 2px 4px rgba(59,130,246,0.15))"/>
+                  <text x="55" y="39" text-anchor="middle" fill="#ffffff" font-family="Archivo" font-size="7" font-weight="500">best crm for startups</text>
+                  <rect x="210" y="25" width="100" height="24" rx="12" fill="#f59e0b" filter="drop-shadow(0 2px 4px rgba(245,158,11,0.15))"/>
+                  <text x="260" y="39" text-anchor="middle" fill="#ffffff" font-family="Archivo" font-size="7" font-weight="500">hubspot vs acme crm</text>
+                  <rect x="10" y="98" width="90" height="24" rx="12" fill="#10a37f" filter="drop-shadow(0 2px 4px rgba(16,163,127,0.15))"/>
+                  <text x="55" y="112" text-anchor="middle" fill="#ffffff" font-family="Archivo" font-size="7" font-weight="500">acme crm pricing</text>
+                  <rect x="210" y="98" width="100" height="24" rx="12" fill="#2b6c78" filter="drop-shadow(0 2px 4px rgba(43,108,120,0.15))"/>
+                  <text x="260" y="112" text-anchor="middle" fill="#ffffff" font-family="Archivo" font-size="7" font-weight="500">crm security standard</text>
+                </svg>
+              </div>
               <h3>Buyer question discovery</h3>
               <p>Find out what people are actually asking AI assistants in your category. Import real search data from Google Search Console or SEMRush, or let Pulse discover questions automatically by expanding on your core topics.</p>
             </div>
 
-            <div class="feature-entry reveal">
+            <div class="feature-card reveal">
+              <div class="feature-graphic-wrapper">
+                <svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                  <defs>
+                    <pattern id="grid-verify" width="20" height="20" patternUnits="userSpaceOnUse">
+                      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(23, 48, 64, 0.04)" stroke-width="1"/>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#grid-verify)"/>
+                  <rect x="15" y="25" width="290" height="40" rx="8" fill="#ffffff" stroke="#8de3b7" stroke-width="1.5" filter="drop-shadow(0 4px 6px rgba(141,227,183,0.06))"/>
+                  <text x="30" y="42" fill="#173040" font-family="Archivo" font-size="9" font-weight="600">URL: techcrunch.com/acme-growth-2026</text>
+                  <text x="30" y="54" fill="#a1a1aa" font-family="Archivo" font-size="7">Anchor: "Acme is a fast growing CRM"</text>
+                  <rect x="235" y="35" width="60" height="18" rx="9" fill="#def7ec"/>
+                  <text x="265" y="47" text-anchor="middle" fill="#03543f" font-family="Archivo" font-size="8" font-weight="700">✓ VERIFIED</text>
+                  <rect x="15" y="85" width="290" height="40" rx="8" fill="#ffffff" stroke="#ff7f7f" stroke-width="1.5" filter="drop-shadow(0 4px 6px rgba(255,127,127,0.06))"/>
+                  <text x="30" y="102" fill="#173040" font-family="Archivo" font-size="9" font-weight="600">URL: randomblog.com/fake-facts-crm</text>
+                  <text x="30" y="114" fill="#ff7f7f" font-family="Archivo" font-size="7">Anomaly: Citation content does not exist on page</text>
+                  <rect x="235" y="95" width="60" height="18" rx="9" fill="#fde8e8"/>
+                  <text x="265" y="107" text-anchor="middle" fill="#9b1c1c" font-family="Archivo" font-size="8" font-weight="700">⚠ DROPPED</text>
+                </svg>
+              </div>
               <h3>Source verification</h3>
               <p>When an AI assistant cites a source in its answer, Pulse checks whether that source actually exists and whether it says what the AI claims. Hallucinated or broken sources are flagged automatically so you know which citations are real.</p>
             </div>
 
-            <div class="feature-entry reveal">
+            <div class="feature-card reveal">
+              <div class="feature-graphic-wrapper">
+                <svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                  <defs>
+                    <pattern id="grid-identity" width="20" height="20" patternUnits="userSpaceOnUse">
+                      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(23, 48, 64, 0.04)" stroke-width="1"/>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#grid-identity)"/>
+                  <rect x="15" y="30" width="100" height="34" rx="6" fill="#173040" filter="drop-shadow(0 4px 6px rgba(23,48,64,0.15))"/>
+                  <text x="25" y="47" fill="#ffffff" font-family="Archivo" font-size="8" font-weight="600">Mentioned Node</text>
+                  <text x="25" y="57" fill="#8de3b7" font-family="Archivo" font-size="8" font-weight="700">"Acme Cloud"</text>
+                  <path d="M 115 47 L 195 47" stroke="#8de3b7" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M 115 47 L 195 95" stroke="#ff7f7f" stroke-width="1.5" stroke-dasharray="3 3"/>
+                  <rect x="195" y="30" width="110" height="34" rx="6" fill="#def7ec" stroke="#8de3b7" stroke-width="1.5"/>
+                  <text x="205" y="45" fill="#03543f" font-family="Archivo" font-size="7" font-weight="700">MATCH IDENTIFIED</text>
+                  <text x="205" y="55" fill="#03543f" font-family="Archivo" font-size="7">acme-cloud.io Corporation</text>
+                  <rect x="195" y="80" width="110" height="34" rx="6" fill="#fde8e8" stroke="#ff7f7f" stroke-width="1"/>
+                  <text x="205" y="95" fill="#9b1c1c" font-family="Archivo" font-size="7" font-weight="700">AMBIGUITY FLAG</text>
+                  <text x="205" y="105" fill="#9b1c1c" font-family="Archivo" font-size="7">Acme Real Estate (Other)</text>
+                </svg>
+              </div>
               <h3>Brand identity check</h3>
               <p>Checks whether AI assistants can correctly identify your brand or whether they confuse it with similarly named companies. Also reviews the structured data on your website to make sure AI models can parse your brand clearly.</p>
             </div>
 
-            <div class="feature-entry reveal">
+            <div class="feature-card reveal">
+              <div class="feature-graphic-wrapper">
+                <svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                  <defs>
+                    <pattern id="grid-gap" width="20" height="20" patternUnits="userSpaceOnUse">
+                      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(23, 48, 64, 0.04)" stroke-width="1"/>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#grid-gap)"/>
+                  <rect x="15" y="15" width="290" height="24" rx="4" fill="#173040"/>
+                  <text x="25" y="30" fill="#ffffff" font-family="Archivo" font-size="8" font-weight="700">CONTENT PAGE TYPE</text>
+                  <text x="160" y="30" fill="#ffffff" font-family="Archivo" font-size="8" font-weight="700">COMPETITORS</text>
+                  <text x="245" y="30" fill="#ffffff" font-family="Archivo" font-size="8" font-weight="700">YOUR SITE</text>
+                  <rect x="15" y="43" width="290" height="26" rx="4" fill="#ffffff" stroke="rgba(23,48,64,0.06)"/>
+                  <text x="25" y="59" fill="#173040" font-family="Archivo" font-size="8" font-weight="600">HubSpot Alternatives Table</text>
+                  <text x="175" y="60" fill="#10a37f" font-family="Archivo" font-size="9" font-weight="700">✓</text>
+                  <rect x="235" y="47" width="60" height="18" rx="4" fill="#fffbeb" stroke="#f59e0b"/>
+                  <text x="265" y="59" text-anchor="middle" fill="#92400e" font-family="Archivo" font-size="7" font-weight="700">⚠ MISSING</text>
+                  <rect x="15" y="73" width="290" height="26" rx="4" fill="#ffffff" stroke="rgba(23,48,64,0.06)"/>
+                  <text x="25" y="89" fill="#173040" font-family="Archivo" font-size="8" font-weight="600">Enterprise Pricing Details</text>
+                  <text x="175" y="90" fill="#10a37f" font-family="Archivo" font-size="9" font-weight="700">✓</text>
+                  <text x="260" y="90" fill="#10a37f" font-family="Archivo" font-size="9" font-weight="700">✓</text>
+                  <rect x="15" y="103" width="290" height="26" rx="4" fill="#ffffff" stroke="rgba(23,48,64,0.06)"/>
+                  <text x="25" y="119" fill="#173040" font-family="Archivo" font-size="8" font-weight="600">Startup Success PDF</text>
+                  <text x="175" y="120" fill="#10a37f" font-family="Archivo" font-size="9" font-weight="700">✓</text>
+                  <rect x="235" y="107" width="60" height="18" rx="4" fill="#fde8e8" stroke="#ff7f7f"/>
+                  <text x="265" y="119" text-anchor="middle" fill="#9b1c1c" font-family="Archivo" font-size="7" font-weight="700">⚠ GAP FLAG</text>
+                </svg>
+              </div>
               <h3>Content gap finder</h3>
               <p>When AI assistants can't recommend you because the right content doesn't exist on your site, Pulse tells you exactly what to create: the specific pages, case studies, or comparison guides that would fill the gap and give AI something to cite.</p>
             </div>
 
-            <div class="feature-entry reveal">
+            <div class="feature-card reveal">
+              <div class="feature-graphic-wrapper">
+                <svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                  <defs>
+                    <pattern id="grid-multi" width="20" height="20" patternUnits="userSpaceOnUse">
+                      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(23, 48, 64, 0.04)" stroke-width="1"/>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#grid-multi)"/>
+                  <rect x="20" y="15" width="280" height="120" rx="8" fill="#ffffff" stroke="rgba(23,48,64,0.1)" filter="drop-shadow(0 6px 20px rgba(16,36,48,0.05))"/>
+                  <rect x="20" y="15" width="280" height="26" rx="8" fill="#f0f7f9"/>
+                  <circle cx="32" cy="28" r="3" fill="#cbd5e1"/>
+                  <circle cx="40" cy="28" r="3" fill="#cbd5e1"/>
+                  <text x="52" y="32" fill="#173040" font-family="Archivo" font-size="8" font-weight="700">WORKSPACES</text>
+                  <rect x="30" y="50" width="260" height="24" rx="4" fill="#def7ec" stroke="#8de3b7"/>
+                  <circle cx="42" cy="62" r="5" fill="#3b82f6"/>
+                  <text x="54" y="65" fill="#03543f" font-family="Archivo" font-size="8" font-weight="600">Acme Cloud Infrastructure</text>
+                  <text x="245" y="65" fill="#10a37f" font-family="Archivo" font-size="8" font-weight="700">ACTIVE</text>
+                  <rect x="30" y="80" width="260" height="24" rx="4" fill="#ffffff" stroke="rgba(23,48,64,0.08)"/>
+                  <circle cx="42" cy="92" r="5" fill="#f59e0b"/>
+                  <text x="54" y="95" fill="#173040" font-family="Archivo" font-size="8" font-weight="600">Globex Systems Inc.</text>
+                  <text x="235" y="95" fill="#3d535e" font-family="Archivo" font-size="7">Switch Workspace</text>
+                  <rect x="30" y="110" width="260" height="20" rx="4" fill="#ffffff" stroke="rgba(23,48,64,0.08)"/>
+                  <circle cx="42" cy="120" r="4" fill="#a1a1aa"/>
+                  <text x="54" y="123" fill="#a1a1aa" font-family="Archivo" font-size="7">Soylent Solutions (Enterprise)</text>
+                </svg>
+              </div>
               <h3>Multi-brand management</h3>
               <p>Agencies and teams managing multiple brands get separate workspaces for each one. Every workspace has its own prompts, competitors, alert rules, and reports. Enterprise tier adds white-label branding on client-facing reports.</p>
             </div>
 
-            <div class="feature-entry reveal">
+            <div class="feature-card reveal">
+              <div class="feature-graphic-wrapper">
+                <svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                  <defs>
+                    <linearGradient id="grad-api" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#0f172a"/>
+                      <stop offset="100%" stop-color="#1e293b"/>
+                    </linearGradient>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#grad-api)" rx="4"/>
+                  <rect width="100%" height="18" fill="#020617" rx="4"/>
+                  <text x="15" y="12" fill="#64748b" font-family="monospace" font-size="8">bash - developer-api</text>
+                  <text x="15" y="38" fill="#38bdf8" font-family="monospace" font-size="8">$ <tspan fill="#f1f5f9">curl https://api.persipica.com/v1/scores \</tspan></text>
+                  <text x="15" y="50" fill="#f1f5f9" font-family="monospace" font-size="8">    -H "Authorization: Bearer pulse_api_key_..."</text>
+                  <text x="15" y="70" fill="#94a3b8" font-family="monospace" font-size="8">Response (200 OK):</text>
+                  <text x="15" y="82" fill="#facc15" font-family="monospace" font-size="8">{</text>
+                  <text x="30" y="94" fill="#f87171" font-family="monospace" font-size="8">"brand": <tspan fill="#34d399">"Acme Cloud"</tspan>,</text>
+                  <text x="30" y="106" fill="#f87171" font-family="monospace" font-size="8">"visibility": <tspan fill="#f59e0b">82.5</tspan>,</text>
+                  <text x="30" y="118" fill="#f87171" font-family="monospace" font-size="8">"status": <tspan fill="#34d399">"recommended_source"</tspan></text>
+                  <text x="15" y="130" fill="#facc15" font-family="monospace" font-size="8">}</text>
+                </svg>
+              </div>
               <h3>Developer API</h3>
               <p>Pull Pulse data into your own tools and workflows. Query visibility scores, retrieve evidence records, and trigger scans from AI coding assistants, CI pipelines, or custom integrations. Works with any tool that supports the MCP protocol.</p>
             </div>
 
-            <div class="feature-entry reveal">
+            <div class="feature-card reveal">
+              <div class="feature-graphic-wrapper">
+                <svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                  <defs>
+                    <pattern id="grid-deploy" width="20" height="20" patternUnits="userSpaceOnUse">
+                      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(23, 48, 64, 0.04)" stroke-width="1"/>
+                    </pattern>
+                    <linearGradient id="grad-cloud" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#3b82f6"/>
+                      <stop offset="100%" stop-color="#2b6c78"/>
+                    </linearGradient>
+                    <linearGradient id="grad-desktop" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#f59e0b"/>
+                      <stop offset="100%" stop-color="#d97757"/>
+                    </linearGradient>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#grid-deploy)"/>
+                  <rect x="25" y="30" width="80" height="60" rx="8" fill="url(#grad-cloud)" filter="drop-shadow(0 4px 10px rgba(59,130,246,0.15))"/>
+                  <line x1="35" y1="45" x2="95" y2="45" stroke="#ffffff" stroke-width="2"/>
+                  <line x1="35" y1="60" x2="95" y2="60" stroke="#ffffff" stroke-width="2"/>
+                  <line x1="35" y1="75" x2="95" y2="75" stroke="#ffffff" stroke-width="2"/>
+                  <circle cx="40" cy="45" r="1.5" fill="#8de3b7"/>
+                  <circle cx="40" cy="60" r="1.5" fill="#8de3b7"/>
+                  <circle cx="40" cy="75" r="1.5" fill="#8de3b7"/>
+                  <text x="65" y="105" text-anchor="middle" fill="#173040" font-family="Archivo" font-size="8" font-weight="700">CLOUD SERVER</text>
+                  <path d="M 125 60 L 195 60" stroke="rgba(23,48,64,0.12)" stroke-width="3" stroke-dasharray="4 4"/>
+                  <circle cx="160" cy="60" r="12" fill="#8de3b7" stroke="#10a37f" stroke-width="1.5"/>
+                  <path d="M 157 58 H 163 V 64 H 157 Z M 158 58 V 55 C 158 54, 162 54, 162 55 V 58" stroke="#10a37f" stroke-width="1.5"/>
+                  <rect x="215" y="30" width="80" height="52" rx="6" fill="url(#grad-desktop)" filter="drop-shadow(0 4px 10px rgba(245,158,11,0.15))"/>
+                  <rect x="220" y="34" width="70" height="38" rx="3" fill="#ffffff"/>
+                  <circle cx="255" cy="53" r="5" fill="#ff7f7f"/>
+                  <path d="M 245 82 L 265 82 L 255 90 Z" fill="#cbd5e1" stroke="#cbd5e1"/>
+                  <rect x="235" y="90" width="40" height="4" fill="#94a3b8"/>
+                  <text x="255" y="105" text-anchor="middle" fill="#173040" font-family="Archivo" font-size="8" font-weight="700">LOCAL DESKTOP</text>
+                  <text x="160" y="125" text-anchor="middle" fill="#10a37f" font-family="Archivo" font-size="8" font-weight="600">Local Decryption Enabled</text>
+                </svg>
+              </div>
               <h3>Cloud or desktop deployment</h3>
               <p>Every feature works on cloud by default. If your organisation needs to keep data local or use its own API keys, you can run the full platform as a desktop app instead. Same features, same interface, no data leaves your machine.</p>
             </div>
