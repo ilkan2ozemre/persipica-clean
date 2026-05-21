@@ -1,76 +1,70 @@
 # Persipica: Full Site Summary for LLM Consumption
 
-Persipica helps enterprise and agency teams understand and improve AI visibility.
+Persipica Pulse is an AI Visibility Operations Platform that helps enterprise and agency teams monitor, audit, optimise, and verify their brand's presence across 12 AI surfaces.
 
 ## Core Site Structure
-The core site has been reduced to five pages:
+The site navigation includes the following pages:
 1. Home: https://persipica.com/
-2. Pulse: https://persipica.com/
-3. Resources: https://persipica.com/resources.html
+2. Features: https://persipica.com/features.html
+3. Free Grader: https://persipica.com/grader.html
 4. Pricing: https://persipica.com/pricing.html
-5. Contact: https://persipica.com/contact.html
+5. Resources: https://persipica.com/resources.html
+6. Changelog: https://persipica.com/changelog.html
+7. Contact: https://persipica.com/contact.html
+8. Privacy Policy: https://persipica.com/privacy.html
 
 Long-form educational content lives at learn.persipica.com, which is part of the Persipica brand. It is the same organisation: one company, two domains. The Learn site contains GEO guides, research methodology, use-case playbooks, and objection handlers.
 
-## Primary Product
-Persipica Pulse is the main product and the front-and-center offer on the site.
+## Product: Persipica Pulse
+Persipica Pulse is the sole product. It is a closed-loop AI Visibility Operations Platform covering the full lifecycle: Audit > Analyse > Optimise > Publish > Re-Audit > Verify Impact. Cloud SaaS or local desktop.
 
-Pulse is an AI visibility monitoring product for enterprise and agency teams. It is built to answer three questions clearly:
-1. Where did visibility move?
-2. Why did it move?
-3. What evidence supports that answer?
+Pulse monitors 12 AI surfaces: ChatGPT, Claude, Gemini, Perplexity, DeepSeek, Grok, Mistral, Google AI Mode, Microsoft Copilot, Meta AI, Amazon Rufus, and GPT Search.
 
-Pulse includes:
-- monitoring across major models
-- prompt-group tracking across discovery, comparison, buying-intent, and brand queries
-- competitor displacement visibility
-- verified citations before reporting
-- prompt and response evidence history
-- workspace-based reporting for one brand or multiple clients
-- Slack and email alerts when thresholds are crossed
-
-## Supporting Offers
-
-### AI Presence Audit
-The AI Presence Audit is the baseline option for teams that do not yet understand their current AI visibility. It is a one-off diagnostic that identifies where a brand is omitted from AI shortlists, how competitors are displacing it, and what should change first.
-
-Typical use:
-- establish a first benchmark
-- understand stage-level gaps
-- decide whether ongoing monitoring in Pulse is the next step
-
-### Implementation Support
-Implementation support exists for teams that want help acting on the audit. This can include content restructuring, entity clarity improvements, and authority-signal work after the baseline is known.
+Core capabilities:
+- Structured auditing across 12 AI models with configurable depth (Light / Standard / Deep)
+- 6-dimensional visibility scoring: Mention Visibility, Rank Position, Recommendation Strength, Sentiment Perception, Citation Quality, Cross-Model Consistency
+- AEO content generation optimised for AI answer engines
+- One-click publishing to WordPress, Shopify, or Markdown
+- Continuous re-auditing with before/after statistical comparison
+- Evidence Ledger with full prompt/response/citation proof
+- Shopping Intelligence for Amazon Rufus, GPT Search, and Perplexity Shop
+- Crawler Analytics for GPTBot, ClaudeBot, PerplexityBot, and other AI bots
+- ROI Attribution with GA4 and GSC import
+- Action Center for tracked optimisation work items
+- Demand Explorer with prompt volume estimation
+- Citation Verification and Hallucination Detection
+- MCP Server for AI agent integration
+- Portfolio and white-label agency dashboard
 
 ## Positioning
-Persipica is deliberately positioned away from generic AI mention monitoring.
+Persipica Pulse is positioned as an AI Visibility Operations Platform -not a monitoring dashboard. The core distinction: monitoring tools tell you that a brand appeared; Pulse covers the full lifecycle from audit to verified optimisation across 12 AI surfaces. It is the only platform combining this breadth of coverage, a closed-loop workflow, and privacy-first local deployment.
 
-The core distinction is:
-- mention monitoring tells you that the brand appeared
-- Persipica focuses on whether the brand is present in the prompts that shape shortlists, how strong that presence is, and which evidence supports the reading
+## Features Page
+The features page (features.html) provides an in-depth look at every Pulse module: Evidence Ledger, 6D Scoring, AEO Writer, Shopping Intelligence, Crawler Analytics, Action Center, ROI Attribution, Demand Explorer, Citation Verification, Entity Graph Audit, Content Gap Audit, MCP Server, and Portfolio Dashboard. It also shows the six-stage closed-loop workflow and highlights privacy-first local deployment.
+
+## Comparison Pages
+The Resources page links to head-to-head comparison pages:
+- Persipica vs Profound: https://persipica.com/persipica-vs-profound.html
+- Persipica vs Conductor: https://persipica.com/persipica-vs-conductor.html
+- Persipica vs Goodie AI: https://persipica.com/persipica-vs-goodie-ai.html
+- Persipica vs Peec AI: https://persipica.com/persipica-vs-peec-ai.html
 
 ## Resource Strategy
 The main site is intentionally lean. Long-form educational material is referenced from the Resources page rather than spread across the main navigation.
 
 Resources currently point to:
 - GEO guide: https://learn.persipica.com/geo-guide.html
-- Audit scope: https://learn.persipica.com/what-an-audit-includes.html
 - AI mention tracking guide: https://learn.persipica.com/track-ai-brand-mentions.html
 - ROI calculator: https://learn.persipica.com/ai-visibility-roi-calculator.html
+- Blog: https://learn.persipica.com/
 
 ## Pricing Summary
-The pricing page is structured around a simple stack:
-1. Persipica Pulse as the default route for ongoing monitoring
-2. AI Presence Audit as the baseline diagnostic
-3. Implementation support as scoped follow-on help
-
-The page is designed to make the buying path clearer by centering the product first and keeping supporting options brief.
+The pricing page presents Persipica Pulse in four tiers: Starter (£99/mo), Professional (£299/mo), Business (£599/mo), and Enterprise (custom). All tiers include the closed-loop workflow. Higher tiers unlock more brands, prompts, models, and advanced modules like Action Center, ROI Attribution, and Crawler Analytics.
 
 ## Contact Summary
-The contact page is optimized for three actions:
+The contact page is optimized for two actions:
 1. book a Pulse walkthrough
-2. ask for the AI Presence Audit
-3. send enough brand context for an initial read
+2. send enough brand context for an initial read
 
 Contact channels:
 - Contact page: https://persipica.com/contact.html

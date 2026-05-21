@@ -3,51 +3,61 @@
   <url>
     <loc>https://persipica.com/</loc>
     <priority>1.0</priority>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://persipica.com/features.html</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-05-21</lastmod>
   </url>
   <url>
     <loc>https://persipica.com/resources.html</loc>
     <priority>0.8</priority>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-21</lastmod>
   </url>
   <url>
     <loc>https://persipica.com/persipica-vs-profound.html</loc>
     <priority>0.7</priority>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-21</lastmod>
   </url>
   <url>
     <loc>https://persipica.com/persipica-vs-conductor.html</loc>
     <priority>0.7</priority>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-21</lastmod>
   </url>
   <url>
     <loc>https://persipica.com/persipica-vs-goodie-ai.html</loc>
     <priority>0.7</priority>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-21</lastmod>
   </url>
   <url>
     <loc>https://persipica.com/persipica-vs-peec-ai.html</loc>
     <priority>0.7</priority>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-21</lastmod>
   </url>
   <url>
     <loc>https://persipica.com/grader.html</loc>
     <priority>0.8</priority>
-    <lastmod>2026-05-17</lastmod>
+    <lastmod>2026-05-21</lastmod>
   </url>
   <url>
     <loc>https://persipica.com/pricing.html</loc>
     <priority>0.8</priority>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-21</lastmod>
   </url>
   <url>
     <loc>https://persipica.com/contact.html</loc>
     <priority>0.8</priority>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-21</lastmod>
   </url>
   <url>
     <loc>https://persipica.com/privacy.html</loc>
     <priority>0.3</priority>
     <lastmod>2026-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://persipica.com/changelog.html</loc>
+    <priority>0.3</priority>
+    <lastmod>2026-05-21</lastmod>
   </url>
 </urlset>
