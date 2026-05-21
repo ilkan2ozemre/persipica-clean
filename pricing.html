@@ -299,40 +299,6 @@
       text-align: center;
     }
 
-    /* ── Explanation sections ── */
-    .explain-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    @media (max-width: 700px) {
-      .explain-grid { grid-template-columns: 1fr; }
-    }
-
-    .explain-card {
-      padding: 1.5rem;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      background: linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(240,247,249,0.55) 100%);
-    }
-
-    .explain-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--navy);
-      margin: 0 0 0.4rem;
-    }
-
-    .explain-card p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin: 0;
-    }
-
     /* ── Compare table ── */
     .compare-wrap { padding: 4rem 0 0; }
 
@@ -563,47 +529,14 @@
         </div>
       </section>
 
-      <!-- What the key features actually do -->
+      <!-- Features CTA -->
       <section class="section">
         <div class="container">
-          <div class="section-header reveal" style="text-align: center; justify-items: center;">
-            <p class="eyebrow">What you get</p>
-            <h2 class="section-title">Features explained in plain English.</h2>
-            <p class="section-copy" style="max-width: 52ch; margin: 0.5rem auto 0;">No jargon. Here is what each capability does and why it matters.</p>
-          </div>
-
-          <div class="explain-grid reveal">
-            <div class="explain-card">
-              <h3>Evidence record</h3>
-              <p>Every time Pulse asks an AI assistant about your category, it saves the exact question, the full answer, and any sources the AI cited. When a score changes, you can see exactly what the AI said and why.</p>
-            </div>
-            <div class="explain-card">
-              <h3>Shopping visibility</h3>
-              <p>When someone asks Amazon Rufus, ChatGPT, or Perplexity "what's the best [product] for [use case]?", does your product show up? This module tracks whether your products appear in AI shopping recommendations.</p>
-            </div>
-            <div class="explain-card">
-              <h3>Buyer question discovery</h3>
-              <p>Find out what people are actually asking AI assistants in your category. Import real search data or let Pulse discover questions automatically. Useful for deciding which content to create next.</p>
-            </div>
-            <div class="explain-card">
-              <h3>AI crawler tracking</h3>
-              <p>AI companies send bots to crawl websites and use that content to train or inform their models. This module shows you which AI bots visit your site, which pages they read, and how often they come back.</p>
-            </div>
-            <div class="explain-card">
-              <h3>Task management</h3>
-              <p>When Pulse finds a visibility gap, you can turn it into an assigned task. Each task links back to the evidence that flagged it, and Pulse captures a before/after snapshot so you can prove the fix worked.</p>
-            </div>
-            <div class="explain-card">
-              <h3>ROI reporting</h3>
-              <p>Connect Google Analytics or Search Console and Pulse maps AI-driven traffic back to specific platforms and pages. See which visibility improvements actually brought visitors and conversions.</p>
-            </div>
-            <div class="explain-card">
-              <h3>Client workspaces</h3>
-              <p>Agencies and teams managing multiple brands get separate workspaces for each. Every workspace has its own prompts, competitors, alerts, and reports. Enterprise adds white-label branding on reports.</p>
-            </div>
-            <div class="explain-card">
-              <h3>Cloud or desktop</h3>
-              <p>Every tier runs on cloud by default. If your organisation has data residency requirements or you want to use your own API keys, you can run the same platform locally as a desktop app.</p>
+          <div class="cta-band reveal">
+            <h2 class="section-title">Want to see everything Pulse can do?</h2>
+            <p class="section-copy">From evidence records to AI crawler tracking, every feature is explained in detail on the features page.</p>
+            <div class="actions" style="margin-top: 1.4rem;">
+              <a class="btn" href="features.html">Explore all features</a>
             </div>
           </div>
         </div>
