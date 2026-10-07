@@ -1,74 +1,21 @@
-const reveals = document.querySelectorAll(".reveal");
+// Mobile menu: the toggle opens and closes the navigation; Escape or a click outside closes it.
+const nav = document.querySelector(".site-nav");
+const toggle = nav && nav.querySelector(".nav-toggle");
 
-if ("IntersectionObserver" in window && reveals.length) {
-  let delayStack = [];
-  let delayTimer = null;
-
-  const processStack = () => {
-    delayStack.forEach((el, index) => {
-      el.style.transitionDelay = `${index * 100}ms`;
-      el.classList.add("on");
-      // Reset delay after animation finishes so it doesn't affect subsequent interactions
-      setTimeout(() => {
-        el.style.transitionDelay = "";
-      }, 1000);
-    });
-    delayStack = [];
+if (nav && toggle) {
+  const setOpen = (open) => {
+    nav.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", String(open));
   };
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          delayStack.push(entry.target);
-          observer.unobserve(entry.target);
-          
-          clearTimeout(delayTimer);
-          delayTimer = setTimeout(processStack, 50);
-        }
-      });
-    },
-    { threshold: 0.08, rootMargin: "0px 0px -32px 0px" }
-  );
-
-  reveals.forEach((node) => observer.observe(node));
-} else {
-  reveals.forEach((node) => node.classList.add("on"));
-}
-
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("nav-links");
-
-if (hamburger && navLinks) {
-  const header = document.querySelector(".site-nav");
-
-  const updateHeaderHeight = () => {
-    if (header) {
-      document.documentElement.style.setProperty(
-        "--header-height",
-        `${header.offsetHeight}px`
-      );
+  toggle.addEventListener("click", () => setOpen(!nav.classList.contains("open")));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && nav.classList.contains("open")) {
+      setOpen(false);
+      toggle.focus();
     }
-  };
-
-  window.addEventListener("resize", updateHeaderHeight);
-  updateHeaderHeight();
-
-  const closeMenu = () => {
-    hamburger.classList.remove("open");
-    hamburger.setAttribute("aria-expanded", "false");
-    navLinks.classList.remove("open");
-  };
-
-  hamburger.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("open");
-    hamburger.classList.toggle("open", isOpen);
-    hamburger.setAttribute("aria-expanded", String(isOpen));
   });
-
   document.addEventListener("click", (event) => {
-    if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-      closeMenu();
-    }
+    if (!nav.contains(event.target)) setOpen(false);
   });
 }
