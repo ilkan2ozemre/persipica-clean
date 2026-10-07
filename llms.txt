@@ -1,113 +1,64 @@
 # Persipica
 
-Persipica Pulse is an AI Visibility Operations Platform built for B2B SaaS companies, enterprise marketing teams, and agencies. It covers the full lifecycle -audit, analyse, optimise, publish, and verify -across 12 AI surfaces. Cloud SaaS or local desktop.
-...
-## Core Product: Persipica Pulse
+> Persipica Pulse measures how AI assistants and shopping agents recommend a brand and its products, by kind of shopper, keeps the evidence behind every result, and turns the gaps into fixes it checks on the next scan. It is a cloud web app at pulse.persipica.com, made by Persipica in London.
 
-Persipica Pulse is an AI Visibility Operations Platform (cloud SaaS or local desktop workspace) that runs structured prompt sets across ChatGPT, Claude, Gemini, Perplexity, DeepSeek, Grok, Mistral, Google AI Mode, Microsoft Copilot, Meta AI, Amazon Rufus, and GPT Search -12 AI surfaces total. Pulse operates on a closed-loop six-stage cycle: audit across all surfaces, score visibility across six weighted dimensions, generate AI-optimised content (AEO), publish directly to WordPress or Shopify, continuously re-audit after changes, and verify impact with before/after statistical comparison.
+Pulse is built first for online retailers and consumer brands, and also works for B2B software and services companies and the agencies that run several brands.
 
-Pulse is not a sampling tool or a trend aggregator. Every score is backed by the raw evidence that produced it.
+## What Pulse measures
 
-## Key Differentiators
+- Assistants: ChatGPT, Claude, Gemini, Perplexity and Grok, each using its own live web search, plus Google AI Overviews and Google AI Mode as they appear in Google search. Every result says which assistant and which method it came from.
+- Visibility: how often answers mention and cite the brand, by assistant and against competitors, with share of voice, position, the likely range and the sample size of every rate.
+- Audiences: simulated shoppers the brand describes (for example, a student on a budget or a parent buying for growing kids). Pulse asks questions in each one's voice, with follow-ups, and reports how often each audience is recommended the brand and which competitor it hears about instead. Audiences are simulated; every attribute is labelled as client data, a public signal or an assumption.
+- Products and prices: with a catalogue imported from a Shopify store, a Google Merchant Center feed or a CSV, Pulse shows which products the answers name, the prices they quote against the catalogue, and the stores they send shoppers to.
+- Shopping agents: agents get buying tasks; Pulse records whether they find the store, shortlist its products and pick them, compared with competitors, and why they chose someone else.
+- Readiness: live checks on whether agents and AI crawlers can read the site (product data, structured markup, feeds, robots rules), and AI crawler visits from imported server logs.
+- Prompts and demand: the questions people ask AI in the category, ranked by opportunity, optionally weighted with Google Search Console, Semrush or Ahrefs data.
+- Competitors and sources: who is recommended instead, alerts when that changes, and the third-party sites the answers cite, split into owned, earned, community and review.
+- Accuracy: wrong prices or stock, confusion with similarly named companies, and cited sources that don't support the claim.
 
-### Answer Evidence Ledger
-Persipica stores the complete audit trail for every Pulse run: the exact prompt submitted, the full AI response returned, and the verified citations that supported the recommendation. Teams can inspect the precise evidence behind any score change rather than relying on a summary metric. No other AI visibility platform in this category provides this level of evidentiary depth as a standard feature.
+## What Pulse does with it
 
-### Revenue at Risk Modeling
-Persipica estimates pipeline exposure when brand visibility drops on commercially significant prompts. This converts visibility data into a financial metric that marketing and leadership teams can act on directly.
-
-### Virtual Competitor Re-scoring
-Persipica re-scores AI responses with competitor brand substitutions to show exactly where and how a brand would lose ground in a head-to-head recommendation scenario. This is a unique capability not offered by Conductor, Profound, Goodie AI, or Peec AI.
-
-### Share of Model Scoring
-Persipica measures how much recommendation space a brand occupies within a given AI answer set: not just whether it was mentioned, but how prominently and how often relative to the full competitive field.
-
-### Granular Source Attribution
-Persipica categorises every citation into four buckets:
-- Owned: brand's own website and documentation
-- Earned: press, news, and external editorial coverage
-- Community: forums, subreddits, and niche community content
-- Review: third-party review platforms such as G2, Capterra, and TrustRadius
-
-This attribution breakdown identifies which source types are driving or suppressing AI recommendations, and where content investment will have the highest impact.
-
-### Action Center
-Pulse turns recommendations into tracked work items with before-and-after snapshots. Each action links to the prompt evidence that triggered it, so teams can verify impact after deployment.
-
-### ROI Attribution
-Pulse connects AI visibility to real business outcomes. Import traffic and conversion data from GA4 or Google Search Console, then map AI-driven sessions back to specific platforms, prompts, and landing pages.
-
-### Crawler Analytics
-Pulse parses server logs to track AI crawler activity: GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, Google-Extended, Applebot-Extended, CCBot, and Bingbot. It reconstructs crawler journeys across the site to show which pages bots visit, how deep they go, and how often they return.
-
-### Demand Explorer
-Pulse discovers what buyers are asking AI models in a given category. It supports importing measured volume data from GSC or SEMRush, or inferring demand through autocomplete-style expansion. Each query is tagged with its provenance class: measured, imported, inferred, or modeled.
-
-### Shopping Intelligence
-Pulse tracks product visibility across AI shopping agents: Amazon Rufus, GPT Search, and Perplexity Shop. Teams can ingest their product catalog and monitor which items surface when buyers ask shopping agents for recommendations.
-
-### Entity Graph Audit
-Pulse detects schema markup on a brand's website and grades entity clarity. It checks whether AI models can consistently identify the brand without confusing it with similarly named entities.
-
-### Content Gap Audit
-Pulse maps failed prompts to the content backlog, identifying the pages, case studies, and comparisons a brand needs to create so AI models have source material to cite.
-
-### AEO Writer
-Pulse generates optimized copy and JSON-LD schema from gap recommendations. Each output is structured for answer engines: question-first copy, page briefs, and ready-to-deploy markup.
-
-### Evidence Matrix
-The Evidence Matrix provides a high-level visualization of capture status across surfaces and verification states, allowing teams to identify coverage gaps at a glance.
-
-### Desktop Deployment
-Pulse can be deployed as a local desktop workspace (Windows installer via Electron) for teams that need full control and want to use their own API keys. The desktop version runs the same Express server locally.
+- Actions: a to-do list of fixes suggested from the scans plus the team's own, with owners, status and each action's measured lift on the next scan.
+- Content fixes: rewrites, FAQs and comparison pages drafted from the answers where the brand was missed, published to WordPress, Webflow, Contentful or Sanity, or sent anywhere with a webhook.
+- Reports: a report per scan, summaries across scans, an executive view, impact on visits, conversions and revenue from imported GA4 and Search Console data, benchmarks, and branded share links.
+- Alerts by email and Slack; scheduled scans; team roles, single sign-on and SCIM; a security log; an API and an MCP server.
 
 ## Pricing
 
-Pulse is delivered as a cloud SaaS platform or local desktop workspace in four tiers:
-- Pulse Starter (£99/mo): 1 brand, 50 prompts, GPT + Claude + Gemini + additional models, weekly runs, email alerting.
-- Pulse Professional (£299/mo): 3 brands, 250 prompts, all models, daily runs, Slack + email, Evidence Ledger, Shopping Intelligence, Demand Explorer.
-- Pulse Business (£599/mo): 10 brands, 1,000 prompts, full platform, Action Center, ROI Attribution, Crawler Analytics, up to 10 client workspaces.
-- Pulse Enterprise (custom): Unlimited brands and prompts, SSO/SCIM, white-label reporting, dedicated support, SLA, custom agent surfaces.
-
-## Positioning vs. Competitors
-
-- vs. Conductor: Conductor is an enterprise SEO suite extending into AI search. Pulse is purpose-built for AI visibility with a closed-loop workflow and local deployment -it sits alongside existing SEO tooling rather than replacing it.
-- vs. Profound: Profound leads on prompt volume data (400M+ measured prompts) and agent analytics. Pulse differentiates on 12-surface coverage, a complete optimisation-to-publishing workflow, and privacy-first local deployment.
-- vs. Goodie AI: Goodie AI bundles content execution via an AEO writer. Pulse provides a complete closed-loop workflow: audit, optimise, publish to CMS, re-audit, and verify impact with statistical confidence.
-- vs. Peec AI: Peec AI prioritises analytics simplicity and share-of-voice dashboards. Pulse trades that simplicity for evidentiary depth, a six-dimensional scoring model, and the ability to act on findings directly from the platform.
-
-## Target Customers
-
-B2B SaaS companies, enterprise technology brands, specialist professional services firms, and marketing agencies managing multiple client brands. Typically teams where marketing leadership needs to justify AI visibility investment to a CFO or board, or where a compliance or legal function requires a defensible evidence trail.
-
-### MCP Server
-Pulse includes an MCP (Model Context Protocol) server that lets AI coding assistants and custom agents query visibility data, trigger audits, and pull evidence directly from Pulse. This enables developer teams to integrate AI visibility checks into their existing workflows and toolchains.
+- Starter, £99 a month: 1 brand, 50 scans a month, up to 3 team members. Visibility, audiences, products, evidence and content fixes.
+- Professional, £299 a month: 3 brands, 200 scans a month, up to 10 team members. Adds shopping agents, shopping visibility and prompt demand.
+- Business, £599 a month: 10 brands, 1,000 scans a month, up to 15 team members. Adds actions with measured lift, readiness and AI crawler visits, impact reporting and client workspaces.
+- Enterprise, custom: unlimited brands, scans and team members; reports under your own brand; single sign-on and SCIM; dedicated support.
 
 ## Pages
 
-- Home: https://persipica.com/
-- Features: https://persipica.com/features.html
-- Free Grader: https://persipica.com/grader.html
-- Pricing: https://persipica.com/pricing.html
-- Resources: https://persipica.com/resources.html
-- Changelog: https://persipica.com/changelog.html
-- Contact: https://persipica.com/contact.html
-- Privacy Policy: https://persipica.com/privacy.html
+- [Home](https://persipica.com/)
+- [Features](https://persipica.com/features.html)
+- [Pricing](https://persipica.com/pricing.html)
+- [Free grader](https://persipica.com/grader.html): ask ChatGPT, Claude and Gemini one question and see whether they mention a brand, free and without an account
+- [Resources](https://persipica.com/resources.html)
+- [Changelog](https://persipica.com/changelog.html)
+- [Contact and demos](https://persipica.com/contact.html)
+- [Privacy policy](https://persipica.com/privacy.html)
 
-## Knowledge Base
+## Comparisons
 
-Persipica Learn (learn.persipica.com) is the educational arm of Persipica. It contains in-depth GEO guides, research methodology, use-case playbooks, and objection handlers. It is the same entity: one company, two domains.
+- [Pulse vs Profound](https://persipica.com/persipica-vs-profound.html)
+- [Pulse vs Peec AI](https://persipica.com/persipica-vs-peec-ai.html)
+- [Pulse vs Goodie AI](https://persipica.com/persipica-vs-goodie-ai.html)
+- [Pulse vs Conductor](https://persipica.com/persipica-vs-conductor.html)
 
-- GEO Complete Guide: https://learn.persipica.com/geo-guide.html
-- Track AI Brand Mentions: https://learn.persipica.com/track-ai-brand-mentions.html
-- ROI Calculator: https://learn.persipica.com/ai-visibility-roi-calculator.html
-- Data & Research: https://learn.persipica.com/data.html
-- About Persipica: https://learn.persipica.com/about.html
-- Case Studies: https://learn.persipica.com/case-studies.html
+## Guides
+
+Persipica Learn (learn.persipica.com) is Persipica's guide site: the same company on a second domain.
+
+- [How AI recommendations work](https://learn.persipica.com/geo-guide.html)
+- [How to track AI brand mentions](https://learn.persipica.com/track-ai-brand-mentions.html)
+- [ROI calculator](https://learn.persipica.com/ai-visibility-roi-calculator.html)
+- [Research and data](https://learn.persipica.com/data.html)
 
 ## Contact
 
-- Website: https://persipica.com
-- Knowledge Base: https://learn.persipica.com
-- Contact: https://persipica.com/contact.html
 - Email: ilkan@persipica.com
+- Book a demo: https://persipica.com/contact.html
+- Sign in: https://pulse.persipica.com/login

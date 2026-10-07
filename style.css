@@ -660,11 +660,7 @@ p {
 }
 
 .plan .btn {
-  margin-top: auto;
-}
-
-.plan .points + .btn {
-  margin-top: 28px;
+  margin-top: 24px;
 }
 
 .plan-spacer {
@@ -1060,4 +1056,97 @@ textarea:focus-visible {
 .feature-copy .surfaces {
   grid-column: 1;
   margin-top: 8px;
+}
+
+.mt-48 {
+  margin-top: 48px;
+}
+
+/* ----- Free grader results ----- */
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .results {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.result {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--bg);
+}
+
+.result-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.result-head h3 {
+  font-size: 1.0625rem;
+}
+
+.status {
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.status-yes {
+  background: var(--positive-wash);
+  color: var(--positive);
+}
+
+.status-no {
+  background: var(--bg-soft);
+  color: var(--ink-muted);
+}
+
+.status-error {
+  background: #fbebed;
+  color: var(--negative);
+}
+
+.result-answer {
+  margin-top: 14px;
+  color: var(--ink-muted);
+  font-size: 0.9375rem;
+  white-space: pre-line;
+}
+
+.result-sources {
+  margin-top: 12px;
+  color: var(--ink-faint);
+  font-size: var(--text-sm);
+}
+
+.split .points {
+  margin-top: 28px;
+}
+
+.cols-1 {
+  --cols: 1;
+}
+
+.cols-2 {
+  --cols: 2;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
