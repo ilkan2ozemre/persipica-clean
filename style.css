@@ -667,6 +667,26 @@ p {
   flex: 1;
 }
 
+.plan-free {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.plan-free p {
+  margin-top: 8px;
+  color: var(--ink-muted);
+  font-size: 0.9375rem;
+}
+
+@media (max-width: 600px) {
+  .plan-free {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 @media (max-width: 1060px) {
   .plans {
     grid-template-columns: repeat(2, minmax(0, 1fr));

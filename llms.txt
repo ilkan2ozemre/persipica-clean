@@ -25,6 +25,7 @@ Pulse is built first for online retailers and consumer brands, and also works fo
 
 ## Pricing
 
+- Free, £0: 1 brand, 10 scans a month, 1 team member, measured on ChatGPT, Gemini and Perplexity. No card needed; sign up at https://pulse.persipica.com/login?mode=register.
 - Starter, £99 a month: 1 brand, 50 scans a month, up to 3 team members. Visibility, audiences, products, evidence and content fixes.
 - Professional, £299 a month: 3 brands, 200 scans a month, up to 10 team members. Adds shopping agents, shopping visibility and prompt demand.
 - Business, £599 a month: 10 brands, 1,000 scans a month, up to 15 team members. Adds actions with measured lift, readiness and AI crawler visits, impact reporting and client workspaces.
