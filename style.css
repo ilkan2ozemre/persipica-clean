@@ -116,7 +116,7 @@ textarea {
 }
 
 .home-page .hero .eyebrow + .hero-title {
-  margin-top: -0.25rem;
+  margin-top: calc(var(--space-sm) - 1.1rem);
 }
 
 .container {
@@ -4107,5 +4107,47 @@ textarea {
     flex-direction: column;
     text-align: center;
     padding: 1.25rem;
+  }
+}
+
+/* ----- Page heroes: one rhythm on every page --------------------
+   Every page opens the same way: 80px above the title block and 56px below it, and the section after the hero
+   starts straight away (no top padding of its own). The hero shows at once; only sections further down reveal on
+   scroll. */
+.hero,
+.page-hero,
+.features-hero,
+.pricing-hero,
+.resources-hero,
+.changelog-hero,
+.legal-hero {
+  padding: 5rem 0 3.5rem;
+}
+
+:is(.hero, .page-hero, .features-hero, .pricing-hero, .resources-hero, .changelog-hero, .legal-hero) + section {
+  padding-top: 0;
+}
+
+/* The home hero spaces its lines with a 1.1rem grid gap; match the title-to-text space the other pages have. */
+.hero-copy-wrap .hero-title {
+  margin-bottom: calc(var(--space-md) - 1.1rem);
+}
+
+@media (max-width: 680px) {
+  .hero,
+  .page-hero,
+  .features-hero,
+  .pricing-hero,
+  .resources-hero,
+  .changelog-hero,
+  .legal-hero {
+    padding: 1.5rem 0 1rem;
+  }
+
+  /* No extra padding inside the hero on phones either. */
+  .hero-copy-wrap,
+  .page-hero-copy,
+  .contact-hero {
+    padding: 0;
   }
 }
