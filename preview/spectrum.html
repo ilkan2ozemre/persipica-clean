@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Preview: black, white and colour | Persipica Pulse</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;family=Cormorant+Garamond:wght@500;600&amp;display=swap" />
+  <style>
+    /* Black and white, with six matched colours. The six share one lightness and softness and differ
+       only in hue, so any of them sits next to any other. Each one belongs to a part of Pulse. */
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --grey: #f4f4f2;
+      --muted: #55554f;
+      --line: rgba(0, 0, 0, 0.14);
+      --coral: #ffaea6;  --coral-tint: #ffe0dc;
+      --apricot: #ffb980; --apricot-tint: #ffe5ce;
+      --sun: #ffd66b;    --sun-tint: #fff1c7;
+      --mint: #8ee0ab;   --mint-tint: #d5f5de;
+      --sky: #7ed6ff;    --sky-tint: #cff1ff;
+      --lilac: #d5baff;  --lilac-tint: #efe5ff;
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "Archivo", system-ui, sans-serif;
+      --c: var(--sky);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--white); color: var(--black); font: 400 17px/1.6 var(--sans); }
+    a { color: inherit; }
+    .wrap { width: min(100% - 40px, 1180px); margin-inline: auto; }
+
+    /* Buttons: square and black. On hover they lift onto a block of whatever colour the section uses. */
+    .btn { display: inline-flex; align-items: center; min-height: 46px; padding: 0 22px; border: 0; background: var(--black); color: var(--white); font: 600 0.9375rem/1 var(--sans); text-decoration: none; cursor: pointer; box-shadow: 0 0 0 var(--c); transition: transform 140ms ease, box-shadow 140ms ease; }
+    .btn:hover, .btn.is-hover { transform: translate(-3px, -3px); box-shadow: 3px 3px 0 var(--c); }
+    .btn:focus-visible, .link:focus-visible { outline: 2px solid var(--black); outline-offset: 3px; }
+    .on-black .btn { background: var(--white); color: var(--black); }
+    .link { font-weight: 600; font-size: 0.9375rem; text-decoration: underline; text-decoration-color: var(--c); text-decoration-thickness: 3px; text-underline-offset: 6px; }
+
+    nav { border-bottom: 1px solid var(--line); }
+    nav .wrap { display: flex; align-items: center; gap: 32px; height: 68px; }
+    .word { font: 600 1.6rem/1 var(--serif); text-decoration: none; }
+    .word span { margin-left: 8px; font: 600 0.8125rem/1 var(--sans); vertical-align: 4px; }
+    .word span::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; background: var(--coral); }
+    nav ul { display: flex; gap: 24px; margin: 0; padding: 0; list-style: none; font-size: 0.9375rem; }
+    nav ul a { text-decoration: none; }
+    .nav-end { display: flex; align-items: center; gap: 22px; margin-left: auto; }
+
+    h1, h2 { margin: 0; font-family: var(--serif); font-weight: 500; letter-spacing: -0.01em; }
+    h1 { font-size: clamp(2.9rem, 4.2vw + 1.2rem, 5rem); line-height: 0.98; }
+    h2 { font-size: clamp(2.2rem, 2vw + 1.4rem, 3.25rem); line-height: 1.02; }
+    h3 { margin: 0; font-size: 1.125rem; font-weight: 600; }
+    p { margin: 0; }
+
+    .hero { padding-block: clamp(3.5rem, 6vw, 6.5rem); --c: var(--sun); }
+    .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 64px; align-items: center; }
+    .lead { max-width: 33rem; margin-top: 24px; color: var(--muted); font-size: 1.1875rem; }
+    .actions { display: flex; align-items: center; gap: 24px; margin-top: 34px; }
+    .note { margin-top: 16px; color: var(--muted); font-size: 0.875rem; }
+
+    /* The chat. Each assistant has its own colour; the highlighter takes the colour of the one you're reading. */
+    .chat { padding: 22px; border: 1.5px solid var(--black); background: var(--white); }
+    .tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+    .tab { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border: 1.5px solid var(--black); background: var(--white); font: 600 0.8125rem/1 var(--sans); cursor: pointer; }
+    .tab::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--dot); }
+    .tab[aria-selected="true"] { background: var(--black); color: var(--white); }
+    .q { width: fit-content; max-width: 88%; margin-left: auto; padding: 11px 15px; border-radius: 16px 16px 4px 16px; background: var(--grey); font-size: 0.9375rem; }
+    .a { margin-top: 14px; font-size: 0.9375rem; }
+    .a ol { margin: 8px 0 0; padding: 0; list-style: none; counter-reset: n; }
+    .a li { display: flex; justify-content: space-between; padding: 10px 0; border-top: 1px solid var(--line); counter-increment: n; }
+    .a li > span:first-child::before { content: counter(n) ". "; color: var(--muted); }
+    .a mark { padding: 0 3px; background: var(--hl); color: inherit; font-weight: 600; }
+    .verdict { margin-top: 12px; padding: 10px 14px; background: var(--hl-tint); font-size: 0.875rem; }
+    .caption { margin-top: 12px; color: var(--muted); font-size: 0.75rem; text-align: center; }
+
+    /* Six parts of Pulse, six colours. */
+    .parts { padding-block: clamp(4rem, 6vw, 6.5rem); border-top: 1px solid var(--line); }
+    .parts-head { display: flex; justify-content: space-between; align-items: end; gap: 32px; }
+    .parts-head p { max-width: 30rem; color: var(--muted); }
+    .tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
+    .tile { padding: 28px; background: var(--tint); }
+    .tile .shape { display: block; width: 40px; height: 40px; margin-bottom: 22px; background: var(--mid); }
+    .tile p { margin-top: 8px; color: #2b2b27; font-size: 0.9375rem; }
+    .s-circle { border-radius: 50%; }
+    .s-half { border-radius: 40px 40px 0 0; }
+    .s-diamond { transform: rotate(45deg) scale(0.8); }
+    .s-pill { border-radius: 20px; width: 64px !important; }
+    .s-quarter { border-radius: 0 40px 0 0; }
+
+    .band { padding-block: clamp(4rem, 6vw, 6rem); background: var(--black); color: var(--white); --c: var(--coral); }
+    .band .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; }
+    .band p { margin-top: 18px; color: rgba(255, 255, 255, 0.78); }
+    .bars { display: grid; gap: 12px; }
+    .bar { display: grid; grid-template-columns: 110px 1fr 48px; align-items: center; gap: 14px; font-size: 0.875rem; }
+    .bar i { display: block; height: 14px; background: var(--b); }
+    .bar b { font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
+
+    .sheet { padding-block: 56px 72px; }
+    .sheet h3 { margin-bottom: 18px; }
+    .ctx { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .ctx > div { display: grid; gap: 18px; justify-items: start; padding: 28px; }
+    .ctx small { color: inherit; opacity: 0.7; font-size: 0.8125rem; }
+
+    @media (max-width: 900px) {
+      .hero .wrap, .band .wrap, .tiles, .ctx { grid-template-columns: minmax(0, 1fr); }
+      nav ul { display: none; }
+      .parts-head { display: block; }
+      .parts-head p { margin-top: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn:hover { transform: none; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <a class="word" href="#">Persipica<span>Pulse</span></a>
+      <ul><li><a href="#">Features</a></li><li><a href="#">Pricing</a></li><li><a href="#">Free grader</a></li><li><a href="#">Resources</a></li></ul>
+      <div class="nav-end"><a class="link" href="#" style="--c: transparent">Sign in</a><a class="btn" href="#" style="--c: var(--coral)">Start free</a></div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>When shoppers ask AI what to buy, does it mention you?</h1>
+        <p class="lead">Pulse asks ChatGPT, Claude, Gemini, Perplexity and Google's AI the questions your shoppers ask. You see where your products come up, who gets recommended instead, and what to change.</p>
+        <div class="actions"><a class="btn is-hover" href="#">Start free</a><a class="link" href="#">Book a demo</a></div>
+        <p class="note">Free plan. No card needed.</p>
+      </div>
+      <figure class="chat" style="margin:0">
+        <div class="tabs" role="tablist" aria-label="Assistant">
+          <button class="tab" role="tab" aria-selected="true" data-a="gpt" style="--dot: var(--lilac)">ChatGPT</button>
+          <button class="tab" role="tab" aria-selected="false" data-a="gemini" style="--dot: var(--sky)">Gemini</button>
+          <button class="tab" role="tab" aria-selected="false" data-a="pplx" style="--dot: var(--mint)">Perplexity</button>
+        </div>
+        <p class="q">What are the best merino walking socks for blisters?</p>
+        <div class="a" id="answer"></div>
+        <p class="caption">Example with a sample brand</p>
+      </figure>
+    </div>
+  </section>
+
+  <section class="parts">
+    <div class="wrap">
+      <div class="parts-head">
+        <h2>Everything Pulse watches for you</h2>
+        <p>Each part of Pulse has its own colour, here and in the app, so you always know where you are.</p>
+      </div>
+      <div class="tiles">
+        <div class="tile" style="--tint: var(--sky-tint); --mid: var(--sky)"><span class="shape s-circle"></span><h3>Visibility</h3><p>How often AI names you, by assistant, against your competitors.</p></div>
+        <div class="tile" style="--tint: var(--coral-tint); --mid: var(--coral)"><span class="shape s-half"></span><h3>Audiences</h3><p>Which kinds of shopper hear about you, and who hears a competitor.</p></div>
+        <div class="tile" style="--tint: var(--sun-tint); --mid: var(--sun)"><span class="shape s-quarter"></span><h3>Products</h3><p>Which products get named and the prices AI quotes next to yours.</p></div>
+        <div class="tile" style="--tint: var(--mint-tint); --mid: var(--mint)"><span class="shape s-diamond"></span><h3>Shopping agents</h3><p>Whether AI agents find your store, shortlist you and pick you.</p></div>
+        <div class="tile" style="--tint: var(--lilac-tint); --mid: var(--lilac)"><span class="shape s-pill"></span><h3>Actions</h3><p>What to fix next, drafted for you and checked on the next scan.</p></div>
+        <div class="tile" style="--tint: var(--apricot-tint); --mid: var(--apricot)"><span class="shape"></span><h3>Accuracy</h3><p>Wrong prices, wrong stock and answers that mix you up with someone else.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band on-black">
+    <div class="wrap">
+      <div>
+        <h2>Every number opens the answers behind it.</h2>
+        <p>Click any rate in Pulse to read the questions, the answers and the sources each assistant used.</p>
+        <div class="actions"><a class="btn is-hover" href="#">Start free</a><a class="link" href="#">See how it works</a></div>
+      </div>
+      <div class="bars" aria-label="Example: how often each assistant mentions a sample brand">
+        <div class="bar" style="--b: var(--lilac)"><span>ChatGPT</span><i style="width: 62%"></i><b>47%</b></div>
+        <div class="bar" style="--b: var(--sky)"><span>Gemini</span><i style="width: 28%"></i><b>21%</b></div>
+        <div class="bar" style="--b: var(--mint)"><span>Perplexity</span><i style="width: 74%"></i><b>56%</b></div>
+        <div class="bar" style="--b: var(--sun)"><span>Claude</span><i style="width: 45%"></i><b>34%</b></div>
+        <div class="bar" style="--b: var(--coral)"><span>AI Mode</span><i style="width: 18%"></i><b>14%</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet">
+    <div class="wrap">
+      <h3>The same button, wherever it sits</h3>
+      <div class="ctx">
+        <div style="background: var(--white); border: 1px solid var(--line); --c: var(--sun)"><small>On white</small><a class="btn" href="#">Start free</a><a class="btn is-hover" href="#">Start free</a><a class="link" href="#">Book a demo</a></div>
+        <div class="on-black" style="background: var(--black); color: var(--white); --c: var(--coral)"><small>On black</small><a class="btn" href="#">Start free</a><a class="btn is-hover" href="#">Start free</a><a class="link" href="#">Book a demo</a></div>
+        <div style="background: var(--mint-tint); --c: var(--mint)"><small>On a colour</small><a class="btn" href="#">Start free</a><a class="btn is-hover" href="#">Start free</a><a class="link" href="#">Book a demo</a></div>
+      </div>
+      <p class="caption" style="text-align:left;margin-top:14px">Each pair shows the button at rest, then on hover. The underline and the hover block take the section's colour.</p>
+    </div>
+  </section>
+
+  <script>
+    const answers = {
+      gpt: { hl: 'var(--lilac)', tint: 'var(--lilac-tint)', intro: 'Walkers rate these three:', items: [['Ridgeway Trail Merino', '£16'], ['Fellside Peak Merino', '£18', true], ['Tor Outdoor Hiker', '£14']], verdict: 'ChatGPT names you second.' },
+      gemini: { hl: 'var(--sky)', tint: 'var(--sky-tint)', intro: 'Popular choices include:', items: [['Ridgeway Trail Merino', '£16'], ['Tor Outdoor Hiker', '£14'], ['Pennine Mills Loop', '£15']], verdict: "Gemini leaves you out. Pulse shows you why." },
+      pplx: { hl: 'var(--mint)', tint: 'var(--mint-tint)', intro: 'Based on reviews, the top picks are:', items: [['Fellside Peak Merino', '£18', true], ['Ridgeway Trail Merino', '£16'], ['Pennine Mills Loop', '£15']], verdict: 'Perplexity names you first.' },
+    };
+    const box = document.getElementById('answer');
+    const chat = box.closest('.chat');
+    function show(key) {
+      const a = answers[key];
+      chat.style.setProperty('--hl', a.hl);
+      chat.style.setProperty('--hl-tint', a.tint);
+      box.innerHTML = '<p>' + a.intro + '</p><ol>' + a.items.map(([name, price, you]) =>
+        '<li><span>' + (you ? '<mark>' + name + '</mark>' : name) + '</span><span>' + price + '</span></li>').join('') +
+        '</ol><p class="verdict">' + a.verdict + '</p>';
+      document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', String(t.dataset.a === key)));
+    }
+    document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => show(t.dataset.a)));
+    show('gpt');
+  </script>
+</body>
+</html>
