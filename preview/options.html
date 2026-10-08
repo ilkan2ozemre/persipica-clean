@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Preview: colours and buttons | Persipica Pulse</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;family=Cormorant+Garamond:wght@500;600&amp;display=swap" />
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 32px; background: #ffffff; color: #1d2b2d; font: 400 16px/1.5 "Archivo", system-ui, sans-serif; }
+    h1 { margin: 0 0 6px; font: 600 1.5rem/1.2 "Archivo", sans-serif; }
+    .intro { margin: 0 0 28px; color: #4d5b5e; max-width: 60rem; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    .opt { overflow: hidden; border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 4px; }
+    .opt-hero { padding: 32px 32px 28px; background: var(--dark); color: #ffffff; }
+    .opt-name { margin: 0 0 14px; color: rgba(255, 255, 255, 0.75); font-size: 0.875rem; font-weight: 600; }
+    .opt-hero h2 { margin: 0; max-width: 18ch; font: 500 2.6rem/1.02 "Cormorant Garamond", Georgia, serif; letter-spacing: -0.01em; }
+    .opt-hero p.lead { margin: 14px 0 0; max-width: 34rem; color: rgba(255, 255, 255, 0.82); font-size: 0.9375rem; }
+    .hero-btns { display: flex; gap: 18px; align-items: center; margin-top: 22px; }
+    .opt-body { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 24px; padding: 28px 32px 32px; background: #ffffff; }
+    .chat { padding: 16px; border-radius: 4px; background: var(--tint); }
+    .q { width: fit-content; margin-left: auto; padding: 9px 12px; background: var(--dark); color: #ffffff; font-size: 0.8125rem; }
+    .a { margin-top: 10px; padding: 12px 14px 4px; background: #ffffff; font-size: 0.8125rem; }
+    .a ol { margin: 6px 0 0; padding: 0; list-style: none; }
+    .a li { display: flex; justify-content: space-between; padding: 6px 0; border-top: 1px solid rgba(0, 0, 0, 0.08); }
+    mark { padding: 0 2px; background: linear-gradient(var(--accent), var(--accent)) no-repeat 0 88% / 100% 60%; color: inherit; font-weight: 600; }
+    .who { color: #6b7375; font-size: 0.75rem; font-weight: 600; }
+    .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 14px; }
+    .sw { height: 34px; border: 1px solid rgba(0, 0, 0, 0.08); }
+    .hex { margin-top: 3px; color: #6b7375; font-size: 0.6875rem; font-variant-numeric: tabular-nums; }
+    .btn-col { display: grid; gap: 14px; align-content: start; }
+    .btn-row { display: flex; align-items: center; gap: 14px; }
+    .cap { width: 92px; color: #6b7375; font-size: 0.75rem; }
+
+    .b { display: inline-flex; align-items: center; min-height: 42px; padding: 0 18px; font: 600 0.875rem/1 "Archivo", sans-serif; text-decoration: none; cursor: pointer; }
+    /* 1. Square: crisp rectangle, filled. */
+    .b-square { border-radius: 2px; background: var(--dark); color: #ffffff; }
+    .opt-hero .b-square { background: var(--accent); color: var(--on-accent); }
+    /* 2. Stamp: square with a solid offset shadow, presses down on click. */
+    .b-stamp { border: 2px solid var(--ink); border-radius: 2px; background: var(--accent); color: var(--on-accent); box-shadow: 4px 4px 0 var(--ink); transition: transform 80ms, box-shadow 80ms; }
+    .b-stamp:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--ink); }
+    /* 3. Price tag: a swing-tag shape with a punched hole. */
+    .b-tag { position: relative; padding-left: 28px; background: var(--dark); color: #ffffff; clip-path: polygon(14px 0, 100% 0, 100% 100%, 14px 100%, 0 50%); }
+    .b-tag::before { content: ""; position: absolute; left: 11px; top: 50%; width: 6px; height: 6px; margin-top: -3px; border-radius: 50%; background: #ffffff; }
+    /* Secondary: a plain text link with a thick underline in the warm colour. */
+    .b-link { color: var(--ink); font-weight: 600; font-size: 0.875rem; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 3px; text-underline-offset: 5px; }
+    .opt-hero .b-link { color: #ffffff; }
+    @media (max-width: 900px) { .grid, .opt-body { grid-template-columns: 1fr; } body { padding: 16px; } }
+  </style>
+</head>
+<body>
+  <h1>Colours and buttons</h1>
+  <p class="intro">Four colour schemes, each with the login page serif for the big heading and the warm colour as the highlighter. On the right of each: three button shapes and a text link for second actions.</p>
+  <div class="grid">
+    <section class="opt" style="--dark:#0e3c42; --accent:#ffb38a; --on-accent:#1d2b2d; --tint:#dcedea; --ink:#1d2b2d;">
+      <div class="opt-hero">
+        <p class="opt-name">1. Bottle and apricot</p>
+        <h2>When shoppers ask AI what to buy, does it mention you?</h2>
+        <p class="lead">The current teal, deepened, with apricot as the warm note. Smallest change for the app.</p>
+        <div class="hero-btns"><a class="b b-square">Start free</a><a class="b-link">Book a demo</a></div>
+      </div>
+      <div class="opt-body">
+        <div>
+          <div class="chat"><p class="q">Best merino walking socks for blisters?</p><div class="a"><span class="who">ChatGPT</span><ol><li><span>Ridgeway Trail Merino</span><span>£16</span></li><li><span><mark>Fellside Peak Merino</mark></span><span>£18</span></li><li><span>Tor Outdoor Hiker</span><span>£14</span></li></ol></div></div>
+          <div class="swatches"><div><div class="sw" style="background:#0e3c42"></div><div class="hex">#0E3C42</div></div><div><div class="sw" style="background:#ffb38a"></div><div class="hex">#FFB38A</div></div><div><div class="sw" style="background:#dcedea"></div><div class="hex">#DCEDEA</div></div><div><div class="sw" style="background:#1d2b2d"></div><div class="hex">#1D2B2D</div></div></div>
+        </div>
+        <div class="btn-col">
+          <div class="btn-row"><span class="cap">Square</span><a class="b b-square">Start free</a></div>
+          <div class="btn-row"><span class="cap">Stamp</span><a class="b b-stamp">Start free</a></div>
+          <div class="btn-row"><span class="cap">Price tag</span><a class="b b-tag">Start free</a></div>
+          <div class="btn-row"><span class="cap">Text link</span><a class="b-link">Book a demo</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="opt" style="--dark:#3a1e35; --accent:#f4b740; --on-accent:#2a1a27; --tint:#f6ecef; --ink:#2a1a27;">
+      <div class="opt-hero">
+        <p class="opt-name">2. Aubergine and marigold</p>
+        <h2>When shoppers ask AI what to buy, does it mention you?</h2>
+        <p class="lead">The warmest and most distinctive. Feels like fashion and beauty retail. Biggest change for the app.</p>
+        <div class="hero-btns"><a class="b b-square">Start free</a><a class="b-link">Book a demo</a></div>
+      </div>
+      <div class="opt-body">
+        <div>
+          <div class="chat"><p class="q">Best merino walking socks for blisters?</p><div class="a"><span class="who">ChatGPT</span><ol><li><span>Ridgeway Trail Merino</span><span>£16</span></li><li><span><mark>Fellside Peak Merino</mark></span><span>£18</span></li><li><span>Tor Outdoor Hiker</span><span>£14</span></li></ol></div></div>
+          <div class="swatches"><div><div class="sw" style="background:#3a1e35"></div><div class="hex">#3A1E35</div></div><div><div class="sw" style="background:#f4b740"></div><div class="hex">#F4B740</div></div><div><div class="sw" style="background:#f6ecef"></div><div class="hex">#F6ECEF</div></div><div><div class="sw" style="background:#2a1a27"></div><div class="hex">#2A1A27</div></div></div>
+        </div>
+        <div class="btn-col">
+          <div class="btn-row"><span class="cap">Square</span><a class="b b-square">Start free</a></div>
+          <div class="btn-row"><span class="cap">Stamp</span><a class="b b-stamp">Start free</a></div>
+          <div class="btn-row"><span class="cap">Price tag</span><a class="b b-tag">Start free</a></div>
+          <div class="btn-row"><span class="cap">Text link</span><a class="b-link">Book a demo</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="opt" style="--dark:#1e3a2f; --accent:#f3d46b; --on-accent:#1c2a23; --tint:#e6eee7; --ink:#1c2a23;">
+      <div class="opt-hero">
+        <p class="opt-name">3. Forest and butter</p>
+        <h2>When shoppers ask AI what to buy, does it mention you?</h2>
+        <p class="lead">Calm and natural. Suits home, outdoor and food brands. A moderate change for the app.</p>
+        <div class="hero-btns"><a class="b b-square">Start free</a><a class="b-link">Book a demo</a></div>
+      </div>
+      <div class="opt-body">
+        <div>
+          <div class="chat"><p class="q">Best merino walking socks for blisters?</p><div class="a"><span class="who">ChatGPT</span><ol><li><span>Ridgeway Trail Merino</span><span>£16</span></li><li><span><mark>Fellside Peak Merino</mark></span><span>£18</span></li><li><span>Tor Outdoor Hiker</span><span>£14</span></li></ol></div></div>
+          <div class="swatches"><div><div class="sw" style="background:#1e3a2f"></div><div class="hex">#1E3A2F</div></div><div><div class="sw" style="background:#f3d46b"></div><div class="hex">#F3D46B</div></div><div><div class="sw" style="background:#e6eee7"></div><div class="hex">#E6EEE7</div></div><div><div class="sw" style="background:#1c2a23"></div><div class="hex">#1C2A23</div></div></div>
+        </div>
+        <div class="btn-col">
+          <div class="btn-row"><span class="cap">Square</span><a class="b b-square">Start free</a></div>
+          <div class="btn-row"><span class="cap">Stamp</span><a class="b b-stamp">Start free</a></div>
+          <div class="btn-row"><span class="cap">Price tag</span><a class="b b-tag">Start free</a></div>
+          <div class="btn-row"><span class="cap">Text link</span><a class="b-link">Book a demo</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="opt" style="--dark:#2541b2; --accent:#ffc9a8; --on-accent:#172042; --tint:#eef1fb; --ink:#172042;">
+      <div class="opt-hero">
+        <p class="opt-name">4. Cobalt and peach</p>
+        <h2>When shoppers ask AI what to buy, does it mention you?</h2>
+        <p class="lead">The brightest and most energetic. Friendly but techier. A big change for the app.</p>
+        <div class="hero-btns"><a class="b b-square">Start free</a><a class="b-link">Book a demo</a></div>
+      </div>
+      <div class="opt-body">
+        <div>
+          <div class="chat"><p class="q">Best merino walking socks for blisters?</p><div class="a"><span class="who">ChatGPT</span><ol><li><span>Ridgeway Trail Merino</span><span>£16</span></li><li><span><mark>Fellside Peak Merino</mark></span><span>£18</span></li><li><span>Tor Outdoor Hiker</span><span>£14</span></li></ol></div></div>
+          <div class="swatches"><div><div class="sw" style="background:#2541b2"></div><div class="hex">#2541B2</div></div><div><div class="sw" style="background:#ffc9a8"></div><div class="hex">#FFC9A8</div></div><div><div class="sw" style="background:#eef1fb"></div><div class="hex">#EEF1FB</div></div><div><div class="sw" style="background:#172042"></div><div class="hex">#172042</div></div></div>
+        </div>
+        <div class="btn-col">
+          <div class="btn-row"><span class="cap">Square</span><a class="b b-square">Start free</a></div>
+          <div class="btn-row"><span class="cap">Stamp</span><a class="b b-stamp">Start free</a></div>
+          <div class="btn-row"><span class="cap">Price tag</span><a class="b b-tag">Start free</a></div>
+          <div class="btn-row"><span class="cap">Text link</span><a class="b-link">Book a demo</a></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
