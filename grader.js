@@ -26,8 +26,9 @@
 
   function render(results) {
     grid.textContent = "";
-    results.forEach(function (result) {
+    results.forEach(function (result, index) {
       var card = el("article", "result");
+      card.style.setProperty("--i", String(index));
       var head = el("div", "result-head");
       head.appendChild(el("h3", null, NAMES[result.provider] || result.provider));
       var failed = !!result.error;
