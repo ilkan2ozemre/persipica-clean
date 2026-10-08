@@ -1,0 +1,406 @@
+/* Preview B, "Receipt": a deep bottle-teal hero, Young Serif headings, apricot as the warm note, and the
+   AI's answer printed as a shop receipt. Archivo for reading. */
+
+.skin-receipt {
+  --ink: #1d2b2d;
+  --ink-muted: #44575a;
+  --ink-faint: #627377;
+  --brand: #0e3c42;
+  --brand-strong: #0a2d32;
+  --brand-wash: #dcedea;
+  --bg-soft: #eef6f4;
+  --line: rgba(29, 43, 45, 0.12);
+  --line-strong: rgba(29, 43, 45, 0.24);
+  --apricot: #ffb38a;
+  --seaglass: #dcedea;
+  --paper: #fffdf7;
+  --stamp: #c8323c;
+  --display: "Young Serif", Georgia, serif;
+  --r-control: 10px;
+  --r-card: 16px;
+  color: var(--ink);
+}
+
+.skin-receipt .w h1,
+.skin-receipt .w h2,
+.skin-receipt .w h3 {
+  font-family: var(--display);
+  font-weight: 400;
+}
+
+.skin-receipt .w h1 {
+  font-size: clamp(2.5rem, 3.4vw + 1.3rem, 4.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+}
+
+.skin-receipt .w h2 {
+  font-size: clamp(1.9rem, 1.6vw + 1.2rem, 2.6rem);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+.skin-receipt .w h3 {
+  font-size: 1.4375rem;
+  letter-spacing: 0;
+}
+
+.skin-receipt .brand-word {
+  font-family: var(--display);
+  font-size: 1.375rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  margin-right: 0;
+  color: var(--ink);
+}
+
+.skin-receipt .brand-product {
+  border-left-color: var(--line-strong);
+  color: var(--ink-muted);
+}
+
+.skin-receipt .brand-product::before {
+  background: var(--apricot);
+  opacity: 1;
+}
+
+.skin-receipt .btn {
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.skin-receipt .btn-primary,
+.skin-receipt .btn-primary:hover {
+  border-color: var(--brand);
+  background: var(--brand);
+  color: #ffffff;
+}
+
+.skin-receipt .btn-primary:hover {
+  background: var(--brand-strong);
+}
+
+/* ----- Hero: the one dark, warm-lit block ----- */
+
+.w-hero {
+  padding-block: clamp(3.5rem, 5vw + 1rem, 6.5rem);
+  background: var(--brand);
+  color: #ffffff;
+}
+
+.w-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.w-hero h1 {
+  color: #ffffff;
+}
+
+.w-lead {
+  max-width: 34rem;
+  margin-top: 24px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.1875rem;
+  line-height: 1.6;
+}
+
+.w-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.w-hero .btn {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: transparent;
+  color: #ffffff;
+}
+
+.w-hero .btn:hover {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.w-hero .btn-primary,
+.w-hero .btn-primary:hover {
+  border-color: var(--apricot);
+  background: var(--apricot);
+  color: var(--ink);
+}
+
+.w-note {
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+}
+
+/* The receipt: ChatGPT's answer as a till roll, with the brand missing. */
+.w-till {
+  justify-self: center;
+  width: min(100%, 360px);
+  margin: 0;
+}
+
+.w-slot {
+  height: 12px;
+  border-radius: 6px;
+  background: var(--brand-strong);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.45);
+}
+
+.w-paper-clip {
+  overflow: hidden;
+  margin: -6px 12px 0;
+  padding-bottom: 24px;
+}
+
+.w-paper {
+  position: relative;
+  padding: 26px 22px 34px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 24px 40px -20px rgba(0, 0, 0, 0.5);
+  /* Torn bottom edge. */
+  -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 14px 100%;
+  mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 14px 100%;
+}
+
+.w-r-head {
+  font-family: var(--display);
+  font-size: 1.375rem;
+  text-align: center;
+}
+
+.w-r-q {
+  margin-top: 6px;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed var(--line-strong);
+  color: var(--ink-muted);
+  text-align: center;
+}
+
+.w-r-items {
+  margin: 14px 0 0;
+  padding: 0 0 14px;
+  border-bottom: 1px dashed var(--line-strong);
+  list-style: none;
+}
+
+.w-r-items li,
+.w-r-line {
+  display: flex;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.w-r-items li span:first-child,
+.w-r-line span:first-child {
+  display: flex;
+  flex: 1;
+  gap: 8px;
+}
+
+.w-r-items li span:first-child::after,
+.w-r-line span:first-child::after {
+  content: "";
+  flex: 1;
+  margin-bottom: 5px;
+  border-bottom: 1px dotted var(--line-strong);
+}
+
+.w-r-line:first-of-type {
+  margin-top: 10px;
+}
+
+.w-r-you {
+  font-weight: 600;
+}
+
+.w-stamp {
+  width: fit-content;
+  margin: 18px auto 0;
+  padding: 6px 14px;
+  border: 3px solid var(--stamp);
+  border-radius: 6px;
+  color: var(--stamp);
+  font-family: var(--display);
+  font-size: 1.25rem;
+  transform: rotate(-7deg);
+  opacity: 0.9;
+}
+
+.w-till figcaption {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* ----- Sections ----- */
+
+.w-band {
+  padding-block: clamp(4rem, 6vw + 1rem, 7rem);
+}
+
+.w-story {
+  display: grid;
+  gap: clamp(3.5rem, 5vw, 5.5rem);
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.w-row-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 16px 48px;
+  align-items: start;
+}
+
+.w-row-copy p {
+  color: var(--ink-muted);
+  font-size: 1.0625rem;
+}
+
+.w-frame {
+  margin: 24px 0 0;
+  padding: clamp(16px, 2.5vw, 32px);
+  border-radius: 16px;
+  background: var(--seaglass);
+}
+
+.w-frame img {
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(29, 43, 45, 0.08), 0 20px 40px -24px rgba(29, 43, 45, 0.35);
+}
+
+.w-people {
+  padding-top: 0;
+}
+
+.w-people + .w-band {
+  padding-top: 0;
+}
+
+.w-people-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 24px;
+}
+
+.w-founder {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: clamp(24px, 3vw, 40px);
+  border-radius: 16px;
+  background: #fff4ec;
+}
+
+.w .w-founder h2 {
+  font-size: clamp(1.6rem, 1.2vw + 1.1rem, 2.1rem);
+}
+
+.w-founder p {
+  margin-top: 12px;
+  color: var(--ink-muted);
+}
+
+.w-founder .w-actions {
+  margin-top: 20px;
+}
+
+.w-avatar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--apricot);
+  font-family: var(--display);
+  font-size: 1.5rem;
+}
+
+.w-proof {
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  border: 2px dashed var(--line-strong);
+  border-radius: 16px;
+  color: var(--ink-faint);
+  font-size: 0.9375rem;
+  text-align: center;
+}
+
+.w-plans {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px 48px;
+  padding-top: clamp(2rem, 3vw, 3rem);
+  border-top: 1px solid var(--line);
+}
+
+.w-plans p {
+  max-width: 40rem;
+  margin-top: 12px;
+  color: var(--ink-muted);
+}
+
+.w-plans .w-actions {
+  margin-top: 0;
+}
+
+.w-close {
+  padding-block: clamp(4rem, 6vw + 1rem, 6.5rem);
+  background: var(--seaglass);
+}
+
+.w-close h2 {
+  max-width: 20ch;
+}
+
+.w-close p {
+  margin-top: 14px;
+  color: var(--ink-muted);
+  font-size: 1.1875rem;
+}
+
+/* ----- The one moment: the receipt prints, then gets stamped ----- */
+
+@keyframes w-print {
+  from { transform: translateY(-100%); }
+  to { transform: none; }
+}
+
+@keyframes w-stamp {
+  0% { opacity: 0; transform: rotate(-7deg) scale(1.8); }
+  70% { opacity: 0.9; transform: rotate(-7deg) scale(0.95); }
+  100% { opacity: 0.9; transform: rotate(-7deg) scale(1); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .w-paper { animation: w-print 1600ms steps(16, end) 400ms backwards; }
+  .w-stamp { animation: w-stamp 420ms cubic-bezier(0.3, 0, 0.3, 1) 2200ms backwards; }
+}
+
+/* ----- Small screens ----- */
+
+@media (max-width: 900px) {
+  .w-hero-grid,
+  .w-people-grid,
+  .w-row-copy {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .w-founder {
+    flex-direction: column;
+  }
+}
