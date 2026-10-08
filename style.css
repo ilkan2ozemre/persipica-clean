@@ -8,6 +8,7 @@
   --brand: #2b6c78;
   --brand-strong: #1f5560;
   --brand-wash: #e3f1f4;
+  --brand-bright: #63aebf;
   --bg: #ffffff;
   --bg-soft: #f4f8fa;
   --deep: #102430;
@@ -26,6 +27,7 @@
   --content: 1180px;
   --gutter: 20px;
   --nav-h: 64px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
   --font: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --text-sm: 0.875rem;
@@ -45,6 +47,7 @@
 
 html {
   scrollbar-gutter: stable;
+  scroll-padding-top: calc(var(--nav-h) + 16px);
   -webkit-text-size-adjust: 100%;
 }
 
@@ -152,7 +155,7 @@ p {
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  transition: border-color 120ms ease, background-color 120ms ease;
+  transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease, transform 160ms var(--ease-out);
 }
 
 .btn:hover {
@@ -1170,3 +1173,173 @@ textarea:focus-visible {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+
+/* ----- Motion -----
+   Page heads rise in on load and the home screenshot tilts into place. Sections below the fold
+   rise in as they reach the viewport (app.js adds .reveal only to those, so nothing is hidden
+   without JavaScript). Everything is switched off for visitors who prefer reduced motion. */
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes tilt-in {
+  from { opacity: 0; transform: perspective(1800px) rotateX(10deg) translateY(40px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes glow-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes drift {
+  from { transform: translate3d(-6%, -4%, 0) rotate(0deg); }
+  to { transform: translate3d(6%, 4%, 0) rotate(10deg); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .hero h1,
+  .page-head h1 {
+    animation: rise 800ms var(--ease-out) backwards;
+  }
+
+  .hero .lead,
+  .page-head .lead {
+    animation: rise 800ms var(--ease-out) 90ms backwards;
+  }
+
+  .page-head .small {
+    animation: rise 800ms var(--ease-out) 140ms backwards;
+  }
+
+  .hero .actions,
+  .page-head .actions {
+    animation: rise 800ms var(--ease-out) 180ms backwards;
+  }
+
+  .hero-note,
+  .page-head .points,
+  .page-head .cols,
+  .page-head .form {
+    animation: rise 800ms var(--ease-out) 260ms backwards;
+  }
+
+  .hero-shot {
+    transform-origin: 50% 0;
+    animation: tilt-in 1200ms var(--ease-out) 200ms backwards;
+  }
+
+  .hero-shot::before {
+    animation: glow-in 1600ms ease 500ms backwards;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 8px 16px -8px rgba(16, 36, 48, 0.3);
+  }
+
+  .btn:active {
+    transform: none;
+  }
+
+  .plan,
+  .result,
+  .plan-free {
+    transition: transform 240ms var(--ease-out), box-shadow 240ms ease, border-color 240ms ease;
+  }
+
+  .plan:hover,
+  .result:hover,
+  .plan-free:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-shot);
+  }
+
+  .faq details[open] > div {
+    animation: rise 400ms var(--ease-out) backwards;
+  }
+
+  .result {
+    animation: rise 600ms var(--ease-out) backwards;
+    animation-delay: calc(var(--i, 0) * 120ms);
+  }
+
+  .cta::before {
+    animation: drift 24s ease-in-out infinite alternate;
+  }
+
+  .plan.featured:hover {
+    box-shadow: 0 0 0 1px var(--brand), var(--shadow-shot);
+  }
+
+  /* Last, so it wins over the card transitions above while an element is revealing. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
+    transition-delay: calc(var(--i, 0) * 70ms);
+  }
+
+  .shot.reveal {
+    transform: translateY(28px) scale(0.985);
+  }
+
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* A soft glow behind the home screenshot. */
+.hero-shot {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-shot::before {
+  content: "";
+  position: absolute;
+  inset: -12% 0 35%;
+  z-index: -1;
+  background: radial-gradient(50% 60% at 50% 45%, color-mix(in srgb, var(--brand-bright) 32%, transparent), transparent 72%);
+  pointer-events: none;
+}
+
+/* The header lifts off the page once it scrolls. */
+.site-nav {
+  transition: box-shadow 250ms ease, background-color 250ms ease;
+}
+
+.site-nav.is-scrolled {
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 10px 30px -22px rgba(16, 36, 48, 0.45);
+}
+
+.nav-links a {
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+/* A slow teal glow drifting across the dark closing band. */
+.cta {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  z-index: -1;
+  background:
+    radial-gradient(30% 40% at 25% 35%, color-mix(in srgb, var(--brand) 55%, transparent), transparent 70%),
+    radial-gradient(28% 36% at 78% 70%, color-mix(in srgb, var(--brand-bright) 22%, transparent), transparent 70%);
+  pointer-events: none;
+}
+
