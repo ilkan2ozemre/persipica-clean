@@ -459,6 +459,25 @@ a.tile.card:active::before,
   font-weight: 600;
 }
 
+/* The free grader gets a loose pen stroke under it, like the hand-drawn eye. */
+.nav-grader span {
+  position: relative;
+}
+
+.nav-grader span::after {
+  content: "";
+  position: absolute;
+  left: -3px;
+  right: -5px;
+  bottom: -8px;
+  height: 8px;
+  background: var(--accent);
+  pointer-events: none;
+  -webkit-mask: var(--pen-stroke) no-repeat 0 0 / 100% 100%;
+  mask: var(--pen-stroke) no-repeat 0 0 / 100% 100%;
+  --pen-stroke: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 10' preserveAspectRatio='none'%3E%3Cfilter id='i'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='3'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='1.6'/%3E%3C/filter%3E%3Cpath filter='url(%23i)' d='M3 7C24 4.6 47 6.4 70 5.1S106 3.6 117 2.4' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
 .nav-end {
   display: flex;
   align-items: center;
@@ -482,15 +501,25 @@ a.tile.card:active::before,
   opacity: 0;
   pointer-events: none;
   translate: var(--px, 0) 0;
-  transform: translateY(8px);
-  transition: opacity 200ms ease, transform var(--t-panel) var(--ease-out);
+  transform: translateY(6px) scale(0.98);
+  transform-origin: 50% 0;
+  transition: opacity 180ms ease, transform 240ms var(--ease-out);
 }
 
-/* Only opening and closing animate. Moving to the other trigger snaps the panel's place and size. */
 .menu-panel.is-open {
   opacity: 1;
   pointer-events: auto;
   transform: none;
+}
+
+/* Place and size only glide when moving between triggers; a fresh open starts in the right place. */
+.menu-panel.is-open.is-switching {
+  transition:
+    opacity 180ms ease,
+    transform 240ms var(--ease-out),
+    translate 260ms var(--ease-out),
+    width 260ms var(--ease-out),
+    height 260ms var(--ease-out);
 }
 
 .menu {
@@ -501,9 +530,21 @@ a.tile.card:active::before,
   visibility: hidden;
 }
 
-.menu.is-active {
+.menu.is-active,
+.menu.is-leaving {
   visibility: visible;
 }
+
+/* The old list is mostly gone before the new one starts, so the two never read as one jumble. */
+.menu[data-motion="from-end"] { animation: menu-from-end 240ms var(--ease-out) 60ms backwards; }
+.menu[data-motion="from-start"] { animation: menu-from-start 240ms var(--ease-out) 60ms backwards; }
+.menu[data-motion="to-start"] { animation: menu-to-start 140ms ease-in forwards; }
+.menu[data-motion="to-end"] { animation: menu-to-end 140ms ease-in forwards; }
+
+@keyframes menu-from-end { from { opacity: 0; transform: translateX(32px); } }
+@keyframes menu-from-start { from { opacity: 0; transform: translateX(-32px); } }
+@keyframes menu-to-start { to { opacity: 0; transform: translateX(-32px); } }
+@keyframes menu-to-end { to { opacity: 0; transform: translateX(32px); } }
 
 .menu-grid {
   display: grid;

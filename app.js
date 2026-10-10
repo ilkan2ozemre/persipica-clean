@@ -233,8 +233,9 @@
       toggle.setAttribute('aria-expanded', String(open));
     });
 
-    // One panel for every dropdown. Switching menus swaps the contents at once, so the old list never
-    // shows under the new trigger.
+    // One panel for every dropdown. Opening fades it in. Moving to another trigger glides the panel to
+    // its new place and size while the old list slides out and the new one slides in from the side
+    // the pointer came from.
     var panel = $('.menu-panel', nav);
     var triggers = $$('.nav-trigger', nav);
     var current = null;
@@ -246,7 +247,23 @@
       var menu = $('.menu[data-menu="' + key + '"]', panel);
       var trigger = $('.nav-trigger[data-menu="' + key + '"]', nav);
       if (!menu || !trigger) return;
-      $$('.menu', panel).forEach(function (m) { m.classList.toggle('is-active', m === menu); });
+      var switching = panel.classList.contains('is-open') && current && current !== key;
+      var forward = switching && triggers.indexOf(trigger) > triggers.indexOf($('.nav-trigger[data-menu="' + current + '"]', nav));
+      $$('.menu', panel).forEach(function (m) {
+        var wasActive = m.classList.contains('is-active');
+        m.classList.toggle('is-active', m === menu);
+        if (m === menu) {
+          m.classList.remove('is-leaving');
+          m.setAttribute('data-motion', switching ? (forward ? 'from-end' : 'from-start') : '');
+        } else if (wasActive && switching) {
+          m.classList.add('is-leaving');
+          m.setAttribute('data-motion', forward ? 'to-start' : 'to-end');
+        } else {
+          m.classList.remove('is-leaving');
+          m.setAttribute('data-motion', '');
+        }
+      });
+      panel.classList.toggle('is-switching', !!switching);
       triggers.forEach(function (t) { t.setAttribute('aria-expanded', String(t === trigger)); });
       var base = panel.parentElement.getBoundingClientRect();
       var tr = trigger.getBoundingClientRect();
@@ -261,6 +278,13 @@
       current = key;
       if (focusFirst) { var first = $('a', menu); if (first) first.focus(); }
     };
+
+    $$('.menu', panel).forEach(function (m) {
+      m.addEventListener('animationend', function () {
+        m.classList.remove('is-leaving');
+        m.setAttribute('data-motion', '');
+      });
+    });
 
     // One pending close at a time: a stray timer from an earlier leave used to close a menu that had
     // just opened.
