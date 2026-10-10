@@ -862,13 +862,6 @@
 
   /* ---------------------------------------------------------------- plans and questions */
 
-  $$('.plan').forEach(function (plan) {
-    plan.addEventListener('click', function (ev) {
-      if (FINE || ev.target.closest('a')) return;
-      plan.classList.toggle('is-open');
-    });
-  });
-
   $$('[data-faq] details').forEach(function (d) {
     var summary = $('summary', d);
     var content = $('.faq-body', d);
