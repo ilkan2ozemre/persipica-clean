@@ -27,13 +27,13 @@
   function render(results) {
     grid.textContent = "";
     results.forEach(function (result, index) {
-      var card = el("article", "result");
+      var card = el("article", "result card");
       card.style.setProperty("--i", String(index));
       var head = el("div", "result-head");
       head.appendChild(el("h3", null, NAMES[result.provider] || result.provider));
       var failed = !!result.error;
       var status = failed ? "Could not get an answer" : result.mentioned ? "Mentions your brand" : "Does not mention your brand";
-      head.appendChild(el("span", "status " + (failed ? "status-error" : result.mentioned ? "status-yes" : "status-no"), status));
+      head.appendChild(el("span", "status-pill" + (failed ? " is-error" : result.mentioned ? " is-yes" : ""), status));
       card.appendChild(head);
       if (failed) {
         card.appendChild(el("p", "result-answer", result.error));

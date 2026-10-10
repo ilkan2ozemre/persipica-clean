@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en-GB" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,6 +7,7 @@
   <meta name="description" content="Pulse asks ChatGPT, Gemini, Perplexity, Claude and Google&#x27;s AI answers the questions your shoppers ask, and shows whether your products come up, at what price, and what to fix." />
   <link rel="canonical" href="https://persipica.com/" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#1f262e" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Persipica" />
   <meta property="og:title" content="Persipica Pulse | Find out if AI recommends your products" />
@@ -25,8 +26,11 @@
   <link rel="apple-touch-icon" href="/favicon-180-v2.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;family=Cormorant+Garamond:wght@500;600&amp;display=swap" />
   <link rel="stylesheet" href="/style.css" />
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+  <script type="speculationrules">{"prefetch": [{"where": {"href_matches": "/*"}, "eagerness": "moderate"}]}</script>
+  <script src="/app.js" defer></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FRQ1EZ52E"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -125,18 +129,10 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "What does Pulse actually check?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Pulse asks AI assistants the questions your shoppers and buyers ask, reads every answer, and records whether your brand and products are named, how they're described, at what price, which competitors appear instead and which sources are cited. It does this on a schedule, so you can see change over time."
-            }
-          },
-          {
-            "@type": "Question",
             "name": "Which assistants does Pulse cover?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "ChatGPT, Claude, Gemini, Perplexity and Grok, each using its own live web search, plus Google AI Overviews and Google AI Mode as they appear in Google search. Results always say which assistant and which method they come from."
+              "text": "You choose for each scan from ChatGPT, Claude, Gemini, Perplexity and Grok, each using its own live web search, plus Google AI Overviews and Google AI Mode as they appear in Google search. Scans start with ChatGPT, Claude and Gemini. The Free plan uses ChatGPT, Gemini and Perplexity."
             }
           },
           {
@@ -144,7 +140,7 @@
             "name": "Are the shoppers real people?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. Audiences are simulated shoppers that you describe, and Pulse uses them to phrase questions the way that kind of person would. Every attribute is labelled as your data, a public signal or an assumption, and results are never presented as observed customer behaviour."
+              "text": "No. Audiences are simulated shoppers that you describe, and Pulse uses them to phrase questions the way that kind of person would. Every attribute is labelled as your data, a public signal or an assumption."
             }
           },
           {
@@ -152,7 +148,7 @@
             "name": "Do I need to connect my store?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. Pulse works from your brand and website alone. Importing your catalogue from Shopify, a product feed or a CSV adds product-level results and price checks."
+              "text": "No. Pulse works from your brand and website alone. Bringing in your catalogue from Shopify, a product feed or a CSV adds product results and price checks."
             }
           },
           {
@@ -160,15 +156,15 @@
             "name": "How is this different from SEO?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Search rankings tell you where a page appears in a list of links. AI assistants write one answer and recommend a few names in it. Pulse measures that answer: whether you're in it, how you're described and what the assistant relied on. Good SEO helps, but it doesn't tell you what the answer says."
+              "text": "Search rankings tell you where a page appears in a list of links. AI assistants write one answer and recommend a few names in it. Pulse measures that answer: whether you're in it, how you're described and what the assistant relied on."
             }
           },
           {
             "@type": "Question",
-            "name": "How reliable are the numbers?",
+            "name": "Do shopping agents use up scans?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "AI answers vary from one ask to the next, so Pulse asks repeatedly and shows each rate with its likely range and sample size. When a range is wide, Pulse says so instead of reporting a precise-looking figure."
+              "text": "No. Shopping agent runs have their own allowance: 300 a month on Professional and 1,500 on Business. One run is one buying task given to one agent."
             }
           }
         ]
@@ -179,289 +175,407 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-nav">
-    <div class="container site-nav-inner">
-      <a class="brand" href="/" aria-label="Persipica home"><span class="brand-word">PERSIPICA</span><span class="brand-product">Pulse</span></a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-      <nav class="nav-menu" id="nav-menu" aria-label="Main">
-        <ul class="nav-links">
-          <li><a href="/features.html">Features</a></li>
-          <li><a href="/pricing.html">Pricing</a></li>
-          <li><a href="/grader.html">Free grader</a></li>
-          <li><a href="/resources.html">Resources</a></li>
-        </ul>
-        <div class="nav-end">
-          <a class="btn" href="https://pulse.persipica.com/login">Sign in</a>
-          <a class="btn btn-primary" href="/contact.html">Book a demo</a>
-        </div>
-      </nav>
-    </div>
-  </header>
 
-  <main id="main">
-    <section class="hero">
-      <div class="container">
-        <h1>Find out if AI recommends your products.</h1>
-        <p class="lead">Shoppers now ask ChatGPT, Gemini and Google's AI Mode what to buy. Pulse asks them the same questions, the way each kind of shopper would, and shows whether your products come up, at what price, and what to fix when they don't.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="/contact.html">Book a demo</a>
-          <a class="btn" href="/grader.html">Run a free check</a>
-        </div>
-        <p class="hero-note">Every number in Pulse links to the answers behind it.</p>
-        <div class="hero-shot">
-          <div class="shot">
-            <img src="/images/app-overview.webp" width="2360" height="1475" alt="The Pulse overview for a sock brand: mentioned in 46.9% of AI answers, picked by AI shopping agents 22% of the time, 5 of 6 site checks passed, and results by audience." fetchpriority="high" />
+  <div class="page">
+    <header class="site-nav">
+      <div class="container site-nav-inner">
+        <a class="brand" href="/" aria-label="Persipica home"><span class="brand-word">Persipica</span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <nav class="nav-menu" id="nav-menu" aria-label="Main">
+          <ul class="nav-main">
+            <li>
+              <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="menu-product" data-menu="product">Product <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+              <div class="mobile-sub" hidden>
+                <a href="/features.html#visibility">Visibility</a>
+                <a href="/features.html#audiences">Audiences</a>
+                <a href="/features.html#products">Products</a>
+                <a href="/features.html#shopping-agents">Shopping agents</a>
+                <a href="/features.html#fixes">Fixes</a>
+                <a href="/features.html#accuracy">Accuracy</a>
+              </div>
+            </li>
+            <li><a href="/pricing.html">Pricing</a></li>
+            <li><a href="/grader.html">Free grader</a></li>
+            <li>
+              <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="menu-resources" data-menu="resources">Resources <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+              <div class="mobile-sub" hidden>
+                <a href="/resources.html">Resources</a>
+                <a href="https://learn.persipica.com/geo-guide.html">How AI recommendations work</a>
+                <a href="/changelog.html">Changelog</a>
+                <a href="/persipica-vs-peec-ai.html">Comparisons</a>
+              </div>
+            </li>
+          </ul>
+          <div class="nav-end">
+            <a class="link" href="https://pulse.persipica.com/login">Sign in</a>
+            <a class="btn" href="https://pulse.persipica.com/login?mode=register">Start free</a>
+          </div>
+        </nav>
+      </div>
+      <div class="container" style="position: relative">
+        <div class="menu-panel card" aria-hidden="true">
+          <div class="menu" id="menu-product" data-menu="product">
+            <div class="menu-grid">
+              <a href="/features.html#visibility"><strong>Visibility</strong><span>How often AI names you, by assistant and against competitors.</span></a>
+              <a href="/features.html#audiences"><strong>Audiences</strong><span>Which kinds of shopper hear about you, and who hears a competitor.</span></a>
+              <a href="/features.html#products"><strong>Products</strong><span>The products AI names, and the prices it quotes next to yours.</span></a>
+              <a href="/features.html#shopping-agents"><strong>Shopping agents</strong><span>Whether AI agents find your store, shortlist you and pick you.</span></a>
+              <a href="/features.html#fixes"><strong>Fixes</strong><span>What to change next, drafted for you and checked on the next scan.</span></a>
+              <a href="/features.html#accuracy"><strong>Accuracy</strong><span>Wrong prices, wrong stock and mix-ups with similar names.</span></a>
+            </div>
+            <div class="menu-foot"><span>Every number opens the answers behind it.</span><a class="link" href="/features.html">All features</a></div>
+          </div>
+          <div class="menu" id="menu-resources" data-menu="resources">
+            <div class="menu-list">
+              <a href="/resources.html"><strong>Resources</strong><span>Guides, research and tools.</span></a>
+              <a href="https://learn.persipica.com/geo-guide.html"><strong>How AI recommendations work</strong><span>A plain guide to how assistants choose what to name.</span></a>
+              <a href="/changelog.html"><strong>Changelog</strong><span>What's new in Pulse.</span></a>
+              <a href="/persipica-vs-peec-ai.html"><strong>Comparisons</strong><span>Pulse next to Peec AI, Profound, Goodie and Conductor.</span></a>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </header>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>What Pulse measures</h2>
-          <p>Pulse runs real questions through the assistants your customers use, on a schedule, and reads every answer. You see the result for your brand, your products and your competitors, and the evidence behind it.</p>
-        </div>
-
-        <div class="feature">
-          <div class="feature-copy">
-            <h3>Each kind of shopper, separately</h3>
-            <p>Describe the people you sell to: a student on a budget, a parent buying for growing kids, a serious hiker. Pulse writes questions in their voice and asks every assistant, so you see which shoppers hear about you and which hear about a competitor.</p>
-            <ul class="points">
-              <li>How often you're recommended to each audience, with the likely range</li>
-              <li>The competitor each audience hears about instead</li>
-              <li>Audiences are simulated, and every assumption is labelled</li>
-            </ul>
-          </div>
-          <div class="shot">
-            <img src="/images/app-audiences.webp" width="2376" height="876" loading="lazy" alt="Results by audience: Budget-conscious students recommended 72% of the time, Serious weekend hikers 68%, Parents buying for growing kids 11% against Pennine Mills at 65%." />
-          </div>
-        </div>
-
-        <div class="feature">
-          <div class="feature-copy">
-            <h3>Your products and the prices AI quotes</h3>
-            <p>Import your catalogue from your Shopify store, a product feed or a CSV. Pulse shows which products the assistants name, the prices they quote and the stores they send shoppers to. When an answer quotes an old price, you see it.</p>
-            <ul class="points">
-              <li>How often each product is named, for each audience</li>
-              <li>Prices checked against your catalogue</li>
-              <li>The stores and marketplaces AI points shoppers to</li>
-            </ul>
-          </div>
-          <div class="shot">
-            <img src="/images/app-products.webp" width="2376" height="1200" loading="lazy" alt="A product in Pulse: Merino Trail Socks named in 45% of answers for hikers, with a warning that AI quoted £14.00 twice when the catalogue price is £16.00." />
-          </div>
-        </div>
-
-        <div class="feature">
-          <div class="feature-copy">
-            <h3>Whether shopping agents pick you</h3>
-            <p>AI agents now research and buy on a shopper's behalf. Pulse gives agents real buying tasks and records whether they find your store, shortlist your products and choose them over a competitor. Site checks show whether agents can read your product pages, prices and stock.</p>
-            <ul class="points">
-              <li>Found, shortlisted and picked, for you and each competitor</li>
-              <li>The reasons agents chose someone else</li>
-              <li>Readiness checks for product data, feeds and crawler access</li>
-            </ul>
-          </div>
-          <div class="shot">
-            <img src="/images/app-agents.webp" width="2376" height="1436" loading="lazy" alt="Shopping agents in Pulse: the brand was picked in 22% of 120 simulated shopping runs, against 38% for the competitor picked most." />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-soft">
-      <div class="container">
-        <div class="feature">
-          <div class="feature-copy">
-            <h2>Turn every gap into a fix</h2>
-            <p>Pulse turns what it finds into a to-do list: pages to write or rewrite, review sites that recommend your competitors and not you, product data agents can't read. It drafts the content changes, and the next scan shows whether each one moved the numbers.</p>
-            <ul class="points">
-              <li>Suggested actions, ranked by priority</li>
-              <li>Content fixes drafted from the answers themselves</li>
-              <li>Before and after, measured on the next scan</li>
-            </ul>
-          </div>
-          <div class="shot">
-            <img src="/images/app-actions.webp" width="2376" height="1240" loading="lazy" alt="The Actions list in Pulse: a comparison page that lifted mentions by 12%, an FAQ change verified at plus 8%, and work in progress." />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="feature">
-          <div class="feature-copy">
-            <h2>Numbers you can stand behind</h2>
-            <p>Each result says how it was measured, how many answers it rests on and how wide the likely range is, so a small sample never passes for a trend. Open any number to read the answers behind it, with the sources each assistant cited.</p>
-            <p>Pulse measures the assistants with their own live web search, the way your customers use them, plus Google's AI answers as they appear in search.</p>
-            <ul class="surfaces" aria-label="Assistants Pulse measures">
-              <li>ChatGPT</li>
-              <li>Claude</li>
-              <li>Gemini</li>
-              <li>Perplexity</li>
-              <li>Grok</li>
-              <li>Google AI Overviews</li>
-              <li>Google AI Mode</li>
-            </ul>
-          </div>
-          <div class="shot">
-            <img src="/images/app-report.webp" width="2376" height="604" loading="lazy" alt="A scan report in Pulse: 40 answers collected, 32 with web search and 8 from search results, each figure shown with its sample size and likely range." />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-soft">
-      <div class="container">
-        <div class="section-head">
-          <h2>Selling software or services?</h2>
-          <p>Pulse works for B2B brands too. Track how assistants answer the questions your buyers ask before they talk to sales, see which competitors they recommend, and find the sources they trust.</p>
-        </div>
-        <div class="cols">
+    <main id="main">
+      <section class="hero bg-white">
+        <div class="container hero-grid">
           <div>
-            <h3>Buyer questions</h3>
-            <p>The questions people ask AI about your category, ranked by how much there is to gain.</p>
+            <h1>When shoppers ask AI what to buy, does it mention you?</h1>
+            <p class="lead">Pulse asks ChatGPT, Claude, Gemini, Perplexity and Google's AI the questions your shoppers ask, the way each kind of shopper asks them. You see where your products come up, who gets recommended instead, and what to change.</p>
+            <div class="actions">
+              <a class="btn" href="https://pulse.persipica.com/login?mode=register">Start free</a>
+              <a class="link" href="/contact.html">Book a demo</a>
+            </div>
+            <p class="note">Free plan. No card needed.</p>
           </div>
+
+          <figure class="chat card" aria-label="Pulse checking what AI assistants tell shoppers about Fellside">
+            <span class="chat-eye card eye-slot" data-eye="hero"></span>
+            <div class="chat-top">
+              <div class="personas" role="group" aria-label="Shopper">
+                <span class="personas-label">Asking as</span>
+                <button class="persona-chip" type="button" aria-pressed="true" data-s="0">A hiker with blisters</button>
+                <button class="persona-chip" type="button" aria-pressed="false" data-s="1">A parent</button>
+                <button class="persona-chip" type="button" aria-pressed="false" data-s="2">A student</button>
+              </div>
+              <div class="tabs" role="tablist" aria-label="Assistant">
+                <button class="tab" role="tab" type="button" aria-selected="true" data-a="gpt">ChatGPT</button>
+                <button class="tab" role="tab" type="button" aria-selected="false" data-a="gemini">Gemini</button>
+                <button class="tab" role="tab" type="button" aria-selected="false" data-a="pplx">Perplexity</button>
+              </div>
+            </div>
+            <div class="morph" data-morph>
+              <div data-chat-body>
+                <p class="bubble-q" data-question>What are the best merino walking socks for blisters?</p>
+                <div class="answer" aria-live="polite">
+                  <p class="answer-from">ChatGPT</p>
+                  <p class="answer-intro">Walkers who struggle with blisters tend to rate these three:</p>
+                  <ol>
+                    <li><span>Ridgeway Trail Merino</span><span>£16</span></li>
+                    <li><span><mark>Fellside Peak Merino</mark></span><span>£18</span></li>
+                    <li><span>Tor Outdoor Hiker</span><span>£14</span></li>
+                  </ol>
+                  <p class="verdict is-good"><span>ChatGPT names Fellside second.</span><b>47% of answers</b></p>
+                </div>
+              </div>
+            </div>
+            <div class="chat-foot">
+              <div class="cycle-bar" aria-hidden="true"><i></i></div>
+              <button class="pause" type="button" data-pause="hero" aria-pressed="false"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1h2v8H2zM6 1h2v8H6z" fill="currentColor"/></svg><span>Pause</span></button>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="strip bg-stone" aria-label="Questions shoppers ask AI">
+        <div class="container strip-head">
+          <span>Shoppers now ask AI questions like these, and the answer shapes what they buy.</span>
+          <button class="pause" type="button" data-pause="strip" aria-pressed="false"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1h2v8H2zM6 1h2v8H6z" fill="currentColor"/></svg><span>Pause</span></button>
+        </div>
+        <div class="strip-row" style="--dur: 80s" data-strip></div>
+        <div class="strip-row" style="--dur: 95s" data-strip></div>
+      </section>
+
+      <section class="section bg-stone" id="parts">
+        <div class="container">
+          <div class="section-head">
+            <h2>See where you stand, and why</h2>
+            <p>Six views from a single scan of a sample brand. Pick one to explore it.</p>
+          </div>
+          <div class="parts">
+            <div>
+              <ul class="part-list" role="tablist" aria-label="Parts of Pulse">
+                <li><button class="part-btn" role="tab" type="button" aria-selected="true" aria-controls="view-visibility" data-part="visibility"><strong>Visibility</strong><span><em>How often AI names you, week by week, against your competitors.</em></span><i class="part-progress"></i></button></li>
+                <li><button class="part-btn" role="tab" type="button" aria-selected="false" aria-controls="view-audiences" data-part="audiences"><strong>Audiences</strong><span><em>Which kinds of shopper hear about you, and who hears a competitor.</em></span><i class="part-progress"></i></button></li>
+                <li><button class="part-btn" role="tab" type="button" aria-selected="false" aria-controls="view-products" data-part="products"><strong>Products</strong><span><em>The products AI names, and the prices it quotes next to yours.</em></span><i class="part-progress"></i></button></li>
+                <li><button class="part-btn" role="tab" type="button" aria-selected="false" aria-controls="view-agents" data-part="agents"><strong>Shopping agents</strong><span><em>Whether AI agents find your store, shortlist you and pick you.</em></span><i class="part-progress"></i></button></li>
+                <li><button class="part-btn" role="tab" type="button" aria-selected="false" aria-controls="view-fixes" data-part="fixes"><strong>Fixes</strong><span><em>What to change next, drafted for you and checked on the next scan.</em></span><i class="part-progress"></i></button></li>
+                <li><button class="part-btn" role="tab" type="button" aria-selected="false" aria-controls="view-accuracy" data-part="accuracy"><strong>Accuracy</strong><span><em>Wrong prices, wrong stock and mix-ups with similar names.</em></span><i class="part-progress"></i></button></li>
+              </ul>
+              <div class="part-controls">
+                <button class="pause" type="button" data-pause="parts" aria-pressed="false"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1h2v8H2zM6 1h2v8H6z" fill="currentColor"/></svg><span>Pause</span></button>
+              </div>
+            </div>
+
+            <div class="views card morph" data-morph>
+              <div class="view" id="view-visibility" role="tabpanel" data-view="visibility">
+                <div class="view-head"><h3>Fellside, named in AI answers</h3><small>Last 8 weeks</small></div>
+                <div class="chips" data-series>
+                  <button class="chip" type="button" aria-pressed="true" data-s="all">All assistants</button>
+                  <button class="chip" type="button" aria-pressed="false" data-s="gpt">ChatGPT</button>
+                  <button class="chip" type="button" aria-pressed="false" data-s="gemini">Gemini</button>
+                  <button class="chip" type="button" aria-pressed="false" data-s="pplx">Perplexity</button>
+                </div>
+                <div class="chart" data-chart>
+                  <p class="note">Mentions rose from 31% to 47% over eight weeks.</p>
+                </div>
+                <div class="legend"><span>Fellside, with its likely range</span><span>Ridgeway, top competitor</span></div>
+              </div>
+
+              <div class="view" id="view-audiences" role="tabpanel" data-view="audiences">
+                <div class="view-head"><h3>Who hears about Fellside</h3><small>Hover a shopper for detail</small></div>
+                <div class="rows">
+                  <div class="row"><button class="row-main" type="button"><span>Weekend hikers</span><span class="meter" style="--v: 68%; --c: 44%"><i></i><u></u></span><b>68%</b></button><div class="row-more"><div><p>Ridgeway is named in 44% of the same answers. Asked as: "Which walking socks stop blisters on long days?"</p></div></div></div>
+                  <div class="row"><button class="row-main" type="button"><span>Students on a budget</span><span class="meter" style="--v: 72%; --c: 38%"><i></i><u></u></span><b>72%</b></button><div class="row-more"><div><p>Tor Outdoor is the main alternative at 38%. Cheaper multipacks are mentioned in most answers.</p></div></div></div>
+                  <div class="row"><button class="row-main" type="button"><span>Parents buying for growing kids</span><span class="meter" style="--v: 11%; --c: 65%"><i></i><u></u></span><b>11%</b></button><div class="row-more"><div><p>Pennine Mills is named in 65%. Answers cite a review site's "longest-lasting kids' socks" list, which doesn't include Fellside.</p></div></div></div>
+                  <div class="row"><button class="row-main" type="button"><span>Gift-buyers</span><span class="meter" style="--v: 34%; --c: 41%"><i></i><u></u></span><b>34%</b></button><div class="row-more"><div><p>Close to Ridgeway at 41%. Gift guides from two magazines drive most of the answers.</p></div></div></div>
+                </div>
+                <p class="legend"><span>Fellside</span><span>Top competitor</span></p>
+              </div>
+
+              <div class="view" id="view-products" role="tabpanel" data-view="products">
+                <div class="view-head"><h3>Your products in AI answers</h3><small>Prices checked against your catalogue</small></div>
+                <div class="rows">
+                  <div class="row"><button class="row-main" type="button"><span>Peak Merino</span><span class="meter" style="--v: 45%"><i></i></span><b>45%</b></button><div class="row-more"><div><p><span class="price-ok">£18.00 quoted correctly</span> in 31 of 33 answers. Shoppers are sent to your store and to two outdoor retailers.</p></div></div></div>
+                  <div class="row"><button class="row-main" type="button"><span>Trail Junior</span><span class="meter" style="--v: 9%"><i></i></span><b>9%</b></button><div class="row-more"><div><p><span class="price-off">£9.00 quoted, your price is £11.00.</span> Gemini is reading last season's price from a cached retailer page.</p></div></div></div>
+                  <div class="row"><button class="row-main" type="button"><span>Everyday 3-pack</span><span class="meter" style="--v: 38%"><i></i></span><b>38%</b></button><div class="row-more"><div><p><span class="price-ok">£24.00 quoted correctly.</span> Most often recommended to students, usually next to Tor Outdoor's multipack.</p></div></div></div>
+                </div>
+              </div>
+
+              <div class="view" id="view-agents" role="tabpanel" data-view="agents">
+                <div class="view-head"><h3>Shopping agents buying walking socks</h3><small>120 buying tasks</small></div>
+                <div class="funnel">
+                  <div class="stage"><span>Found</span><div class="stage-bars"><div class="stage-bar"><i style="--v: 82%"></i>82%</div><div class="stage-bar comp"><i style="--v: 90%"></i>Ridgeway 90%</div></div></div>
+                  <div class="stage"><span>Shortlisted</span><div class="stage-bars"><div class="stage-bar"><i style="--v: 41%"></i>41%</div><div class="stage-bar comp"><i style="--v: 63%"></i>Ridgeway 63%</div></div></div>
+                  <div class="stage"><span>Picked</span><div class="stage-bars"><div class="stage-bar"><i style="--v: 22%"></i>22%</div><div class="stage-bar comp"><i style="--v: 38%"></i>Ridgeway 38%</div></div></div>
+                </div>
+                <div class="reasons"><b>Why agents picked Ridgeway</b><ul><li>Its size guide was readable; yours sits in an image</li><li>Stock showed on the product page</li></ul></div>
+              </div>
+
+              <div class="view" id="view-fixes" role="tabpanel" data-view="fixes">
+                <div class="view-head"><h3>What to change next</h3><small>Results measured on <span class="tier">Business</span></small></div>
+                <div class="rows">
+                  <div class="row is-open"><button class="row-main" type="button"><span>Add a kids' durability page</span><span><span class="fix-status" data-fix-status>Drafted</span></span><b class="lift" data-fix-lift>&nbsp;</b></button><div class="row-more"><div><p>Drafted from the 18 answers where Pennine Mills was named for kids' socks: wash tests, a growing-feet size guide and a fit promise.</p></div></div></div>
+                  <div class="row"><button class="row-main" type="button"><span>Put the size guide in text</span><span><span class="fix-status is-done">Done</span></span><b class="lift">+9 pts</b></button><div class="row-more"><div><p>Agents can now read sizes. Shortlisted by agents rose from 32% to 41%.</p></div></div></div>
+                  <div class="row"><button class="row-main" type="button"><span>Correct the Trail Junior price</span><span><span class="fix-status is-live">With retailer</span></span><b class="lift">&nbsp;</b></button><div class="row-more"><div><p>Two retailer pages still show £9.00. Pulse checks again on the next scan.</p></div></div></div>
+                </div>
+              </div>
+
+              <div class="view" id="view-accuracy" role="tabpanel" data-view="accuracy">
+                <div class="view-head"><h3>Answers that get you wrong</h3><small>From this week's scan</small></div>
+                <p class="excerpt">"For kids, <span class="wrong">Fellside's Trail Junior costs about £9</span> and comes in three colours. Fellside also makes <span class="wrong">waterproof hiking boots</span>, so it's a good one-stop shop."</p>
+                <div class="flags">
+                  <p class="flag"><b>Price</b><span>Your price is £11.00. The £9 comes from a retailer's old page.</span></p>
+                  <p class="flag"><b>Mix-up</b><span>Fellside doesn't make boots. The answer confuses you with a footwear brand with a similar name.</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-slate">
+        <div class="container watch">
           <div>
-            <h3>Competitors and sources</h3>
-            <p>Who is recommended in your place, and which review sites and articles the answers cite.</p>
+            <h2>Every number comes with the answers behind it.</h2>
+            <p>Open any result to read the exact answers, which assistant gave them and the sources it cited. Answers change from one ask to the next, so each rate shows its likely range and how many answers it rests on. Simulated shoppers are always labelled as simulated.</p>
+            <div class="watch-stats">
+              <div><b>3&times;</b><span>each question, on each chat assistant</span></div>
+              <div><b>Every</b><span>answer kept, with its sources</span></div>
+            </div>
           </div>
+          <div class="field" data-field aria-hidden="true">
+            <div class="big-eye eye-slot" data-eye="big"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-white" id="how">
+        <div class="container">
+          <div class="section-head">
+            <div class="watched"><span class="eye-slot" data-eye="static" data-look="0.5,0.9"></span><h2>How a scan works</h2></div>
+            <p>From the first question to a fix you can measure, in four steps.</p>
+          </div>
+          <div class="story">
+            <div class="steps" data-steps>
+              <span class="trace" aria-hidden="true"><i></i></span>
+              <article class="step" data-step="0">
+                <p class="step-num">Step 1</p>
+                <h3>Ask</h3>
+                <p>Tell Pulse who you sell to. It writes the questions each kind of shopper would ask, in their own words.</p>
+                <div class="stage-card card"><div class="stage-pane" data-pane="0">
+                  <ul class="qlist">
+                    <li><small>A hiker with blisters</small><span>Which merino socks stop blisters on long walks?</span></li>
+                    <li><small>A parent</small><span>Which kids' walking socks last longest?</span></li>
+                    <li><small>A student</small><span>Cheap but warm hiking socks?</span></li>
+                    <li><small>A gift-buyer</small><span>A good present for someone who walks a lot?</span></li>
+                  </ul>
+                </div></div>
+              </article>
+              <article class="step" data-step="1">
+                <p class="step-num">Step 2</p>
+                <h3>Read</h3>
+                <p>Each question goes to every assistant you pick, three times on the chat assistants. Pulse reads each answer and its sources.</p>
+                <div class="stage-card card"><div class="stage-pane" data-pane="1">
+                  <p class="counter" data-counter data-to="243">243</p>
+                  <p class="counter-label">answers in one scan: 27 questions, asked 3 times on each assistant</p>
+                  <div class="mini-bars">
+                    <div class="mini-bar"><span>ChatGPT</span><i style="--v: 100%"></i><b>81</b></div>
+                    <div class="mini-bar"><span>Claude</span><i style="--v: 100%"></i><b>81</b></div>
+                    <div class="mini-bar"><span>Gemini</span><i style="--v: 100%"></i><b>81</b></div>
+                  </div>
+                  <p class="counter-label" style="margin-top: 16px">Add Perplexity, Grok and Google's AI for more answers in the same scan.</p>
+                </div></div>
+              </article>
+              <article class="step" data-step="2">
+                <p class="step-num">Step 3</p>
+                <h3>Find</h3>
+                <p>Pulse shows where you're missing, who's named instead, and the evidence the answers lean on.</p>
+                <div class="stage-card card"><div class="stage-pane" data-pane="2">
+                  <p class="gap-call">Parents buying for growing kids hear about Pennine Mills six times more often than Fellside.</p>
+                  <div class="mini-bars">
+                    <div class="mini-bar"><span>Pennine Mills</span><i style="--v: 65%"></i><b>47 of 72<span class="range">likely 54&ndash;75%</span></b></div>
+                    <div class="mini-bar"><span>Fellside</span><i style="--v: 11%"></i><b>8 of 72<span class="range">likely 6&ndash;20%</span></b></div>
+                  </div>
+                  <ul class="evidence">
+                    <li><b>Most cited</b><span>A review site's list of longest-lasting kids' socks, in 31 answers. Fellside isn't on it.</span></li>
+                    <li><b>Their page</b><span>Pennine's kids' range shows wash tests and a growing-feet size guide.</span></li>
+                    <li><b>Your page</b><span>No durability claims, so answers have nothing to quote.</span></li>
+                  </ul>
+                </div></div>
+              </article>
+              <article class="step" data-step="3">
+                <p class="step-num">Step 4</p>
+                <h3>Fix</h3>
+                <p>Pulse drafts the change from that evidence. You publish it, and the next scan asks the same questions again.</p>
+                <div class="stage-card card"><div class="stage-pane" data-pane="3">
+                  <p class="draft"><small>Drafted for your kids' range page</small>Every Trail Junior pair is washed 60 times in testing before it ships. The heel grows with the foot for a full shoe size, and if a pair wears through in its first year, we'll replace it.</p>
+                  <div class="mini-bars">
+                    <div class="mini-bar"><span>Before</span><i style="--v: 11%"></i><b>8 of 72<span class="range">likely 6&ndash;20%</span></b></div>
+                    <div class="mini-bar"><span>Next scan</span><i style="--v: 29%; background: var(--accent)"></i><b>21 of 72<span class="range">likely 20&ndash;41%</span></b></div>
+                  </div>
+                  <p class="counter-label" style="margin-top: 14px">Parents buying for growing kids, Fellside named in answers. Measured results come with <span class="tier">Business</span></p>
+                </div></div>
+              </article>
+            </div>
+            <div class="stage-sticky" aria-hidden="true">
+              <div class="stage-card card" data-stage></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-stone" id="plans">
+        <div class="container">
+          <div class="section-head">
+            <div class="watched"><span class="eye-slot" data-eye="static" data-look="0.5,0.9"></span><h2>Start free, upgrade when you need more</h2></div>
+            <p>Every plan keeps the answers and sources behind each result. Paid plans can use every assistant.</p>
+          </div>
+          <div class="plans">
+            <article class="plan card is-free">
+              <h3>Free</h3><p class="plan-price">&pound;0</p><p class="plan-for">Find out where you stand.</p>
+              <dl class="limits"><div><dt>Brands</dt><dd>1</dd></div><div><dt>Scans a month</dt><dd>10</dd></div><div><dt>Assistants</dt><dd>3</dd></div><div><dt>People</dt><dd>1</dd></div></dl>
+              <p class="plan-adds">ChatGPT, Gemini and Perplexity</p>
+            </article>
+            <article class="plan card">
+              <h3>Starter</h3><p class="plan-price">&pound;99<small> a month</small></p><p class="plan-for">One brand, watched properly.</p>
+              <dl class="limits"><div><dt>Brands</dt><dd>1</dd></div><div><dt>Scans a month</dt><dd>50</dd></div><div><dt>Assistants</dt><dd>All 7</dd></div><div><dt>People</dt><dd>3</dd></div></dl>
+              <p class="plan-adds">Audiences, products and content fixes</p>
+            </article>
+            <article class="plan card">
+              <h3>Professional</h3><p class="plan-price">&pound;299<small> a month</small></p><p class="plan-for">Several product lines and shopper types.</p>
+              <dl class="limits"><div><dt>Brands</dt><dd>3</dd></div><div><dt>Scans a month</dt><dd>200</dd></div><div><dt>Assistants</dt><dd>All 7</dd></div><div><dt>People</dt><dd>10</dd></div></dl>
+              <p class="plan-adds">Adds shopping agents (300 runs a month) and prompt demand</p>
+            </article>
+            <article class="plan card">
+              <h3>Business</h3><p class="plan-price">&pound;599<small> a month</small></p><p class="plan-for">Teams and agencies running many brands.</p>
+              <dl class="limits"><div><dt>Brands</dt><dd>10</dd></div><div><dt>Scans a month</dt><dd>1,000</dd></div><div><dt>Assistants</dt><dd>All 7</dd></div><div><dt>People</dt><dd>15</dd></div></dl>
+              <p class="plan-adds">Adds 1,500 agent runs, fixes with measured results, crawler visits and client workspaces</p>
+            </article>
+            <article class="plan card is-wide">
+              <h3>Enterprise</h3><p class="plan-price">Custom</p><p class="plan-for">Large catalogues and many markets.</p>
+              <dl class="limits"><div><dt>Brands</dt><dd>Unlimited</dd></div><div><dt>Scans a month</dt><dd>Unlimited</dd></div><div><dt>Assistants</dt><dd>All 7</dd></div><div><dt>People</dt><dd>Unlimited</dd></div></dl>
+              <p class="plan-adds">Reports under your own brand, single sign-on and dedicated support</p>
+            </article>
+          </div>
+
+          <div class="scan-explainer card">
+            <h3>What's in one scan</h3>
+            <div class="scan-math">
+              <div><b>27</b><span>questions written for your category and shoppers. You can set 9 to 45.</span></div>
+              <div><b>3&times;</b><span>each question is asked three times on each chat assistant, because answers vary. Google&#x27;s AI results are read once.</span></div>
+              <div><b>243</b><span>answers with ChatGPT, Claude and Gemini. Adding more assistants or audiences doesn't use extra scans.</span></div>
+              <div><b>1</b><span>brand per scan. Shopping agents have their own monthly allowance.</span></div>
+            </div>
+            <p class="scan-usage">Scanning one brand weekly uses about 4 scans a month, and daily about 30. So Starter's 50 covers a daily scan with room for one-off checks.</p>
+          </div>
+
+          <div class="actions">
+            <a class="btn" href="https://pulse.persipica.com/login?mode=register">Start free</a>
+            <a class="link" href="/pricing.html">Compare plans</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-white">
+        <div class="container">
+          <div class="section-head"><h2>Questions</h2></div>
+          <div class="faq" data-faq>
+            <details><summary>Which assistants does Pulse cover?<i aria-hidden="true"></i></summary><div class="faq-body"><p>You choose for each scan from ChatGPT, Claude, Gemini, Perplexity and Grok, each using its own live web search, plus Google AI Overviews and Google AI Mode as they appear in Google search. Scans start with ChatGPT, Claude and Gemini. The Free plan uses ChatGPT, Gemini and Perplexity.</p></div></details>
+            <details><summary>Are the shoppers real people?<i aria-hidden="true"></i></summary><div class="faq-body"><p>No. Audiences are simulated shoppers that you describe, and Pulse uses them to phrase questions the way that kind of person would. Every attribute is labelled as your data, a public signal or an assumption.</p></div></details>
+            <details><summary>Do I need to connect my store?<i aria-hidden="true"></i></summary><div class="faq-body"><p>No. Pulse works from your brand and website alone. Bringing in your catalogue from Shopify, a product feed or a CSV adds product results and price checks.</p></div></details>
+            <details><summary>How is this different from SEO?<i aria-hidden="true"></i></summary><div class="faq-body"><p>Search rankings tell you where a page appears in a list of links. AI assistants write one answer and recommend a few names in it. Pulse measures that answer: whether you're in it, how you're described and what the assistant relied on.</p></div></details>
+            <details><summary>Do shopping agents use up scans?<i aria-hidden="true"></i></summary><div class="faq-body"><p>No. Shopping agent runs have their own allowance: 300 a month on Professional and 1,500 on Business. One run is one buying task given to one agent.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-slate">
+        <div class="container closing">
           <div>
-            <h3>Reports for leadership</h3>
-            <p>Summaries and benchmarks you can share, with the sample behind every number.</p>
+            <h2>Find out what AI tells your shoppers.</h2>
+            <p>Start free, or book a walkthrough and we'll look at your brand together.</p>
+            <div class="actions">
+              <a class="btn" href="https://pulse.persipica.com/login?mode=register" data-cta>Start free</a>
+              <a class="link" href="/contact.html">Book a demo</a>
+            </div>
           </div>
+          <span class="eye-slot" data-eye="cta"></span>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Plans</h2>
-          <p>Start free, or pick a monthly plan from £99. Every plan includes the full evidence behind each result.</p>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th scope="col">Plan</th><th scope="col">Price</th><th scope="col">For</th></tr>
-            </thead>
-            <tbody>
-              <tr><th scope="row">Free</th><td>£0</td><td>One brand on ChatGPT, Gemini and Perplexity, 10 scans a month</td></tr>
-              <tr><th scope="row">Starter</th><td>£99 a month</td><td>One brand, checking where it stands</td></tr>
-              <tr><th scope="row">Professional</th><td>£299 a month</td><td>Brands with several product lines, audiences and shopping agents</td></tr>
-              <tr><th scope="row">Business</th><td>£599 a month</td><td>Agencies and teams running many brands</td></tr>
-              <tr><th scope="row">Enterprise</th><td>Custom</td><td>Large catalogues, single sign-on and dedicated support</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="actions mt-24">
-          <a class="btn btn-primary" href="https://pulse.persipica.com/login?mode=register">Start free</a>
-          <a class="btn" href="/pricing.html">Compare plans</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="narrow">
-        <h2>Questions</h2>
-        <div class="faq mt-32">
-          <details>
-            <summary>What does Pulse actually check?</summary>
-            <div><p>Pulse asks AI assistants the questions your shoppers and buyers ask, reads every answer, and records whether your brand and products are named, how they're described, at what price, which competitors appear instead and which sources are cited. It does this on a schedule, so you can see change over time.</p></div>
-          </details>
-          <details>
-            <summary>Which assistants does Pulse cover?</summary>
-            <div><p>ChatGPT, Claude, Gemini, Perplexity and Grok, each using its own live web search, plus Google AI Overviews and Google AI Mode as they appear in Google search. Results always say which assistant and which method they come from.</p></div>
-          </details>
-          <details>
-            <summary>Are the shoppers real people?</summary>
-            <div><p>No. Audiences are simulated shoppers that you describe, and Pulse uses them to phrase questions the way that kind of person would. Every attribute is labelled as your data, a public signal or an assumption, and results are never presented as observed customer behaviour.</p></div>
-          </details>
-          <details>
-            <summary>Do I need to connect my store?</summary>
-            <div><p>No. Pulse works from your brand and website alone. Importing your catalogue from Shopify, a product feed or a CSV adds product-level results and price checks.</p></div>
-          </details>
-          <details>
-            <summary>How is this different from SEO?</summary>
-            <div><p>Search rankings tell you where a page appears in a list of links. AI assistants write one answer and recommend a few names in it. Pulse measures that answer: whether you're in it, how you're described and what the assistant relied on. Good SEO helps, but it doesn't tell you what the answer says.</p></div>
-          </details>
-          <details>
-            <summary>How reliable are the numbers?</summary>
-            <div><p>AI answers vary from one ask to the next, so Pulse asks repeatedly and shows each rate with its likely range and sample size. When a range is wide, Pulse says so instead of reporting a precise-looking figure.</p></div>
-          </details>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="container">
-        <h2>See what AI tells your shoppers.</h2>
-        <p>Book a walkthrough and we'll run Pulse on your brand: which assistants recommend you, for which shoppers, and what's getting in the way.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="/contact.html">Book a demo</a>
-          <a class="btn" href="/grader.html">Run a free check</a>
-        </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
+  </div>
 
   <footer class="site-footer">
     <div class="container">
+      <div class="footer-top">
+        <span class="footer-word">Persipica</span>
+        <a class="btn" href="https://pulse.persipica.com/login?mode=register">Start free</a>
+      </div>
       <div class="footer-grid">
-        <div class="footer-about">
-          <a class="brand" href="/" aria-label="Persipica home"><span class="brand-word">PERSIPICA</span><span class="brand-product">Pulse</span></a>
-          <p>Pulse shows how AI assistants and shopping agents recommend your brand and products, and what to fix when they don't.</p>
-        </div>
-        <nav class="footer-col" aria-labelledby="footer-product">
-          <h2 id="footer-product">Product</h2>
-          <ul>
-            <li><a href="/features.html">Features</a></li>
-            <li><a href="/pricing.html">Pricing</a></li>
-            <li><a href="/grader.html">Free grader</a></li>
-            <li><a href="/changelog.html">Changelog</a></li>
-            <li><a href="https://pulse.persipica.com/login">Sign in</a></li>
-          </ul>
-        </nav>
-        <nav class="footer-col" aria-labelledby="footer-compare">
-          <h2 id="footer-compare">Compare</h2>
-          <ul>
-            <li><a href="/persipica-vs-profound.html">Pulse vs Profound</a></li>
-            <li><a href="/persipica-vs-peec-ai.html">Pulse vs Peec AI</a></li>
-            <li><a href="/persipica-vs-goodie-ai.html">Pulse vs Goodie AI</a></li>
-            <li><a href="/persipica-vs-conductor.html">Pulse vs Conductor</a></li>
-          </ul>
-        </nav>
-        <nav class="footer-col" aria-labelledby="footer-learn">
-          <h2 id="footer-learn">Learn</h2>
-          <ul>
-            <li><a href="/resources.html">Resources</a></li>
-            <li><a href="https://learn.persipica.com/geo-guide.html">How AI recommendations work</a></li>
-            <li><a href="https://learn.persipica.com/data.html">Research and data</a></li>
-            <li><a href="https://learn.persipica.com/ai-visibility-roi-calculator.html">ROI calculator</a></li>
-            <li><a href="https://learn.persipica.com">All guides</a></li>
-          </ul>
-        </nav>
-        <nav class="footer-col" aria-labelledby="footer-company">
-          <h2 id="footer-company">Company</h2>
-          <ul>
-            <li><a href="/contact.html">Contact</a></li>
-            <li><a href="/privacy.html">Privacy policy</a></li>
-            <li><a href="https://www.linkedin.com/company/persipica">LinkedIn</a></li>
-          </ul>
-        </nav>
+        <nav class="footer-col" aria-labelledby="f-product"><h2 id="f-product">Product</h2><ul><li><a href="/features.html">Features</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/grader.html">Free grader</a></li><li><a href="/changelog.html">Changelog</a></li><li><a href="https://pulse.persipica.com/login">Sign in</a></li></ul></nav>
+        <nav class="footer-col" aria-labelledby="f-compare"><h2 id="f-compare">Compare</h2><ul><li><a href="/persipica-vs-profound.html">Pulse vs Profound</a></li><li><a href="/persipica-vs-peec-ai.html">Pulse vs Peec AI</a></li><li><a href="/persipica-vs-goodie-ai.html">Pulse vs Goodie AI</a></li><li><a href="/persipica-vs-conductor.html">Pulse vs Conductor</a></li></ul></nav>
+        <nav class="footer-col" aria-labelledby="f-learn"><h2 id="f-learn">Learn</h2><ul><li><a href="/resources.html">Resources</a></li><li><a href="https://learn.persipica.com/geo-guide.html">How AI recommendations work</a></li><li><a href="https://learn.persipica.com/data.html">Research and data</a></li><li><a href="https://learn.persipica.com">All guides</a></li></ul></nav>
+        <nav class="footer-col" aria-labelledby="f-company"><h2 id="f-company">Company</h2><ul><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy policy</a></li><li><a href="https://www.linkedin.com/company/persipica">LinkedIn</a></li></ul></nav>
       </div>
       <div class="footer-base">
-        <span>&copy; 2026 Persipica</span>
-        <span>Made in London</span>
+        <span>&copy; 2026 Persipica. Made in London.</span>
+        <a class="status" href="https://pulse.persipica.com" hidden data-status><i aria-hidden="true"></i><span>All systems operational</span></a>
       </div>
     </div>
   </footer>
-  <script src="/app.js" defer></script>
 </body>
 </html>
