@@ -3354,5 +3354,487 @@ a.tile:hover h3::after {
 
 /* Link from the homepage evidence section to the methodology page. */
 .method-link {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
   margin-top: 28px;
+}
+
+/* ----- Sample report ----- */
+/* A static document: bordered panels, no hard shadows, so nothing looks clickable that isn't. */
+
+.report-flag {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 4px 10px;
+  background: var(--accent-tint);
+  color: var(--accent-text);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.report-actions {
+  margin-top: 28px;
+}
+
+.report {
+  border: 1.5px solid var(--line-strong);
+  background: var(--white);
+}
+
+.report-top,
+.report-sec {
+  padding: clamp(22px, 3vw, 40px);
+}
+
+.report-sec {
+  border-top: 1px solid var(--line);
+}
+
+.report-top h2 {
+  font-size: clamp(2rem, 2vw + 1.2rem, 2.75rem);
+}
+
+.report-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px 28px;
+  margin-top: 24px;
+}
+
+.report-meta dt {
+  color: var(--faint);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.report-meta dd {
+  margin: 4px 0 0;
+  font-size: 0.875rem;
+}
+
+.report-sec h3 {
+  font-size: clamp(1.5rem, 1vw + 1.1rem, 1.875rem);
+}
+
+.report-intro,
+.finding-text,
+.finding-cov {
+  margin-top: 8px;
+  max-width: 44rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.finding-cov {
+  font-size: 0.8125rem;
+  color: var(--faint);
+}
+
+.report-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.report-tile {
+  padding: 18px;
+  border: 1px solid var(--line);
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.report-tile.is-key {
+  border-color: var(--accent);
+  background: var(--accent-tint);
+}
+
+.report-tile-label {
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.report-tile-big {
+  margin: 6px 0 8px;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.report-tile-big small {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.report-table {
+  display: grid;
+  margin-top: 18px;
+  font-size: 0.875rem;
+}
+
+.report-tr {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.report-th {
+  padding-top: 0;
+  color: var(--faint);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-bottom-color: var(--line-strong);
+}
+
+.report-tr b {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.report-tr small {
+  display: block;
+  margin-top: 2px;
+  color: var(--faint);
+  font-size: 0.75rem;
+}
+
+.report-tr.is-gap {
+  background: var(--accent-tint);
+  box-shadow: -10px 0 0 var(--accent-tint), 10px 0 0 var(--accent-tint);
+}
+
+.finding {
+  margin-top: 22px;
+  padding: clamp(18px, 2.5vw, 28px);
+  border: 1px solid var(--line);
+}
+
+.finding-num {
+  color: var(--accent-text);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.finding-num .tier {
+  margin-left: 8px;
+}
+
+.page-head + .report-wrap {
+  padding-top: clamp(2rem, 3vw, 3rem);
+}
+
+.finding h4 {
+  margin-top: 6px;
+  font-family: var(--serif);
+  font-size: clamp(1.375rem, 0.8vw + 1.05rem, 1.625rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.finding .mini-bars {
+  margin-top: 16px;
+  max-width: 34rem;
+}
+
+.finding .mini-bar {
+  grid-template-columns: 104px 1fr minmax(36px, max-content);
+}
+
+.report-answer {
+  margin-top: 16px;
+}
+
+.report-q {
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.report-q small {
+  display: block;
+  color: var(--faint);
+  font-size: 0.75rem;
+}
+
+.report-answer blockquote {
+  margin: 10px 0 0;
+  padding: 14px 18px;
+  border-left: 3px solid var(--slate);
+  background: var(--stone-soft);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.report-answer blockquote footer {
+  margin-top: 8px;
+  color: var(--faint);
+  font-size: 0.75rem;
+}
+
+/* A wrong claim is highlighted and numbered, with its correction underneath. */
+.claim {
+  padding: 1px 3px;
+  background: #f6d8d5;
+  color: var(--ink);
+  box-shadow: inset 0 -2px 0 var(--wrong);
+}
+
+.report-answer sup {
+  color: var(--wrong);
+  font-weight: 600;
+}
+
+.corrections {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+  padding-left: 1.4em;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.corrections li::marker {
+  color: var(--wrong);
+  font-weight: 600;
+}
+
+.corrections b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.finding .funnel {
+  margin-top: 16px;
+}
+
+.finding .stage-bar {
+  white-space: normal;
+}
+
+.finding-fix {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--line);
+}
+
+.finding-fix-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.report-sec > .mini-bars {
+  max-width: 34rem;
+}
+
+.report-sources {
+  display: grid;
+  margin-top: 16px;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+}
+
+.report-sources li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.report-sources b {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.report-notes ul {
+  margin-top: 12px;
+  padding-left: 1.2em;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.report-notes li + li {
+  margin-top: 0.45em;
+}
+
+.report-notes p {
+  margin-top: 14px;
+  font-size: 0.9375rem;
+}
+
+.report-notes a {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+}
+
+.report-cta {
+  margin-top: clamp(3rem, 5vw, 4.5rem);
+  text-align: center;
+}
+
+.report-cta .actions {
+  justify-content: center;
+  margin-top: 22px;
+}
+
+@media (max-width: 960px) {
+  .report-meta,
+  .report-tiles {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .report-tile.is-key {
+    grid-column: 1 / -1;
+    order: -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .report-meta,
+  .report-tiles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .report-tr {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px 12px;
+  }
+
+  .report-th {
+    display: none;
+  }
+
+  /* Name and rate on top, the bar across, the last column underneath. */
+  .report-tr > :nth-child(2) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .report-tr > :nth-child(3) {
+    grid-row: 1;
+    grid-column: 2;
+    text-align: right;
+  }
+
+  .report-tr > :nth-child(4) {
+    grid-column: 1 / -1;
+    color: var(--muted);
+    font-size: 0.8125rem;
+  }
+
+  .finding .mini-bar {
+    grid-template-columns: 84px 1fr minmax(36px, max-content);
+  }
+
+  .report-top,
+  .report-sec {
+    padding: 22px 18px;
+  }
+
+  .finding {
+    padding: 16px;
+  }
+
+  .finding .stage {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .finding .stage-bar {
+    white-space: nowrap;
+  }
+
+  .evidence li {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
+
+/* The PDF is this page printed: the report alone, no site chrome. */
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm 12mm;
+  }
+
+  .skip-link,
+  .site-nav,
+  .site-footer,
+  .report-actions,
+  .report-cta,
+  .eye-slot {
+    display: none !important;
+  }
+
+  .page {
+    margin: 0 !important;
+    background: var(--white) !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .page-head {
+    margin-top: 0;
+    padding: 0 0 18px;
+  }
+
+  html,
+  body,
+  .report-wrap {
+    padding: 0;
+    background: var(--white) !important;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  /* Findings may split across pages, but not inside an answer, a bar chart or a fix. */
+  .report-intro,
+  .finding-text,
+  .report-tile,
+  .report-tr,
+  .report-sources li,
+  .report-answer,
+  .evidence li,
+  .finding .mini-bars,
+  .finding .funnel,
+  .finding-fix {
+    break-inside: avoid;
+  }
+
+  .report-sec h3,
+  .report-intro,
+  .report-th,
+  .finding-num,
+  .finding h4 {
+    break-after: avoid;
+  }
+
+  .report-print-note {
+    display: block !important;
+  }
+}
+
+.report-print-note {
+  display: none;
+  margin-top: 10px;
+  color: var(--faint);
+  font-size: 0.8125rem;
 }
