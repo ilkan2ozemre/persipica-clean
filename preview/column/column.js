@@ -61,72 +61,46 @@
   var eyes = [];
   var eyeCount = 0;
 
-  // Eye designs. All share the same lids, clip and moving iris group, so behaviour works for each.
-  var EYE_STYLES = ['sketch', 'lashes', 'circuit', 'monoline', 'lens'];
-  var params = new URLSearchParams(location.search);
-  var eyeStyle = EYE_STYLES.indexOf(params.get('eye')) >= 0 ? params.get('eye') : 'sketch';
-
-  function line(d) { return '<path class="stroke" d="' + d + '"/>'; }
-  function node(x, y) { return '<circle class="node" cx="' + x + '" cy="' + y + '" r="4.2"/>'; }
-
-  function eyeParts(style) {
-    if (style === 'lashes') return {
-      rays: line('M45 57 L25 33') + line('M81 43 L70.5 19') + line('M120 37 L121 10') + line('M159 43 L172.5 20.5') + line('M195 58 L217 39'),
-      iris: '<circle class="iris stroke" cx="120" cy="95" r="27"/><circle class="pupil" cx="121" cy="95" r="9" fill="currentColor"/>',
-      lids: line('M15 97.5 C 61 46, 178 42, 225 92') + line('M19 95 C 64 145, 179 143, 222 95.5')
-    };
-    if (style === 'circuit') return {
-      rays: line('M47 59 L38 50 L38 31') + node(38, 26.5) + line('M82 45 L77 38 L77 21') + node(77, 16.5) + line('M120 38 L120 12') + node(120, 7.5) +
-        line('M158 45 L163 38 L163 21') + node(163, 16.5) + line('M193 59 L202 50 L202 31') + node(202, 26.5),
-      iris: '<circle class="iris stroke" cx="120" cy="95" r="27"/><circle class="pupil" cx="121" cy="95" r="9" fill="currentColor"/>',
-      lids: line('M15 97.5 C 61 46, 178 42, 225 92') + line('M19 95 C 64 145, 179 143, 222 95.5')
-    };
-    if (style === 'monoline') return {
-      rays: '',
-      iris: '<circle class="iris stroke" cx="120" cy="95" r="27"/><circle class="pupil" cx="120" cy="95" r="12" fill="currentColor"/><circle cx="125" cy="90" r="3.2" fill="var(--glint, #fff)"/>',
-      lids: line('M10 99 C 60 42, 182 38, 228 87 L 238 78') + line('M17 96 C 64 147, 181 145, 226 93')
-    };
-    if (style === 'lens') {
-      var blades = '';
-      for (var k = 0; k < 6; k++) {
-        var a = k * Math.PI / 3, b = a + 0.9;
-        blades += line('M' + (120 + 10 * Math.cos(a)).toFixed(1) + ' ' + (95 + 10 * Math.sin(a)).toFixed(1) + ' L' + (120 + 27 * Math.cos(b)).toFixed(1) + ' ' + (95 + 27 * Math.sin(b)).toFixed(1));
-      }
-      return {
-        rays: line('M95 47 L88 30') + line('M120 41 L120 21') + line('M145 47 L152 30'),
-        iris: '<circle class="iris stroke" cx="120" cy="95" r="27"/>' + blades + '<circle class="pupil" cx="120" cy="95" r="6" fill="currentColor"/>',
-        lids: line('M15 97.5 C 61 46, 178 42, 225 92') + line('M19 95 C 64 145, 179 143, 222 95.5')
-      };
-    }
-    return {
-      rays: line('M45 57 L25 33') + node(22.5, 30) + line('M81 43 L70.5 19') + node(69, 15.5) + line('M120 37 L121 10') + node(121, 6) +
-        line('M159 43 L172.5 20.5') + node(174.5, 17) + line('M195 58 L217 39') + node(220, 36.5),
-      iris: '<circle class="iris stroke" cx="120" cy="95" r="27"/><circle class="pupil" cx="121" cy="95" r="9" fill="currentColor"/>',
-      lids: line('M15 97.5 C 61 46, 178 42, 225 92') + line('M19 95 C 64 145, 179 143, 222 95.5')
-    };
-  }
-
-  function eyeSvg(id, style) {
-    var p = eyeParts(style || eyeStyle);
+  // The eye, drawn like a loose ink pen: an almond with pointed corners, an iris that touches both
+  // lids, a solid pupil and five straight lashes. A light displacement filter roughens the ink edges.
+  function eyeSvg(id) {
+    var lid = 'M13 96.5 C 50 50, 189 49, 227 95.5';
+    var lower = 'M14 95.5 C 52 143, 188 142, 226 96.5';
     return '' +
-      '<svg class="eye eye-' + (style || eyeStyle) + '" viewBox="-6 -4 252 160" aria-hidden="true" focusable="false">' +
-      '<defs><clipPath id="eye-clip-' + id + '"><path d="M17 96 C 62 47, 177 43, 223 93 C 179 143, 63 145, 17 96 Z"/></clipPath></defs>' +
-      '<g class="rays">' + p.rays + '</g>' +
+      '<svg class="eye" viewBox="-6 -4 252 160" aria-hidden="true" focusable="false">' +
+      '<defs>' +
+      '<clipPath id="eye-clip-' + id + '"><path d="M13 96.5 C 50 50, 189 49, 227 95.5 C 188 142, 52 143, 14 95.5 Z"/></clipPath>' +
+      '<filter id="eye-ink-' + id + '" x="-5%" y="-5%" width="110%" height="110%">' +
+      '<feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="7"/>' +
+      '<feDisplacementMap in="SourceGraphic" scale="1.8"/>' +
+      '</filter>' +
+      '</defs>' +
+      '<g filter="url(#eye-ink-' + id + ')">' +
+      '<g class="rays">' +
+      '<path class="stroke lash" d="M44 61 L26 44.5"/>' +
+      '<path class="stroke lash" d="M85 52 L74.5 29"/>' +
+      '<path class="stroke lash" d="M120 47 L120.5 13"/>' +
+      '<path class="stroke lash" d="M155 52 L166 29"/>' +
+      '<path class="stroke lash" d="M196 61 L214 44.5"/>' +
+      '</g>' +
       '<g class="lid">' +
-      '<g clip-path="url(#eye-clip-' + id + ')"><g class="look">' + p.iris + '</g></g>' +
-      p.lids +
-      '</g></svg>';
+      '<g clip-path="url(#eye-clip-' + id + ')"><g class="look">' +
+      '<circle class="iris stroke" cx="120" cy="96" r="34.5"/>' +
+      '<circle class="pupil" cx="120" cy="96" r="11" fill="currentColor"/>' +
+      '</g></g>' +
+      '<path class="stroke" d="' + lid + '"/>' +
+      '<path class="stroke" d="' + lower + '"/>' +
+      '</g></g></svg>';
   }
 
   function Eye(slot, opts) {
-    this.slot = slot;
     slot.innerHTML = eyeSvg(++eyeCount);
     this.svg = slot.firstChild;
     this.look = $('.look', this.svg);
     this.opts = opts || {};
     this.cur = { x: 0, y: 0 };
     this.to = { x: 0, y: 0 };
-    this.reach = { x: 30, y: 13 };
+    this.reach = { x: 30, y: 4 };
     this.active = false;
     this.holdUntil = 0;
     this.nextWander = 0;
@@ -165,15 +139,6 @@
 
   Eye.prototype.found = function (on) {
     this.svg.classList.toggle('is-found', !!on);
-  };
-
-  Eye.prototype.redraw = function () {
-    var found = this.svg.classList.contains('is-found');
-    this.slot.innerHTML = eyeSvg(++eyeCount);
-    this.svg = this.slot.firstChild;
-    this.look = $('.look', this.svg);
-    this.found(found);
-    this.apply();
   };
 
   Eye.prototype.apply = function () {
@@ -959,72 +924,4 @@
       .then(function (res) { if (res.ok) status.hidden = false; })
       .catch(function () {});
   }
-
-  /* ---------------------------------------------------------------- preview options (preview only) */
-
-  var ACCENTS = [['warm', 'Warm orange', '#ee7a33'], ['between', 'In between', '#e46c2e'], ['burnt', 'Burnt orange', '#d9622b'], ['amber', 'Amber', '#f29a2e']];
-  var EYE_NAMES = { sketch: 'Sketch', lashes: 'Your drawing', circuit: 'Circuit', monoline: 'Monoline', lens: 'Lens' };
-  var accent = params.get('accent');
-  if (!ACCENTS.some(function (a) { return a[0] === accent; })) accent = 'warm';
-  document.documentElement.setAttribute('data-accent', accent);
-
-  var setParam = function (k, v) {
-    params.set(k, v);
-    history.replaceState(null, '', location.pathname + '?' + params.toString() + location.hash);
-  };
-
-  var pv = el('aside', 'pv card');
-  pv.setAttribute('aria-label', 'Preview options');
-  var pvToggle = el('button', 'pv-toggle', 'Preview options');
-  pvToggle.type = 'button';
-  pvToggle.setAttribute('aria-expanded', String(window.innerWidth > 960));
-  var pvBody = el('div', 'pv-body');
-  pvBody.hidden = window.innerWidth <= 960;
-  pvToggle.addEventListener('click', function () {
-    var open = pvBody.hidden;
-    pvBody.hidden = !open;
-    pvToggle.setAttribute('aria-expanded', String(open));
-  });
-
-  var group = function (title, name, items, current, onPick) {
-    var fs = el('fieldset', 'pv-group');
-    fs.appendChild(el('legend', null, title));
-    items.forEach(function (it) {
-      var label = el('label', 'pv-opt');
-      var input = el('input');
-      input.type = 'radio';
-      input.name = name;
-      input.value = it.value;
-      input.checked = it.value === current;
-      input.addEventListener('change', function () { onPick(it.value); });
-      label.appendChild(input);
-      label.appendChild(it.visual);
-      label.appendChild(el('span', null, it.label));
-      fs.appendChild(label);
-    });
-    return fs;
-  };
-
-  pvBody.appendChild(group('Orange', 'pv-accent', ACCENTS.map(function (a) {
-    var sw = el('i', 'pv-swatch');
-    sw.style.background = a[2];
-    return { value: a[0], label: a[1], visual: sw };
-  }), accent, function (v) {
-    document.documentElement.setAttribute('data-accent', v);
-    setParam('accent', v);
-  }));
-
-  pvBody.appendChild(group('Eye', 'pv-eye', EYE_STYLES.map(function (s) {
-    var mini = el('span', 'pv-eye');
-    mini.innerHTML = eyeSvg('pv-' + s, s);
-    return { value: s, label: EYE_NAMES[s], visual: mini };
-  }), eyeStyle, function (v) {
-    eyeStyle = v;
-    eyes.forEach(function (e) { e.redraw(); });
-    setParam('eye', v);
-  }));
-
-  pv.appendChild(pvToggle);
-  pv.appendChild(pvBody);
-  document.body.appendChild(pv);
 })();
