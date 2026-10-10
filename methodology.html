@@ -211,27 +211,34 @@
           </ul>
 
           <h2>What a percentage means</h2>
-          <p>A mention rate is the share of answers that named you, out of the answers that actually came back. If ChatGPT answered 72 times and named you in 8, the rate is 8 of 72.</p>
-          <p>Every rate comes with a likely range, written as "8 of 72, likely 6&ndash;20%". It is a 95% Wilson interval, which stays accurate near 0% and 100% and with small samples. The fewer answers a rate rests on, the wider its range. When two ranges overlap, treat the difference between them with caution.</p>
-          <p>Answers to the same question tend to look alike, so for shopper-type results Pulse works out a rate for each question first and then averages them. One question asked many times counts as one question, which keeps the range from looking more certain than the evidence is.</p>
+          <p>Every result shows three things, kept apart so one can't hide another.</p>
+          <ul>
+          <li><strong>Coverage: how many answers arrived.</strong> For example, "60 of 81 answers usable, 21 timed out". It's shown whenever any answers are missing, with the reasons.</li>
+          <li><strong>Identity: which mentions are really you.</strong> Mentions Pulse couldn't attribute with confidence are counted as unresolved and shown next to the score, never quietly dropped or counted against you.</li>
+          <li><strong>The rate: how often you're named.</strong> The share of usable, resolved answers that name you. If 60 answers were resolved and 30 named you, the rate is 30 of 60.</li>
+          </ul>
+          <p>Every rate comes with a likely range, written as "8 of 72, likely 6&ndash;20%". It is a 95% Wilson interval, which stays accurate near 0% and 100% and with small samples. It describes the variation you'd expect from asking again. It doesn't account for answers that never arrived, which is why coverage is shown separately.</p>
+          <p>Answers to the same question tend to look alike, so Pulse works out a rate for each question first and then averages them. One question asked many times counts as one question, which keeps the range from looking more certain than the evidence is.</p>
+          <p>When results are combined across assistants, each assistant's weight is fixed before the scan runs. An assistant that answered more often doesn't gain extra influence over the overall score.</p>
 
           <h2>When an answer doesn't arrive</h2>
-          <p>Assistants sometimes time out, hit rate limits or show a CAPTCHA. Pulse handles that without hiding it.</p>
+          <p>Assistants sometimes time out, hit rate limits or show a CAPTCHA. Pulse plans every answer a scan should collect before it starts, and records what happened to each one.</p>
           <ul>
-          <li><strong>Retries.</strong> Each request gets up to four attempts, with longer waits between them. Errors that will never succeed, such as a rejected key, are not retried.</li>
-          <li><strong>Pauses.</strong> If one assistant fails five times in a row, Pulse pauses it for a minute instead of retrying it repeatedly.</li>
-          <li><strong>Missing answers are shown.</strong> The scan carries on without the failed question. Each assistant's result says how many answers came back and why any didn't, for example "60 of 81 answered, 21 timed out".</li>
-          <li><strong>Blank answers don't count against you.</strong> An answer that comes back empty is left out of the rate and listed, rather than counted as an answer that didn't name you.</li>
-          <li><strong>Unfinished conversations aren't scored as finished.</strong> If a follow-up fails part-way, the conversation is not treated as complete.</li>
-          <li><strong>Failed scans are free.</strong> If nothing comes back at all, the scan fails and doesn't use up one of your scans.</li>
+          <li><strong>Retries.</strong> Each request gets a limited number of attempts, with spaced, randomised waits, and Pulse follows an assistant's own instructions about when to try again. Errors that will never succeed, such as a rejected key, are not retried.</li>
+          <li><strong>Pauses, not losses.</strong> If an assistant keeps failing, Pulse pauses it briefly and holds the remaining questions instead of marking them as failed. It tests the assistant with a few requests before resuming.</li>
+          <li><strong>Retry what's missing.</strong> You can collect missing answers again without rerunning the ones that arrived. Answers collected after the scan has closed are labelled as a later collection, not mixed into the original.</li>
+          <li><strong>Blank answers, refusals and "none of these".</strong> A blank response is left out of the rate and counted. A refusal is recorded as a refusal. An answer that recommends no products is a real answer and counts as one.</li>
+          <li><strong>Conversations that break off.</strong> If a follow-up fails, the earlier answers are kept and the conversation is marked incomplete. It still counts for what the shopper was first told, but not for results that need the whole conversation, such as a final choice.</li>
+          <li><strong>Scans that come back empty.</strong> A scan is reserved when it starts and only counted against your allowance when it completes. If no usable answers come back, it isn't counted.</li>
           </ul>
 
           <h2>How Pulse knows an answer means you</h2>
           <ul>
-          <li><strong>Names, aliases and your domain.</strong> Pulse looks for your brand name, any other names you've given it and your website's domain, as whole words.</li>
-          <li><strong>Common words keep their capital.</strong> If your brand is an ordinary word, it only counts with its capital letter, so "close" in a sentence isn't a mention of a brand called Close.</li>
-          <li><strong>Products need your brand nearby.</strong> A product name counts only when your brand appears in the same sentence, product card or cited page.</li>
-          <li><strong>Name mix-ups.</strong> Pulse checks whether your name is shared with another company or a common word. If it is, Pulse checks what each mention refers to, so another company's mentions aren't counted as yours. The report names the other company or word and shows which answers were affected. If the check can't run, the report says "not measured" rather than assuming there's no risk.</li>
+          <li><strong>A fast first pass.</strong> Pulse looks for your brand name, any other names you've given it and your website's domain, as whole words. A product name counts only when your brand appears in the same sentence, product card or cited page.</li>
+          <li><strong>A check on what each mention refers to.</strong> Pulse compares each mention with your brand profile: your names, domains, products, category and locations, plus companies known to share your name. A link to your own domain settles it; a capital letter alone doesn't.</li>
+          <li><strong>A closer look when it's unclear.</strong> Mentions that are still uncertain are checked in context. Pulse records the decision with the exact words it relied on, and confirms those words are really in the answer. If it still can't tell, the mention stays unresolved.</li>
+          <li><strong>Name mix-ups, with evidence.</strong> The report names the other companies or words your name collides with and shows the answers affected. If the check can't run, it says "not assessed", never "low risk".</li>
+          <li><strong>Your corrections.</strong> If you correct a decision, Pulse keeps the original alongside your change and updates the affected results.</li>
           </ul>
 
           <h2>What a scan doesn't tell you</h2>
