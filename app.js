@@ -735,10 +735,10 @@
     }, '0px 0px -15% 0px');
   });
 
-  // Rows open on tap for touch screens (hover does it for mice).
+  // Rows open and close on click or tap.
   $$('button.row-main').forEach(function (rm) {
     rm.addEventListener('click', function () {
-      if (!FINE) rm.parentElement.classList.toggle('is-open');
+      rm.parentElement.classList.toggle('is-open');
     });
   });
 

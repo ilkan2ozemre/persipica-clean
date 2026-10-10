@@ -38,8 +38,6 @@
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --t-micro: 160ms;
-  /* Hover lifts move in whole pixels: gliding through fractions of a pixel blurs the text. */
-  --lift: steps(2, start);
   --t-panel: 320ms;
   --t-reveal: 600ms;
 }
@@ -208,60 +206,93 @@ h3,
 
 /* ----- Buttons and links ----- */
 
-/* The label never moves. The face (background and border) and the offset shadow are separate layers
-   behind it, and only the face moves, by transform, so a hover never repaints the text or a shadow. */
 .btn {
-  position: relative;
-  isolation: isolate;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   min-height: 48px;
   padding: 0 24px;
-  border: 1.5px solid transparent;
-  background: none;
   color: var(--white);
   font: 600 0.9375rem/1 var(--sans);
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-}
-
-.btn::before,
-.btn::after {
-  content: "";
-  position: absolute;
-  inset: -1.5px;
-  z-index: -1;
-}
-
-.btn::before {
-  background: var(--accent);
-  transform: translate(4px, 4px);
-}
-
-.btn::after {
-  border: 1.5px solid var(--slate);
-  background: var(--slate);
-  transition: transform var(--t-micro) var(--ease-out);
-}
-
-.btn:hover::after {
-  transform: translate(-2px, -2px);
-}
-
-.btn:active::after {
-  transform: translate(4px, 4px);
+  --face: var(--slate);
+  --edge: var(--slate);
+  --drop: var(--accent);
+  --press: 6px;
 }
 
 .bg-slate .btn {
   color: var(--slate);
+  --face: var(--white);
+  --edge: var(--white);
 }
 
-.bg-slate .btn::after {
-  border-color: var(--white);
-  background: var(--white);
+/* Everything you can click and hover works the same way. The label and face never move. The face
+   (background and border) and an offset shadow are layers behind the label; hovering or pressing
+   slides the shadow in underneath, so the thing reads as pushed in. Only the shadow's transform
+   animates, so nothing repaints. Each one sets --face, --edge, --drop, --press and, if its border
+   isn't 1.5px, --bw. */
+.btn,
+a.tile.card,
+.persona-chip,
+.pause {
+  position: relative;
+  isolation: isolate;
+  border: var(--bw, 1.5px) solid transparent;
+  background: none;
+  box-shadow: none;
+}
+
+.btn::before,
+a.tile.card::before,
+.persona-chip::before,
+.pause::before,
+.btn::after,
+a.tile.card::after,
+.persona-chip::after,
+.pause::after {
+  content: "";
+  position: absolute;
+  inset: calc(-1 * var(--bw, 1.5px));
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.btn::before,
+a.tile.card::before,
+.persona-chip::before,
+.pause::before {
+  background: var(--drop);
+  transform: translate(var(--press), var(--press));
+  transition: transform var(--t-micro) var(--ease-out);
+}
+
+.btn::after,
+a.tile.card::after,
+.persona-chip::after,
+.pause::after {
+  border: var(--bw, 1.5px) solid var(--edge);
+  background: var(--face);
+  transition: background-color var(--t-micro) ease, border-color var(--t-micro) ease;
+}
+
+.btn:active::before,
+a.tile.card:active::before,
+.persona-chip:active::before,
+.pause:active::before {
+  transform: none;
+}
+
+@media (hover: hover) {
+  .btn:hover::before,
+  a.tile.card:hover::before,
+  .persona-chip:hover::before,
+  .pause:hover::before {
+    transform: none;
+  }
 }
 
 /* The underline is its own line so it can rise smoothly; animating a text underline's offset stutters. */
@@ -306,16 +337,14 @@ h3,
   align-items: center;
   gap: 8px;
   padding: 6px 10px;
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--faint);
+  color: var(--ink);
   font: 500 0.8125rem/1 var(--sans);
   cursor: pointer;
-}
-
-.pause:hover {
-  border-color: var(--line-strong);
-  color: var(--ink);
+  --bw: 1px;
+  --face: var(--white);
+  --edge: var(--line-strong);
+  --drop: var(--line-strong);
+  --press: 3px;
 }
 
 /* Nothing moves on its own without JavaScript or with reduced motion, so there's nothing to pause. */
@@ -330,8 +359,10 @@ h3,
 }
 
 .bg-slate .pause {
-  border-color: rgba(255, 255, 255, 0.25);
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--white);
+  --face: var(--slate);
+  --edge: rgba(255, 255, 255, 0.5);
+  --drop: rgba(255, 255, 255, 0.25);
 }
 
 /* ----- Header: clear over the hero, firms up on scroll, tucks away going down ----- */
@@ -749,23 +780,21 @@ h3,
 
 .persona-chip {
   padding: 6px 10px;
-  border: 1px solid var(--line);
   border-radius: 999px;
-  background: var(--white);
   color: var(--ink);
   font: 500 0.8125rem/1 var(--sans);
   cursor: pointer;
-  transition: background-color var(--t-micro) ease, border-color var(--t-micro) ease;
-}
-
-.persona-chip:hover {
-  border-color: var(--slate);
+  --bw: 1px;
+  --face: var(--white);
+  --edge: var(--slate);
+  --drop: var(--slate);
+  --press: 3px;
 }
 
 .persona-chip[aria-pressed="true"] {
-  border-color: var(--accent);
-  background: var(--accent-tint);
   font-weight: 600;
+  --face: var(--accent-tint);
+  --edge: var(--accent);
 }
 
 .tabs {
@@ -994,13 +1023,6 @@ h3,
   background: var(--white);
   font-size: 0.9375rem;
   white-space: nowrap;
-  transition: border-color var(--t-micro) ease, box-shadow var(--t-micro) var(--lift), transform var(--t-micro) var(--lift);
-}
-
-.q-chip:hover {
-  border-color: var(--slate);
-  box-shadow: 3px 3px 0 var(--slate);
-  transform: translate(-2px, -2px);
 }
 
 .q-chip small {
@@ -1346,8 +1368,7 @@ h3,
   transition: border-color var(--t-micro) ease, box-shadow var(--t-micro) ease;
 }
 
-.row:hover,
-.row:focus-within,
+.row:has(.row-main:focus-visible),
 .row.is-open {
   border-color: var(--slate);
   box-shadow: 3px 3px 0 var(--slate);
@@ -1407,8 +1428,7 @@ h3,
   transition: grid-template-rows var(--t-panel) var(--ease-out);
 }
 
-.row:hover .row-more,
-.row:focus-within .row-more,
+.row:has(.row-main:focus-visible) .row-more,
 .row.is-open .row-more {
   grid-template-rows: 1fr;
 }
@@ -2409,10 +2429,6 @@ h3,
     display: none;
   }
 
-  .btn:hover::after,
-  .q-chip:hover {
-    transform: none;
-  }
 }
 
 /* ----- Without JavaScript ----- */
@@ -2596,12 +2612,17 @@ h3,
 
 .tile {
   padding: 22px 22px 24px;
-  transition: transform var(--t-micro) var(--lift), box-shadow var(--t-micro) var(--lift);
 }
 
-.tile:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 7px 7px 0 var(--shadow);
+a.tile.card {
+  --face: var(--white);
+  --edge: var(--line-strong);
+  --drop: var(--shadow);
+  --press: 7px;
+}
+
+.bg-slate a.tile.card {
+  --edge: var(--white);
 }
 
 .tile p {
@@ -2677,14 +2698,6 @@ a.tile:hover h3::after {
 .compare tbody tr:last-child th,
 .compare tbody tr:last-child td {
   border-bottom: 0;
-}
-
-.compare tbody tr {
-  transition: background-color var(--t-micro) ease;
-}
-
-.compare tbody tr:hover {
-  background: var(--stone-soft);
 }
 
 .compare .yes {
