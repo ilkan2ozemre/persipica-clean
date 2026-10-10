@@ -4005,3 +4005,50 @@ a.tile:hover h3::after {
   .guide-tr > :nth-child(2)::before { content: "Pulse: "; color: var(--faint); }
   .guide-tr > :nth-child(3)::before { content: "You: "; color: var(--faint); }
 }
+
+/* ----- Plans: Enterprise as a band under the other four ----- */
+/* Four cards get the row, so each is wider and its lines wrap less. Enterprise sits underneath as a
+   short band rather than a stretched card. Phones keep the plain stack. */
+
+@media (min-width: 1081px) {
+  .plans {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .plan.is-wide .limits {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 24px;
+  }
+}
+
+@media (min-width: 601px) {
+  .plan.is-wide {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-row: auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) minmax(0, 1fr);
+    grid-template-areas:
+      "name  limits adds"
+      "price limits adds"
+      "for   limits cta";
+    grid-template-rows: auto auto 1fr;
+    column-gap: clamp(20px, 3vw, 40px);
+    row-gap: 0;
+    align-items: start;
+  }
+
+  .plan.is-wide > :first-child { grid-area: name; }
+  .plan.is-wide .plan-price { grid-area: price; }
+  .plan.is-wide .plan-for { grid-area: for; }
+  .plan.is-wide .plan-adds { grid-area: adds; margin-top: 0; }
+
+  .plan.is-wide .limits {
+    grid-area: limits;
+    margin-top: 0;
+  }
+
+  .plan.is-wide .plan-cta {
+    grid-area: cta;
+    align-self: end;
+  }
+}
