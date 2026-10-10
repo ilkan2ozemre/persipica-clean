@@ -1005,4 +1005,31 @@
       .then(function (res) { if (res.ok) status.hidden = false; })
       .catch(function () {});
   }
+
+  /* ---------------------------------------------------------------- copy buttons */
+
+  // Brand page: copy a colour code (data-copy) or a block of text (data-copy-from="id").
+  $$('[data-copy], [data-copy-from]').forEach(function (btn) {
+    var label = $('[data-copy-label]', btn);
+    var original = label ? label.textContent : '';
+    var timer = 0;
+    if (!navigator.clipboard) {
+      if (btn.hasAttribute('data-copy-from')) btn.hidden = true;
+      return;
+    }
+    btn.addEventListener('click', function () {
+      var from = btn.getAttribute('data-copy-from');
+      var text = from ? (document.getElementById(from) || {}).textContent : btn.getAttribute('data-copy');
+      if (!text) return;
+      navigator.clipboard.writeText(text.trim()).then(function () {
+        btn.classList.add('is-copied');
+        if (label) label.textContent = 'Copied';
+        window.clearTimeout(timer);
+        timer = later(function () {
+          btn.classList.remove('is-copied');
+          if (label) label.textContent = original;
+        }, 1600);
+      }).catch(function () {});
+    });
+  });
 })();

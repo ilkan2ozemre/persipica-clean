@@ -1,6 +1,6 @@
 # Persipica
 
-> Persipica Pulse measures how AI assistants and shopping agents recommend a brand and its products, by kind of shopper, keeps the evidence behind every result, and turns the gaps into fixes it checks on the next scan. It is a cloud web app at pulse.persipica.com, made by Persipica in London.
+> Persipica Pulse measures how AI assistants and shopping agents recommend a brand and its products, by kind of shopper, keeps the evidence behind every result, and turns the gaps into fixes it checks on the next scan. It is a cloud web app at pulse.persipica.com, made by Persipica.
 
 Pulse is built first for online retailers and consumer brands, and also works for B2B software and services companies and the agencies that run several brands.
 
@@ -43,6 +43,7 @@ Pulse is built first for online retailers and consumer brands, and also works fo
 - [Resources](https://persipica.com/resources.html)
 - [Changelog](https://persipica.com/changelog.html)
 - [Contact and demos](https://persipica.com/contact.html)
+- [Brand guidelines](https://persipica.com/brand.html): how to write Persipica and Pulse, a company description, and logos, colours and fonts
 - [Privacy policy](https://persipica.com/privacy.html)
 
 ## Comparisons

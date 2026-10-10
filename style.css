@@ -3097,6 +3097,261 @@ a.tile:hover h3::after {
   }
 }
 
+/* ----- Brand page ----- */
+
+.brand-blocks {
+  display: grid;
+}
+
+.brand-block {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.5fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding: clamp(2.5rem, 4vw, 3.5rem) 0;
+  border-top: 1px solid var(--line);
+}
+
+.brand-block:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.brand-block-head h2 {
+  font-size: clamp(1.75rem, 1.2vw + 1.2rem, 2.25rem);
+}
+
+.brand-block-head p {
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+.brand-rules {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.brand-rules li {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.brand-rules span {
+  color: var(--muted);
+}
+
+.boiler {
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.boiler + .boiler {
+  margin-top: 12px;
+}
+
+.boiler-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.875rem;
+}
+
+.boiler p {
+  padding: 16px;
+  color: var(--muted);
+}
+
+.copy {
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font: 600 0.8125rem/1.4 var(--sans);
+  cursor: pointer;
+  transition: border-color var(--t-micro) ease, background var(--t-micro) ease;
+}
+
+.copy:hover {
+  border-color: var(--line-strong);
+}
+
+.copy.is-copied {
+  border-color: var(--accent);
+  background: var(--accent-tint);
+}
+
+.asset-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-content: start;
+}
+
+.asset {
+  margin: 0;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.asset-art {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  padding: 24px;
+}
+
+.asset-art.is-slate {
+  background: var(--slate);
+}
+
+.asset-art img {
+  max-width: 100%;
+  height: auto;
+}
+
+.asset-icon {
+  border-radius: 22%;
+}
+
+.asset-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.asset-files {
+  display: flex;
+  gap: 14px;
+}
+
+.asset-files a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+}
+
+.asset-files a:hover {
+  text-decoration-color: currentColor;
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  align-content: start;
+}
+
+.swatch {
+  display: grid;
+  gap: 2px;
+  padding: 0 0 14px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--t-micro) ease;
+}
+
+.swatch:hover,
+.swatch.is-copied {
+  border-color: var(--line-strong);
+}
+
+.swatch i {
+  display: block;
+  height: 72px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.swatch b,
+.swatch span,
+.swatch small {
+  padding: 0 14px;
+}
+
+.swatch span {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.875rem;
+}
+
+.swatch small {
+  color: var(--faint);
+  font-size: 0.8125rem;
+}
+
+.swatch.is-copied small {
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+.type-sample {
+  display: grid;
+  align-content: space-between;
+  gap: 28px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.type-sample-serif {
+  font: 600 2.25rem/1.05 var(--serif);
+}
+
+.type-sample-sans {
+  font: 500 1.25rem/1.35 var(--sans);
+}
+
+.type-sample-name {
+  display: grid;
+  gap: 2px;
+  font-size: 0.875rem;
+}
+
+.type-sample-name span {
+  color: var(--faint);
+}
+
+@media (max-width: 960px) {
+  .brand-block {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .swatches {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .asset-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .brand-rules li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+}
+
 /* Link from the homepage evidence section to the methodology page. */
 .method-link {
   display: flex;
