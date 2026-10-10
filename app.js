@@ -233,7 +233,8 @@
       toggle.setAttribute('aria-expanded', String(open));
     });
 
-    // One panel for every dropdown: it slides and resizes to the menu that's open.
+    // One panel for every dropdown. Switching menus swaps the contents at once, so the old list never
+    // shows under the new trigger.
     var panel = $('.menu-panel', nav);
     var triggers = $$('.nav-trigger', nav);
     var current = null;
@@ -245,23 +246,27 @@
       var menu = $('.menu[data-menu="' + key + '"]', panel);
       var trigger = $('.nav-trigger[data-menu="' + key + '"]', nav);
       if (!menu || !trigger) return;
-      var wasOpen = panel.classList.contains('is-open');
       $$('.menu', panel).forEach(function (m) { m.classList.toggle('is-active', m === menu); });
       triggers.forEach(function (t) { t.setAttribute('aria-expanded', String(t === trigger)); });
       var base = panel.parentElement.getBoundingClientRect();
       var tr = trigger.getBoundingClientRect();
       var w = menu.offsetWidth;
       var x = clamp(tr.left - base.left - 16, 0, base.width - w);
-      if (!wasOpen) panel.classList.add('no-slide');
       panel.style.setProperty('--pw', w + 'px');
       panel.style.setProperty('--ph', menu.offsetHeight + 'px');
       panel.style.setProperty('--px', x + 'px');
       panel.classList.add('is-open');
       panel.setAttribute('aria-hidden', 'false');
       nav.classList.add('menu-open');
-      if (!wasOpen) requestAnimationFrame(function () { requestAnimationFrame(function () { panel.classList.remove('no-slide'); }); });
       current = key;
       if (focusFirst) { var first = $('a', menu); if (first) first.focus(); }
+    };
+
+    // One pending close at a time: a stray timer from an earlier leave used to close a menu that had
+    // just opened.
+    var closeSoon = function (ms) {
+      window.clearTimeout(closeTimer);
+      closeTimer = later(closeMenu, ms);
     };
 
     var closeMenu = function (returnFocus) {
@@ -277,7 +282,7 @@
 
     triggers.forEach(function (t) {
       var key = t.getAttribute('data-menu');
-      t.addEventListener('click', function () {
+      t.addEventListener('click', function (ev) {
         if (!desktop.matches) {
           var sub = t.nextElementSibling;
           var open = sub.hidden;
@@ -285,24 +290,26 @@
           t.setAttribute('aria-expanded', String(open));
           return;
         }
-        if (current === key) closeMenu(); else openMenu(key, false);
+        // With a mouse, hovering has already opened it, so a click keeps it open rather than closing it.
+        // Keyboard clicks (detail 0) still toggle.
+        if (current === key && !(FINE && ev.detail > 0)) closeMenu(); else openMenu(key, false);
       });
       t.addEventListener('keydown', function (ev) {
         if (desktop.matches && ev.key === 'ArrowDown') { ev.preventDefault(); openMenu(key, true); }
       });
       if (FINE) {
         t.addEventListener('pointerenter', function () { if (desktop.matches) openMenu(key, false); });
-        t.addEventListener('pointerleave', function () { closeTimer = later(closeMenu, 180); });
+        t.addEventListener('pointerleave', function () { closeSoon(180); });
       }
     });
 
     // Other top-level links close the panel when hovered.
     $$('.nav-main > li > a', nav).forEach(function (a) {
-      a.addEventListener('pointerenter', function () { closeTimer = later(closeMenu, 120); });
+      a.addEventListener('pointerenter', function () { closeSoon(120); });
     });
 
     panel.addEventListener('pointerenter', function () { window.clearTimeout(closeTimer); });
-    panel.addEventListener('pointerleave', function () { closeTimer = later(closeMenu, 180); });
+    panel.addEventListener('pointerleave', function () { closeSoon(180); });
     panel.addEventListener('focusout', function (ev) {
       if (!panel.contains(ev.relatedTarget) && !nav.contains(ev.relatedTarget)) closeMenu();
     });

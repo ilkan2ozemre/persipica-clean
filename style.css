@@ -481,22 +481,16 @@ a.tile.card:active::before,
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
-  transform: translate(var(--px, 0), 8px);
-  transition:
-    opacity 200ms ease,
-    transform var(--t-panel) var(--ease-out),
-    width var(--t-panel) var(--ease-out),
-    height var(--t-panel) var(--ease-out);
+  translate: var(--px, 0) 0;
+  transform: translateY(8px);
+  transition: opacity 200ms ease, transform var(--t-panel) var(--ease-out);
 }
 
+/* Only opening and closing animate. Moving to the other trigger snaps the panel's place and size. */
 .menu-panel.is-open {
   opacity: 1;
   pointer-events: auto;
-  transform: translate(var(--px, 0), 0);
-}
-
-.menu-panel.no-slide {
-  transition: opacity 200ms ease;
+  transform: none;
 }
 
 .menu {
@@ -504,15 +498,11 @@ a.tile.card:active::before,
   top: 0;
   left: 0;
   padding: 18px;
-  opacity: 0;
   visibility: hidden;
-  transition: opacity 200ms ease, visibility 0s linear 200ms;
 }
 
 .menu.is-active {
-  opacity: 1;
   visibility: visible;
-  transition: opacity 260ms ease 60ms, visibility 0s;
 }
 
 .menu-grid {
