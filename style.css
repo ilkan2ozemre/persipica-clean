@@ -3351,3 +3351,8 @@ a.tile:hover h3::after {
     gap: 2px;
   }
 }
+
+/* Link from the homepage evidence section to the methodology page. */
+.method-link {
+  margin-top: 28px;
+}

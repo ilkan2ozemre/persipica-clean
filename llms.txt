@@ -37,6 +37,7 @@ Pulse is built first for online retailers and consumer brands, and also works fo
 - [Home](https://persipica.com/)
 - [Features](https://persipica.com/features.html)
 - [Pricing](https://persipica.com/pricing.html)
+- [How Pulse measures AI answers](https://persipica.com/methodology.html): how answers are collected, what a rate and its likely range mean, how missing answers and name mix-ups are handled, and the limits of a scan
 - [Free grader](https://persipica.com/grader.html): ask ChatGPT, Claude and Gemini one question and see whether they mention a brand, free and without an account
 - [Resources](https://persipica.com/resources.html)
 - [Changelog](https://persipica.com/changelog.html)
