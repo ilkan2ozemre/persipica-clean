@@ -233,13 +233,14 @@
       toggle.setAttribute('aria-expanded', String(open));
     });
 
-    // One panel for every dropdown. Opening fades it in. Moving to another trigger glides the panel to
-    // its new place and size while the old list slides out and the new one slides in from the side
-    // the pointer came from.
+    // One panel for every dropdown, centred under the triggers. Opening grows it in. Moving to another
+    // trigger resizes the panel while the old list slides out and the new one slides in from the side
+    // the pointer is heading to.
     var panel = $('.menu-panel', nav);
     var triggers = $$('.nav-trigger', nav);
     var current = null;
     var closeTimer = 0;
+    var openTimer = 0;
     var desktop = window.matchMedia('(min-width: 961px)');
 
     var openMenu = function (key, focusFirst) {
@@ -266,9 +267,14 @@
       panel.classList.toggle('is-switching', !!switching);
       triggers.forEach(function (t) { t.setAttribute('aria-expanded', String(t === trigger)); });
       var base = panel.parentElement.getBoundingClientRect();
-      var tr = trigger.getBoundingClientRect();
+      var first = triggers[0].getBoundingClientRect();
+      var last = triggers[triggers.length - 1].getBoundingClientRect();
       var w = menu.offsetWidth;
-      var x = clamp(tr.left - base.left - 16, 0, base.width - w);
+      // Every menu shares one centre line: the middle of the triggers, moved right just enough for the
+      // widest menu to fit.
+      var widest = Math.max.apply(null, $$('.menu', panel).map(function (m) { return m.offsetWidth; }));
+      var centre = Math.max((first.left + last.right) / 2 - base.left, widest / 2);
+      var x = clamp(centre - w / 2, 0, base.width - w);
       panel.style.setProperty('--pw', w + 'px');
       panel.style.setProperty('--ph', menu.offsetHeight + 'px');
       panel.style.setProperty('--px', x + 'px');
@@ -307,6 +313,8 @@
     triggers.forEach(function (t) {
       var key = t.getAttribute('data-menu');
       t.addEventListener('click', function (ev) {
+        // Pricing is a real link: its click goes to the page.
+        if (t.tagName === 'A') return;
         if (!desktop.matches) {
           var sub = t.nextElementSibling;
           var open = sub.hidden;
@@ -322,13 +330,20 @@
         if (desktop.matches && ev.key === 'ArrowDown') { ev.preventDefault(); openMenu(key, true); }
       });
       if (FINE) {
-        t.addEventListener('pointerenter', function () { if (desktop.matches) openMenu(key, false); });
-        t.addEventListener('pointerleave', function () { closeSoon(180); });
+        // A short wait before the first open, so brushing past the header doesn't flash a menu. Moving
+        // between menus that are already open is instant.
+        t.addEventListener('pointerenter', function () {
+          if (!desktop.matches) return;
+          window.clearTimeout(openTimer);
+          if (current) openMenu(key, false);
+          else openTimer = later(function () { openMenu(key, false); }, 120);
+        });
+        t.addEventListener('pointerleave', function () { window.clearTimeout(openTimer); closeSoon(180); });
       }
     });
 
     // Other top-level links close the panel when hovered.
-    $$('.nav-main > li > a', nav).forEach(function (a) {
+    $$('.nav-main > li > a:not(.nav-trigger)', nav).forEach(function (a) {
       a.addEventListener('pointerenter', function () { closeSoon(120); });
     });
 

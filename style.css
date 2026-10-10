@@ -448,6 +448,17 @@ a.tile.card:active::before,
   transform: rotate(180deg);
 }
 
+/* Pricing is a link with a hover card, so its arrow only shows where the card can open. */
+a.nav-trigger svg {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 961px) {
+  a.nav-trigger svg {
+    display: block;
+  }
+}
+
 .nav-trigger:hover,
 .nav-main > li > a:hover,
 .nav-trigger[aria-expanded="true"] {
@@ -492,7 +503,8 @@ a.tile.card:active::before,
   padding: 0 18px;
 }
 
-/* One panel for every dropdown. It moves and resizes to whichever menu is open. */
+/* One panel for every dropdown. It stays centred under the triggers and resizes to whichever menu is
+   open. It grows in from the top and shrinks back out. */
 .menu-panel {
   position: absolute;
   top: calc(100% - 6px);
@@ -503,7 +515,7 @@ a.tile.card:active::before,
   opacity: 0;
   pointer-events: none;
   translate: var(--px, 0) 0;
-  transform: translateY(6px) scale(0.98);
+  transform: translateY(-4px) scale(0.95);
   transform-origin: 50% 0;
   transition: opacity 180ms ease, transform 240ms var(--ease-out);
 }
@@ -537,16 +549,17 @@ a.tile.card:active::before,
   visibility: visible;
 }
 
-/* The old list is mostly gone before the new one starts, so the two never read as one jumble. */
-.menu[data-motion="from-end"] { animation: menu-from-end 240ms var(--ease-out) 60ms backwards; }
-.menu[data-motion="from-start"] { animation: menu-from-start 240ms var(--ease-out) 60ms backwards; }
-.menu[data-motion="to-start"] { animation: menu-to-start 140ms ease-in forwards; }
-.menu[data-motion="to-end"] { animation: menu-to-end 140ms ease-in forwards; }
+/* The old list slides out as the new one slides in from the side the pointer is heading to. The old one
+   fades faster, so the two never read as one jumble. */
+.menu[data-motion="from-end"] { animation: menu-from-end 260ms var(--ease-out) backwards; }
+.menu[data-motion="from-start"] { animation: menu-from-start 260ms var(--ease-out) backwards; }
+.menu[data-motion="to-start"] { animation: menu-to-start 200ms ease-out forwards; }
+.menu[data-motion="to-end"] { animation: menu-to-end 200ms ease-out forwards; }
 
-@keyframes menu-from-end { from { opacity: 0; transform: translateX(32px); } }
-@keyframes menu-from-start { from { opacity: 0; transform: translateX(-32px); } }
-@keyframes menu-to-start { to { opacity: 0; transform: translateX(-32px); } }
-@keyframes menu-to-end { to { opacity: 0; transform: translateX(32px); } }
+@keyframes menu-from-end { from { opacity: 0; transform: translateX(60px); } }
+@keyframes menu-from-start { from { opacity: 0; transform: translateX(-60px); } }
+@keyframes menu-to-start { 60% { opacity: 0; } to { opacity: 0; transform: translateX(-60px); } }
+@keyframes menu-to-end { 60% { opacity: 0; } to { opacity: 0; transform: translateX(60px); } }
 
 .menu-grid {
   display: grid;
@@ -584,6 +597,28 @@ a.tile.card:active::before,
   color: var(--muted);
   font-size: 0.8125rem;
   line-height: 1.45;
+}
+
+.menu-plans {
+  display: grid;
+  grid-template-columns: repeat(5, 144px);
+  gap: 4px;
+}
+
+.menu a .menu-price {
+  margin-top: 8px;
+  color: var(--ink);
+  font: 500 1.375rem/1 var(--serif);
+  font-variant-numeric: lining-nums;
+}
+
+.menu a .menu-price small {
+  color: var(--faint);
+  font: 400 0.75rem/1 var(--sans);
+}
+
+.menu a .menu-price + span {
+  margin-top: 8px;
 }
 
 .menu-foot {
