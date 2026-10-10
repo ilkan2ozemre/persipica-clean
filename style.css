@@ -3838,3 +3838,170 @@ a.tile:hover h3::after {
   color: var(--faint);
   font-size: 0.8125rem;
 }
+
+/* ----- Getting started ----- */
+
+.guide {
+  display: grid;
+  gap: clamp(2.5rem, 4vw, 3.5rem);
+  max-width: 52rem;
+}
+
+.page-head + .guide-wrap {
+  padding-top: clamp(2.5rem, 4vw, 4rem);
+}
+
+.guide-block h2 {
+  font-size: clamp(1.75rem, 1.2vw + 1.2rem, 2.25rem);
+}
+
+.guide-block > p {
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+.guide-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.guide-list li {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.guide-list b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.guide-note {
+  margin-top: 12px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-tint);
+  font-size: 0.9375rem;
+}
+
+.guide-note b {
+  font-weight: 600;
+}
+
+.guide-steps {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 0;
+  list-style: none;
+  counter-reset: guide-step;
+}
+
+.guide-steps li {
+  position: relative;
+  padding: 18px 20px 18px 68px;
+  border: 1.5px solid var(--line-strong);
+  background: var(--white);
+  counter-increment: guide-step;
+}
+
+.guide-steps li::before {
+  content: counter(guide-step);
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--slate);
+  color: var(--white);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.guide-steps h3 {
+  font-size: 1.125rem;
+}
+
+.guide-steps p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.guide-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin-top: 18px;
+}
+
+.guide-table {
+  display: grid;
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  font-size: 0.875rem;
+}
+
+.guide-tr {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr) minmax(0, 1.1fr);
+  gap: 16px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--line);
+}
+
+.guide-tr:first-child {
+  border-top: 0;
+}
+
+.guide-th {
+  color: var(--faint);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.guide-tr > :first-child {
+  font-weight: 600;
+}
+
+.guide-th > :first-child {
+  font-weight: 600;
+}
+
+.guide-block a:not(.link):not(.btn) {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+  .guide-steps li {
+    padding: 16px 16px 16px 58px;
+  }
+
+  .guide-steps li::before {
+    left: 14px;
+  }
+
+  .guide-tr {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+
+  .guide-th {
+    display: none;
+  }
+
+  .guide-tr > :nth-child(2)::before { content: "Pulse: "; color: var(--faint); }
+  .guide-tr > :nth-child(3)::before { content: "You: "; color: var(--faint); }
+}
