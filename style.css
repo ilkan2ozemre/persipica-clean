@@ -208,38 +208,60 @@ h3,
 
 /* ----- Buttons and links ----- */
 
+/* The label never moves. The face (background and border) and the offset shadow are separate layers
+   behind it, and only the face moves, by transform, so a hover never repaints the text or a shadow. */
 .btn {
+  position: relative;
+  isolation: isolate;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   min-height: 48px;
   padding: 0 24px;
-  border: 1.5px solid var(--slate);
-  background: var(--slate);
+  border: 1.5px solid transparent;
+  background: none;
   color: var(--white);
   font: 600 0.9375rem/1 var(--sans);
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  box-shadow: 4px 4px 0 var(--accent);
-  transition: transform var(--t-micro) var(--lift), box-shadow var(--t-micro) var(--lift);
 }
 
-.btn:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--accent);
+.btn::before,
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  z-index: -1;
 }
 
-.btn:active {
+.btn::before {
+  background: var(--accent);
   transform: translate(4px, 4px);
-  box-shadow: 0 0 0 var(--accent);
+}
+
+.btn::after {
+  border: 1.5px solid var(--slate);
+  background: var(--slate);
+  transition: transform var(--t-micro) var(--ease-out);
+}
+
+.btn:hover::after {
+  transform: translate(-2px, -2px);
+}
+
+.btn:active::after {
+  transform: translate(4px, 4px);
 }
 
 .bg-slate .btn {
+  color: var(--slate);
+}
+
+.bg-slate .btn::after {
   border-color: var(--white);
   background: var(--white);
-  color: var(--slate);
 }
 
 /* The underline is its own line so it can rise smoothly; animating a text underline's offset stutters. */
@@ -2387,7 +2409,7 @@ h3,
     display: none;
   }
 
-  .btn:hover,
+  .btn:hover::after,
   .q-chip:hover {
     transform: none;
   }
