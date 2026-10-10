@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Message received | Persipica</title>
-  <meta name="description" content="Thanks for getting in touch. We read every message and aim to reply within one business day." />
-  <link rel="canonical" href="https://persipica.com/thank-you.html" />
-  <meta name="robots" content="noindex, follow" />
+  <title>How Pulse measures AI answers | Persipica</title>
+  <meta name="description" content="What Pulse asks, how it collects AI answers, what a percentage and its likely range mean, how missing answers and name mix-ups are handled, and what a scan can't tell you." />
+  <link rel="canonical" href="https://persipica.com/methodology.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#1f262e" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Persipica" />
-  <meta property="og:title" content="Message received | Persipica" />
-  <meta property="og:description" content="Thanks for getting in touch. We read every message and aim to reply within one business day." />
-  <meta property="og:url" content="https://persipica.com/thank-you.html" />
+  <meta property="og:title" content="How Pulse measures AI answers | Persipica" />
+  <meta property="og:description" content="What Pulse asks, how it collects AI answers, what a percentage and its likely range mean, how missing answers and name mix-ups are handled, and what a scan can't tell you." />
+  <meta property="og:url" content="https://persipica.com/methodology.html" />
   <meta property="og:image" content="https://persipica.com/images/og.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Message received | Persipica" />
-  <meta name="twitter:description" content="Thanks for getting in touch. We read every message and aim to reply within one business day." />
+  <meta name="twitter:title" content="How Pulse measures AI answers | Persipica" />
+  <meta name="twitter:description" content="What Pulse asks, how it collects AI answers, what a percentage and its likely range mean, how missing answers and name mix-ups are handled, and what a scan can't tell you." />
   <meta name="twitter:image" content="https://persipica.com/images/og.jpg" />
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -74,10 +74,10 @@
       },
       {
         "@type": "WebPage",
-        "@id": "https://persipica.com/thank-you.html#webpage",
-        "url": "https://persipica.com/thank-you.html",
-        "name": "Message received | Persipica",
-        "description": "Thanks for getting in touch. We read every message and aim to reply within one business day.",
+        "@id": "https://persipica.com/methodology.html#webpage",
+        "url": "https://persipica.com/methodology.html",
+        "name": "How Pulse measures AI answers | Persipica",
+        "description": "What Pulse asks, how it collects AI answers, what a percentage and its likely range mean, how missing answers and name mix-ups are handled, and what a scan can't tell you.",
         "isPartOf": {
           "@id": "https://persipica.com/#website"
         },
@@ -95,8 +95,8 @@
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Message received",
-            "item": "https://persipica.com/thank-you.html"
+            "name": "How Pulse measures AI answers",
+            "item": "https://persipica.com/methodology.html"
           }
         ]
       }
@@ -182,16 +182,69 @@
 
     <main id="main">
       <section class="page-head bg-white">
-        <div class="container lost">
-          <div>
-            <h1>Thanks, we have your message</h1>
-            <p class="lead">We read every message and aim to reply within one business day. If you included your brand and competitors, we may already have a first read for you when we write back.</p>
-            <div class="actions">
-              <a class="btn" href="/grader.html">Try the free grader meanwhile</a>
-              <a class="link" href="/features.html">See what Pulse does</a>
-            </div>
-          </div>
-          <span class="eye-slot" data-eye="cta"></span>
+        <div class="container">
+          <h1>How Pulse measures AI answers</h1>
+          <p class="lead">What Pulse asks, how it collects each answer, what a percentage means, and what a scan can't tell you.</p>
+          <p class="meta">Last updated 10 October 2026</p>
+        </div>
+      </section>
+
+      <section class="section bg-stone">
+        <div class="container">
+        <div class="prose">
+          <h2>What Pulse asks</h2>
+          <p>You tell Pulse who you sell to. It drafts questions the way each kind of shopper would ask them, in their own words: "which merino socks stop blisters on long walks?" rather than a keyword. You approve the shopper types it asks as, and you can add questions of your own.</p>
+          <ul>
+          <li><strong>27 questions a scan by default.</strong> You can set anywhere from 9 to 45.</li>
+          <li><strong>Most questions don't name you.</strong> That is how shoppers find products they haven't heard of, so it's what "how often AI recommends you" is measured on. Questions that do name you, such as comparisons, are kept apart and never count towards that rate.</li>
+          <li><strong>The shoppers are simulated.</strong> They are profiles used to phrase questions, not real people or customer data. Each attribute is labelled as your data, a public signal or an assumption, and results always say they come from simulated shoppers.</li>
+          </ul>
+
+          <h2>How answers are collected</h2>
+          <p>Pulse covers seven assistants: ChatGPT, Claude, Gemini, Perplexity and Grok, plus Google AI Overviews and Google AI Mode.</p>
+          <ul>
+          <li><strong>Consumer interfaces.</strong> Pulse reads the chat assistants through their consumer interfaces, so it sees answers the way a shopper does, with each assistant's own live web search. It can also collect through each assistant's API.</li>
+          <li><strong>Google's AI.</strong> AI Overviews and AI Mode are read as they appear in Google search results, once per question.</li>
+          <li><strong>Repeated asking.</strong> The same question can get a different answer each time, so each question goes to each chat assistant three times.</li>
+          <li><strong>Follow-ups.</strong> Where a shopper would ask a follow-up, it continues the same conversation, with the earlier turns included.</li>
+          <li><strong>Language.</strong> Questions are asked, and answers read, in the language you choose for the scan.</li>
+          </ul>
+
+          <h2>What a percentage means</h2>
+          <p>A mention rate is the share of answers that named you, out of the answers that actually came back. If ChatGPT answered 72 times and named you in 8, the rate is 8 of 72.</p>
+          <p>Every rate comes with a likely range, written as "8 of 72, likely 6&ndash;20%". It is a 95% Wilson interval, which stays accurate near 0% and 100% and with small samples. The fewer answers a rate rests on, the wider its range. When two ranges overlap, treat the difference between them with caution.</p>
+          <p>Answers to the same question tend to look alike, so for shopper-type results Pulse works out a rate for each question first and then averages them. One question asked many times counts as one question, which keeps the range from looking more certain than the evidence is.</p>
+
+          <h2>When an answer doesn't arrive</h2>
+          <p>Assistants sometimes time out, hit rate limits or show a CAPTCHA. Pulse handles that without hiding it.</p>
+          <ul>
+          <li><strong>Retries.</strong> Each request gets up to four attempts, with longer waits between them. Errors that will never succeed, such as a rejected key, are not retried.</li>
+          <li><strong>Pauses.</strong> If one assistant fails five times in a row, Pulse pauses it for a minute instead of retrying it repeatedly.</li>
+          <li><strong>Missing answers are shown.</strong> The scan carries on without the failed question. Each assistant's result says how many answers came back and why any didn't, for example "60 of 81 answered, 21 timed out".</li>
+          <li><strong>Blank answers don't count against you.</strong> An answer that comes back empty is left out of the rate and listed, rather than counted as an answer that didn't name you.</li>
+          <li><strong>Unfinished conversations aren't scored as finished.</strong> If a follow-up fails part-way, the conversation is not treated as complete.</li>
+          <li><strong>Failed scans are free.</strong> If nothing comes back at all, the scan fails and doesn't use up one of your scans.</li>
+          </ul>
+
+          <h2>How Pulse knows an answer means you</h2>
+          <ul>
+          <li><strong>Names, aliases and your domain.</strong> Pulse looks for your brand name, any other names you've given it and your website's domain, as whole words.</li>
+          <li><strong>Common words keep their capital.</strong> If your brand is an ordinary word, it only counts with its capital letter, so "close" in a sentence isn't a mention of a brand called Close.</li>
+          <li><strong>Products need your brand nearby.</strong> A product name counts only when your brand appears in the same sentence, product card or cited page.</li>
+          <li><strong>Name mix-ups.</strong> Pulse checks whether your name is shared with another company or a common word. If it is, Pulse checks what each mention refers to, so another company's mentions aren't counted as yours. The report names the other company or word and shows which answers were affected. If the check can't run, the report says "not measured" rather than assuming there's no risk.</li>
+          </ul>
+
+          <h2>What a scan doesn't tell you</h2>
+          <ul>
+          <li><strong>It's a sample.</strong> Rates describe the questions in your scan, not every question shoppers ask. Different questions can give different results.</li>
+          <li><strong>It's a snapshot.</strong> Assistants change their answers from week to week. Regular scans show the trend; one scan shows a moment.</li>
+          <li><strong>Real shoppers' answers can differ.</strong> Assistants can tailor answers to a person's account, location and past chats, which no outside tool can see.</li>
+          <li><strong>Mentions aren't sales.</strong> A rate shows how often AI names you, not what shoppers buy. Visits and conversions from AI assistants come from your own analytics, which Pulse can bring in on Business.</li>
+          </ul>
+
+          <h2>Check it yourself</h2>
+          <p>Every answer behind every number is kept. Open any result to read the exact answers, which assistant gave them, when, and the sources it cited. If anything here is unclear, or you want to see it on your own brand, <a href="/contact.html">get in touch</a>.</p>
+        </div>
         </div>
       </section>
     </main>
