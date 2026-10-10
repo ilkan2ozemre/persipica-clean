@@ -38,12 +38,40 @@
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --t-micro: 160ms;
+  /* Hover lifts move in whole pixels: gliding through fractions of a pixel blurs the text. */
+  --lift: steps(2, start);
   --t-panel: 320ms;
   --t-reveal: 600ms;
 }
 
 @view-transition {
   navigation: auto;
+}
+
+/* Page changes: the header stays put, the old page fades out, then the new one fades in,
+   so the two never sit on top of each other. */
+::view-transition-old(root) {
+  animation: 140ms ease-in both vt-out;
+}
+
+::view-transition-new(root) {
+  animation: 220ms var(--ease-out) 130ms both vt-in;
+}
+
+::view-transition-old(site-nav) {
+  display: none;
+}
+
+::view-transition-new(site-nav) {
+  animation: none;
+}
+
+@keyframes vt-out {
+  to { opacity: 0; }
+}
+
+@keyframes vt-in {
+  from { opacity: 0; }
 }
 
 *,
@@ -137,6 +165,21 @@ h3,
   top: 12px;
 }
 
+/* Wording for mice and for touch screens. */
+.on-touch {
+  display: none;
+}
+
+@media (hover: none) {
+  .on-hover {
+    display: none;
+  }
+
+  .on-touch {
+    display: inline;
+  }
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -180,7 +223,7 @@ h3,
   white-space: nowrap;
   cursor: pointer;
   box-shadow: 4px 4px 0 var(--accent);
-  transition: transform var(--t-micro) var(--ease-out), box-shadow var(--t-micro) var(--ease-out);
+  transition: transform var(--t-micro) var(--lift), box-shadow var(--t-micro) var(--lift);
 }
 
 .btn:hover {
@@ -199,23 +242,33 @@ h3,
   color: var(--slate);
 }
 
+/* The underline is its own line so it can rise smoothly; animating a text underline's offset stutters. */
 .link {
+  position: relative;
+  display: inline-block;
   font-weight: 600;
   font-size: 0.9375rem;
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 6px;
-  transition: text-decoration-color var(--t-micro) ease, text-underline-offset var(--t-micro) var(--ease-out);
+  text-decoration: none;
 }
 
-.link:hover {
-  text-decoration-color: currentColor;
-  text-underline-offset: 4px;
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background: var(--accent);
+  transition: transform var(--t-micro) var(--ease-out), background-color var(--t-micro) ease;
 }
 
-.bg-slate .link {
-  text-decoration-color: var(--accent-bright);
+.bg-slate .link::after {
+  background: var(--accent-bright);
+}
+
+.link:hover::after {
+  transform: translateY(-2px);
+  background: currentColor;
 }
 
 .actions {
@@ -265,6 +318,7 @@ h3,
   position: sticky;
   top: 0;
   z-index: 100;
+  view-transition-name: site-nav;
   background: transparent;
   border-bottom: 1px solid transparent;
   transition: transform 360ms var(--ease-out), background-color 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
@@ -297,7 +351,6 @@ h3,
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  view-transition-name: brand;
 }
 
 .brand-word {
@@ -624,10 +677,6 @@ h3,
   align-items: center;
 }
 
-.hero h1 {
-  view-transition-name: page-title;
-}
-
 .lead {
   max-width: 34rem;
   margin-top: 28px;
@@ -923,7 +972,7 @@ h3,
   background: var(--white);
   font-size: 0.9375rem;
   white-space: nowrap;
-  transition: border-color var(--t-micro) ease, box-shadow var(--t-micro) ease, transform var(--t-micro) var(--ease-out);
+  transition: border-color var(--t-micro) ease, box-shadow var(--t-micro) var(--lift), transform var(--t-micro) var(--lift);
 }
 
 .q-chip:hover {
@@ -1878,13 +1927,17 @@ h3,
   display: flex;
   flex-direction: column;
   padding: 22px 20px 20px;
-  transition: transform var(--t-micro) var(--ease-out), box-shadow var(--t-micro) var(--ease-out);
 }
 
-.plan:hover,
-.plan:focus-within {
-  transform: translate(-2px, -2px);
-  box-shadow: 7px 7px 0 var(--shadow);
+/* Each card shares the row tracks of the grid, so price, description, limits and buttons line up
+   across cards even when one description runs longer. */
+@supports (grid-template-rows: subgrid) {
+  .plan {
+    display: grid;
+    grid-row: span 6;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+  }
 }
 
 .plan h3,
@@ -2305,6 +2358,12 @@ h3,
 }
 
 @media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+
   *,
   *::before,
   *::after {
@@ -2329,7 +2388,6 @@ h3,
   }
 
   .btn:hover,
-  .plan:hover,
   .q-chip:hover {
     transform: none;
   }
@@ -2360,11 +2418,26 @@ h3,
 
 .page-head h1 {
   max-width: 16ch;
-  view-transition-name: page-title;
 }
 
 .page-head .lead {
   max-width: 40rem;
+}
+
+/* Pricing: less space above the plans, so their buttons show without scrolling. */
+.page-head.is-compact {
+  padding-bottom: clamp(2rem, 3vw, 3rem);
+}
+
+.page-head.is-compact + .section {
+  padding-top: clamp(2.5rem, 3.5vw, 3.5rem);
+}
+
+.page-head .detail {
+  max-width: 40rem;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 1rem;
 }
 
 .page-head .meta {
@@ -2501,7 +2574,7 @@ h3,
 
 .tile {
   padding: 22px 22px 24px;
-  transition: transform var(--t-micro) var(--ease-out), box-shadow var(--t-micro) var(--ease-out);
+  transition: transform var(--t-micro) var(--lift), box-shadow var(--t-micro) var(--lift);
 }
 
 .tile:hover {
@@ -2635,6 +2708,32 @@ a.tile:hover h3::after {
 .fit p {
   margin-top: 10px;
   color: var(--muted);
+}
+
+/* Pulse's card stands out from the competitor's, which stays plain and just as readable. */
+.fit .is-pulse {
+  border-color: var(--slate);
+  background: var(--slate);
+  color: var(--white);
+  box-shadow: 5px 5px 0 var(--accent);
+}
+
+.fit .is-pulse p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sources {
+  margin-top: 56px;
+}
+
+.sources ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin-top: 14px;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
 }
 
 .more-links {
