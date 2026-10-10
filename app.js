@@ -233,11 +233,14 @@
       toggle.setAttribute('aria-expanded', String(open));
     });
 
-    // One panel for every dropdown: it slides and resizes to the menu that's open.
+    // One panel for every dropdown, centred under the triggers. Opening grows it in. Moving to another
+    // trigger resizes the panel while the old list slides out and the new one slides in from the side
+    // the pointer is heading to.
     var panel = $('.menu-panel', nav);
     var triggers = $$('.nav-trigger', nav);
     var current = null;
     var closeTimer = 0;
+    var openTimer = 0;
     var desktop = window.matchMedia('(min-width: 961px)');
 
     var openMenu = function (key, focusFirst) {
@@ -245,23 +248,55 @@
       var menu = $('.menu[data-menu="' + key + '"]', panel);
       var trigger = $('.nav-trigger[data-menu="' + key + '"]', nav);
       if (!menu || !trigger) return;
-      var wasOpen = panel.classList.contains('is-open');
-      $$('.menu', panel).forEach(function (m) { m.classList.toggle('is-active', m === menu); });
+      var switching = panel.classList.contains('is-open') && current && current !== key;
+      var forward = switching && triggers.indexOf(trigger) > triggers.indexOf($('.nav-trigger[data-menu="' + current + '"]', nav));
+      $$('.menu', panel).forEach(function (m) {
+        var wasActive = m.classList.contains('is-active');
+        m.classList.toggle('is-active', m === menu);
+        if (m === menu) {
+          m.classList.remove('is-leaving');
+          m.setAttribute('data-motion', switching ? (forward ? 'from-end' : 'from-start') : '');
+        } else if (wasActive && switching) {
+          m.classList.add('is-leaving');
+          m.setAttribute('data-motion', forward ? 'to-start' : 'to-end');
+        } else {
+          m.classList.remove('is-leaving');
+          m.setAttribute('data-motion', '');
+        }
+      });
+      panel.classList.toggle('is-switching', !!switching);
       triggers.forEach(function (t) { t.setAttribute('aria-expanded', String(t === trigger)); });
       var base = panel.parentElement.getBoundingClientRect();
-      var tr = trigger.getBoundingClientRect();
+      var first = triggers[0].getBoundingClientRect();
+      var last = triggers[triggers.length - 1].getBoundingClientRect();
       var w = menu.offsetWidth;
-      var x = clamp(tr.left - base.left - 16, 0, base.width - w);
-      if (!wasOpen) panel.classList.add('no-slide');
+      // Every menu shares one centre line: the middle of the triggers, moved right just enough for the
+      // widest menu to fit.
+      var widest = Math.max.apply(null, $$('.menu', panel).map(function (m) { return m.offsetWidth; }));
+      var centre = Math.max((first.left + last.right) / 2 - base.left, widest / 2);
+      var x = clamp(centre - w / 2, 0, base.width - w);
       panel.style.setProperty('--pw', w + 'px');
       panel.style.setProperty('--ph', menu.offsetHeight + 'px');
       panel.style.setProperty('--px', x + 'px');
       panel.classList.add('is-open');
       panel.setAttribute('aria-hidden', 'false');
       nav.classList.add('menu-open');
-      if (!wasOpen) requestAnimationFrame(function () { requestAnimationFrame(function () { panel.classList.remove('no-slide'); }); });
       current = key;
       if (focusFirst) { var first = $('a', menu); if (first) first.focus(); }
+    };
+
+    $$('.menu', panel).forEach(function (m) {
+      m.addEventListener('animationend', function () {
+        m.classList.remove('is-leaving');
+        m.setAttribute('data-motion', '');
+      });
+    });
+
+    // One pending close at a time: a stray timer from an earlier leave used to close a menu that had
+    // just opened.
+    var closeSoon = function (ms) {
+      window.clearTimeout(closeTimer);
+      closeTimer = later(closeMenu, ms);
     };
 
     var closeMenu = function (returnFocus) {
@@ -277,7 +312,9 @@
 
     triggers.forEach(function (t) {
       var key = t.getAttribute('data-menu');
-      t.addEventListener('click', function () {
+      t.addEventListener('click', function (ev) {
+        // Pricing is a real link: its click goes to the page.
+        if (t.tagName === 'A') return;
         if (!desktop.matches) {
           var sub = t.nextElementSibling;
           var open = sub.hidden;
@@ -285,24 +322,33 @@
           t.setAttribute('aria-expanded', String(open));
           return;
         }
-        if (current === key) closeMenu(); else openMenu(key, false);
+        // With a mouse, hovering has already opened it, so a click keeps it open rather than closing it.
+        // Keyboard clicks (detail 0) still toggle.
+        if (current === key && !(FINE && ev.detail > 0)) closeMenu(); else openMenu(key, false);
       });
       t.addEventListener('keydown', function (ev) {
         if (desktop.matches && ev.key === 'ArrowDown') { ev.preventDefault(); openMenu(key, true); }
       });
       if (FINE) {
-        t.addEventListener('pointerenter', function () { if (desktop.matches) openMenu(key, false); });
-        t.addEventListener('pointerleave', function () { closeTimer = later(closeMenu, 180); });
+        // A short wait before the first open, so brushing past the header doesn't flash a menu. Moving
+        // between menus that are already open is instant.
+        t.addEventListener('pointerenter', function () {
+          if (!desktop.matches) return;
+          window.clearTimeout(openTimer);
+          if (current) openMenu(key, false);
+          else openTimer = later(function () { openMenu(key, false); }, 120);
+        });
+        t.addEventListener('pointerleave', function () { window.clearTimeout(openTimer); closeSoon(180); });
       }
     });
 
     // Other top-level links close the panel when hovered.
-    $$('.nav-main > li > a', nav).forEach(function (a) {
-      a.addEventListener('pointerenter', function () { closeTimer = later(closeMenu, 120); });
+    $$('.nav-main > li > a:not(.nav-trigger)', nav).forEach(function (a) {
+      a.addEventListener('pointerenter', function () { closeSoon(120); });
     });
 
     panel.addEventListener('pointerenter', function () { window.clearTimeout(closeTimer); });
-    panel.addEventListener('pointerleave', function () { closeTimer = later(closeMenu, 180); });
+    panel.addEventListener('pointerleave', function () { closeSoon(180); });
     panel.addEventListener('focusout', function (ev) {
       if (!panel.contains(ev.relatedTarget) && !nav.contains(ev.relatedTarget)) closeMenu();
     });
@@ -735,10 +781,10 @@
     }, '0px 0px -15% 0px');
   });
 
-  // Rows open on tap for touch screens (hover does it for mice).
+  // Rows open and close on click or tap.
   $$('button.row-main').forEach(function (rm) {
     rm.addEventListener('click', function () {
-      if (!FINE) rm.parentElement.classList.toggle('is-open');
+      rm.parentElement.classList.toggle('is-open');
     });
   });
 

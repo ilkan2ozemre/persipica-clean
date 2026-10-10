@@ -38,8 +38,6 @@
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --t-micro: 160ms;
-  /* Hover lifts move in whole pixels: gliding through fractions of a pixel blurs the text. */
-  --lift: steps(2, start);
   --t-panel: 320ms;
   --t-reveal: 600ms;
 }
@@ -215,31 +213,87 @@ h3,
   gap: 10px;
   min-height: 48px;
   padding: 0 24px;
-  border: 1.5px solid var(--slate);
-  background: var(--slate);
   color: var(--white);
   font: 600 0.9375rem/1 var(--sans);
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  box-shadow: 4px 4px 0 var(--accent);
-  transition: transform var(--t-micro) var(--lift), box-shadow var(--t-micro) var(--lift);
-}
-
-.btn:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--accent);
-}
-
-.btn:active {
-  transform: translate(4px, 4px);
-  box-shadow: 0 0 0 var(--accent);
+  --face: var(--slate);
+  --edge: var(--slate);
+  --drop: var(--accent);
+  --rest: 4px;
+  --reach: 7px;
 }
 
 .bg-slate .btn {
-  border-color: var(--white);
-  background: var(--white);
   color: var(--slate);
+  --face: var(--white);
+  --edge: var(--white);
+}
+
+/* Everything you can click and hover works the same way. The label and face never move. The face
+   (background and border) and an offset shadow are layers behind the label. Hovering slides the
+   shadow out from --rest to --reach, so the thing seems to lift; pressing slides it in underneath,
+   so it reads as pushed in. Only the shadow's transform animates, so nothing repaints. Each one
+   sets --face, --edge, --drop, --rest, --reach and, if its border isn't 1.5px, --bw. */
+.btn,
+a.tile.card,
+.persona-chip,
+.pause {
+  position: relative;
+  isolation: isolate;
+  border: var(--bw, 1.5px) solid transparent;
+  background: none;
+  box-shadow: none;
+}
+
+.btn::before,
+a.tile.card::before,
+.persona-chip::before,
+.pause::before,
+.btn::after,
+a.tile.card::after,
+.persona-chip::after,
+.pause::after {
+  content: "";
+  position: absolute;
+  inset: calc(-1 * var(--bw, 1.5px));
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.btn::before,
+a.tile.card::before,
+.persona-chip::before,
+.pause::before {
+  background: var(--drop);
+  transform: translate(var(--rest), var(--rest));
+  transition: transform var(--t-micro) var(--ease-out);
+}
+
+.btn::after,
+a.tile.card::after,
+.persona-chip::after,
+.pause::after {
+  border: var(--bw, 1.5px) solid var(--edge);
+  background: var(--face);
+  transition: background-color var(--t-micro) ease, border-color var(--t-micro) ease;
+}
+
+@media (hover: hover) {
+  .btn:hover::before,
+  a.tile.card:hover::before,
+  .persona-chip:hover::before,
+  .pause:hover::before {
+    transform: translate(var(--reach), var(--reach));
+  }
+}
+
+.btn:active::before,
+a.tile.card:active::before,
+.persona-chip:active::before,
+.pause:active::before {
+  transform: none;
 }
 
 /* The underline is its own line so it can rise smoothly; animating a text underline's offset stutters. */
@@ -284,16 +338,15 @@ h3,
   align-items: center;
   gap: 8px;
   padding: 6px 10px;
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--faint);
+  color: var(--ink);
   font: 500 0.8125rem/1 var(--sans);
   cursor: pointer;
-}
-
-.pause:hover {
-  border-color: var(--line-strong);
-  color: var(--ink);
+  --bw: 1px;
+  --face: var(--white);
+  --edge: var(--line-strong);
+  --drop: var(--line-strong);
+  --rest: 2px;
+  --reach: 4px;
 }
 
 /* Nothing moves on its own without JavaScript or with reduced motion, so there's nothing to pause. */
@@ -308,8 +361,10 @@ h3,
 }
 
 .bg-slate .pause {
-  border-color: rgba(255, 255, 255, 0.25);
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--white);
+  --face: var(--slate);
+  --edge: rgba(255, 255, 255, 0.5);
+  --drop: rgba(255, 255, 255, 0.25);
 }
 
 /* ----- Header: clear over the hero, firms up on scroll, tucks away going down ----- */
@@ -393,6 +448,17 @@ h3,
   transform: rotate(180deg);
 }
 
+/* Pricing is a link with a hover card, so its arrow only shows where the card can open. */
+a.nav-trigger svg {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 961px) {
+  a.nav-trigger svg {
+    display: block;
+  }
+}
+
 .nav-trigger:hover,
 .nav-main > li > a:hover,
 .nav-trigger[aria-expanded="true"] {
@@ -402,6 +468,27 @@ h3,
 .nav-trigger.is-current,
 .nav-main > li > a[aria-current] {
   font-weight: 600;
+}
+
+/* The free grader is underlined the same way as every other link. */
+.nav-grader span {
+  position: relative;
+}
+
+.nav-grader span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background: var(--accent);
+  transition: transform var(--t-micro) var(--ease-out), background-color var(--t-micro) ease;
+}
+
+.nav-grader:hover span::after {
+  transform: translateY(-2px);
+  background: currentColor;
 }
 
 .nav-end {
@@ -416,7 +503,8 @@ h3,
   padding: 0 18px;
 }
 
-/* One panel for every dropdown. It moves and resizes to whichever menu is open. */
+/* One panel for every dropdown. It stays centred under the triggers and resizes to whichever menu is
+   open. It grows in from the top and shrinks back out. */
 .menu-panel {
   position: absolute;
   top: calc(100% - 6px);
@@ -426,22 +514,26 @@ h3,
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
-  transform: translate(var(--px, 0), 8px);
-  transition:
-    opacity 200ms ease,
-    transform var(--t-panel) var(--ease-out),
-    width var(--t-panel) var(--ease-out),
-    height var(--t-panel) var(--ease-out);
+  translate: var(--px, 0) 0;
+  transform: translateY(-4px) scale(0.95);
+  transform-origin: 50% 0;
+  transition: opacity 180ms ease, transform 240ms var(--ease-out);
 }
 
 .menu-panel.is-open {
   opacity: 1;
   pointer-events: auto;
-  transform: translate(var(--px, 0), 0);
+  transform: none;
 }
 
-.menu-panel.no-slide {
-  transition: opacity 200ms ease;
+/* Place and size only glide when moving between triggers; a fresh open starts in the right place. */
+.menu-panel.is-open.is-switching {
+  transition:
+    opacity 180ms ease,
+    transform 240ms var(--ease-out),
+    translate 260ms var(--ease-out),
+    width 260ms var(--ease-out),
+    height 260ms var(--ease-out);
 }
 
 .menu {
@@ -449,16 +541,25 @@ h3,
   top: 0;
   left: 0;
   padding: 18px;
-  opacity: 0;
   visibility: hidden;
-  transition: opacity 200ms ease, visibility 0s linear 200ms;
 }
 
-.menu.is-active {
-  opacity: 1;
+.menu.is-active,
+.menu.is-leaving {
   visibility: visible;
-  transition: opacity 260ms ease 60ms, visibility 0s;
 }
+
+/* The old list slides out as the new one slides in from the side the pointer is heading to. The old one
+   fades faster, so the two never read as one jumble. */
+.menu[data-motion="from-end"] { animation: menu-from-end 260ms var(--ease-out) backwards; }
+.menu[data-motion="from-start"] { animation: menu-from-start 260ms var(--ease-out) backwards; }
+.menu[data-motion="to-start"] { animation: menu-to-start 200ms ease-out forwards; }
+.menu[data-motion="to-end"] { animation: menu-to-end 200ms ease-out forwards; }
+
+@keyframes menu-from-end { from { opacity: 0; transform: translateX(60px); } }
+@keyframes menu-from-start { from { opacity: 0; transform: translateX(-60px); } }
+@keyframes menu-to-start { 60% { opacity: 0; } to { opacity: 0; transform: translateX(-60px); } }
+@keyframes menu-to-end { 60% { opacity: 0; } to { opacity: 0; transform: translateX(60px); } }
 
 .menu-grid {
   display: grid;
@@ -496,6 +597,28 @@ h3,
   color: var(--muted);
   font-size: 0.8125rem;
   line-height: 1.45;
+}
+
+.menu-plans {
+  display: grid;
+  grid-template-columns: repeat(5, 144px);
+  gap: 4px;
+}
+
+.menu a .menu-price {
+  margin-top: 8px;
+  color: var(--ink);
+  font: 500 1.375rem/1 var(--serif);
+  font-variant-numeric: lining-nums;
+}
+
+.menu a .menu-price small {
+  color: var(--faint);
+  font: 400 0.75rem/1 var(--sans);
+}
+
+.menu a .menu-price + span {
+  margin-top: 8px;
 }
 
 .menu-foot {
@@ -727,23 +850,22 @@ h3,
 
 .persona-chip {
   padding: 6px 10px;
-  border: 1px solid var(--line);
   border-radius: 999px;
-  background: var(--white);
   color: var(--ink);
   font: 500 0.8125rem/1 var(--sans);
   cursor: pointer;
-  transition: background-color var(--t-micro) ease, border-color var(--t-micro) ease;
-}
-
-.persona-chip:hover {
-  border-color: var(--slate);
+  --bw: 1px;
+  --face: var(--white);
+  --edge: var(--slate);
+  --drop: var(--slate);
+  --rest: 2px;
+  --reach: 4px;
 }
 
 .persona-chip[aria-pressed="true"] {
-  border-color: var(--accent);
-  background: var(--accent-tint);
   font-weight: 600;
+  --face: var(--accent-tint);
+  --edge: var(--accent);
 }
 
 .tabs {
@@ -972,13 +1094,6 @@ h3,
   background: var(--white);
   font-size: 0.9375rem;
   white-space: nowrap;
-  transition: border-color var(--t-micro) ease, box-shadow var(--t-micro) var(--lift), transform var(--t-micro) var(--lift);
-}
-
-.q-chip:hover {
-  border-color: var(--slate);
-  box-shadow: 3px 3px 0 var(--slate);
-  transform: translate(-2px, -2px);
 }
 
 .q-chip small {
@@ -1324,8 +1439,7 @@ h3,
   transition: border-color var(--t-micro) ease, box-shadow var(--t-micro) ease;
 }
 
-.row:hover,
-.row:focus-within,
+.row:has(.row-main:focus-visible),
 .row.is-open {
   border-color: var(--slate);
   box-shadow: 3px 3px 0 var(--slate);
@@ -1385,8 +1499,7 @@ h3,
   transition: grid-template-rows var(--t-panel) var(--ease-out);
 }
 
-.row:hover .row-more,
-.row:focus-within .row-more,
+.row:has(.row-main:focus-visible) .row-more,
 .row.is-open .row-more {
   grid-template-rows: 1fr;
 }
@@ -2387,10 +2500,6 @@ h3,
     display: none;
   }
 
-  .btn:hover,
-  .q-chip:hover {
-    transform: none;
-  }
 }
 
 /* ----- Without JavaScript ----- */
@@ -2574,12 +2683,18 @@ h3,
 
 .tile {
   padding: 22px 22px 24px;
-  transition: transform var(--t-micro) var(--lift), box-shadow var(--t-micro) var(--lift);
 }
 
-.tile:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 7px 7px 0 var(--shadow);
+a.tile.card {
+  --face: var(--white);
+  --edge: var(--line-strong);
+  --drop: var(--shadow);
+  --rest: 5px;
+  --reach: 8px;
+}
+
+.bg-slate a.tile.card {
+  --edge: var(--white);
 }
 
 .tile p {
@@ -2655,14 +2770,6 @@ a.tile:hover h3::after {
 .compare tbody tr:last-child th,
 .compare tbody tr:last-child td {
   border-bottom: 0;
-}
-
-.compare tbody tr {
-  transition: background-color var(--t-micro) ease;
-}
-
-.compare tbody tr:hover {
-  background: var(--stone-soft);
 }
 
 .compare .yes {

@@ -127,8 +127,7 @@
                 <a href="/features.html#accuracy">Accuracy</a>
               </div>
             </li>
-            <li><a href="/pricing.html">Pricing</a></li>
-            <li><a href="/grader.html">Free grader</a></li>
+            <li><a class="nav-trigger" href="/pricing.html" aria-expanded="false" aria-controls="menu-pricing" data-menu="pricing">Pricing <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a></li>
             <li>
               <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="menu-resources" data-menu="resources">Resources <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
               <div class="mobile-sub" hidden>
@@ -138,6 +137,7 @@
                 <a href="/persipica-vs-peec-ai.html">Comparisons</a>
               </div>
             </li>
+            <li><a class="nav-grader" href="/grader.html"><span>Free grader</span></a></li>
           </ul>
           <div class="nav-end">
             <a class="link" href="https://pulse.persipica.com/login">Sign in</a>
@@ -157,6 +157,16 @@
               <a href="/features.html#accuracy"><strong>Accuracy</strong><span>Wrong prices, wrong stock and mix-ups with similar names.</span></a>
             </div>
             <div class="menu-foot"><span>Every number opens the answers behind it.</span><a class="link" href="/features.html">All features</a></div>
+          </div>
+          <div class="menu" id="menu-pricing" data-menu="pricing">
+            <div class="menu-plans">
+              <a href="/pricing.html"><strong>Free</strong><span class="menu-price">&pound;0</span><span>Find out where you stand.</span></a>
+              <a href="/pricing.html"><strong>Starter</strong><span class="menu-price">&pound;99 <small>a month</small></span><span>One brand, watched properly.</span></a>
+              <a href="/pricing.html"><strong>Professional</strong><span class="menu-price">&pound;299 <small>a month</small></span><span>Several product lines and shopper types.</span></a>
+              <a href="/pricing.html"><strong>Business</strong><span class="menu-price">&pound;599 <small>a month</small></span><span>Teams and agencies running many brands.</span></a>
+              <a href="/pricing.html"><strong>Enterprise</strong><span class="menu-price">Custom</span><span>Large catalogues and many markets.</span></a>
+            </div>
+            <div class="menu-foot"><span>Free plan. No card needed.</span><a class="link" href="/pricing.html#compare">Compare plans</a></div>
           </div>
           <div class="menu" id="menu-resources" data-menu="resources">
             <div class="menu-list">
@@ -219,7 +229,7 @@
               </ul>
             </div>
             <div class="card feature-card view">
-                <div class="view-head"><h3>Who hears about Fellside</h3><small><span class="on-hover">Hover</span><span class="on-touch">Tap</span> a shopper for detail</small></div>
+                <div class="view-head"><h3>Who hears about Fellside</h3><small><span class="on-hover">Click</span><span class="on-touch">Tap</span> a shopper for detail</small></div>
                 <div class="rows">
                   <div class="row"><button class="row-main" type="button"><span>Weekend hikers</span><span class="meter" style="--v: 68%; --c: 44%"><i></i><u></u></span><b>68%</b></button><div class="row-more"><div><p>Ridgeway is named in 44% of the same answers. Asked as: "Which walking socks stop blisters on long days?"</p></div></div></div>
                   <div class="row"><button class="row-main" type="button"><span>Students on a budget</span><span class="meter" style="--v: 72%; --c: 38%"><i></i><u></u></span><b>72%</b></button><div class="row-more"><div><p>Tor Outdoor is the main alternative at 38%. Cheaper multipacks are mentioned in most answers.</p></div></div></div>
