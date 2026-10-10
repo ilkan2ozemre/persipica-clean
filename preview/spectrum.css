@@ -1,0 +1,923 @@
+/* Persipica, black and white with six matched colours.
+   The base is black, white and a warm grey. Colour comes from six soft hues at one lightness and
+   softness, so any two sit together; each belongs to a part of Pulse. Text is always black or white,
+   never a colour. Cormorant Garamond for the big headings only, Archivo for everything else. */
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --grey: #f4f4f2;
+  --muted: #55554f;
+  --faint: #6f6f68;
+  --line: rgba(0, 0, 0, 0.14);
+  --line-strong: rgba(0, 0, 0, 0.85);
+
+  --coral: #ffaea6;   --coral-tint: #ffe0dc;
+  --apricot: #ffb980; --apricot-tint: #ffe5ce;
+  --sun: #ffd66b;     --sun-tint: #fff1c7;
+  --mint: #8ee0ab;    --mint-tint: #d5f5de;
+  --sky: #7ed6ff;     --sky-tint: #cff1ff;
+  --lilac: #d5baff;   --lilac-tint: #efe5ff;
+
+  /* The colour of the part of Pulse a section is about. Buttons and links pick it up. */
+  --c: var(--sun);
+  --tint: var(--sun-tint);
+
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --content: 1180px;
+  --gutter: 20px;
+  --nav-h: 68px;
+  --section: clamp(4.5rem, 6vw + 1.5rem, 7.5rem);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-gutter: stable;
+  scroll-padding-top: calc(var(--nav-h) + 16px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--black);
+  font: 400 1.0625rem/1.6 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+p,
+figure {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(3rem, 4.2vw + 1.2rem, 5.25rem);
+  line-height: 0.98;
+}
+
+h2 {
+  font-size: clamp(2.25rem, 2.2vw + 1.4rem, 3.5rem);
+  line-height: 1.02;
+}
+
+h3 {
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 3px;
+}
+
+.container {
+  width: min(100% - 2 * var(--gutter), var(--content));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 100;
+  padding: 10px 14px;
+  background: var(--black);
+  color: var(--white);
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* ----- Buttons and links -----
+   One button: a black square (white on black). On hover it lifts onto a block of the section's colour. */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 24px;
+  border: 0;
+  background: var(--black);
+  color: var(--white);
+  font: 600 0.9375rem/1 var(--sans);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 0 0 var(--c);
+  transition: transform 140ms var(--ease), box-shadow 140ms var(--ease);
+}
+
+.btn:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 3px 3px 0 var(--c);
+}
+
+.btn:active {
+  transform: none;
+  box-shadow: 0 0 0 var(--c);
+}
+
+.on-black .btn {
+  background: var(--white);
+  color: var(--black);
+}
+
+.link {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: underline;
+  text-decoration-color: var(--c);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+.link:hover {
+  text-decoration-color: currentColor;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+  margin-top: 36px;
+}
+
+/* ----- Navigation ----- */
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: saturate(1.4) blur(10px);
+  --c: var(--coral);
+}
+
+.site-nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  height: var(--nav-h);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand-word {
+  font: 600 1.625rem/1 var(--serif);
+  letter-spacing: -0.005em;
+}
+
+.brand-product {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.brand-product::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--coral);
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-links a {
+  display: block;
+  padding: 8px 12px;
+  font-size: 0.9375rem;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+.nav-links a[aria-current="page"] {
+  font-weight: 600;
+}
+
+.nav-end {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: auto;
+}
+
+.nav-end .btn {
+  min-height: 42px;
+  padding: 0 18px;
+}
+
+.nav-toggle {
+  display: none;
+  margin-left: auto;
+  width: 42px;
+  height: 42px;
+  border: 1.5px solid var(--black);
+  background: var(--white);
+  color: var(--black);
+  cursor: pointer;
+}
+
+.nav-toggle svg {
+  margin: auto;
+}
+
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: grid;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    padding: 12px var(--gutter) 24px;
+    border-bottom: 1px solid var(--line);
+    background: var(--white);
+  }
+
+  .site-nav.open .nav-menu {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+  }
+
+  .nav-links a {
+    padding: 12px 0;
+    font-size: 1.0625rem;
+  }
+
+  .nav-end {
+    justify-content: space-between;
+    margin: 12px 0 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media (min-width: 901px) {
+  .nav-menu {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+/* ----- Hero ----- */
+
+.s-hero {
+  padding-block: clamp(3.5rem, 6vw, 7rem);
+  --c: var(--sun);
+}
+
+.s-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.lead {
+  max-width: 34rem;
+  margin-top: 26px;
+  color: var(--muted);
+  font-size: 1.1875rem;
+  line-height: 1.6;
+}
+
+.note {
+  margin-top: 16px;
+  color: var(--faint);
+  font-size: 0.875rem;
+}
+
+/* The chat. Each assistant has a colour; the highlighter takes the colour of the one you're reading. */
+.chat {
+  padding: 22px;
+  border: 1.5px solid var(--black);
+  background: var(--white);
+  --hl: var(--lilac);
+  --hl-tint: var(--lilac-tint);
+}
+
+.chat-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.chat-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1.5px solid var(--black);
+  background: var(--white);
+  color: var(--black);
+  font: 600 0.8125rem/1 var(--sans);
+  cursor: pointer;
+}
+
+.chat-tab::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--dot);
+}
+
+.chat-tab[aria-selected="true"] {
+  background: var(--black);
+  color: var(--white);
+}
+
+.chat-q {
+  width: fit-content;
+  max-width: 88%;
+  margin-left: auto;
+  padding: 11px 15px;
+  border-radius: 16px 16px 4px 16px;
+  background: var(--grey);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+.chat-a {
+  margin-top: 14px;
+  font-size: 0.9375rem;
+}
+
+.chat-a ol {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: pick;
+}
+
+.chat-a li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  counter-increment: pick;
+}
+
+.chat-a li > span:first-child::before {
+  content: counter(pick) ". ";
+  color: var(--faint);
+}
+
+.chat-a li > span:last-child {
+  font-variant-numeric: tabular-nums;
+}
+
+.chat-a mark {
+  padding: 0 3px;
+  background: linear-gradient(var(--hl), var(--hl)) no-repeat 0 0 / 100% 100%;
+  color: inherit;
+  font-weight: 600;
+}
+
+.chat-verdict {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--hl-tint);
+  font-size: 0.875rem;
+}
+
+.caption {
+  margin-top: 12px;
+  color: var(--faint);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* ----- Section basics ----- */
+
+.s {
+  padding-block: var(--section);
+}
+
+.s + .s {
+  border-top: 1px solid var(--line);
+}
+
+.s-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 20px 64px;
+  align-items: end;
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.s-head p {
+  max-width: 34rem;
+  color: var(--muted);
+  font-size: 1.125rem;
+}
+
+/* ----- The six parts of Pulse ----- */
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.tile {
+  display: block;
+  padding: 28px 28px 30px;
+  background: var(--tint);
+  text-decoration: none;
+  transition: transform 160ms var(--ease), box-shadow 160ms var(--ease);
+}
+
+.tile:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 3px 3px 0 var(--black);
+}
+
+.tile p {
+  margin-top: 8px;
+  color: #2b2b27;
+  font-size: 0.9375rem;
+}
+
+/* Each part has a shape as well as a colour, so the two never carry meaning alone. */
+.shape {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 24px;
+  background: var(--c);
+}
+
+.shape-circle { border-radius: 50%; }
+.shape-arch { border-radius: 40px 40px 0 0; }
+.shape-quarter { border-radius: 0 40px 0 0; }
+.shape-diamond { transform: rotate(45deg) scale(0.78); }
+.shape-pill { width: 64px; border-radius: 20px; }
+
+.part-visibility { --c: var(--sky); --tint: var(--sky-tint); }
+.part-audiences { --c: var(--coral); --tint: var(--coral-tint); }
+.part-products { --c: var(--sun); --tint: var(--sun-tint); }
+.part-agents { --c: var(--mint); --tint: var(--mint-tint); }
+.part-actions { --c: var(--lilac); --tint: var(--lilac-tint); }
+.part-accuracy { --c: var(--apricot); --tint: var(--apricot-tint); }
+
+/* ----- Feature sections: copy above, the real app on a block of the part's colour ----- */
+
+.feature-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px 64px;
+  align-items: start;
+}
+
+.feature-top .shape {
+  margin-bottom: 20px;
+}
+
+.feature-top p {
+  color: var(--muted);
+  font-size: 1.125rem;
+}
+
+.ticks {
+  display: grid;
+  gap: 10px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ticks li {
+  position: relative;
+  padding-left: 26px;
+}
+
+.ticks li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 12px;
+  height: 12px;
+  background: var(--c);
+}
+
+.frame {
+  margin-top: clamp(2rem, 3vw, 3rem);
+  padding: clamp(14px, 3vw, 40px);
+  background: var(--tint);
+}
+
+.frame img {
+  border: 1.5px solid var(--black);
+  background: var(--white);
+}
+
+/* ----- The black band ----- */
+
+.s-band {
+  padding-block: var(--section);
+  background: var(--black);
+  color: var(--white);
+  --c: var(--coral);
+}
+
+.s-band + .s {
+  border-top: 0;
+}
+
+.band-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px 72px;
+  align-items: center;
+}
+
+.s-band p {
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.125rem;
+}
+
+.bars {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+}
+
+.bar {
+  display: grid;
+  grid-template-columns: 120px 1fr 48px;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.9375rem;
+}
+
+.bar i {
+  display: block;
+  height: 14px;
+  background: var(--b);
+}
+
+.bar b {
+  font-weight: 600;
+  font-variant-numeric: lining-nums tabular-nums;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.bars figcaption {
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8125rem;
+}
+
+/* ----- B2B ----- */
+
+.s-grey {
+  background: var(--grey);
+}
+
+.s-grey + .s {
+  border-top: 0;
+}
+
+.trio {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.trio > div {
+  padding-top: 20px;
+  border-top: 1.5px solid var(--black);
+}
+
+.trio p {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+/* ----- Plans ----- */
+
+.plan-row {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border: 1.5px solid var(--black);
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 22px 26px;
+}
+
+.plan + .plan {
+  border-left: 1.5px solid var(--black);
+}
+
+.plan-name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.plan .plan-price {
+  margin-top: 10px;
+  color: var(--black);
+  font: 500 2.5rem/1 var(--serif);
+  font-variant-numeric: lining-nums;
+}
+
+.plan-price small {
+  font: 400 0.875rem/1 var(--sans);
+  color: var(--faint);
+}
+
+.plan p {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.plan-free {
+  background: var(--sun-tint);
+}
+
+/* ----- Questions ----- */
+
+.faq {
+  max-width: 48rem;
+  border-top: 1.5px solid var(--black);
+}
+
+.faq details {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  flex: none;
+  font: 400 1.5rem/1 var(--sans);
+}
+
+.faq details[open] summary::after {
+  content: "\2212";
+}
+
+.faq details > div {
+  padding-bottom: 22px;
+  color: var(--muted);
+}
+
+/* ----- Closing ----- */
+
+.s-close {
+  padding-block: clamp(4.5rem, 7vw, 8rem);
+  background: var(--coral-tint);
+  --c: var(--coral);
+}
+
+.s-close + .site-footer {
+  border-top: 0;
+}
+
+.s-close h2 {
+  max-width: 16ch;
+  font-size: clamp(2.6rem, 3.4vw + 1.2rem, 4.5rem);
+}
+
+.s-close p {
+  max-width: 34rem;
+  margin-top: 20px;
+  font-size: 1.1875rem;
+}
+
+/* ----- Footer ----- */
+
+.site-footer {
+  padding-block: 64px 40px;
+  border-top: 1px solid var(--line);
+  font-size: 0.9375rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) repeat(4, minmax(0, 1fr));
+  gap: 40px 32px;
+}
+
+.footer-about p {
+  max-width: 22rem;
+  margin-top: 16px;
+  color: var(--muted);
+}
+
+.footer-col h2 {
+  font: 600 0.9375rem/1.3 var(--sans);
+  letter-spacing: 0;
+}
+
+.footer-col ul {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-col a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  color: var(--black);
+  text-decoration: underline;
+}
+
+.footer-base {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--faint);
+  font-size: 0.875rem;
+}
+
+/* ----- The one moment: on load, the highlighter finds your brand ----- */
+
+@keyframes sweep {
+  from { background-size: 0% 100%; }
+  to { background-size: 100% 100%; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .chat-a mark.is-first {
+    animation: sweep 700ms cubic-bezier(0.65, 0, 0.35, 1) 600ms backwards;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .tile {
+    transition: none;
+  }
+
+  .btn:hover,
+  .tile:hover {
+    transform: none;
+  }
+}
+
+/* ----- Small screens ----- */
+
+@media (max-width: 1000px) {
+  .plan-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .plan + .plan {
+    border-left: 0;
+  }
+
+  .plan {
+    border-bottom: 1.5px solid var(--black);
+  }
+
+  .plan:nth-child(even) {
+    border-left: 1.5px solid var(--black);
+  }
+
+  .plan:last-child {
+    grid-column: 1 / -1;
+    border-bottom: 0;
+    border-left: 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-about {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 900px) {
+  .s-hero-grid,
+  .s-head,
+  .feature-top,
+  .band-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tiles,
+  .trio {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .plan-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .plan:nth-child(even) {
+    border-left: 0;
+  }
+
+  .plan:last-child {
+    border-bottom: 0;
+  }
+
+  .chat {
+    padding: 16px;
+  }
+
+  .bar {
+    grid-template-columns: 90px 1fr 40px;
+  }
+
+  .footer-base {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
