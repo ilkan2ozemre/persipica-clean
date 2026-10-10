@@ -1,6 +1,6 @@
 # Persipica: full site summary
 
-Persipica makes Pulse, a cloud web app (pulse.persipica.com) that measures how AI assistants and shopping agents recommend a brand and its products, keeps the evidence behind every result, and turns the gaps into fixes it checks on the next scan. Persipica is based in London. Pulse is the only product.
+Persipica makes Pulse, a cloud web app (pulse.persipica.com) that measures how AI assistants and shopping agents recommend a brand and its products, keeps the evidence behind every result, and turns the gaps into fixes it checks on the next scan. Pulse is the only product.
 
 ## Who it is for
 

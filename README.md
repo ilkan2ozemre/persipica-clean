@@ -59,4 +59,4 @@ Request an audit at [persipica.com/contact](https://persipica.com/contact.html) 
 
 ---
 
-Founded by [Ilkan Ozemre](https://persipica.com/about.html). © 2026 Persipica.
+© 2026 Persipica.
