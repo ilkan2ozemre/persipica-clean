@@ -6,7 +6,8 @@ Pulse is built first for online retailers and consumer brands, and also works fo
 
 ## What Pulse measures
 
-- Assistants: ChatGPT, Claude, Gemini, Perplexity and Grok, each using its own live web search, plus Google AI Overviews and Google AI Mode as they appear in Google search. Every result says which assistant and which method it came from.
+- Assistants: choose from seven for each scan: ChatGPT, Claude, Gemini, Perplexity and Grok, each using its own live web search, plus Google AI Overviews and Google AI Mode as they appear in Google search. Scans start with ChatGPT, Claude and Gemini. Every result says which assistant and which method it came from.
+- Scans: A scan covers one brand. By default it asks 27 questions (9 to 45 can be set), three times each on every chat assistant and once on Google AI Overviews and AI Mode; with ChatGPT, Claude and Gemini that is 243 answers. It counts as one scan however many assistants or audiences it includes. Shopping agent runs have their own allowance: 300 a month on Professional and 1,500 on Business.
 - Visibility: how often answers mention and cite the brand, by assistant and against competitors, with share of voice, position, the likely range and the sample size of every rate.
 - Audiences: simulated shoppers the brand describes (for example, a student on a budget or a parent buying for growing kids). Pulse asks questions in each one's voice, with follow-ups, and reports how often each audience is recommended the brand and which competitor it hears about instead. Audiences are simulated; every attribute is labelled as client data, a public signal or an assumption.
 - Products and prices: with a catalogue imported from a Shopify store, a Google Merchant Center feed or a CSV, Pulse shows which products the answers name, the prices they quote against the catalogue, and the stores they send shoppers to.
@@ -27,8 +28,8 @@ Pulse is built first for online retailers and consumer brands, and also works fo
 
 - Free, £0: 1 brand, 10 scans a month, 1 team member, measured on ChatGPT, Gemini and Perplexity. No card needed; sign up at https://pulse.persipica.com/login?mode=register.
 - Starter, £99 a month: 1 brand, 50 scans a month, up to 3 team members. Visibility, audiences, products, evidence and content fixes.
-- Professional, £299 a month: 3 brands, 200 scans a month, up to 10 team members. Adds shopping agents, shopping visibility and prompt demand.
-- Business, £599 a month: 10 brands, 1,000 scans a month, up to 15 team members. Adds actions with measured lift, readiness and AI crawler visits, impact reporting and client workspaces.
+- Professional, £299 a month: 3 brands, 200 scans a month, up to 10 team members. Adds shopping agents (300 runs a month), shopping visibility and prompt demand.
+- Business, £599 a month: 10 brands, 1,000 scans a month, up to 15 team members. Adds 1,500 agent runs a month, actions with measured lift, readiness and AI crawler visits, impact reporting and client workspaces.
 - Enterprise, custom: unlimited brands, scans and team members; reports under your own brand; single sign-on and SCIM; dedicated support.
 
 ## Pages

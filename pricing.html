@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en-GB" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,6 +7,7 @@
   <meta name="description" content="Start free, then Starter £99, Professional £299 or Business £599 a month, or Enterprise on request. Every plan keeps the evidence behind each result." />
   <link rel="canonical" href="https://persipica.com/pricing.html" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#1f262e" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Persipica" />
   <meta property="og:title" content="Pricing | Persipica Pulse" />
@@ -25,8 +26,11 @@
   <link rel="apple-touch-icon" href="/favicon-180-v2.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;family=Cormorant+Garamond:wght@500;600&amp;display=swap" />
   <link rel="stylesheet" href="/style.css" />
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+  <script type="speculationrules">{"prefetch": [{"where": {"href_matches": "/*"}, "eagerness": "moderate"}]}</script>
+  <script src="/app.js" defer></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FRQ1EZ52E"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -142,7 +146,7 @@
             "name": "Which assistants are included?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Every paid plan measures ChatGPT, Claude, Gemini, Perplexity and Grok with their own web search, plus Google AI Overviews and AI Mode. Plans differ in how many brands, scans and team members you get, and in the tools on top. The Free plan measures ChatGPT, Gemini and Perplexity."
+              "text": "Paid plans choose from seven: ChatGPT, Claude, Gemini, Perplexity and Grok with their own web search, plus Google AI Overviews and Google AI Mode. Scans start with ChatGPT, Claude and Gemini, and you can add the rest. The Free plan uses ChatGPT, Gemini and Perplexity."
             }
           },
           {
@@ -150,7 +154,15 @@
             "name": "What counts as a scan?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "One run of your questions across the assistants you've chosen, for one brand. Scheduled scans and scans you start yourself both count."
+              "text": "One run of your questions across the assistants you've chosen, for one brand. It counts as one scan however many assistants or audiences you include. Scheduled scans and scans you start yourself both count."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do shopping agents use up scans?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Shopping agent runs have their own allowance: 300 a month on Professional and 1,500 on Business. One run is one buying task given to one agent."
             }
           },
           {
@@ -158,7 +170,7 @@
             "name": "Can I try Pulse first?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Start on the Free plan with no card: 1 brand and 10 scans a month on ChatGPT, Gemini and Perplexity. Upgrade from Plans and billing in the app when you need more. You can also run the free grader on one question without an account, or book a walkthrough and we'll look at your brand with you."
+              "text": "Yes. Start on the Free plan with no card, and upgrade from Plans and billing when you need more. You can also try the free grader on one question without an account."
             }
           },
           {
@@ -177,237 +189,214 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-nav">
-    <div class="container site-nav-inner">
-      <a class="brand" href="/" aria-label="Persipica home"><span class="brand-word">PERSIPICA</span><span class="brand-product">Pulse</span></a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-      <nav class="nav-menu" id="nav-menu" aria-label="Main">
-        <ul class="nav-links">
-          <li><a href="/features.html">Features</a></li>
-          <li><a href="/pricing.html" aria-current="page">Pricing</a></li>
-          <li><a href="/grader.html">Free grader</a></li>
-          <li><a href="/resources.html">Resources</a></li>
-        </ul>
-        <div class="nav-end">
-          <a class="btn" href="https://pulse.persipica.com/login">Sign in</a>
-          <a class="btn btn-primary" href="/contact.html">Book a demo</a>
-        </div>
-      </nav>
-    </div>
-  </header>
 
-  <main id="main">
-    <section class="page-head">
-      <div class="container">
-        <h1>Pricing</h1>
-        <p class="lead">Start free, then pick a monthly plan by how many brands you track and how often you scan. Every paid plan measures the same assistants, and every plan keeps the evidence behind each result.</p>
+  <div class="page">
+    <header class="site-nav">
+      <div class="container site-nav-inner">
+        <a class="brand" href="/" aria-label="Persipica home"><span class="brand-word">Persipica</span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <nav class="nav-menu" id="nav-menu" aria-label="Main">
+          <ul class="nav-main">
+            <li>
+              <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="menu-product" data-menu="product">Product <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+              <div class="mobile-sub" hidden>
+                <a href="/features.html#visibility">Visibility</a>
+                <a href="/features.html#audiences">Audiences</a>
+                <a href="/features.html#products">Products</a>
+                <a href="/features.html#shopping-agents">Shopping agents</a>
+                <a href="/features.html#fixes">Fixes</a>
+                <a href="/features.html#accuracy">Accuracy</a>
+              </div>
+            </li>
+            <li><a href="/pricing.html" aria-current="page">Pricing</a></li>
+            <li><a href="/grader.html">Free grader</a></li>
+            <li>
+              <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="menu-resources" data-menu="resources">Resources <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+              <div class="mobile-sub" hidden>
+                <a href="/resources.html">Resources</a>
+                <a href="https://learn.persipica.com/geo-guide.html">How AI recommendations work</a>
+                <a href="/changelog.html">Changelog</a>
+                <a href="/persipica-vs-peec-ai.html">Comparisons</a>
+              </div>
+            </li>
+          </ul>
+          <div class="nav-end">
+            <a class="link" href="https://pulse.persipica.com/login">Sign in</a>
+            <a class="btn" href="https://pulse.persipica.com/login?mode=register">Start free</a>
+          </div>
+        </nav>
       </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="plans">
-          <div class="plan">
-            <h2 class="plan-name">Starter</h2>
-            <p class="plan-price">£99<span>/month</span></p>
-            <p class="plan-for">One brand, finding out where it stands.</p>
-            <ul class="points">
-              <li>1 brand</li>
-              <li>50 scans a month</li>
-              <li>Up to 3 team members</li>
-              <li>Visibility, audiences and products</li>
-              <li>Every answer and source kept</li>
-              <li>Content fixes</li>
-            </ul>
-            <span class="plan-spacer"></span>
-            <a class="btn" href="https://pulse.persipica.com/login?mode=register">Get started</a>
+      <div class="container" style="position: relative">
+        <div class="menu-panel card" aria-hidden="true">
+          <div class="menu" id="menu-product" data-menu="product">
+            <div class="menu-grid">
+              <a href="/features.html#visibility"><strong>Visibility</strong><span>How often AI names you, by assistant and against competitors.</span></a>
+              <a href="/features.html#audiences"><strong>Audiences</strong><span>Which kinds of shopper hear about you, and who hears a competitor.</span></a>
+              <a href="/features.html#products"><strong>Products</strong><span>The products AI names, and the prices it quotes next to yours.</span></a>
+              <a href="/features.html#shopping-agents"><strong>Shopping agents</strong><span>Whether AI agents find your store, shortlist you and pick you.</span></a>
+              <a href="/features.html#fixes"><strong>Fixes</strong><span>What to change next, drafted for you and checked on the next scan.</span></a>
+              <a href="/features.html#accuracy"><strong>Accuracy</strong><span>Wrong prices, wrong stock and mix-ups with similar names.</span></a>
+            </div>
+            <div class="menu-foot"><span>Every number opens the answers behind it.</span><a class="link" href="/features.html">All features</a></div>
           </div>
-          <div class="plan featured">
-            <h2 class="plan-name">Professional<span class="plan-tag">Most popular</span></h2>
-            <p class="plan-price">£299<span>/month</span></p>
-            <p class="plan-for">Brands selling several product lines to different shoppers.</p>
-            <ul class="points">
-              <li>3 brands</li>
-              <li>200 scans a month</li>
-              <li>Up to 10 team members</li>
-              <li>Everything in Starter</li>
-              <li>Shopping agents and shopping visibility</li>
-              <li>Prompt demand from search data</li>
-            </ul>
-            <span class="plan-spacer"></span>
-            <a class="btn btn-primary" href="https://pulse.persipica.com/login?mode=register">Get started</a>
-          </div>
-          <div class="plan">
-            <h2 class="plan-name">Business</h2>
-            <p class="plan-price">£599<span>/month</span></p>
-            <p class="plan-for">Agencies and teams running many brands, who need to show impact.</p>
-            <ul class="points">
-              <li>10 brands</li>
-              <li>1,000 scans a month</li>
-              <li>Up to 15 team members</li>
-              <li>Everything in Professional</li>
-              <li>Actions with measured lift</li>
-              <li>Readiness and AI crawler visits</li>
-              <li>Impact from your analytics</li>
-              <li>Client workspaces</li>
-            </ul>
-            <span class="plan-spacer"></span>
-            <a class="btn" href="https://pulse.persipica.com/login?mode=register">Get started</a>
-          </div>
-          <div class="plan">
-            <h2 class="plan-name">Enterprise</h2>
-            <p class="plan-price">Custom</p>
-            <p class="plan-for">Large catalogues, many markets, and security requirements.</p>
-            <ul class="points">
-              <li>Unlimited brands and scans</li>
-              <li>Unlimited team members</li>
-              <li>Everything in Business</li>
-              <li>Reports under your own brand</li>
-              <li>Single sign-on and SCIM</li>
-              <li>Dedicated support</li>
-            </ul>
-            <span class="plan-spacer"></span>
-            <a class="btn" href="/contact.html?plan=enterprise">Talk to us</a>
+          <div class="menu" id="menu-resources" data-menu="resources">
+            <div class="menu-list">
+              <a href="/resources.html"><strong>Resources</strong><span>Guides, research and tools.</span></a>
+              <a href="https://learn.persipica.com/geo-guide.html"><strong>How AI recommendations work</strong><span>A plain guide to how assistants choose what to name.</span></a>
+              <a href="/changelog.html"><strong>Changelog</strong><span>What's new in Pulse.</span></a>
+              <a href="/persipica-vs-peec-ai.html"><strong>Comparisons</strong><span>Pulse next to Peec AI, Profound, Goodie and Conductor.</span></a>
+            </div>
           </div>
         </div>
-        <div class="panel plan-free mt-24">
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-head is-compact bg-white">
+        <div class="container page-head-grid">
+          <h1>Pricing</h1>
           <div>
-            <h2 class="plan-name">Free</h2>
-            <p>1 brand, 10 scans a month and 1 team member, measured on ChatGPT, Gemini and Perplexity, with every answer and source kept. No card needed.</p>
-          </div>
-          <a class="btn" href="https://pulse.persipica.com/login?mode=register">Start free</a>
-        </div>
-        <p class="small mt-24">Every account starts as a free workspace: sign up, then choose your plan in Plans and billing. A scan runs your questions across your chosen assistants once, for one brand.</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Compare plans</h2>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th scope="col">&nbsp;</th><th scope="col">Starter</th><th scope="col">Professional</th><th scope="col">Business</th><th scope="col">Enterprise</th></tr>
-            </thead>
-            <tbody>
-              <tr><th scope="row">Price</th><td>£99 a month</td><td>£299 a month</td><td>£599 a month</td><td>Custom</td></tr>
-              <tr><th scope="row">Brands</th><td>1</td><td>3</td><td>10</td><td>Unlimited</td></tr>
-              <tr><th scope="row">Scans a month</th><td>50</td><td>200</td><td>1,000</td><td>Unlimited</td></tr>
-              <tr><th scope="row">Team members</th><td>3</td><td>10</td><td>15</td><td>Unlimited</td></tr>
-              <tr><th scope="row">Assistants measured</th><td>All</td><td>All</td><td>All</td><td>All</td></tr>
-              <tr><th scope="row">Visibility, competitors and sources</th><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td></tr>
-              <tr><th scope="row">Audiences and product results</th><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td></tr>
-              <tr><th scope="row">Every answer and source kept</th><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td></tr>
-              <tr><th scope="row">Content fixes and publishing</th><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td></tr>
-              <tr><th scope="row">Email and Slack alerts</th><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td></tr>
-              <tr><th scope="row">Shopping agents and shopping visibility</th><td class="no">No</td><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td></tr>
-              <tr><th scope="row">Prompt demand from search data</th><td class="no">No</td><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td></tr>
-              <tr><th scope="row">Actions with measured lift</th><td class="no">No</td><td class="no">No</td><td class="yes">Included</td><td class="yes">Included</td></tr>
-              <tr><th scope="row">Readiness and AI crawler visits</th><td class="no">No</td><td class="no">No</td><td class="yes">Included</td><td class="yes">Included</td></tr>
-              <tr><th scope="row">Impact from your analytics</th><td class="no">No</td><td class="no">No</td><td class="yes">Included</td><td class="yes">Included</td></tr>
-              <tr><th scope="row">Client workspaces</th><td class="no">No</td><td class="no">No</td><td class="yes">Included</td><td class="yes">Included</td></tr>
-              <tr><th scope="row">Reports under your own brand</th><td class="no">No</td><td class="no">No</td><td class="no">No</td><td class="yes">Included</td></tr>
-              <tr><th scope="row">Single sign-on and SCIM</th><td class="no">No</td><td class="no">No</td><td class="no">No</td><td class="yes">Included</td></tr>
-              <tr><th scope="row">Dedicated support</th><td class="no">No</td><td class="no">No</td><td class="no">No</td><td class="yes">Included</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="narrow">
-          <h2>Pricing questions</h2>
-          <div class="faq mt-32">
-            <details>
-              <summary>Which assistants are included?</summary>
-              <div><p>Every paid plan measures ChatGPT, Claude, Gemini, Perplexity and Grok with their own web search, plus Google AI Overviews and AI Mode. Plans differ in how many brands, scans and team members you get, and in the tools on top. The Free plan measures ChatGPT, Gemini and Perplexity.</p></div>
-            </details>
-            <details>
-              <summary>What counts as a scan?</summary>
-              <div><p>One run of your questions across the assistants you've chosen, for one brand. Scheduled scans and scans you start yourself both count.</p></div>
-            </details>
-            <details>
-              <summary>Can I try Pulse first?</summary>
-              <div><p>Yes. <a href="https://pulse.persipica.com/login?mode=register">Start on the Free plan</a> with no card: 1 brand and 10 scans a month on ChatGPT, Gemini and Perplexity. Upgrade from Plans and billing in the app when you need more. You can also run the <a href="/grader.html">free grader</a> on one question without an account, or book a walkthrough and we'll look at your brand with you.</p></div>
-            </details>
-            <details>
-              <summary>Can I change plan later?</summary>
-              <div><p>Yes. Move up or down at any time from Plans and billing in the app.</p></div>
-            </details>
+            <p class="lead">Start free, then pick a plan by how many brands you track and how often you scan. Every plan keeps the answers and sources behind each result.</p>
+            <p class="meta">Every account starts on the Free plan. Upgrade, change or cancel from Plans and billing in the app.</p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="cta">
-      <div class="container">
-        <h2>Not sure which plan fits?</h2>
-        <p>Tell us your brand, your category and what you want to find out, and we'll suggest the right plan.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="/contact.html">Book a demo</a>
-          <a class="btn" href="/grader.html">Run a free check</a>
+      <section class="section bg-stone">
+        <div class="container">
+          <div class="plans">
+            <article class="plan card is-free">
+              <h2 class="h3">Free</h2><p class="plan-price">&pound;0</p><p class="plan-for">Find out where you stand.</p>
+              <dl class="limits"><div><dt>Brands</dt><dd>1</dd></div><div><dt>Scans a month</dt><dd>10</dd></div><div><dt>Assistants</dt><dd>3</dd></div><div><dt>People</dt><dd>1</dd></div></dl>
+              <p class="plan-adds">ChatGPT, Gemini and Perplexity. No card needed.</p>
+              <p class="plan-cta"><a class="btn" href="https://pulse.persipica.com/login?mode=register">Start free</a></p>
+            </article>
+            <article class="plan card">
+              <h2 class="h3">Starter</h2><p class="plan-price">&pound;99<small> a month</small></p><p class="plan-for">One brand, watched properly.</p>
+              <dl class="limits"><div><dt>Brands</dt><dd>1</dd></div><div><dt>Scans a month</dt><dd>50</dd></div><div><dt>Assistants</dt><dd>All 7</dd></div><div><dt>People</dt><dd>3</dd></div></dl>
+              <p class="plan-adds">Audiences, products and content fixes</p>
+              <p class="plan-cta"><a class="btn" href="https://pulse.persipica.com/login?mode=register">Get started</a></p>
+            </article>
+            <article class="plan card">
+              <h2 class="h3">Professional</h2><p class="plan-price">&pound;299<small> a month</small></p><p class="plan-for">Several product lines and shopper types.</p>
+              <dl class="limits"><div><dt>Brands</dt><dd>3</dd></div><div><dt>Scans a month</dt><dd>200</dd></div><div><dt>Assistants</dt><dd>All 7</dd></div><div><dt>People</dt><dd>10</dd></div></dl>
+              <p class="plan-adds">Adds shopping agents (300 runs a month) and prompt demand</p>
+              <p class="plan-cta"><a class="btn" href="https://pulse.persipica.com/login?mode=register">Get started</a></p>
+            </article>
+            <article class="plan card">
+              <h2 class="h3">Business</h2><p class="plan-price">&pound;599<small> a month</small></p><p class="plan-for">Teams and agencies running many brands.</p>
+              <dl class="limits"><div><dt>Brands</dt><dd>10</dd></div><div><dt>Scans a month</dt><dd>1,000</dd></div><div><dt>Assistants</dt><dd>All 7</dd></div><div><dt>People</dt><dd>15</dd></div></dl>
+              <p class="plan-adds">Adds 1,500 agent runs, fixes with measured results, crawler visits and client workspaces</p>
+              <p class="plan-cta"><a class="btn" href="https://pulse.persipica.com/login?mode=register">Get started</a></p>
+            </article>
+            <article class="plan card is-wide">
+              <h2 class="h3">Enterprise</h2><p class="plan-price">Custom</p><p class="plan-for">Large catalogues and many markets.</p>
+              <dl class="limits"><div><dt>Brands</dt><dd>Unlimited</dd></div><div><dt>Scans a month</dt><dd>Unlimited</dd></div><div><dt>Assistants</dt><dd>All 7</dd></div><div><dt>People</dt><dd>Unlimited</dd></div></dl>
+              <p class="plan-adds">Reports under your own brand, single sign-on and dedicated support</p>
+              <p class="plan-cta"><a class="btn" href="/contact.html?plan=enterprise">Talk to us</a></p>
+            </article>
+          </div>
+
+          <div class="scan-explainer card">
+            <h2 class="h3">What's in one scan</h2>
+            <div class="scan-math">
+              <div><b>27</b><span>questions written for your category and shoppers. You can set 9 to 45.</span></div>
+              <div><b>3&times;</b><span>each question is asked three times on each chat assistant, because answers vary. Google&#x27;s AI results are read once.</span></div>
+              <div><b>243</b><span>answers from any three chat assistants: ChatGPT, Claude and Gemini to start, or ChatGPT, Gemini and Perplexity on Free. More assistants or audiences don't use extra scans.</span></div>
+              <div><b>1</b><span>brand per scan. Shopping agents have their own monthly allowance.</span></div>
+            </div>
+            <p class="scan-usage">Scanning one brand weekly uses about 4 scans a month, and daily about 30. So Starter's 50 covers a daily scan with room for one-off checks.</p>
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+
+      <section class="section bg-white">
+        <div class="container">
+          <div class="section-head">
+            <h2>Compare plans</h2>
+            <p>Every paid plan measures the same seven assistants. Plans differ in how much you can run and the tools on top.</p>
+          </div>
+          <div class="table-wrap">
+            <table class="compare">
+              <thead>
+                <tr><th scope="col">&nbsp;</th><th scope="col">Starter</th><th scope="col">Professional</th><th scope="col">Business</th><th scope="col">Enterprise</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Price</th><td>&pound;99 a month</td><td>&pound;299 a month</td><td>&pound;599 a month</td><td>Custom</td></tr>
+                <tr><th scope="row">Brands</th><td>1</td><td>3</td><td>10</td><td>Unlimited</td></tr>
+                <tr><th scope="row">Scans a month</th><td>50</td><td>200</td><td>1,000</td><td>Unlimited</td></tr>
+                <tr><th scope="row">People</th><td>3</td><td>10</td><td>15</td><td>Unlimited</td></tr>
+                <tr><th scope="row">Assistants</th><td>All 7</td><td>All 7</td><td>All 7</td><td>All 7</td></tr>
+                <tr><th scope="row">Shopping agent runs a month</th><td class="no">None</td><td>300</td><td>1,500</td><td>Custom</td></tr>
+                <tr><th scope="row">Visibility, competitors and sources</th><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td></tr>
+                <tr><th scope="row">Audiences and product results</th><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td></tr>
+                <tr><th scope="row">Every answer and source kept</th><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td></tr>
+                <tr><th scope="row">Content fixes and publishing</th><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td></tr>
+                <tr><th scope="row">Email and Slack alerts</th><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td></tr>
+                <tr><th scope="row">Shopping visibility</th><td class="no">No</td><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td></tr>
+                <tr><th scope="row">Prompt demand from search data</th><td class="no">No</td><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td></tr>
+                <tr><th scope="row">Fixes with measured results</th><td class="no">No</td><td class="no">No</td><td class="yes">Included</td><td class="yes">Included</td></tr>
+                <tr><th scope="row">Readiness and AI crawler visits</th><td class="no">No</td><td class="no">No</td><td class="yes">Included</td><td class="yes">Included</td></tr>
+                <tr><th scope="row">Impact from your analytics</th><td class="no">No</td><td class="no">No</td><td class="yes">Included</td><td class="yes">Included</td></tr>
+                <tr><th scope="row">Client workspaces</th><td class="no">No</td><td class="no">No</td><td class="yes">Included</td><td class="yes">Included</td></tr>
+                <tr><th scope="row">Reports under your own brand</th><td class="no">No</td><td class="no">No</td><td class="no">No</td><td class="yes">Included</td></tr>
+                <tr><th scope="row">Single sign-on and SCIM</th><td class="no">No</td><td class="no">No</td><td class="no">No</td><td class="yes">Included</td></tr>
+                <tr><th scope="row">Dedicated support</th><td class="no">No</td><td class="no">No</td><td class="no">No</td><td class="yes">Included</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note">The Free plan has 1 brand, 10 scans a month and 1 person, on ChatGPT, Gemini and Perplexity.</p>
+        </div>
+      </section>
+
+      <section class="section bg-stone">
+        <div class="container">
+          <div class="section-head"><h2>Pricing questions</h2></div>
+          <div class="faq" data-faq>
+            <details><summary>Which assistants are included?<i aria-hidden="true"></i></summary><div class="faq-body"><p>Paid plans choose from seven: ChatGPT, Claude, Gemini, Perplexity and Grok with their own web search, plus Google AI Overviews and Google AI Mode. Scans start with ChatGPT, Claude and Gemini, and you can add the rest. The Free plan uses ChatGPT, Gemini and Perplexity.</p></div></details>
+            <details><summary>What counts as a scan?<i aria-hidden="true"></i></summary><div class="faq-body"><p>One run of your questions across the assistants you've chosen, for one brand. It counts as one scan however many assistants or audiences you include. Scheduled scans and scans you start yourself both count.</p></div></details>
+            <details><summary>Do shopping agents use up scans?<i aria-hidden="true"></i></summary><div class="faq-body"><p>No. Shopping agent runs have their own allowance: 300 a month on Professional and 1,500 on Business. One run is one buying task given to one agent.</p></div></details>
+            <details><summary>Can I try Pulse first?<i aria-hidden="true"></i></summary><div class="faq-body"><p>Yes. <a class="inline-link" href="https://pulse.persipica.com/login?mode=register">Start on the Free plan</a> with no card, and upgrade from Plans and billing when you need more. You can also try the <a class="inline-link" href="/grader.html">free grader</a> on one question without an account.</p></div></details>
+            <details><summary>Can I change plan later?<i aria-hidden="true"></i></summary><div class="faq-body"><p>Yes. Move up or down at any time from Plans and billing in the app.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-slate">
+        <div class="container closing">
+          <div>
+            <h2>Not sure which plan fits?</h2>
+            <p>Tell us your brand, your category and what you want to find out, and we'll suggest the right plan.</p>
+            <div class="actions">
+              <a class="btn" href="/contact.html" data-cta>Book a demo</a>
+              <a class="link" href="/grader.html">Try the free grader</a>
+            </div>
+          </div>
+          <span class="eye-slot" data-eye="cta"></span>
+        </div>
+      </section>
+    </main>
+  </div>
 
   <footer class="site-footer">
     <div class="container">
+      <div class="footer-top">
+        <span class="footer-word">Persipica</span>
+        <a class="btn" href="https://pulse.persipica.com/login?mode=register">Start free</a>
+      </div>
       <div class="footer-grid">
-        <div class="footer-about">
-          <a class="brand" href="/" aria-label="Persipica home"><span class="brand-word">PERSIPICA</span><span class="brand-product">Pulse</span></a>
-          <p>Pulse shows how AI assistants and shopping agents recommend your brand and products, and what to fix when they don't.</p>
-        </div>
-        <nav class="footer-col" aria-labelledby="footer-product">
-          <h2 id="footer-product">Product</h2>
-          <ul>
-            <li><a href="/features.html">Features</a></li>
-            <li><a href="/pricing.html">Pricing</a></li>
-            <li><a href="/grader.html">Free grader</a></li>
-            <li><a href="/changelog.html">Changelog</a></li>
-            <li><a href="https://pulse.persipica.com/login">Sign in</a></li>
-          </ul>
-        </nav>
-        <nav class="footer-col" aria-labelledby="footer-compare">
-          <h2 id="footer-compare">Compare</h2>
-          <ul>
-            <li><a href="/persipica-vs-profound.html">Pulse vs Profound</a></li>
-            <li><a href="/persipica-vs-peec-ai.html">Pulse vs Peec AI</a></li>
-            <li><a href="/persipica-vs-goodie-ai.html">Pulse vs Goodie AI</a></li>
-            <li><a href="/persipica-vs-conductor.html">Pulse vs Conductor</a></li>
-          </ul>
-        </nav>
-        <nav class="footer-col" aria-labelledby="footer-learn">
-          <h2 id="footer-learn">Learn</h2>
-          <ul>
-            <li><a href="/resources.html">Resources</a></li>
-            <li><a href="https://learn.persipica.com/geo-guide.html">How AI recommendations work</a></li>
-            <li><a href="https://learn.persipica.com/data.html">Research and data</a></li>
-            <li><a href="https://learn.persipica.com/ai-visibility-roi-calculator.html">ROI calculator</a></li>
-            <li><a href="https://learn.persipica.com">All guides</a></li>
-          </ul>
-        </nav>
-        <nav class="footer-col" aria-labelledby="footer-company">
-          <h2 id="footer-company">Company</h2>
-          <ul>
-            <li><a href="/contact.html">Contact</a></li>
-            <li><a href="/privacy.html">Privacy policy</a></li>
-            <li><a href="https://www.linkedin.com/company/persipica">LinkedIn</a></li>
-          </ul>
-        </nav>
+        <nav class="footer-col" aria-labelledby="f-product"><h2 id="f-product">Product</h2><ul><li><a href="/features.html">Features</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/grader.html">Free grader</a></li><li><a href="/changelog.html">Changelog</a></li><li><a href="https://pulse.persipica.com/login">Sign in</a></li></ul></nav>
+        <nav class="footer-col" aria-labelledby="f-compare"><h2 id="f-compare">Compare</h2><ul><li><a href="/persipica-vs-profound.html">Pulse vs Profound</a></li><li><a href="/persipica-vs-peec-ai.html">Pulse vs Peec AI</a></li><li><a href="/persipica-vs-goodie-ai.html">Pulse vs Goodie AI</a></li><li><a href="/persipica-vs-conductor.html">Pulse vs Conductor</a></li></ul></nav>
+        <nav class="footer-col" aria-labelledby="f-learn"><h2 id="f-learn">Learn</h2><ul><li><a href="/resources.html">Resources</a></li><li><a href="https://learn.persipica.com/geo-guide.html">How AI recommendations work</a></li><li><a href="https://learn.persipica.com/data.html">Research and data</a></li><li><a href="https://learn.persipica.com">All guides</a></li></ul></nav>
+        <nav class="footer-col" aria-labelledby="f-company"><h2 id="f-company">Company</h2><ul><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy policy</a></li><li><a href="https://www.linkedin.com/company/persipica">LinkedIn</a></li></ul></nav>
       </div>
       <div class="footer-base">
-        <span>&copy; 2026 Persipica</span>
-        <span>Made in London</span>
+        <span>&copy; 2026 Persipica. Made in London.</span>
+        <a class="status" href="https://pulse.persipica.com" hidden data-status><i aria-hidden="true"></i><span>All systems operational</span></a>
       </div>
     </div>
   </footer>
-  <script src="/app.js" defer></script>
 </body>
 </html>

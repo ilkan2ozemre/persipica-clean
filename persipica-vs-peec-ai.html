@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en-GB" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,6 +7,7 @@
   <meta name="description" content="How Persipica Pulse and Peec AI compare for measuring AI visibility, and which fits which team." />
   <link rel="canonical" href="https://persipica.com/persipica-vs-peec-ai.html" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#1f262e" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Persipica" />
   <meta property="og:title" content="Persipica Pulse vs Peec AI | Comparison" />
@@ -25,8 +26,11 @@
   <link rel="apple-touch-icon" href="/favicon-180-v2.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;family=Cormorant+Garamond:wght@500;600&amp;display=swap" />
   <link rel="stylesheet" href="/style.css" />
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+  <script type="speculationrules">{"prefetch": [{"where": {"href_matches": "/*"}, "eagerness": "moderate"}]}</script>
+  <script src="/app.js" defer></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FRQ1EZ52E"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -102,190 +106,198 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-nav">
-    <div class="container site-nav-inner">
-      <a class="brand" href="/" aria-label="Persipica home"><span class="brand-word">PERSIPICA</span><span class="brand-product">Pulse</span></a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-      <nav class="nav-menu" id="nav-menu" aria-label="Main">
-        <ul class="nav-links">
-          <li><a href="/features.html">Features</a></li>
-          <li><a href="/pricing.html">Pricing</a></li>
-          <li><a href="/grader.html">Free grader</a></li>
-          <li><a href="/resources.html">Resources</a></li>
-        </ul>
-        <div class="nav-end">
-          <a class="btn" href="https://pulse.persipica.com/login">Sign in</a>
-          <a class="btn btn-primary" href="/contact.html">Book a demo</a>
-        </div>
-      </nav>
-    </div>
-  </header>
 
-  <main id="main">
-    <section class="page-head">
-      <div class="container">
-        <h1>Pulse vs Peec AI</h1>
-        <p class="lead">Peec is AI search analytics for marketing teams and agencies. Since May 2026 it has added SKU-level ChatGPT shopping analytics, AI crawler logs, GA4 referrals and actions with measured impact. Standard plans track 3 engines of your choice, with more on Enterprise. Pulse measures 7 assistants on every paid plan, adds results by kind of shopper and shopping agents doing buying tasks, and drafts and publishes the fixes.</p>
-        <p class="small mt-24">We checked Peec AI's public website, docs and pricing on 7 October 2026. This comparison is meant to help you judge fit; check current details with Peec AI.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="/contact.html">Book a demo</a>
-          <a class="btn" href="/pricing.html">See pricing</a>
+  <div class="page">
+    <header class="site-nav">
+      <div class="container site-nav-inner">
+        <a class="brand" href="/" aria-label="Persipica home"><span class="brand-word">Persipica</span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <nav class="nav-menu" id="nav-menu" aria-label="Main">
+          <ul class="nav-main">
+            <li>
+              <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="menu-product" data-menu="product">Product <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+              <div class="mobile-sub" hidden>
+                <a href="/features.html#visibility">Visibility</a>
+                <a href="/features.html#audiences">Audiences</a>
+                <a href="/features.html#products">Products</a>
+                <a href="/features.html#shopping-agents">Shopping agents</a>
+                <a href="/features.html#fixes">Fixes</a>
+                <a href="/features.html#accuracy">Accuracy</a>
+              </div>
+            </li>
+            <li><a href="/pricing.html">Pricing</a></li>
+            <li><a href="/grader.html">Free grader</a></li>
+            <li>
+              <button class="nav-trigger is-current" type="button" aria-expanded="false" aria-controls="menu-resources" data-menu="resources">Resources <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+              <div class="mobile-sub" hidden>
+                <a href="/resources.html">Resources</a>
+                <a href="https://learn.persipica.com/geo-guide.html">How AI recommendations work</a>
+                <a href="/changelog.html">Changelog</a>
+                <a href="/persipica-vs-peec-ai.html">Comparisons</a>
+              </div>
+            </li>
+          </ul>
+          <div class="nav-end">
+            <a class="link" href="https://pulse.persipica.com/login">Sign in</a>
+            <a class="btn" href="https://pulse.persipica.com/login?mode=register">Start free</a>
+          </div>
+        </nav>
+      </div>
+      <div class="container" style="position: relative">
+        <div class="menu-panel card" aria-hidden="true">
+          <div class="menu" id="menu-product" data-menu="product">
+            <div class="menu-grid">
+              <a href="/features.html#visibility"><strong>Visibility</strong><span>How often AI names you, by assistant and against competitors.</span></a>
+              <a href="/features.html#audiences"><strong>Audiences</strong><span>Which kinds of shopper hear about you, and who hears a competitor.</span></a>
+              <a href="/features.html#products"><strong>Products</strong><span>The products AI names, and the prices it quotes next to yours.</span></a>
+              <a href="/features.html#shopping-agents"><strong>Shopping agents</strong><span>Whether AI agents find your store, shortlist you and pick you.</span></a>
+              <a href="/features.html#fixes"><strong>Fixes</strong><span>What to change next, drafted for you and checked on the next scan.</span></a>
+              <a href="/features.html#accuracy"><strong>Accuracy</strong><span>Wrong prices, wrong stock and mix-ups with similar names.</span></a>
+            </div>
+            <div class="menu-foot"><span>Every number opens the answers behind it.</span><a class="link" href="/features.html">All features</a></div>
+          </div>
+          <div class="menu" id="menu-resources" data-menu="resources">
+            <div class="menu-list">
+              <a href="/resources.html"><strong>Resources</strong><span>Guides, research and tools.</span></a>
+              <a href="https://learn.persipica.com/geo-guide.html"><strong>How AI recommendations work</strong><span>A plain guide to how assistants choose what to name.</span></a>
+              <a href="/changelog.html"><strong>Changelog</strong><span>What's new in Pulse.</span></a>
+              <a href="/persipica-vs-peec-ai.html"><strong>Comparisons</strong><span>Pulse next to Peec AI, Profound, Goodie and Conductor.</span></a>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+    </header>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Which fits your team</h2>
-        </div>
-        <div class="cols cols-2">
+    <main id="main">
+      <section class="page-head bg-white">
+        <div class="container page-head-grid">
+          <h1>Pulse vs Peec AI</h1>
           <div>
-            <h3>Peec AI may suit you better if</h3>
-            <ul class="points">
-              <li>You want a simple analytics workflow with clear reporting across prompts.</li>
-              <li>You're an agency running prompt-based monitoring for many clients.</li>
-              <li>Three engines are enough for your market.</li>
+            <p class="lead">Choose Peec for simple analytics on the engines you pick. Choose Pulse for seven assistants on every paid plan, shoppers, shopping agents and drafted fixes.</p>
+            <p class="detail">Peec is AI search analytics for marketing teams and agencies. Since May 2026 it has added SKU-level ChatGPT shopping analytics, AI crawler logs, GA4 referrals and actions with measured impact. Standard plans track 3 engines of your choice, with more on Enterprise.</p>
+            <p class="detail">Pulse measures 7 assistants on every paid plan, adds results by kind of shopper and shopping agents doing buying tasks, and drafts and publishes the fixes.</p>
+            <p class="meta">We checked Peec AI's public website, docs and pricing on 7 October 2026, and re-checked how it handles audiences on 10 October 2026. This comparison is meant to help you judge fit; check current details with Peec AI.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-stone">
+        <div class="container">
+          <div class="section-head"><h2>Which fits your team</h2></div>
+          <div class="fit">
+            <div class="card">
+              <h3>Peec AI may suit you better if</h3>
+              <ul class="ticks">
+                <li>You want a simple analytics workflow with clear reporting across prompts.</li>
+                <li>You're an agency running prompt-based monitoring for many clients.</li>
+                <li>Three engines are enough for your market.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Pulse may suit you better if</h3>
+              <ul class="ticks">
+                <li>You want ChatGPT, Claude, Gemini, Perplexity, Grok and both Google AI surfaces on every paid plan.</li>
+                <li>You need to see which kinds of shopper hear about you, and how shopping agents choose.</li>
+                <li>You want fixes drafted and published to your CMS, not only recommended.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-white">
+        <div class="container">
+          <div class="section-head"><h2>Side by side</h2></div>
+          <div class="table-wrap">
+            <table class="compare">
+              <thead>
+                <tr><th scope="col">&nbsp;</th><th scope="col">Persipica Pulse</th><th scope="col">Peec AI</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Assistants measured</th><td>Choose from 7: ChatGPT, Claude, Gemini, Perplexity, Grok, AI Overviews and AI Mode, on every paid plan</td><td>3 of your choice on standard plans; more on Enterprise</td></tr>
+                <tr><th scope="row">Answers and sources kept for every question</th><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+                <tr><th scope="row">Likely range and sample size on every rate</th><td class="yes">Yes</td><td class="found">Not found</td></tr>
+                <tr><th scope="row">Prompt demand</th><td>Weighted with Search Console, Semrush or Ahrefs data <span class="tier">From Professional</span></td><td>A relative 1 to 5 score from search trends</td></tr>
+                <tr><th scope="row">Product visibility</th><td class="yes">Yes, with prices checked against your catalogue</td><td class="yes">Yes, ChatGPT shopping by SKU</td></tr>
+                <tr><th scope="row">Results by kind of shopper</th><td class="yes">Yes, simulated shoppers, with questions in each one's own words</td><td>Your audience mix shapes suggested prompts; results by audience not found</td></tr>
+                <tr><th scope="row">Shopping agents doing buying tasks</th><td class="yes">Yes <span class="tier">From Professional</span></td><td class="found">Not found</td></tr>
+                <tr><th scope="row">AI crawler visits from server logs</th><td class="yes">Yes <span class="tier">From Business</span></td><td class="yes">Yes</td></tr>
+                <tr><th scope="row">Content drafted and published</th><td class="yes">Yes, to WordPress, Webflow, Contentful, Sanity or a webhook</td><td>Briefs and guidance; publishing not found</td></tr>
+                <tr><th scope="row">Lift measured after each fix</th><td class="yes">Yes <span class="tier">From Business</span></td><td class="yes">Yes</td></tr>
+                <tr><th scope="row">Revenue at risk when visibility drops</th><td class="yes">Yes</td><td class="found">Not found</td></tr>
+                <tr><th scope="row">Traffic and conversions from analytics</th><td class="yes">Yes <span class="tier">From Business</span></td><td class="yes">Yes</td></tr>
+                <tr><th scope="row">Client workspaces for agencies</th><td class="yes">Yes <span class="tier">From Business</span></td><td class="yes">Yes</td></tr>
+                <tr><th scope="row">Free plan</th><td class="yes">Yes</td><td class="found">Not found</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note">Labels show the lowest Pulse plan that includes a feature. "Not found" means we couldn't find it on Peec AI's public pages on 7 October 2026. It may exist or be on the way.</p>
+        </div>
+      </section>
+
+      <section class="section bg-stone">
+        <div class="container">
+          <div class="section-head"><h2>How they differ</h2></div>
+          <div class="fit">
+            <div class="card"><h3>Peec AI</h3><p>A clean analytics product with strong agency features, where you choose which engines to track.</p></div>
+            <div class="card is-pulse"><h3>Pulse</h3><p>Every major assistant on every paid plan, results by kind of shopper and by shopping agent, and fixes drafted, published and checked.</p></div>
+          </div>
+          <div class="sources">
+            <h2 class="h3">Pages we checked</h2>
+            <ul>
+              <li><a class="inline-link" href="https://peec.ai/pricing" rel="noopener">Pricing</a></li>
+              <li><a class="inline-link" href="https://peec.ai/changelog" rel="noopener">Changelog</a></li>
+              <li><a class="inline-link" href="https://docs.peec.ai/overview" rel="noopener">Docs overview</a></li>
+              <li><a class="inline-link" href="https://docs.peec.ai/setting-up-your-prompts" rel="noopener">Setting up your prompts</a></li>
+              <li><a class="inline-link" href="https://docs.peec.ai/project-profile" rel="noopener">Brand profile</a></li>
             </ul>
           </div>
-          <div>
-            <h3>Pulse may suit you better if</h3>
-            <ul class="points">
-              <li>You want ChatGPT, Claude, Gemini, Perplexity, Grok and both Google AI surfaces on every paid plan.</li>
-              <li>You need to see which kinds of shopper hear about you, and how shopping agents choose.</li>
-              <li>You want fixes drafted and published to your CMS, not only recommended.</li>
-            </ul>
+          <div class="more-links">
+            <h2 class="h3">Other comparisons</h2>
+            <div class="tiles">
+            <a class="tile card" href="/persipica-vs-profound.html"><h3>Pulse vs Profound</h3></a>
+            <a class="tile card" href="/persipica-vs-goodie-ai.html"><h3>Pulse vs Goodie AI</h3></a>
+            <a class="tile card" href="/persipica-vs-conductor.html"><h3>Pulse vs Conductor</h3></a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Side by side</h2>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th scope="col">&nbsp;</th><th scope="col">Persipica Pulse</th><th scope="col">Peec AI</th></tr>
-            </thead>
-            <tbody>
-              <tr><th scope="row">Assistants measured</th><td>7: ChatGPT, Claude, Gemini, Perplexity, Grok, AI Overviews and AI Mode, on every paid plan</td><td>3 of your choice on standard plans; more on Enterprise</td></tr>
-              <tr><th scope="row">Answers and sources kept for every question</th><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-              <tr><th scope="row">Likely range and sample size on every rate</th><td class="yes">Yes</td><td>Not found</td></tr>
-              <tr><th scope="row">Prompt demand</th><td>Weighted with Search Console, Semrush or Ahrefs data</td><td>A relative 1 to 5 score from search trends</td></tr>
-              <tr><th scope="row">Product visibility</th><td class="yes">Yes, with prices checked against your catalogue</td><td class="yes">Yes, ChatGPT shopping by SKU</td></tr>
-              <tr><th scope="row">Results by kind of shopper</th><td class="yes">Yes, simulated audiences</td><td>Not found</td></tr>
-              <tr><th scope="row">Shopping agents doing buying tasks</th><td class="yes">Yes</td><td>Not found</td></tr>
-              <tr><th scope="row">AI crawler visits from server logs</th><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-              <tr><th scope="row">Content drafted and published</th><td class="yes">Yes, to WordPress, Webflow, Contentful, Sanity or a webhook</td><td>Briefs and guidance; publishing not found</td></tr>
-              <tr><th scope="row">Lift measured after each fix</th><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-              <tr><th scope="row">Revenue at risk when visibility drops</th><td class="yes">Yes</td><td>Not found</td></tr>
-              <tr><th scope="row">Traffic and conversions from analytics</th><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-              <tr><th scope="row">Client workspaces for agencies</th><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-              <tr><th scope="row">Free plan</th><td class="yes">Yes</td><td>Not found</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="small mt-24">"Not found" means we couldn't find it on Peec AI's public pages on 7 October 2026. It may exist or be on the way.</p>
-      </div>
-    </section>
-
-    <section class="section section-soft">
-      <div class="container">
-        <div class="section-head">
-          <h2>How they differ</h2>
-        </div>
-        <div class="cols cols-2">
+      <section class="section bg-slate">
+        <div class="container closing">
           <div>
-            <h3>Peec AI</h3>
-            <p>A clean analytics product with strong agency features, where you choose which engines to track.</p>
+            <h2>See Pulse on your own brand.</h2>
+            <p>Start free, or try the free grader on one question first.</p>
+            <div class="actions">
+              <a class="btn" href="https://pulse.persipica.com/login?mode=register" data-cta>Start free</a>
+              <a class="link" href="/grader.html">Try the free grader</a>
+            </div>
           </div>
-          <div>
-            <h3>Pulse</h3>
-            <p>Every major assistant on every paid plan, results by kind of shopper and by shopping agent, and fixes drafted, published and checked.</p>
-          </div>
+          <span class="eye-slot" data-eye="cta"></span>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2>Other comparisons</h2>
-        <ul class="points">
-            <li><a href="/persipica-vs-profound.html">Pulse vs Profound</a></li>
-            <li><a href="/persipica-vs-goodie-ai.html">Pulse vs Goodie AI</a></li>
-            <li><a href="/persipica-vs-conductor.html">Pulse vs Conductor</a></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="container">
-        <h2>See Pulse on your own brand.</h2>
-        <p>Book a walkthrough, or run a free check on one question first.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="/contact.html">Book a demo</a>
-          <a class="btn" href="/grader.html">Run a free check</a>
-        </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
+  </div>
 
   <footer class="site-footer">
     <div class="container">
+      <div class="footer-top">
+        <span class="footer-word">Persipica</span>
+        <a class="btn" href="https://pulse.persipica.com/login?mode=register">Start free</a>
+      </div>
       <div class="footer-grid">
-        <div class="footer-about">
-          <a class="brand" href="/" aria-label="Persipica home"><span class="brand-word">PERSIPICA</span><span class="brand-product">Pulse</span></a>
-          <p>Pulse shows how AI assistants and shopping agents recommend your brand and products, and what to fix when they don't.</p>
-        </div>
-        <nav class="footer-col" aria-labelledby="footer-product">
-          <h2 id="footer-product">Product</h2>
-          <ul>
-            <li><a href="/features.html">Features</a></li>
-            <li><a href="/pricing.html">Pricing</a></li>
-            <li><a href="/grader.html">Free grader</a></li>
-            <li><a href="/changelog.html">Changelog</a></li>
-            <li><a href="https://pulse.persipica.com/login">Sign in</a></li>
-          </ul>
-        </nav>
-        <nav class="footer-col" aria-labelledby="footer-compare">
-          <h2 id="footer-compare">Compare</h2>
-          <ul>
-            <li><a href="/persipica-vs-profound.html">Pulse vs Profound</a></li>
-            <li><a href="/persipica-vs-peec-ai.html">Pulse vs Peec AI</a></li>
-            <li><a href="/persipica-vs-goodie-ai.html">Pulse vs Goodie AI</a></li>
-            <li><a href="/persipica-vs-conductor.html">Pulse vs Conductor</a></li>
-          </ul>
-        </nav>
-        <nav class="footer-col" aria-labelledby="footer-learn">
-          <h2 id="footer-learn">Learn</h2>
-          <ul>
-            <li><a href="/resources.html">Resources</a></li>
-            <li><a href="https://learn.persipica.com/geo-guide.html">How AI recommendations work</a></li>
-            <li><a href="https://learn.persipica.com/data.html">Research and data</a></li>
-            <li><a href="https://learn.persipica.com/ai-visibility-roi-calculator.html">ROI calculator</a></li>
-            <li><a href="https://learn.persipica.com">All guides</a></li>
-          </ul>
-        </nav>
-        <nav class="footer-col" aria-labelledby="footer-company">
-          <h2 id="footer-company">Company</h2>
-          <ul>
-            <li><a href="/contact.html">Contact</a></li>
-            <li><a href="/privacy.html">Privacy policy</a></li>
-            <li><a href="https://www.linkedin.com/company/persipica">LinkedIn</a></li>
-          </ul>
-        </nav>
+        <nav class="footer-col" aria-labelledby="f-product"><h2 id="f-product">Product</h2><ul><li><a href="/features.html">Features</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/grader.html">Free grader</a></li><li><a href="/changelog.html">Changelog</a></li><li><a href="https://pulse.persipica.com/login">Sign in</a></li></ul></nav>
+        <nav class="footer-col" aria-labelledby="f-compare"><h2 id="f-compare">Compare</h2><ul><li><a href="/persipica-vs-profound.html">Pulse vs Profound</a></li><li><a href="/persipica-vs-peec-ai.html">Pulse vs Peec AI</a></li><li><a href="/persipica-vs-goodie-ai.html">Pulse vs Goodie AI</a></li><li><a href="/persipica-vs-conductor.html">Pulse vs Conductor</a></li></ul></nav>
+        <nav class="footer-col" aria-labelledby="f-learn"><h2 id="f-learn">Learn</h2><ul><li><a href="/resources.html">Resources</a></li><li><a href="https://learn.persipica.com/geo-guide.html">How AI recommendations work</a></li><li><a href="https://learn.persipica.com/data.html">Research and data</a></li><li><a href="https://learn.persipica.com">All guides</a></li></ul></nav>
+        <nav class="footer-col" aria-labelledby="f-company"><h2 id="f-company">Company</h2><ul><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy policy</a></li><li><a href="https://www.linkedin.com/company/persipica">LinkedIn</a></li></ul></nav>
       </div>
       <div class="footer-base">
-        <span>&copy; 2026 Persipica</span>
-        <span>Made in London</span>
+        <span>&copy; 2026 Persipica. Made in London.</span>
+        <a class="status" href="https://pulse.persipica.com" hidden data-status><i aria-hidden="true"></i><span>All systems operational</span></a>
       </div>
     </div>
   </footer>
-  <script src="/app.js" defer></script>
 </body>
 </html>
