@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -4 252 160" width="504" height="320" role="img" aria-label="Persipica eye">
+<defs><clipPath id="c"><path d="M13 96.5 C 50 50, 189 49, 227 95.5 C 188 142, 52 143, 14 95.5 Z"/></clipPath></defs>
+<g fill="none" stroke="#161b21" stroke-linecap="round" stroke-linejoin="round">
+<g stroke-width="3.8"><path d="M44 61 L26 44.5"/><path d="M85 52 L74.5 29"/><path d="M120 47 L120.5 13"/><path d="M155 52 L166 29"/><path d="M196 61 L214 44.5"/></g>
+<g clip-path="url(#c)"><circle cx="120" cy="96" r="34.5" fill="none" stroke-width="3.2"/><circle cx="120" cy="96" r="11" fill="#161b21" stroke="none"/></g>
+<g stroke-width="3.2"><path d="M13 96.5 C 50 50, 189 49, 227 95.5"/><path d="M14 95.5 C 52 143, 188 142, 226 96.5"/></g>
+</g></svg>

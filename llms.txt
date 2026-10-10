@@ -41,6 +41,7 @@ Pulse is built first for online retailers and consumer brands, and also works fo
 - [Resources](https://persipica.com/resources.html)
 - [Changelog](https://persipica.com/changelog.html)
 - [Contact and demos](https://persipica.com/contact.html)
+- [Brand guidelines](https://persipica.com/brand.html): how to write Persipica and Pulse, a company description, and logos, colours and fonts
 - [Privacy policy](https://persipica.com/privacy.html)
 
 ## Comparisons
