@@ -221,7 +221,8 @@ h3,
   --face: var(--slate);
   --edge: var(--slate);
   --drop: var(--accent);
-  --press: 6px;
+  --rest: 4px;
+  --reach: 7px;
 }
 
 .bg-slate .btn {
@@ -231,10 +232,10 @@ h3,
 }
 
 /* Everything you can click and hover works the same way. The label and face never move. The face
-   (background and border) and an offset shadow are layers behind the label; hovering or pressing
-   slides the shadow in underneath, so the thing reads as pushed in. Only the shadow's transform
-   animates, so nothing repaints. Each one sets --face, --edge, --drop, --press and, if its border
-   isn't 1.5px, --bw. */
+   (background and border) and an offset shadow are layers behind the label. Hovering slides the
+   shadow out from --rest to --reach, so the thing seems to lift; pressing slides it in underneath,
+   so it reads as pushed in. Only the shadow's transform animates, so nothing repaints. Each one
+   sets --face, --edge, --drop, --rest, --reach and, if its border isn't 1.5px, --bw. */
 .btn,
 a.tile.card,
 .persona-chip,
@@ -266,7 +267,7 @@ a.tile.card::before,
 .persona-chip::before,
 .pause::before {
   background: var(--drop);
-  transform: translate(var(--press), var(--press));
+  transform: translate(var(--rest), var(--rest));
   transition: transform var(--t-micro) var(--ease-out);
 }
 
@@ -279,20 +280,20 @@ a.tile.card::after,
   transition: background-color var(--t-micro) ease, border-color var(--t-micro) ease;
 }
 
-.btn:active::before,
-a.tile.card:active::before,
-.persona-chip:active::before,
-.pause:active::before {
-  transform: none;
-}
-
 @media (hover: hover) {
   .btn:hover::before,
   a.tile.card:hover::before,
   .persona-chip:hover::before,
   .pause:hover::before {
-    transform: none;
+    transform: translate(var(--reach), var(--reach));
   }
+}
+
+.btn:active::before,
+a.tile.card:active::before,
+.persona-chip:active::before,
+.pause:active::before {
+  transform: none;
 }
 
 /* The underline is its own line so it can rise smoothly; animating a text underline's offset stutters. */
@@ -344,7 +345,8 @@ a.tile.card:active::before,
   --face: var(--white);
   --edge: var(--line-strong);
   --drop: var(--line-strong);
-  --press: 3px;
+  --rest: 2px;
+  --reach: 4px;
 }
 
 /* Nothing moves on its own without JavaScript or with reduced motion, so there's nothing to pause. */
@@ -788,7 +790,8 @@ a.tile.card:active::before,
   --face: var(--white);
   --edge: var(--slate);
   --drop: var(--slate);
-  --press: 3px;
+  --rest: 2px;
+  --reach: 4px;
 }
 
 .persona-chip[aria-pressed="true"] {
@@ -2618,7 +2621,8 @@ a.tile.card {
   --face: var(--white);
   --edge: var(--line-strong);
   --drop: var(--shadow);
-  --press: 7px;
+  --rest: 5px;
+  --reach: 8px;
 }
 
 .bg-slate a.tile.card {
