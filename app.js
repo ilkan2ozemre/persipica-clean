@@ -708,7 +708,7 @@
       chip.addEventListener('click', function () {
         $$('[data-series] .chip').forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
         tween(chip.getAttribute('data-s'));
-        partsState.manual = true;
+        setPartsPaused(true);
       });
     });
 
@@ -755,7 +755,9 @@
 
   /* ---------------------------------------------------------------- parts switcher */
 
-  var partsState = { paused: false, hover: false, visible: false, manual: false, elapsed: 0 };
+  // Picking a view, or an assistant on its chart, pauses the cycle until the visitor presses Play.
+  var partsState = { paused: false, hover: false, visible: false, elapsed: 0 };
+  var setPartsPaused = function () {};
   var partsRoot = $('#parts');
   if (partsRoot) (function () {
     var btns = $$('.part-btn', partsRoot);
@@ -786,7 +788,7 @@
         v.classList.remove('is-entering');
         if (j === i) { void v.offsetWidth; v.classList.add('is-entering'); replayBars(v); }
       });
-      if (user) partsState.manual = true;
+      if (user) setPartsPaused(true);
     };
 
     btns.forEach(function (b, i) {
@@ -805,7 +807,7 @@
     partsRoot.addEventListener('focusin', function () { partsState.hover = true; });
     partsRoot.addEventListener('focusout', function () { partsState.hover = false; });
     onVisible(viewsBox, function (v) { partsState.visible = v; });
-    pauseButton('parts', partsState);
+    setPartsPaused = pauseButton('parts', partsState);
     select(0);
 
     if (RM) { var c = $('.part-controls', partsRoot); if (c) c.hidden = true; return; }
@@ -813,7 +815,7 @@
     var tick = function (now) {
       var dt = now - last;
       last = now;
-      var held = partsState.paused || partsState.hover || !partsState.visible || partsState.manual || document.hidden;
+      var held = partsState.paused || partsState.hover || !partsState.visible || document.hidden;
       if (!held) partsState.elapsed += dt;
       var p = clamp(partsState.elapsed / PART_MS, 0, 1);
       btns[active].style.setProperty('--pp', p.toFixed(3));
