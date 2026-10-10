@@ -43,17 +43,20 @@
   }
 
   // A pause button bound to a state object { paused }.
+  // Returns a setter, so a demo can pause itself (and show "Play") when someone picks something.
   function pauseButton(name, state, onChange) {
     var btn = $('[data-pause="' + name + '"]');
-    if (!btn) return;
-    if (RM) { btn.hidden = true; return; }
-    btn.addEventListener('click', function () {
-      state.paused = !state.paused;
+    if (!btn) return function () {};
+    if (RM) { btn.hidden = true; return function () {}; }
+    var set = function (paused) {
+      state.paused = paused;
       btn.setAttribute('aria-pressed', String(state.paused));
       btn.querySelector('span').textContent = state.paused ? 'Play' : 'Pause';
       btn.querySelector('path').setAttribute('d', state.paused ? 'M2 1l7 4-7 4z' : 'M2 1h2v8H2zM6 1h2v8H6z');
       if (onChange) onChange(state.paused);
-    });
+    };
+    btn.addEventListener('click', function () { set(!state.paused); });
+    return set;
   }
 
   /* ---------------------------------------------------------------- the eye */
@@ -484,6 +487,56 @@
       }, 520);
     };
 
+    // Every answer, fully written, measured off-screen at the card's width. The answer area is held at
+    // the tallest one, so the card never changes height as answers come and go.
+    var finished = function (si, ai) {
+      var ans = SCENARIOS[si].a[ORDER[ai]];
+      var wrap = el('div');
+      wrap.appendChild(el('p', 'bubble-q', SCENARIOS[si].q));
+      var answer = el('div', 'answer');
+      answer.appendChild(el('p', 'answer-from', NAMES[ORDER[ai]]));
+      answer.appendChild(el('p', 'answer-intro', ans.intro));
+      var list = el('ol');
+      ans.items.forEach(function (item) {
+        var li = el('li');
+        var name = el('span');
+        if (item[2]) name.appendChild(el('mark', null, item[0]));
+        else name.appendChild(document.createTextNode(item[0]));
+        li.appendChild(name);
+        li.appendChild(el('span', null, item[1]));
+        list.appendChild(li);
+      });
+      answer.appendChild(list);
+      var v = el('p', 'verdict');
+      v.appendChild(el('span', null, ans.verdict[0]));
+      v.appendChild(el('b', null, ans.verdict[1]));
+      answer.appendChild(v);
+      wrap.appendChild(answer);
+      return wrap;
+    };
+    var holdHeight = function () {
+      var probe = el('div');
+      probe.setAttribute('aria-hidden', 'true');
+      probe.style.cssText = 'position:absolute;left:0;top:0;visibility:hidden;pointer-events:none;width:' + body.offsetWidth + 'px';
+      body.parentNode.appendChild(probe);
+      var tallest = 0;
+      SCENARIOS.forEach(function (sc, si) {
+        ORDER.forEach(function (key, ai) {
+          probe.textContent = '';
+          probe.appendChild(finished(si, ai));
+          tallest = Math.max(tallest, probe.offsetHeight);
+        });
+      });
+      probe.remove();
+      body.style.minHeight = tallest + 'px';
+    };
+    holdHeight();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(holdHeight);
+    var heldWidth = body.offsetWidth;
+    if ('ResizeObserver' in window) new ResizeObserver(function () {
+      if (body.offsetWidth !== heldWidth) { heldWidth = body.offsetWidth; holdHeight(); }
+    }).observe(chat);
+
     var go = function (si, ai) {
       heroState.scenario = si;
       heroState.assistant = ai;
@@ -492,21 +545,24 @@
       render(si, ai);
     };
 
+    // A shopper or assistant someone picks stays on screen until they press Play.
+    var setHeroPaused = pauseButton('hero', heroState);
+    var pick = function (si, ai) { setHeroPaused(true); go(si, ai); };
+
     tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () { go(heroState.scenario, ORDER.indexOf(t.getAttribute('data-a'))); });
+      t.addEventListener('click', function () { pick(heroState.scenario, ORDER.indexOf(t.getAttribute('data-a'))); });
       t.addEventListener('keydown', function (ev) {
         if (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft') return;
         var n = (i + (ev.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length;
         tabs[n].focus();
-        go(heroState.scenario, n);
+        pick(heroState.scenario, n);
       });
     });
 
     chips.forEach(function (c) {
-      c.addEventListener('click', function () { go(Number(c.getAttribute('data-s')), heroState.assistant); });
+      c.addEventListener('click', function () { pick(Number(c.getAttribute('data-s')), heroState.assistant); });
     });
 
-    pauseButton('hero', heroState);
     chat.addEventListener('pointerenter', function () { heroState.hover = true; });
     chat.addEventListener('pointerleave', function () { heroState.hover = false; });
     chat.addEventListener('focusin', function () { heroState.hover = true; });
@@ -652,7 +708,7 @@
       chip.addEventListener('click', function () {
         $$('[data-series] .chip').forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
         tween(chip.getAttribute('data-s'));
-        partsState.manual = true;
+        setPartsPaused(true);
       });
     });
 
@@ -699,7 +755,9 @@
 
   /* ---------------------------------------------------------------- parts switcher */
 
-  var partsState = { paused: false, hover: false, visible: false, manual: false, elapsed: 0 };
+  // Picking a view, or an assistant on its chart, pauses the cycle until the visitor presses Play.
+  var partsState = { paused: false, hover: false, visible: false, elapsed: 0 };
+  var setPartsPaused = function () {};
   var partsRoot = $('#parts');
   if (partsRoot) (function () {
     var btns = $$('.part-btn', partsRoot);
@@ -730,7 +788,7 @@
         v.classList.remove('is-entering');
         if (j === i) { void v.offsetWidth; v.classList.add('is-entering'); replayBars(v); }
       });
-      if (user) partsState.manual = true;
+      if (user) setPartsPaused(true);
     };
 
     btns.forEach(function (b, i) {
@@ -749,7 +807,7 @@
     partsRoot.addEventListener('focusin', function () { partsState.hover = true; });
     partsRoot.addEventListener('focusout', function () { partsState.hover = false; });
     onVisible(viewsBox, function (v) { partsState.visible = v; });
-    pauseButton('parts', partsState);
+    setPartsPaused = pauseButton('parts', partsState);
     select(0);
 
     if (RM) { var c = $('.part-controls', partsRoot); if (c) c.hidden = true; return; }
@@ -757,7 +815,7 @@
     var tick = function (now) {
       var dt = now - last;
       last = now;
-      var held = partsState.paused || partsState.hover || !partsState.visible || partsState.manual || document.hidden;
+      var held = partsState.paused || partsState.hover || !partsState.visible || document.hidden;
       if (!held) partsState.elapsed += dt;
       var p = clamp(partsState.elapsed / PART_MS, 0, 1);
       btns[active].style.setProperty('--pp', p.toFixed(3));

@@ -4005,3 +4005,21 @@ a.tile:hover h3::after {
   .guide-tr > :nth-child(2)::before { content: "Pulse: "; color: var(--faint); }
   .guide-tr > :nth-child(3)::before { content: "You: "; color: var(--faint); }
 }
+
+/* ----- Hero demo: sample label ----- */
+
+.chat-sample {
+  flex: none;
+  color: var(--faint);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .chat-foot {
+    flex-wrap: wrap;
+  }
+
+  .chat-sample {
+    flex-basis: 100%;
+  }
+}
