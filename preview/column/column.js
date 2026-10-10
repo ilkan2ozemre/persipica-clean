@@ -962,7 +962,7 @@
 
   /* ---------------------------------------------------------------- preview options (preview only) */
 
-  var ACCENTS = [['warm', 'Warm orange', '#ee7a33'], ['amber', 'Amber', '#f29a2e'], ['burnt', 'Burnt orange', '#d9622b']];
+  var ACCENTS = [['warm', 'Warm orange', '#ee7a33'], ['between', 'In between', '#e46c2e'], ['burnt', 'Burnt orange', '#d9622b'], ['amber', 'Amber', '#f29a2e']];
   var EYE_NAMES = { sketch: 'Sketch', lashes: 'Your drawing', circuit: 'Circuit', monoline: 'Monoline', lens: 'Lens' };
   var accent = params.get('accent');
   if (!ACCENTS.some(function (a) { return a[0] === accent; })) accent = 'warm';

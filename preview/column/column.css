@@ -2220,6 +2220,14 @@ html[data-accent="amber"] {
   --accent-tint: #fff2de;
 }
 
+html[data-accent="between"] {
+  --accent: #e46c2e;
+  --accent-text: #a84a17;
+  --accent-bright: #f39562;
+  --accent-light: #fbd0b4;
+  --accent-tint: #fdeee3;
+}
+
 html[data-accent="burnt"] {
   --accent: #d9622b;
   --accent-text: #a3461a;
