@@ -37,14 +37,14 @@ A scan asks AI assistants real questions, the way shoppers or buyers would, and 
 - Business, £599 a month: 10 brands, 1,000 scans a month, up to 15 team members; adds 1,500 agent runs a month, actions with measured lift, readiness and AI crawler visits, impact reporting and client workspaces.
 - Enterprise, custom: unlimited brands, scans and team members; reports under your own brand; single sign-on and SCIM; dedicated support.
 
-Every paid plan can use all seven assistants, and every plan keeps the evidence behind each result. A free grader at https://persipica.com/grader.html asks ChatGPT, Claude and Gemini one question and shows whether they mention a brand, with no account.
+Every paid plan can use all seven assistants, and every plan keeps the evidence behind each result. A free AI visibility check at https://persipica.com/grader.html asks ChatGPT, Claude and Gemini one question and shows whether they mention a brand, with no account.
 
 ## Pages
 
 1. Home: https://persipica.com/
 2. Features: https://persipica.com/features.html
 3. Pricing: https://persipica.com/pricing.html
-4. Free grader: https://persipica.com/grader.html
+4. Free AI visibility check: https://persipica.com/grader.html
 5. Resources: https://persipica.com/resources.html
 6. Changelog: https://persipica.com/changelog.html
 7. Contact and demos: https://persipica.com/contact.html
