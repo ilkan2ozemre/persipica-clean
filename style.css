@@ -2589,13 +2589,6 @@ a.nav-trigger svg {
   padding-top: clamp(2.5rem, 3.5vw, 3.5rem);
 }
 
-.page-head .detail {
-  max-width: 40rem;
-  margin-top: 14px;
-  color: var(--muted);
-  font-size: 1rem;
-}
-
 .page-head .meta {
   margin-top: 18px;
   color: var(--faint);
@@ -2835,6 +2828,32 @@ a.tile:hover h3::after {
 .compare .found {
   color: var(--faint);
   font-style: italic;
+}
+
+/* Comparison tables: the column names stay in view while the rows scroll past, below the header
+   while it shows and at the very top once it tucks away. Phones scroll the table sideways, so
+   it keeps its own scroll box there and the names don't stick. */
+@media (min-width: 701px) {
+  .table-wrap:has(.compare) {
+    overflow: visible;
+  }
+
+  .compare thead th {
+    position: sticky;
+    top: 61px;
+    z-index: 1;
+    box-shadow: inset 0 -1px 0 var(--line);
+    transition: top 360ms var(--ease-out);
+  }
+
+  html:has(.site-nav.is-tucked:not(:focus-within):not(.menu-open)) .compare thead th {
+    top: 0;
+  }
+}
+
+/* Two paragraphs beside a section title, as on the comparison pages. */
+.section-head div p + p {
+  margin-top: 14px;
 }
 
 .table-note {
