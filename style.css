@@ -2,7 +2,7 @@
    Materials from the logo: marble white, stone and slate (the logo's charcoal), with one burnt orange
    accent used sparingly. Cormorant Garamond for big headings and the wordmark, Archivo for the rest.
    Cards and buttons carry a constant solid offset shadow. Motion follows the visitor: scroll, pointer,
-   focus. Everything moving can be paused, and all of it stops for prefers-reduced-motion. */
+   focus. All of it stops for prefers-reduced-motion. */
 
 :root {
   --white: #ffffff;
@@ -238,8 +238,7 @@ h3,
    sets --face, --edge, --drop, --rest, --reach and, if its border isn't 1.5px, --bw. */
 .btn,
 a.tile.card,
-.persona-chip,
-.pause {
+.persona-chip {
   position: relative;
   isolation: isolate;
   border: var(--bw, 1.5px) solid transparent;
@@ -250,11 +249,9 @@ a.tile.card,
 .btn::before,
 a.tile.card::before,
 .persona-chip::before,
-.pause::before,
 .btn::after,
 a.tile.card::after,
-.persona-chip::after,
-.pause::after {
+.persona-chip::after {
   content: "";
   position: absolute;
   inset: calc(-1 * var(--bw, 1.5px));
@@ -264,8 +261,7 @@ a.tile.card::after,
 
 .btn::before,
 a.tile.card::before,
-.persona-chip::before,
-.pause::before {
+.persona-chip::before {
   background: var(--drop);
   transform: translate(var(--rest), var(--rest));
   transition: transform var(--t-micro) var(--ease-out);
@@ -273,8 +269,7 @@ a.tile.card::before,
 
 .btn::after,
 a.tile.card::after,
-.persona-chip::after,
-.pause::after {
+.persona-chip::after {
   border: var(--bw, 1.5px) solid var(--edge);
   background: var(--face);
   transition: background-color var(--t-micro) ease, border-color var(--t-micro) ease;
@@ -283,16 +278,14 @@ a.tile.card::after,
 @media (hover: hover) {
   .btn:hover::before,
   a.tile.card:hover::before,
-  .persona-chip:hover::before,
-  .pause:hover::before {
+  .persona-chip:hover::before {
     transform: translate(var(--reach), var(--reach));
   }
 }
 
 .btn:active::before,
 a.tile.card:active::before,
-.persona-chip:active::before,
-.pause:active::before {
+.persona-chip:active::before {
   transform: none;
 }
 
@@ -331,40 +324,6 @@ a.tile.card:active::before,
   align-items: center;
   gap: 18px 30px;
   margin-top: 38px;
-}
-
-.pause {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
-  color: var(--ink);
-  font: 500 0.8125rem/1 var(--sans);
-  cursor: pointer;
-  --bw: 1px;
-  --face: var(--white);
-  --edge: var(--line-strong);
-  --drop: var(--line-strong);
-  --rest: 2px;
-  --reach: 4px;
-}
-
-/* Nothing moves on its own without JavaScript or with reduced motion, so there's nothing to pause. */
-.pause[hidden],
-.no-js .pause {
-  display: none;
-}
-
-.pause svg {
-  width: 10px;
-  height: 10px;
-}
-
-.bg-slate .pause {
-  color: var(--white);
-  --face: var(--slate);
-  --edge: rgba(255, 255, 255, 0.5);
-  --drop: rgba(255, 255, 255, 0.25);
 }
 
 /* ----- Header: clear over the hero, firms up on scroll, tucks away going down ----- */
@@ -1075,12 +1034,6 @@ a.nav-trigger svg {
   padding-right: 12px;
 }
 
-.strip:hover .strip-row,
-.strip:focus-within .strip-row,
-.strip.is-paused .strip-row {
-  animation-play-state: paused;
-}
-
 @keyframes marquee {
   to { transform: translateX(-50%); }
 }
@@ -1241,13 +1194,6 @@ a.nav-trigger svg {
   background: var(--accent);
   transform-origin: 0 50%;
   transform: scaleX(var(--pp, 0));
-}
-
-.part-controls {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 18px;
 }
 
 .views {
