@@ -15,7 +15,7 @@ Pulse is built first for online retailers and consumer brands, and also works fo
 - Readiness: live checks on whether agents and AI crawlers can read the site (product data, structured markup, feeds, robots rules), and AI crawler visits from imported server logs.
 - Prompts and demand: the questions people ask AI in the category, ranked by opportunity, optionally weighted with Google Search Console, Semrush or Ahrefs data.
 - Competitors and sources: who is recommended instead, alerts when that changes, and the third-party sites the answers cite, split into owned, earned, community and review.
-- Accuracy: wrong prices or stock, confusion with similarly named companies, and cited sources that don't support the claim.
+- Accuracy: prices and stock that contradict the catalogue, and cited sources that don't support the claim.
 
 ## What Pulse does with it
 
