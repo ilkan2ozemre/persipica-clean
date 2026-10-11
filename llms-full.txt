@@ -19,7 +19,7 @@ A scan asks AI assistants real questions, the way shoppers or buyers would, and 
 - Shopping agents: agents run buying tasks. Results show how often each agent found, shortlisted and picked the brand and each competitor, and the reasons it chose someone else. Readiness checks whether agents and crawlers can read product pages, prices, stock, feeds and robots rules, and server logs show which AI crawlers visit.
 - Prompts and demand: questions people ask AI in the category, ranked by opportunity; search data from Google Search Console, Semrush or Ahrefs can weight them.
 - Competitors and sources: competitors recommended instead, alerts when that changes, and the sites the answers cite, split into owned, earned, community and review.
-- Accuracy: wrong prices or stock, entity confusion with similarly named companies, and citations that don't support the claim.
+- Accuracy: prices and stock that contradict the catalogue, and citations that don't support the claim.
 
 ## What Pulse does about it
 
