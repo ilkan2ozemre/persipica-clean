@@ -1,6 +1,6 @@
 // Persipica home, "column" direction. Plain JavaScript, no dependencies.
-// Everything that moves on its own pauses off-screen, on hover or focus, with its pause button,
-// and does not run at all for prefers-reduced-motion.
+// The hero chat and the views switcher hold while off-screen, hovered or focused. The question strip
+// always runs. Nothing runs on its own for prefers-reduced-motion.
 (function () {
   'use strict';
 
@@ -40,23 +40,6 @@
     fit();
     if ('ResizeObserver' in window) new ResizeObserver(fit).observe(inner);
     return inner;
-  }
-
-  // A pause button bound to a state object { paused }.
-  // Returns a setter, so a demo can pause itself (and show "Play") when someone picks something.
-  function pauseButton(name, state, onChange) {
-    var btn = $('[data-pause="' + name + '"]');
-    if (!btn) return function () {};
-    if (RM) { btn.hidden = true; return function () {}; }
-    var set = function (paused) {
-      state.paused = paused;
-      btn.setAttribute('aria-pressed', String(state.paused));
-      btn.querySelector('span').textContent = state.paused ? 'Play' : 'Pause';
-      btn.querySelector('path').setAttribute('d', state.paused ? 'M2 1l7 4-7 4z' : 'M2 1h2v8H2zM6 1h2v8H6z');
-      if (onChange) onChange(state.paused);
-    };
-    btn.addEventListener('click', function () { set(!state.paused); });
-    return set;
   }
 
   /* ---------------------------------------------------------------- the eye */
@@ -407,7 +390,7 @@
     var tabs = $$('.tab', chat);
     var chips = $$('.persona-chip', chat);
     var bar = $('.cycle-bar', chat);
-    var heroState = { paused: false, hover: false, visible: true, scenario: 0, assistant: 0, t0: 0, run: 0 };
+    var heroState = { hover: false, visible: true, scenario: 0, assistant: 0, t0: 0, run: 0 };
     var SHOW_MS = 6500;
 
     var setPersona = function (si) {
@@ -545,22 +528,20 @@
       render(si, ai);
     };
 
-    // A shopper or assistant someone picks stays on screen until they press Play.
-    var setHeroPaused = pauseButton('hero', heroState);
-    var pick = function (si, ai) { setHeroPaused(true); go(si, ai); };
+    // A shopper or assistant someone picks gets its full time; hovering or focusing the chat holds it.
 
     tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () { pick(heroState.scenario, ORDER.indexOf(t.getAttribute('data-a'))); });
+      t.addEventListener('click', function () { go(heroState.scenario, ORDER.indexOf(t.getAttribute('data-a'))); });
       t.addEventListener('keydown', function (ev) {
         if (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft') return;
         var n = (i + (ev.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length;
         tabs[n].focus();
-        pick(heroState.scenario, n);
+        go(heroState.scenario, n);
       });
     });
 
     chips.forEach(function (c) {
-      c.addEventListener('click', function () { pick(Number(c.getAttribute('data-s')), heroState.assistant); });
+      c.addEventListener('click', function () { go(Number(c.getAttribute('data-s')), heroState.assistant); });
     });
 
     chat.addEventListener('pointerenter', function () { heroState.hover = true; });
@@ -576,7 +557,7 @@
       var heroTick = function (now) {
         var dt = now - last;
         last = now;
-        var held = heroState.paused || heroState.hover || !heroState.visible || document.hidden;
+        var held = heroState.hover || !heroState.visible || document.hidden;
         if (!held) heroState.elapsed = (heroState.elapsed || 0) + dt;
         var p = clamp((heroState.elapsed || 0) / SHOW_MS, 0, 1);
         bar.style.setProperty('--cp', p.toFixed(3));
@@ -612,8 +593,6 @@
       row.appendChild(set);
     }
   });
-  var stripState = { paused: false };
-  pauseButton('strip', stripState, function (p) { $('.strip').classList.toggle('is-paused', p); });
 
   /* ---------------------------------------------------------------- visibility chart */
 
@@ -708,7 +687,6 @@
       chip.addEventListener('click', function () {
         $$('[data-series] .chip').forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
         tween(chip.getAttribute('data-s'));
-        setPartsPaused(true);
       });
     });
 
@@ -755,9 +733,8 @@
 
   /* ---------------------------------------------------------------- parts switcher */
 
-  // Picking a view, or an assistant on its chart, pauses the cycle until the visitor presses Play.
-  var partsState = { paused: false, hover: false, visible: false, elapsed: 0 };
-  var setPartsPaused = function () {};
+  // Picking a view starts its full time again; hovering or focusing the switcher holds it.
+  var partsState = { hover: false, visible: false, elapsed: 0 };
   var partsRoot = $('#parts');
   if (partsRoot) (function () {
     var btns = $$('.part-btn', partsRoot);
@@ -775,7 +752,7 @@
       });
     };
 
-    var select = function (i, user) {
+    var select = function (i) {
       active = i;
       partsState.elapsed = 0;
       btns.forEach(function (b, j) {
@@ -788,17 +765,16 @@
         v.classList.remove('is-entering');
         if (j === i) { void v.offsetWidth; v.classList.add('is-entering'); replayBars(v); }
       });
-      if (user) setPartsPaused(true);
     };
 
     btns.forEach(function (b, i) {
-      b.addEventListener('click', function () { select(i, true); });
+      b.addEventListener('click', function () { select(i); });
       b.addEventListener('keydown', function (ev) {
         if (ev.key !== 'ArrowDown' && ev.key !== 'ArrowUp') return;
         ev.preventDefault();
         var n = (i + (ev.key === 'ArrowDown' ? 1 : btns.length - 1)) % btns.length;
         btns[n].focus();
-        select(n, true);
+        select(n);
       });
     });
 
@@ -807,15 +783,14 @@
     partsRoot.addEventListener('focusin', function () { partsState.hover = true; });
     partsRoot.addEventListener('focusout', function () { partsState.hover = false; });
     onVisible(viewsBox, function (v) { partsState.visible = v; });
-    setPartsPaused = pauseButton('parts', partsState);
     select(0);
 
-    if (RM) { var c = $('.part-controls', partsRoot); if (c) c.hidden = true; return; }
+    if (RM) return;
     var last = performance.now();
     var tick = function (now) {
       var dt = now - last;
       last = now;
-      var held = partsState.paused || partsState.hover || !partsState.visible || document.hidden;
+      var held = partsState.hover || !partsState.visible || document.hidden;
       if (!held) partsState.elapsed += dt;
       var p = clamp(partsState.elapsed / PART_MS, 0, 1);
       btns[active].style.setProperty('--pp', p.toFixed(3));
