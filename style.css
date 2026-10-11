@@ -1760,6 +1760,33 @@ a.nav-trigger svg {
   display: block;
 }
 
+/* Says each card opens, until it's open. */
+.snippet-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  color: var(--accent-text);
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+
+.snippet-hint::after {
+  content: "+";
+  font-size: 0.875rem;
+  line-height: 1;
+  transition: transform var(--t-micro) var(--ease-out);
+}
+
+.snippet:hover .snippet-hint::after,
+.snippet:focus-visible .snippet-hint::after {
+  transform: rotate(90deg);
+}
+
+.snippet.is-open .snippet-hint {
+  display: none;
+}
+
 .watch .snippet p {
   max-width: none;
   margin: 0;

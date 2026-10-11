@@ -914,6 +914,7 @@
       more.appendChild(el('span', null, 'Asked as: ' + s.q));
       more.appendChild(el('span', null, 'Sources: ' + s.src));
       card.appendChild(more);
+      card.appendChild(el('span', 'snippet-hint', 'Explore this answer'));
       card.addEventListener('click', function () {
         var open = !card.classList.contains('is-open');
         closeAll(card);
