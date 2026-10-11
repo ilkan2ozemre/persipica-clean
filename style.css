@@ -1841,8 +1841,8 @@ a.nav-trigger svg {
 
 .step {
   position: relative;
-  min-height: 50vh;
-  padding-block: 4px 40px;
+  min-height: 37.5vh;
+  padding-block: 4px 30px;
 }
 
 .step::before {
@@ -2438,12 +2438,12 @@ a.nav-trigger svg {
 
   .step {
     min-height: 0;
-    padding-bottom: 48px;
+    padding-bottom: 36px;
   }
 
   .step .stage-card {
     display: block;
-    margin-top: 22px;
+    margin-top: 16px;
     min-height: 0;
   }
 
