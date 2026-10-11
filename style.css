@@ -4070,3 +4070,15 @@ a.tile:hover h3::after {
     flex-basis: 100%;
   }
 }
+
+/* ----- Shadow hierarchy -----
+   The solid offset shadow is for things you press (buttons, tiles) and for the main demos (hero
+   chat, the views switcher, the scan story card, the eye cards, the features page views) and the
+   nav menus. Panels that only hold information keep their border and drop the shadow. */
+.plan.card,
+.scan-explainer.card,
+.fit > .card,
+.card.form,
+.table-wrap {
+  box-shadow: none;
+}
